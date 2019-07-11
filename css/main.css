@@ -31,7 +31,6 @@ h1 {
 p {
     font-size: 1em;
     line-height: 1.4em;
-    color: #333;
 }
 footer {
     border-top: 1px solid #d5d5d5;
@@ -46,5 +45,11 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
+    font-size: 1em;
+}
+
+.indented {
+    margin-left: -2em;
+    list-style: indented;
     font-size: 1em;
 }
