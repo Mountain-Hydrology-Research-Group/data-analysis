@@ -1,7 +1,7 @@
 body {
     margin: 60px auto;
     width: 70%;
-    background-color: ##C8E7FE
+    background-color: ##C8E7FE;
 }
 nav ul, footer ul {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -37,6 +37,7 @@ footer {
 ul.posts { 
     margin: 20px auto 40px; 
     font-size: 1.5em;
+    padding-bottom: 20px;
 }
 
 ul.posts li {
