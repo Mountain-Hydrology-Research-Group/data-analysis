@@ -10,9 +10,9 @@ nav ul, footer ul {
     font-weight: bold;
 }
 nav ul li, footer ul li {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
     display: inline;
     margin-right: 20px;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 a {
     text-decoration: none;
@@ -26,7 +26,7 @@ h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
-h1 {
+h2 {
     font-size: 2em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
@@ -49,9 +49,9 @@ ul.posts {
 }
 
 ul.posts li {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
     list-style: none;
     font-size: 1em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 
 .indented {
