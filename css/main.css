@@ -40,10 +40,11 @@ footer {
 
 ul.posts { 
     margin: 20px auto 40px; 
-    font-size: 1.5em;
+    font-size: 1em;
     padding-bottom: 20px;
 }
 
 ul.posts li {
     list-style: none;
+    font-size: 1em;
 }
