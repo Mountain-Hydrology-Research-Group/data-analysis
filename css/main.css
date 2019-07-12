@@ -55,7 +55,7 @@ ul.posts li {
 }
 
 .indented {
-    margin-left: -4em;
+    margin-left: 4em;
     list-style: indented;
     font-size: 1em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
