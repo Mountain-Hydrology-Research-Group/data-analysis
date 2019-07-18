@@ -105,6 +105,7 @@ tr:hover {
 
 table.resources {
     border: none;
+    width: 100%;
 }
 
 td.resources {
