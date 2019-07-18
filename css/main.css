@@ -60,10 +60,10 @@ p {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 footer {
-    border-top: 1px solid #d5d5d5;
+    border-top: 1px solid #1B4F72;
+    font-color: #1B4F72;
     font-size: .8em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    font-color: #1B4F72;
 }
 
 ul.posts { 
