@@ -20,7 +20,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: #4B0082;
+    color: #1B4F72;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 a:hover {
@@ -43,7 +43,7 @@ footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    font-color: #4B0082;
+    font-color: #1B4F72;
 }
 
 ul.posts { 
