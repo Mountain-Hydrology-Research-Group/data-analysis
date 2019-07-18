@@ -91,14 +91,12 @@ table {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';    
     border-collapse: collapse;
     width: 100%;
-}
-
-table, td {
     border: 1px solid black;
 }
   
 td {
     padding: 1em;
+    border: 1px solid black;
 }
   
 tr:hover {
@@ -107,4 +105,8 @@ tr:hover {
 
 table.resources {
     border: none;
+}
+
+td.resources {
+    border:none;
 }
