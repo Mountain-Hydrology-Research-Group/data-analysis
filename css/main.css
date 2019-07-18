@@ -104,3 +104,7 @@ td {
 tr:hover {
     background-color: #EBF5FB;
 }
+
+.resources {
+    border: none;
+}
