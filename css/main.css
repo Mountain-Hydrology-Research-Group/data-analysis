@@ -13,6 +13,11 @@ nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
 }
+
+ul {
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+}
+
 a {
     text-decoration: none;
     color: #4B0082;
