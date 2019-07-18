@@ -98,10 +98,9 @@ table, td {
 }
   
 td {
-    padding: 0.5em;
+    padding: 1em;
 }
   
 tr:hover {
     background-color: #EBF5FB;
 }
- 
