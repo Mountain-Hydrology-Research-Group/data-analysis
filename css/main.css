@@ -89,4 +89,19 @@ ul.posts li {
 table {
     font-size: 1em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';    
+    border-collapse: collapse;
+    width: 100%;
 }
+
+table, td {
+    border: 1px solid black;
+}
+  
+td {
+    padding: 0.5em;
+}
+  
+tr:hover {
+    background-color: #EBF5FB;
+}
+ 
