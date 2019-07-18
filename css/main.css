@@ -15,7 +15,27 @@ nav ul li, footer ul li {
 }
 
 ul {
+    font-size: 1em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    line-height: 1.5em;
+}
+
+ul li{
+    font-size: 1em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    line-height: 1.5em;
+}
+
+ol li{
+    font-size: 1em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    line-height: 1.5em;
+}
+
+ol li{
+    font-size: 1em;
+    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    line-height: 1.5em;
 }
 
 a {
@@ -62,11 +82,6 @@ ul.posts li {
 .indented {
     margin-left: 1em;
     list-style: indented;
-    font-size: 1em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
-
-ol {
     font-size: 1em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
