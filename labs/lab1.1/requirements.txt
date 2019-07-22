@@ -1,0 +1,5 @@
+xlrd
+matplotlib.pyplot
+numpy
+statistics
+scipy.stats
