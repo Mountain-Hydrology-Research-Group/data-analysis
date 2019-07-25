@@ -139,6 +139,7 @@ nav ul li, footer ul li {
     padding: .5em .2em;
     font-family: inherit;
     margin: 0;
+    background-color: inherit;
 }
 
 .navbar a:hover, .dropdown:hover, dropbtn {
