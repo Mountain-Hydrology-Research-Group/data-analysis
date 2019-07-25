@@ -138,7 +138,7 @@ nav ul li, footer ul li {
     outline: none;
     font-family: inherit;
     margin: 0;
-    background-color: white;
+    background-color: transparent;
 }
 
 .navbar a:hover, .dropdown:hover, dropbtn {
