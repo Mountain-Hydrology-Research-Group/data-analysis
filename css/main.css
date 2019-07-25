@@ -128,7 +128,7 @@ nav ul li, footer ul li {
     float: left;
     font-size: 1em;
     text-align: left;
-    padding: .5em .25em;
+
     text-decoration: none;
     margin: 0;
 }
@@ -160,7 +160,7 @@ nav ul li, footer ul li {
 
 .dropdown-content a {
     float: none;
-    padding: .5em .25em;
+    padding: .5em .5em;
     text-decoration: none;
     display: block;
     text-align: left;
