@@ -128,7 +128,7 @@ nav ul li, footer ul li {
     float: left;
     font-size: 1em;
     text-align: left;
-
+    padding: .5em .5em;
     text-decoration: none;
     margin: 0;
 }
