@@ -14,7 +14,6 @@ body {
     color: #1B4F72;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     text-decoration: none;
-    text-align: left;
     padding: .5em 2em;
 }
 
@@ -122,11 +121,13 @@ td.resources {
 }
 
 .dropdown .dropbtn {
+    font-size: 1em;
     border: none;
     outline: none;
     padding: .5em .2em;
     background-color: inherit;
     font-family: inherit;
+    margin: 0;
 }
 
 .dropdown-content {
