@@ -3,16 +3,18 @@ body {
     width: 70%;
     min-width: 600px;
 }
-nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
-    list-style: none;
-    font-weight: bold;
+
+.navbar {
+    overflow: hidden;
+    background-color: #DCDCDC;
 }
-nav ul li, footer ul li {
+
+.navbar a {
+    float: left;
+    color: #1B4F72;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    display: inline;
-    margin-right: 20px;
+    text-decoration: none;
+    text-align: left;
 }
 
 ul {
