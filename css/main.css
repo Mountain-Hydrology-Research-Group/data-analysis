@@ -131,6 +131,7 @@ nav ul li, footer ul li {
     padding: .5em .5em;
     text-decoration: none;
     margin: 0;
+    font-weight: bold;
 }
 
 .dropdown {
@@ -145,6 +146,7 @@ nav ul li, footer ul li {
     font-family: inherit;
     margin: 0;
     background-color: transparent;
+    font-weight: bold;
 }
 
 .navbar a:hover, .dropdown:hover, dropbtn {
