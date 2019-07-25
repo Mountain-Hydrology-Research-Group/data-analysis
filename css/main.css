@@ -159,11 +159,6 @@ nav ul li, footer ul li {
     text-align: left;
 }
 
-.dropdown-content a:hover {
-    background-color: #EBF5FB;
-}
-
 .dropdown:hover .dropdown-content {
     display: block;
-    background-color: #EBF5FB;
 }
