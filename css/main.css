@@ -162,10 +162,11 @@ nav ul li, footer ul li {
 
 .dropdown-content a {
     float: none;
-    padding: .5em .5em;
+    
     text-decoration: none;
     display: block;
     text-align: left;
+    font-weight: normal;
 }
 
 .dropdown:hover .dropdown-content {
