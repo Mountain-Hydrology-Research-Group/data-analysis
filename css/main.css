@@ -5,6 +5,7 @@ body {
 }
 
 .navbar {
+    float: left;
     overflow: hidden;
 }
 
