@@ -6,7 +6,6 @@ body {
 
 .navbar {
     overflow: hidden;
-    background-color: #DCDCDC;
 }
 
 .navbar a {
@@ -15,6 +14,7 @@ body {
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     text-decoration: none;
     text-align: left;
+    padding: .5em 2em;
 }
 
 ul {
