@@ -33,9 +33,11 @@ a {
     color: #1B4F72;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
+
 a:hover {
     text-decoration: underline;
 }
+
 h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
@@ -51,6 +53,7 @@ p {
     line-height: 1.4em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
+
 footer {
     border-top: 1px solid #1B4F72;
     font-color: #1B4F72;
@@ -125,7 +128,7 @@ nav ul li, footer ul li {
     float: left;
     font-size: 1em;
     text-align: left;
-    padding: .5em .5em;
+    padding: .5em .25em;
     text-decoration: none;
     margin: 0;
 }
@@ -157,7 +160,7 @@ nav ul li, footer ul li {
 
 .dropdown-content a {
     float: none;
-    padding: .5em .5em;
+    padding: .5em .25em;
     text-decoration: none;
     display: block;
     text-align: left;
