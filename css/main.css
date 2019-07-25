@@ -40,10 +40,12 @@ h1 {
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
+
 h2 {
     font-size: 2em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
+
 p {
     font-size: 1em;
     line-height: 1.4em;
@@ -123,8 +125,9 @@ nav ul li, footer ul li {
     float: left;
     font-size: 1em;
     text-align: left;
-    padding: .75em .5em;
+    padding: .5em .5em;
     text-decoration: none;
+    margin: 0;
 }
 
 .dropdown {
@@ -154,7 +157,7 @@ nav ul li, footer ul li {
 
 .dropdown-content a {
     float: none;
-    padding: .75em .5em;
+    padding: .5em .5em;
     text-decoration: none;
     display: block;
     text-align: left;
