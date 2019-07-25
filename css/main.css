@@ -109,7 +109,6 @@ nav ul li, footer ul li {
 .navbar {
     overflow: hidden;
     font-family: 'Helvetica', 'Arial', 'Sans-Serif';
-    padding: .5em .5em;
 }
 
 .navbar a {
@@ -119,6 +118,7 @@ nav ul li, footer ul li {
     text-decoration: none;
     margin: 0;
     font-weight: bold;
+    padding: .5em .5em;
 }
 
 .dropdown {
@@ -149,7 +149,6 @@ nav ul li, footer ul li {
 
 .dropdown-content a {
     float: none;
-  
     text-decoration: none;
     display: block;
     text-align: left;
