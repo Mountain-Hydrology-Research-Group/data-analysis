@@ -118,10 +118,10 @@ nav ul li, footer ul li {
     text-decoration: none;
     margin: 0;
     font-weight: bold;
-    width: 10em;
-    height: 2em;
+    width: 15em;
+    height: 3em;
     text-indent: .5em;
-    line-height: 2em;
+    line-height: 3em;
 }
 
 .dropdown {
