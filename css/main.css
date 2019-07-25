@@ -112,3 +112,29 @@ table.resources {
 td.resources {
     border:none;
 }
+
+.dropdown {
+    float: left;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+}
+
+.dropdown-content a {
+    float: none;
+    color: #1B4F72;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #EBF5FB;
+}
+
+.dropdown: hover .dropdown-content {
+    display: block;
+    background-color: #EBF5FB;
+}
