@@ -134,7 +134,7 @@ td.resources {
     background-color: #EBF5FB;
 }
 
-.dropdown: hover .dropdown-content {
+.dropdown:hover .dropdown-content {
     display: block;
     background-color: #EBF5FB;
 }
