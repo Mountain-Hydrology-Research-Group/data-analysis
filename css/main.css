@@ -117,8 +117,16 @@ td.resources {
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    border: none;
+    outline: none;
+    padding: .5em .2em;
+    background-color: inherit;
+    font-family: inherit;
 }
 
 .dropdown-content {
@@ -130,6 +138,7 @@ td.resources {
   color: #1B4F72;
   text-decoration: none;
   display: block;
+  text-align: left;
 }
 
 .dropdown:hover .dropdown-content {
