@@ -118,6 +118,7 @@ td.resources {
 .dropdown {
   float: left;
   overflow: hidden;
+  display: inline-block;
 }
 
 .dropdown .dropbtn {
@@ -133,6 +134,7 @@ td.resources {
 .dropdown-content {
   display: none;
   position: absolute;
+  z-index: 1;
 }
 
 .dropdown-content a {
