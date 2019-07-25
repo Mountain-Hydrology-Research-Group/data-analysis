@@ -112,3 +112,23 @@ table.resources {
 td.resources {
     border:none;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+
+.dropdown-content a {
+  color: #1B4F72;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
