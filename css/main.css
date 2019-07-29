@@ -145,7 +145,6 @@ nav ul li, footer ul li {
     position: absolute;
     background-color: white;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    font-weight: bold;
 }
 
 .dropdown-content a {
@@ -153,7 +152,7 @@ nav ul li, footer ul li {
     text-decoration: none;
     display: block;
     text-align: left;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 .dropdown:hover .dropdown-content {
