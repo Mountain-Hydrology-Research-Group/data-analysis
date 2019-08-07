@@ -11,38 +11,32 @@ title: Homework 4
   <p><b>Problem 1</b></p>
   
   <p>
-    A medical testing company has developed a two-stage, non-invasive test for Down’s
-    syndrome in the first two months of pregnancy. Initial tests have shown that when the
-    fetus actually has Down’s syndrome, the test correctly identifies this by giving a positive
-    result 98% of the time (i.e. the observed probability of a false negative is 2%).
-    Furthermore, in cases when the fetus does not have Down’s syndrome, the test result is
-    negative 97% of the time (i.e. the observed probability of a false positive is 3%). Armed
-    with this data, the company’s statisticians are charged with estimating the overall
-    probability that a given fetus has Down’s syndrome if the test shows positive. Assume the
-    observed probability of Down’s syndrome in a random sample from a large number of
-    observations is about 1 in 1,200 (this is the reported value for a 25-year-old mother; the
-    risk is higher for older mothers).
+   Download the datafile cascades_swe (.xlsx).
+  </p>
+
+  <p>
+    The data in the first three columns are values for total precipitation (mm), daily
+    maximum temperature (C ), and daily minimum temperature (C ) averaged from
+    October-March over the Pacific Northwest Cascades in WA in OR. The fourth column is
+    an estimate of April 1 snow water equivalent (in mm, the water content of the snowpack)
+    from model simulations, averaged over the same domain.
   </p>
     
   <ol type='A'>
   
     <li>
-        Using Bayes’ theorem, estimate the overall probability that a given fetus has Down’s
-        syndrome if the test shows positive. Are you surprised by the answer? What is the
-        fundamental problem with this test? How accurate would the test have to be to
-        achieve a 50% probability of having the disease if the test showed a positive result?
-        (For the last one, experiment with the accuracies of both the positive and negative
-        test results.)
+        Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear
+        model to the data. Estimate the uncertainty in the trend by evaluating a 95%
+        confidence interval around the estimate of B1. That is:
+        <br/>
+      <i>Trend</i> = X &plusmn Y
+        <br/>
+        Is the trend statistically significant with 95% confidence? I.e. can we reject the
+        null hypothesis that the trend is equal to zero?
     </li>
     
     <li>
-        Estimate the likelihood that the fetus does not have Down’s Syndrome if the test
-        shows a negative result. Is the test more useful in this framework as a screening
-        step when trying to decide to use more accurate (but also more invasive) tests?
-    </li>
-    
-    <li>
-        Finally, draw a tree diagram for this problem.
+        Repeat this analysis for only the more recent period 1950-2003.
     </li>
     
   </ol>
@@ -52,111 +46,77 @@ title: Homework 4
   <p><b>Problem 2</b></p>
   
   <p>
-    Based on long-term climate records, the 24-hour duration, 100-year return period rainfall
-    in New York City was previously estimated at 7.2 inches. 100-year rainfall indicates a storm
-    with a rainfall total that would on average be met or exceeded only once every 100 years.
-    In a given year, the storm has a 0.01 chance of occurrence, i.e., for any k-year storm, its
-    probability of occurrence in one year is 1/k, where k is the return period. In fact, during the
-    20 th century, this total was exceeded only once, during Hurricane Floyd in 1999. However, a
-    storm in 2007 produced 8 inches of rainfall in a 24-hour period. Another storm in August
-    2011 again exceeded the 7.2-inch total. Hurricane Irene in September 2011 exceeded the
-    total yet again, and so did Hurricane Sandy in October 2012. This happened again in
-    September 2018 from Hurricane Florence.
-    <br/>
-    In this problem we will use Bayes’ Theorem to estimate the probability that the 7.2-inch
-    storm is no longer the 100-year storm, that is, the probability that 7.2 inches of rainfall in a
-    24-hour period is likely to occur more often than every 100 years. In this problem, A is the
-    true likelihood of the storm’s occurrence, and B are the events we have observed. [Note
-    that unlike what you will do in many hydrology classes, which is to calculate the return
-    period across a range of different precipitation or streamflow values, we are focusing here
-    only on the probability of 24-hour storms exceeding 7.2 inches of rainfall because this is a
-    critical design number for New York City.]
+    Continue using the cascades_swe dataset for this problem. Begin by pasting in your
+    scatterplots for these variables from the first homework.
   </p>
 
     
   <ol type='A'>
   
     <li>
-        Download and plot the prior likelihood of a &gt;=7.2-inch storm occurring in a given
-        year from the data file “NYC_precip_priors” (.xslx or .mat). This dataset shows the
-        prior distribution of the likelihood of the 7.2-inch storm in a given year, with mean p
-        = 0.01. Note that the variable labeled “pdf” represents the probability of the storm
-        frequency or return interval falling within that interval (value noted and the next
-        value) and therefore includes the interval width, such that the sum of the pdf values
-        alone sums to 1, and cumulative sum of the pdf is the cdf. Note that there is some
-        uncertainty about the original likelihood. What are the mean and 95% confidence
-        interval of the probability, i.e., where does 95% of the PDF fall between? To what k-
-        year storm (expected return period) range do these values correspond?
+        Calculate the correlation (R) between April 1 SWE and the three meteorological
+        variables (precipitation, max. temperature and min. temperature), and also between all
+        unique combinations of the meteorological variables.
     </li>
         
     <li>
-        At each time period of interest, count the number of times the threshold has been
-        exceeded and the number of years, beginning with the period 1900-1999. The
-        likelihood P(B|A = p) that the storm would be exceeded m times in n years (event B)
-        for a storm probability p (event A = p) is given by:
-        <br/>
-        P(B|A = p) = binomdist(m,n,p)
-        <br/>
-        Calculate the posterior likelihood of the 7.2-inch storm’s probability after the period
-        1900-1999, which includes only Hurricane Floyd. Use the continuous version of
-        Bayes’ Theorem to calculate the probability of A at all values of p. What are the mean
-        and the 95% confidence interval of the return period for the 7.2-inch storm after
-        1999?
+        Calculate the autocorrelation in precipitation, maximum temperature and minimum
+        temperature. Can we consider each of these values to be an independent sample? Or
+        do some of them depend on the prior year’s sample? [Note: We can test for
+        autocorrelation at different lags, but not for any lag longer than a quarter of the length of
+        the data series. Therefore, test for lags from 1 to N/4, where N is the length of the data
+        series. Determine at which of these lags the autocorrelation is different than 0 with 95%
+        confidence.]
     </li>
     
     <li>
-        Now update the posterior likelihood of the storm’s probability by considering the
-        period from 2000-2010 (storm 2), and then the period 2011-2018 (storms 3, 4, 5,
-        and 6). Remember to change the number of storms (m) and the number of years (n)
-        at each step. Use the previous step’s posterior distribution as the new prior
-        distribution at each step, and update only with the new years. Plot the posterior
-        distributions after each update, and state the mean and 95% confidence interval of
-        the return period each time (as in B but for the updated distributions).
+        Fit a multiple linear regression model to the data, using all three meteorological
+        variables to predict April 1 SWE.  Also calculate the trend in each meteorological
+        variable.  Estimate the overall trend in SWE, and trend due to each meteorological
+        variable alone.  How much of the overall trend is due to the combined effects of trends
+        in both tmax and tmin?
     </li>
     
     <li>
-        How much did the mean and 95% confidence interval return period change from
-        the original prior return period to 2018? What does this indicate about the “true”
-        frequency of the 7.2-inch-storm?
+        Finally carry out a Mann-Kendall test on the 1950-2003 April 1 SWE data.  Is the
+        trend significant according to this test?  Compare your answer with your regression
+        analysis for the same data in Problem 2B. [Note, for this problem you do not need to
+        worry about the tie statistic.]
     </li>
     
   </ol>
   
-  <p><b>Problem 3 (if you are an undergraduate, just state that for Problem 3):</b></p>
+  <p><b>Problem 3: Calculating a Rating Curve and Associated Uncertainty</b></p>
   
-  <p>Update on your term project. By now you should have acquired all of the data you need for
-      your term project.
+  <p>
+    Download Tuolumne_120_stage_Q_2002_2018_forclass.csv. Make a scatter plot of stage (in cm) vs. discharge (in cms). You
+    may want to look at Venetis_1970.pdf.
+    
+    <br/><br/>
+    
+    Plot the data, assume that h 0 =70 cm, the stage height at which flow stops. This is a
+    guess, but for now, we’ll assume this is truth. Use linear regression with transformed
+    variables to fit an equation of the form Q=a(h-h 0 ) b to the data, to determine a and b,
+    where Q is discharge in cms, and h is stage in cm. Determine 95% confidence intervals
+    for b (note this corresponds to B 1 in class lecture) and for log(Q). Transform the mean,
+    upper, and lower confidence intervals for log(Q) back to Q, and plot the rating curve with
+    confidence intervals and the original data.
+    
+    <br/><br/>
+    
+    Now, assume that we don’t know at what level flow stops. Repeat the above for h 0 = 60,
+    65, 70, 75, and 80 cm. Recalculate a, b, log(Q), and Q for each of these. Don’t worry
+    about 95% uncertainty in this example. Make a plot showing stage (h) vs. Q for each of
+    these 5 cases. Is the range between these 5 lines larger or smaller than the range
+    between the 95% confidence lines that you generated before? Note that we did not
+    explicitly account for uncertainty in h 0 in generating those 95% confidence lines. Based
+    on what you have plotted here, is that an okay thing to do or not?
+    
+    <br/><br/>
+    
+    The data provided in the file also have uncertainty associated with them. Describe in a
+    couple sentences how you would account for this uncertainty. (Note that you do not
+    need to do more calculations. Just write a couple sentences about things you might
+    do.)
   </p>
-  
-  <ol type='A'>
-  
-    <li>
-      Create 2-3 plots that illustrate your data. These can be time-series plots,
-      histograms, CDFs, whatever is relevant to your data and your problem.
-    </li>
-    
-    <li>
-      Discuss the quality of your data. Do you need to take into account any erroneous
-      values or uncertain numbers before you start your statistics?
-    </li>
-   
-    <li>
-      Write down at least two (more are also okay) very specific questions that you will
-      answer with your data. For each question, write down which statistical tools you
-      will use.
-    </li>   
-    
-    <li>
-      Based on what you have so far, do you think that your project scope is about right
-      for a 10-page paper, or do you feel that you need to either simplify things to make it
-      shorter or add complexity to make it longer? If you feel adjustments are needed,
-      how to you plan to address this issue?
-   </li>
-
-    <li>
-      At this point, what do you anticipate being the most difficult parts of your term
-      project? Do you have questions you would like help with or advice on? Write them
-      here.
-   </li>
-   
- </ol>
+ 
