@@ -1,0 +1,162 @@
+---
+layout: default
+title: Homework 4
+---
+  <h1>Homework 4</h1>
+  
+  <h2>Due ___________ before or at the start of class.</h2>
+
+  <br/>
+  
+  <p><b>Problem 1</b></p>
+  
+  <p>
+    A medical testing company has developed a two-stage, non-invasive test for Down’s
+    syndrome in the first two months of pregnancy. Initial tests have shown that when the
+    fetus actually has Down’s syndrome, the test correctly identifies this by giving a positive
+    result 98% of the time (i.e. the observed probability of a false negative is 2%).
+    Furthermore, in cases when the fetus does not have Down’s syndrome, the test result is
+    negative 97% of the time (i.e. the observed probability of a false positive is 3%). Armed
+    with this data, the company’s statisticians are charged with estimating the overall
+    probability that a given fetus has Down’s syndrome if the test shows positive. Assume the
+    observed probability of Down’s syndrome in a random sample from a large number of
+    observations is about 1 in 1,200 (this is the reported value for a 25-year-old mother; the
+    risk is higher for older mothers).
+  </p>
+    
+  <ol type='A'>
+  
+    <li>
+        Using Bayes’ theorem, estimate the overall probability that a given fetus has Down’s
+        syndrome if the test shows positive. Are you surprised by the answer? What is the
+        fundamental problem with this test? How accurate would the test have to be to
+        achieve a 50% probability of having the disease if the test showed a positive result?
+        (For the last one, experiment with the accuracies of both the positive and negative
+        test results.)
+    </li>
+    
+    <li>
+        Estimate the likelihood that the fetus does not have Down’s Syndrome if the test
+        shows a negative result. Is the test more useful in this framework as a screening
+        step when trying to decide to use more accurate (but also more invasive) tests?
+    </li>
+    
+    <li>
+        Finally, draw a tree diagram for this problem.
+    </li>
+    
+  </ol>
+  
+<br/>
+  
+  <p><b>Problem 2</b></p>
+  
+  <p>
+    Based on long-term climate records, the 24-hour duration, 100-year return period rainfall
+    in New York City was previously estimated at 7.2 inches. 100-year rainfall indicates a storm
+    with a rainfall total that would on average be met or exceeded only once every 100 years.
+    In a given year, the storm has a 0.01 chance of occurrence, i.e., for any k-year storm, its
+    probability of occurrence in one year is 1/k, where k is the return period. In fact, during the
+    20 th century, this total was exceeded only once, during Hurricane Floyd in 1999. However, a
+    storm in 2007 produced 8 inches of rainfall in a 24-hour period. Another storm in August
+    2011 again exceeded the 7.2-inch total. Hurricane Irene in September 2011 exceeded the
+    total yet again, and so did Hurricane Sandy in October 2012. This happened again in
+    September 2018 from Hurricane Florence.
+    <br/>
+    In this problem we will use Bayes’ Theorem to estimate the probability that the 7.2-inch
+    storm is no longer the 100-year storm, that is, the probability that 7.2 inches of rainfall in a
+    24-hour period is likely to occur more often than every 100 years. In this problem, A is the
+    true likelihood of the storm’s occurrence, and B are the events we have observed. [Note
+    that unlike what you will do in many hydrology classes, which is to calculate the return
+    period across a range of different precipitation or streamflow values, we are focusing here
+    only on the probability of 24-hour storms exceeding 7.2 inches of rainfall because this is a
+    critical design number for New York City.]
+  </p>
+
+    
+  <ol type='A'>
+  
+    <li>
+        Download and plot the prior likelihood of a &gt;=7.2-inch storm occurring in a given
+        year from the data file “NYC_precip_priors” (.xslx or .mat). This dataset shows the
+        prior distribution of the likelihood of the 7.2-inch storm in a given year, with mean p
+        = 0.01. Note that the variable labeled “pdf” represents the probability of the storm
+        frequency or return interval falling within that interval (value noted and the next
+        value) and therefore includes the interval width, such that the sum of the pdf values
+        alone sums to 1, and cumulative sum of the pdf is the cdf. Note that there is some
+        uncertainty about the original likelihood. What are the mean and 95% confidence
+        interval of the probability, i.e., where does 95% of the PDF fall between? To what k-
+        year storm (expected return period) range do these values correspond?
+    </li>
+        
+    <li>
+        At each time period of interest, count the number of times the threshold has been
+        exceeded and the number of years, beginning with the period 1900-1999. The
+        likelihood P(B|A = p) that the storm would be exceeded m times in n years (event B)
+        for a storm probability p (event A = p) is given by:
+        <br/>
+        P(B|A = p) = binomdist(m,n,p)
+        <br/>
+        Calculate the posterior likelihood of the 7.2-inch storm’s probability after the period
+        1900-1999, which includes only Hurricane Floyd. Use the continuous version of
+        Bayes’ Theorem to calculate the probability of A at all values of p. What are the mean
+        and the 95% confidence interval of the return period for the 7.2-inch storm after
+        1999?
+    </li>
+    
+    <li>
+        Now update the posterior likelihood of the storm’s probability by considering the
+        period from 2000-2010 (storm 2), and then the period 2011-2018 (storms 3, 4, 5,
+        and 6). Remember to change the number of storms (m) and the number of years (n)
+        at each step. Use the previous step’s posterior distribution as the new prior
+        distribution at each step, and update only with the new years. Plot the posterior
+        distributions after each update, and state the mean and 95% confidence interval of
+        the return period each time (as in B but for the updated distributions).
+    </li>
+    
+    <li>
+        How much did the mean and 95% confidence interval return period change from
+        the original prior return period to 2018? What does this indicate about the “true”
+        frequency of the 7.2-inch-storm?
+    </li>
+    
+  </ol>
+  
+  <p><b>Problem 3 (if you are an undergraduate, just state that for Problem 3):</b></p>
+  
+  <p>Update on your term project. By now you should have acquired all of the data you need for
+      your term project.
+  </p>
+  
+  <ol type='A'>
+  
+    <li>
+      Create 2-3 plots that illustrate your data. These can be time-series plots,
+      histograms, CDFs, whatever is relevant to your data and your problem.
+    </li>
+    
+    <li>
+      Discuss the quality of your data. Do you need to take into account any erroneous
+      values or uncertain numbers before you start your statistics?
+    </li>
+   
+    <li>
+      Write down at least two (more are also okay) very specific questions that you will
+      answer with your data. For each question, write down which statistical tools you
+      will use.
+    </li>   
+    
+    <li>
+      Based on what you have so far, do you think that your project scope is about right
+      for a 10-page paper, or do you feel that you need to either simplify things to make it
+      shorter or add complexity to make it longer? If you feel adjustments are needed,
+      how to you plan to address this issue?
+   </li>
+
+    <li>
+      At this point, what do you anticipate being the most difficult parts of your term
+      project? Do you have questions you would like help with or advice on? Write them
+      here.
+   </li>
+   
+ </ol>
