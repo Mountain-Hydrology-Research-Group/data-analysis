@@ -16,7 +16,7 @@ title: Homework 4
 
   <p>
     The data in the first three columns are values for total precipitation (mm), daily
-    maximum temperature (C ), and daily minimum temperature (C ) averaged from
+    maximum temperature (&degC), and daily minimum temperature (&degC) averaged from
     October-March over the Pacific Northwest Cascades in WA in OR. The fourth column is
     an estimate of April 1 snow water equivalent (in mm, the water content of the snowpack)
     from model simulations, averaged over the same domain.
@@ -94,11 +94,11 @@ title: Homework 4
     
     <br/><br/>
     
-    Plot the data, assume that h 0 =70 cm, the stage height at which flow stops. This is a
+    Plot the data, assume that h<sub>0</sub> =70 cm, the stage height at which flow stops. This is a
     guess, but for now, we’ll assume this is truth. Use linear regression with transformed
-    variables to fit an equation of the form Q=a(h-h 0 ) b to the data, to determine a and b,
+    variables to fit an equation of the form Q=a(h-h<sub>0</sub>)<sup>b</sup> to the data, to determine a and b,
     where Q is discharge in cms, and h is stage in cm. Determine 95% confidence intervals
-    for b (note this corresponds to B 1 in class lecture) and for log(Q). Transform the mean,
+    for b (note this corresponds to B<sub>1</sub> in class lecture) and for log(Q). Transform the mean,
     upper, and lower confidence intervals for log(Q) back to Q, and plot the rating curve with
     confidence intervals and the original data.
     
