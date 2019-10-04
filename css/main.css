@@ -111,7 +111,7 @@ nav ul li, footer ul li {
     font-family: 'Helvetica', 'Arial', 'Sans-Serif';
 }
 
-.navbar a, p {
+.navbar a {
     float: left;
     font-size: 1em;
     text-align: left;
