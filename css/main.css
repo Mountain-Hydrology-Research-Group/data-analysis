@@ -111,7 +111,7 @@ nav ul li, footer ul li {
     font-family: 'Helvetica', 'Arial', 'Sans-Serif';
 }
 
-.navbar a {
+.navbar  {
     float: left;
     font-size: 1em;
     text-align: left;
@@ -120,6 +120,7 @@ nav ul li, footer ul li {
     font-weight: bold;
     padding: .5em .5em;
 }
+
 
 .dropdown {
     float: left;
