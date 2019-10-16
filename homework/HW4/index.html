@@ -4,14 +4,14 @@ title: Homework 4
 ---
   <h1>Homework 4</h1>
   
-  <h2>Due ___________ before or at the start of class.</h2>
+  <h2>Due Thursday, October 24 before or at 10:30 am.</h2>
 
   <br/>
   
   <p><b>Problem 1</b></p>
   
   <p>
-   Download the datafile cascades_swe (.xlsx).
+   Download the datafile cascades_swe available here (.xlsx) or from the data folder on the class Canvas website (.xlsx or .mat).
   </p>
 
 <i>
@@ -27,24 +27,18 @@ title: Homework 4
   </i>
 
   <p>
-    The data in the first three columns are values for total precipitation (mm), daily
-    maximum temperature (&degC), and daily minimum temperature (&degC) averaged from
-    October-March over the Pacific Northwest Cascades in WA in OR. The fourth column is
-    an estimate of April 1 snow water equivalent (in mm, the water content of the snowpack)
-    from model simulations, averaged over the same domain.
+The data in the first three columns are values for total precipitation (mm), daily maximum temperature (&deg;C ), and daily minimum temperature (&deg;C) averaged from October-March over the Pacific Northwest Cascades in WA in OR.  The fourth column is an estimate of April 1 snow water equivalent (in mm, the water content of the snowpack) from model simulations, averaged over the same domain.
   </p>
     
   <ol type='A'>
   
     <li>
-        Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear
-        model to the data. Estimate the uncertainty in the trend by evaluating a 95%
-        confidence interval around the estimate of B1. That is:
+        A)	Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data.  Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1.  That is:
         <br/><br/>
       <i>Trend</i> = X &plusmn Y
         <br/><br/>
-        Is the trend statistically significant with 95% confidence? I.e. can we reject the
-        null hypothesis that the trend is equal to zero?
+        Is the trend statistically significant with 95% confidence?  
+		I.e. can we reject the null hypothesis that the trend is equal to zero?
     </li>
     
     <li>
@@ -58,53 +52,38 @@ title: Homework 4
   <p><b>Problem 2</b></p>
   
   <p>
-    Continue using the cascades_swe dataset for this problem. Begin by pasting in your
-    scatterplots for these variables from the first homework.
+    Continue using the cascades_swe dataset for this problem.  Begin by making scatterplots of each of these variables vs. all the other variables.  One nice way to do this is as illustrated in Helsel and Hirsch Figure 2.39 on page 61 – this is not required, you can plot in whatever way works best for you.
   </p>
 
     
   <ol type='A'>
   
     <li>
-        Calculate the correlation (R) between April 1 SWE and the three meteorological
-        variables (precipitation, max. temperature and min. temperature), and also between all
-        unique combinations of the meteorological variables.
+        Calculate the correlation (R) between April 1 SWE and the three meteorological variables (precipitation, max. temperature and min. temperature), and also between all unique combinations of the meteorological variables.
     </li>
         
     <li>
-        Calculate the autocorrelation in precipitation, maximum temperature and minimum
-        temperature. Can we consider each of these values to be an independent sample? Or
-        do some of them depend on the prior year’s sample? [Note: We can test for
-        autocorrelation at different lags, but not for any lag longer than a quarter of the length of
-        the data series. Therefore, test for lags from 1 to N/4, where N is the length of the data
-        series. Determine at which of these lags the autocorrelation is different than 0 with 95%
-        confidence.]
+        Calculate the autocorrelation in precipitation, maximum temperature and minimum temperature.  Can we consider each of these values to be an independent sample?  Or do some of them depend on the prior year’s sample? 
+		<ul><li>Note:  We can test for autocorrelation at different lags, but not for any lag longer than a quarter of the length of the data series. Therefore, test for lags from 1 to N/4, where N is the length of the data series.  Determine at which of these lags the autocorrelation is different than 0 with 95% confidence.</li></ul>
     </li>
     
     <li>
-        Fit a multiple linear regression model to the data, using all three meteorological
-        variables to predict April 1 SWE.  Also calculate the trend in each meteorological
-        variable.  Estimate the overall trend in SWE, and trend due to each meteorological
-        variable alone.  How much of the overall trend is due to the combined effects of trends
-        in both tmax and tmin?
+        Fit a multiple linear regression model to the data, using all three meteorological variables to predict April 1 SWE.  Also calculate the trend in each meteorological variable.  Estimate the overall trend in SWE, and trend due to each meteorological variable alone.  How much of the overall trend is due to the combined effects of trends in both tmax and tmin? 
     </li>
     
     <li>
-        Finally carry out a Mann-Kendall test on the 1950-2003 April 1 SWE data.  Is the
-        trend significant according to this test?  Compare your answer with your regression
-        analysis for the same data in Problem 2B. [Note, for this problem you do not need to
-        worry about the tie statistic.]
+        Finally carry out a Mann-Kendall test on the 1950-2003 April 1 SWE data.  Is the trend significant according to this test?  Compare your answer with your regression analysis for the same data in Problem 2B.  
+		<ul><li>Note, for this problem you do not need to worry about the tie statistic.</li></ul>
     </li>
     
   </ol>
 
 <br/>
   
-  <p><b>Problem 3: Calculating a Rating Curve and Associated Uncertainty</b></p>
+  <p><b>Problem 3: Calculating a rating curve and associated uncertainty</b></p>
   
   <p>
-    Download Tuolumne_120_stage_Q_2002_2018_forclass.csv. Make a scatter plot of stage (in cm) vs. discharge (in cms). You
-    may want to look at Venetis_1970_log_discharge_uncertainty.pdf.
+    Download Tuolumne_120_stage_Q_2002_2018_forclass.csv (also available in the data folder or the Homework 4 folder on the class Canvas website).  Make a scatter plot of stage (in cm) vs. discharge (in cms).  You may want to look at Venetis_1970.pdf (also available in the Readings/Rating_Curve_Analysis folder on Canvas).
 </p>
 
 <i>
@@ -144,7 +123,7 @@ title: Homework 4
     about 95% uncertainty in this example. Make a plot showing stage (h) vs. Q for each of
     these 5 cases. Is the range between these 5 lines larger or smaller than the range
     between the 95% confidence lines that you generated before? Note that we did not
-    explicitly account for uncertainty in h 0 in generating those 95% confidence lines. Based
+    explicitly account for uncertainty in h<sub>0</sub> in generating those 95% confidence lines. Based
     on what you have plotted here, is that an okay thing to do or not?
     
     <br/><br/>
