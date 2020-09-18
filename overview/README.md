@@ -1,7 +1,7 @@
 ---
-sort: 3
+sort: 1
 ---
 
-# Learning Resources
+# Overview
 
 {% include list.liquid all=true %}
