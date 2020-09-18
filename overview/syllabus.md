@@ -33,7 +33,6 @@ The Zoom link to attend lectures and labs, and the link to where recorded lectur
 3. **We cannot just do the same thing online.**
   * Some assignments are no longer possible
   * Some expectations are no longer reasonable
-  * Some objectives are no longer valuable
 4. **We will foster intellectual nourishment, social connection, and personal accommodation.**
   * Accessible asynchronous content for diverse access, time zones, and contexts
   * Optional synchronous discussion to learn together and combat isolation
@@ -81,7 +80,7 @@ If you need access to a laptop computer (such as if yours breaks) you may check 
 
 ### Lectures
 
-The first half of each class period is reserved for lectures and discussions. We will be using Zoom for these live lectures, and Panopto to record lectures for later viewing. Lectures will be recorded and made available afterwards. Lecture slides will be available on Canvas, along with any additional files for reading.
+The first half of each class period is reserved for lectures and discussions. We will be using Zoom for these live lectures, and to record lectures for later viewing. Lectures will be recorded and made available afterwards. Lecture slides will be available on Canvas, along with any additional files for reading.
 
 
 ### Labs
