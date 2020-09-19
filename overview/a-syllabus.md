@@ -119,11 +119,13 @@ Final projects will be completed in pairs (or individually on request), and the 
 
 ### Grading Policy
 
-Class Attendance and Participation: 5%
-  * If plan on attending class asynchronously by watching the recorded lectures, please let me know.
+* Class Attendance and Participation: 5%
   * Participation includes discussions in class, and on Slack
-Homework assignments: 70%
-Final Project/ Final Exam: 25%
+  * *If you plan on attending class asynchronously by watching the recorded lectures, please let me know.*
+* Homework assignments: 70%
+  * Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your overall homework grade will be evaluated out of 70 points total.
+* Final Project / Final Exam: 25%
+  * See the [CEWA 565 course project page](/overview/b-project.html) for grading rubric.
 
 
 ## Schedule
