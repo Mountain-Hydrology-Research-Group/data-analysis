@@ -4,6 +4,8 @@
 ```note
 ## Lab 2: Hypothesis Testing
 
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+
 * Data: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx) 
 * [Lab 2-1: Hypothesis Testing 1](lab2/lab2-1.ipynb)
 * [Lab 2-2: Hypothesis Testing 2](lab2/lab2-2.ipynb)

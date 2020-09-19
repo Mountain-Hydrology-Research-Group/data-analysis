@@ -4,6 +4,8 @@
 ```note
 ## Lab 3: ANOVA and Regression
 
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+
 * [Lab 3-1: ANOVA](lab3/lab3-1.ipynb)
   * data: [ANOVA_fertilizer_treatment.txt](data/ANOVA_fertilizer_treatment.txt)
 * [Lab 3-2: Regression](lab3/lab3-1.ipynb)

@@ -4,6 +4,8 @@
 ```note
 ## Lab 6: Bayesian Statistics
 
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+
 * [Lab 6-1: Bayesian Statistics](lab6/lab6-1.ipynb)
 
 ```

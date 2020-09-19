@@ -3,6 +3,8 @@
 ```note
 ## Lab 7: Markov Chains & Monte Carlo
 
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+
 * [Lab 7-1: Markov Chains](lab7/lab7-1.ipynb)
   * data: [markov_random4.txt](data/markov_random4.txt)
 * [Lab 7-2: MCMC Rating Curves](lab7/lab7-2.ipynb)

@@ -3,6 +3,8 @@
 ```note
 ## Lab 5: Regression with Transformed Variables
 
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+
 * [Lab 5-1: Regression with Transformed Variables](lab5/lab5-1.ipynb)
 * [Lab 5-2: Making Interactive Plots](lab5/lab5-2.ipynb)
 

@@ -4,6 +4,8 @@
 ```note
 ## Lab 4: Mann-Kendall and Multiple Linear Regression
 
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+
 * [Lab 4-1: Mann-Kendall](lab4/lab4-1.ipynb)
   * data: [pillows_example.csv](data/pillows_example.csv)
 * [Lab 4-2: Correlation, Multiple Linear Regression](lab4/lab4-2.ipynb)
