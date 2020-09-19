@@ -1,2 +1,35 @@
-name: Data Analysis in Water Sciences
-markdown: kramdown
+title: Data Analysis in Water Sciences
+lang: en
+description: CEE 465 / CEWA 565
+
+remote_theme: rundocs/jekyll-rtd-theme
+
+addons_branch: true
+edit: true
+
+copyright:
+  revision: true
+
+addons:
+  - github
+  - i18n
+  - plugins
+  - analytics
+
+# sort
+readme_index:
+  with_frontmatter: true
+
+sass:
+  style: compressed
+
+exclude:
+  - Makefile
+  - Gemfile
+  - Gemfile.lock
+
+# optional plugins
+plugins:
+  - jemoji
+  - jekyll-avatar
+  - jekyll-mentions
