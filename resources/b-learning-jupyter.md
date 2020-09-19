@@ -46,13 +46,8 @@ While it is possible to [run Jupyter Notebooks locally on your own computer](#),
 
 While we won't be covering how to use GitHub in this course, if you are already familiar with using git, or [would like to learn how to use it on your own](https://swcarpentry.github.io/git-novice/), you are welcome to use it. I will try my best to address any issues or questions you have about using GitHub in this class.
 
-First, create your own personal fork of the [labs repository](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs).
+First, create your own GitHub respository for your labs and homework assignments. Download lab and data files from this website and upload to your JupyterHub. You can then use the terminal in JupyterHub to can add, commit, and push them to your repository as you work on labs and homeworks.
 
-You can then use the terminal in JupyterHub to clone the labs repository:
-
-`git clone https://github.com/YOUR-GITHUB-USERNAME/data-analysis-labs.git`
-
-As you work on labs and homeworks, you can then commit and push changes to your own personal fork.
 ```
 
 * You can organize files into folders, click the "New Folder" icon in the upper left menu to create a new folder.
