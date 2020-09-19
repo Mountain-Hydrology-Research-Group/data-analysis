@@ -111,7 +111,7 @@ Homework solutions will be posted in the Solutions folder on [Canvas](https://ca
 
 ### Final Exam (for CEE 465)
 
-The final exam will be take-home and will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day on the [scheduled final exam date](https://www.washington.edu/students/reg/A2020exam.html): **Monday, December 14, 5:00 pm (Pacific Time)**.
+The final exam will be take-home, and will be assigned on Monday, December 7th, giving you a full week to complete it. The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day on the [scheduled final exam date](https://www.washington.edu/students/reg/A2020exam.html): **Monday, December 14, 5:00 pm (Pacific Time)**.
 
 ### Final Project (for CEWA 565)
 
