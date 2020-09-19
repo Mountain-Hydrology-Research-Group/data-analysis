@@ -7,9 +7,9 @@
 Download the data file and the lab file to the same folder you created in Lab 0. Then, open the lab file using Jupyter Notebook (see Section 2 of Lab 0 as a reminder of how to open python files with Jupyter Notebook) and follow the directions.
 
  * Some additional python tips (.ipynb) [preview]
- * Skykomish Data (.xlsx)
- * Lab 1.1: Plotting Data in Python (.ipynb) [preview]
- * Lab 1.2: Generating Random Numbers in Python (.ipynb) [preview]
+ * [Skykomish Data](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
+ * [Lab 1-1: Plotting Data in Python](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/labs/lab1/lab1-1.ipynb)
+ * [Lab 1-2: Generating Random Numbers in Python](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/labs/lab1/lab1-2.ipynb)
 
 ```
 

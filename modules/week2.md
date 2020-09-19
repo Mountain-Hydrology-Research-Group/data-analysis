@@ -4,11 +4,10 @@
 ```note
 ## Lab 2: Hypothesis Testing
 
-Download the lab file to the same folder you created in Lab 1 (the data file is the same one used in Lab 1.1, and you do not have to download it twice but it is provided here again). Then, open the lab file using Jupyter Notebook and follow the directions.
-
- * 2.1: Hypothesis Testing 1 [nb_file](#) [file](#) 
- * 2.2: Hypothesis Testing 2 [nb_file](#) [file](#) 
- * 2.3: Hypothesis Testing 3 [nb_file](#) [file](#) 
+ * [Skykomish Data](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx) 
+ * [2.1: Hypothesis Testing 1](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/labs/lab2/lab2-1.ipynb)
+ * [2.2: Hypothesis Testing 2](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/labs/lab2/lab2-2.ipynb)
+ * [2.3: Hypothesis Testing 3](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/labs/lab2/lab2-3.ipynb)
 
 ```
 
