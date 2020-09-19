@@ -148,6 +148,11 @@ Final projects will be completed in pairs (or individually on request), and the 
 
 ## Additional Information
 
+### Campus Community Resources
+
+* [Student Resources](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/student-resources/) from the [UW Graduate Opportunities and Minority Achievement Program](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/).
+* The [Q Center](https://depts.washington.edu/qcenter/wordpress/)
+
 ### Conduct
 
 The University takes academic integrity very seriously. Behaving with integrity is part of our responsibility to our shared learning community. One example of misconduct I have observed in this particular class in the past is plagiarism (representing the work of others as your own without giving appropriate credit to the original author(s)). **If you’re uncertain about if something is academic misconduct, ask me. I am willing to discuss questions you might have.**
@@ -164,10 +169,6 @@ If you have already established accommodations with Disability Resources for Stu
 
 Washington state law requires that UW develop a policy for accommodation of student absences or significant hardship due to reasons of faith or conscience, or for organized religious activities. The UW’s policy, including more information about how to request an accommodation, is available at [Religious Accommodations Policy](https://registrar.washington.edu/staffandfaculty/religious-accommodations-policy/). Accommodations must be requested within the first two weeks of this course using the [Religious Accommodations Request form](https://registrar.washington.edu/students/religious-accommodations-request/).
 
-### Campus Community Resources
-
-* [Student Resources](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/student-resources/) from the [UW Graduate Opportunities and Minority Achievement Program](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/).
-* The [Q Center](https://depts.washington.edu/qcenter/wordpress/)
 
 ### Health and Safety
 
