@@ -126,7 +126,7 @@ Homework assignments: 70%
 Final Project/ Final Exam: 25%
 
 
-### Schedule
+## Schedule
 
 [UW Academic calendar for 2020-2021](https://www.washington.edu/students/reg/2021cal.html)
 
