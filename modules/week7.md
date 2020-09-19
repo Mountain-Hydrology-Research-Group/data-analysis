@@ -1,4 +1,4 @@
-# Week 7
+# Week 7: Markov Chains
 
 ```note
 ## Lab 7: Markov Chains & Monte Carlo
