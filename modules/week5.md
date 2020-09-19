@@ -3,9 +3,8 @@
 ```note
 ## Lab 5: Regression with Transformed Variables
 
-Download the lab file to the same folder you created in Lab 1.0. Then, open the lab file using Jupyter Notebook and follow the directions.
-
- * Lab 4.2 (.ipynb) Regression with Transformed Variables [preview]
+* [Lab 5-1: Regression with Transformed Variables](lab5/lab5-1.ipynb)
+* [Lab 5-2: Making Interactive Plots](lab5/lab5-2.ipynb)
 
 
 ```

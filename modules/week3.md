@@ -4,14 +4,12 @@
 ```note
 ## Lab 3: ANOVA and Regression
 
-Download the lab file to the same folder you created in Lab 1 (the data file is the same one used in Lab 1.1, and you do not have to download it twice but it is provided here again). Then, open the lab file using Jupyter Notebook and follow the directions.
-
- * Lab 3.1 (.ipynb) ANOVA [preview]
-   * data: ANOVA_fertilizer_treatment.txt
- * Lab 3.2 (.ipynb) Regression [preview]
-   * data: pillows_example.csv
- * Lab 3.3 (.ipynb) Quantile Regression Modeling [preview]
- * Lab 3.4 (.ipynb) Confidence Intervals [preview]
+* [Lab 3-1: ANOVA](lab3/lab3-1.ipynb)
+  * data: [ANOVA_fertilizer_treatment.txt](data/ANOVA_fertilizer_treatment.txt)
+* [Lab 3-2: Regression](lab3/lab3-1.ipynb)
+  * data: [pillows_example.csv](data/pillows_example.csv)
+* [Lab 3-3: Quantile Regression Modeling](lab3/lab3-1.ipynb)
+* [Lab 3-4: Confidence Intervals](lab3/lab3-1.ipynb)
 
 
 ```

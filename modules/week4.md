@@ -4,11 +4,9 @@
 ```note
 ## Lab 4: Mann-Kendall and Multiple Linear Regression
 
-Download the lab file to the same folder you created in Lab 1.0. Then, open the lab file using Jupyter Notebook and follow the directions.
-
- * Lab 4.1 (.ipynb) Mann-Kendall [preview]
-   * data: pillows_example.csv
- * Lab 4.2 (.ipynb) Correlation, Multiple Linear Regression lab?
+* [Lab 4-1: Mann-Kendall](lab4/lab4-1.ipynb)
+  * data: [pillows_example.csv](data/pillows_example.csv)
+* [Lab 4-2: Correlation, Multiple Linear Regression](lab4/lab4-2.ipynb)
 
 ```
 

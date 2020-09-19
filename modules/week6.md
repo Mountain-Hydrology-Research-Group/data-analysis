@@ -4,10 +4,7 @@
 ```note
 ## Lab 6: Bayesian Statistics
 
-Download the lab file to the same folder you created in Lab 1.0. Then, open the lab file using Jupyter Notebook and follow the directions.
-
-    Lab 5.1 (.ipynb) Bayesian Statistics [preview]
-
+* [Lab 6-1: Bayesian Statistics](lab6/lab6-1.ipynb)
 
 ```
 
