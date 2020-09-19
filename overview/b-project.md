@@ -28,7 +28,10 @@ temperature is significantly changed by streamflow timing. What is your confiden
 5. **Choose your own adventure...**
 
 
-## Grading Rubic for Presentation 
+## Grading Rubic
+
+
+### Presentation 
 (30 points; will account for 20% of project grade)
 
 A powerpoint-type presentation, like you would expect at a conference, 10 minutes in length, with an additional 5 minutes for questions. Your classmates are your audience. Present your question, why it is important, what methods you employed to answer the question, your major results, and the implications of your results. For pairs, both project partners will present together.
@@ -50,7 +53,7 @@ A powerpoint-type presentation, like you would expect at a conference, 10 minute
   - Ability to relate results to other studies and other presentations in the class
 
 
-## Grading Rubic for Written Report
+### Written Report
 (30 points; will account for 80% of project grade)
 
 For the written report, you must include an abstract (no more than 300 words) and a list of references; these can be in addition to your 10 pages.  Follow the same format outlined for the presentation but feel free to include more details (equations, etc.). Please address any questions or comments that were raised during the presentation. Use clear, concise sentences and proper grammar.
