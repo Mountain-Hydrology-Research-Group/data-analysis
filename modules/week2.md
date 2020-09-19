@@ -1,13 +1,15 @@
-# Week 2
+# Week 2: Hypothesis Testing
 
 
 ```note
 ## Lab 2: Hypothesis Testing
 
- * [Skykomish Data](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx) 
- * [2.1: Hypothesis Testing 1](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/labs/lab2/lab2-1.ipynb)
- * [2.2: Hypothesis Testing 2](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/labs/lab2/lab2-2.ipynb)
- * [2.3: Hypothesis Testing 3](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-labs/raw/master/labs/lab2/lab2-3.ipynb)
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+
+* Data: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx) 
+* [Lab 2-1: Hypothesis Testing 1](lab2/lab2-1.ipynb)
+* [Lab 2-2: Hypothesis Testing 2](lab2/lab2-2.ipynb)
+* [Lab 2-3: Hypothesis Testing 3](lab2/lab2-3.ipynb)
 
 ```
 

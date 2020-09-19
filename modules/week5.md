@@ -1,11 +1,12 @@
-# Week 5
+# Week 5: Regression, Data Visualization
 
 ```note
 ## Lab 5: Regression with Transformed Variables
 
-Download the lab file to the same folder you created in Lab 1.0. Then, open the lab file using Jupyter Notebook and follow the directions.
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
- * Lab 4.2 (.ipynb) Regression with Transformed Variables [preview]
+* [Lab 5-1: Regression with Transformed Variables](lab5/lab5-1.ipynb)
+* [Lab 5-2: Making Interactive Plots](lab5/lab5-2.ipynb)
 
 
 ```

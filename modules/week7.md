@@ -1,15 +1,15 @@
-# Week 7
+# Week 7: Markov Chains
 
 ```note
 ## Lab 7: Markov Chains & Monte Carlo
 
-Download the lab file to the same folder you created in Lab 1.0. Then, open the lab file using Jupyter Notebook and follow the directions.
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* Lab 7.1 (.ipynb) Markov Chains [preview]
-  * data: markov_random4.txt
-* Lab 7.2 (.ipynb) MCMC Rating Curves [preview]
-  * data: Lyell_h_Q_sorted.mat
-* Lab 7.3 (.ipynb) Markov Chain Monte Carlo Example [preview]
+* [Lab 7-1: Markov Chains](lab7/lab7-1.ipynb)
+  * data: [markov_random4.txt](data/markov_random4.txt)
+* [Lab 7-2: MCMC Rating Curves](lab7/lab7-2.ipynb)
+  * data: [Lyell_h_Q_sorted.mat](data/Lyell_h_Q_sorted.mat)
+* [Lab 7-3: Markov Chain Monte Carlo Example](lab7/lab7-3.ipynb)
 
 ```
 

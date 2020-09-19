@@ -1,15 +1,14 @@
-# Week 8
+# Week 8: SVD, Timeseries Analysis
 
 
 ```note
 ## Lab 8:
 
-Download the lab file to the same folder you created in Lab 1.0. Then, open the lab file using Jupyter Notebook and follow the directions.
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
- * Lab 8.1 (.ipynb) SVD with Monthly Precip. [preview]
-   * data: PRISM_4km_1982-2012.mat
- * Lab 8.2 (.ipynb) Timeseries Lab [preview]	
-
+* [Lab 8-1: SVD with Monthly Precip.](lab8/lab8-1.iynb)
+  * data: [PRISM_4km_1982-2012.mat](data/PRISM_4km_1982-2012.mat)
+* [Lab 8-1: Timeseries Lab](lab8/lab8-2.iynb)	
 
 ```
 

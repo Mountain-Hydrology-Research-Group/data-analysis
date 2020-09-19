@@ -111,22 +111,24 @@ Homework solutions will be posted in the Solutions folder on [Canvas](https://ca
 
 ### Final Exam (for CEE 465)
 
-The final exam will be take-home and will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day on the [scheduled final exam date](https://www.washington.edu/students/reg/A2020exam.html): **Monday, December 14, 5:00 pm (Pacific Time)**.
+The final exam will be take-home, and will be assigned on Monday, December 7th, giving you a full week to complete it. The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day on the [scheduled final exam date](https://www.washington.edu/students/reg/A2020exam.html): **Monday, December 14, 5:00 pm (Pacific Time)**.
 
 ### Final Project (for CEWA 565)
 
-Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class on 12/3, 12/8 and 12/10. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due by 5:00 pm (Pacific Time) on Monday, Dec 14. Further details are provided on the [Course Project page](https://mountain-hydrology-research-group.github.io/data-analysis/overview/b-project.html).
+Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class on **12/3**, **12/8** and **12/10**. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on **Monday, December 14, 5:00 pm (Pacific Time)**. Further details are provided on the [Course Project page](b-project.html).
 
 ### Grading Policy
 
-Class Attendance and Participation: 5%
-  * If plan on attending class asynchronously by watching the recorded lectures, please let me know.
-  * Participation includes discussions in class, and on Slack
-Homework assignments: 70%
-Final Project/ Final Exam: 25%
+* **Class Attendance and Participation: 5%**
+  * Participation includes discussions in class, on Slack, and providing feedback on student presentations
+  * *If you plan on attending class asynchronously by watching the recorded lectures, please let me know.*
+* **Homework assignments: 70%**
+  * Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your overall homework grade will be evaluated out of 70 points total.
+* **Final Project / Final Exam: 25%**
+  * See the [CEWA 565 course project page](/overview/b-project.html) for grading rubric.
 
 
-### Schedule
+## Schedule
 
 [UW Academic calendar for 2020-2021](https://www.washington.edu/students/reg/2021cal.html)
 
@@ -134,17 +136,22 @@ Final Project/ Final Exam: 25%
 | --- | --- |  --- | --- | --- |
 | **1** | 10/1 <br /> | Introduction and Course Overview <br /> Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1); Python and Matlab basics: Coding and Plotting | Lab 1: Plotting Random Numbers in Python | |
 | **2** | 10/6 <br /> 10/8 | Confidence Intervals <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches | Lab 2: Hypothesis Testing | 10/8: **HW1 Due** |
-| **3** | 10/13 <br /> 10/15 | Correlation Analysis (H&H Ch 8)Autocorrelation; Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Regression with transformed variables | Lab 3: ANOVA and Regression | 10/5: **HW2 Due** |
+| **3** | 10/13 <br /> 10/15 | Correlation Analysis (H&H Ch 8)Autocorrelation; Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Regression with transformed variables | Lab 3: ANOVA and Regression | 10/15: **HW2 Due** |
 | **4** | 10/20 <br /> 10/22 | Multiple Linear Regression (H&H Ch 11) <br /> Monte Carlo Simulation and Analysis <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> Conditional Probability (Markov Models) | Lab 4: Mann-Kendall and Multiple Linear Regression| 10/22: **HW3 Due** |
 | **5** | 10/27 <br /> 10/29 | Regression with Transformed Variables <br /> Graphics and Visualization (H&H Ch 16) Tips and Tricks  | Lab 5: Regression with Transformed Variables  | 10/29: **HW4 Due** |
 | **6** | 11/3 <br /> 11/5 | Decision Trees; Bayes’ Theorem | Lab 6: Bayesian Statistics  | 11/5: **HW5 Due** |
 | **7** | 11/10 <br /> 11/12 | Applications of Bayes’ Theorem, BaRatin <br /> Lab on BaRatin and Bayesian Rating curves | Lab 7: Markov Chains & Monte Carlo | 11/12: **HW6 Due** |
-| **8** | 11/17 <br /> 11/19 | Principles of EOFs, PCs, Timeseries Analysis <br /> Lab on Applying Empirical Orthogonal Functions (EOFs) and Principal Components (PCs) | Lab 8: SVD and Timeseries Analysis | 11/7: **HW7 Due** |
+| **8** | 11/17 <br /> 11/19 | Principles of EOFs, PCs, Timeseries Analysis <br /> Lab on Applying Empirical Orthogonal Functions (EOFs) and Principal Components (PCs) | Lab 8: SVD and Timeseries Analysis | 11/19: **HW7 Due** |
 | **9** | 11/24 <br /> | Fourier Transforms; Power Spectra, Timeseries analysis <br /> (**11/26 is a holiday**) | Project Work |  |
 | **10** | 12/1 <br /> 12/3 | TBD Guest Lecture; Project Work | Project Work | 12/1: **HW8 Due** <br /> 12/3: **Presentations** |
 | **11** | 12/8 <br /> 12/10 | Data Analysis Applications: Student Presentations | Project Work | 12/8: **Presentations** <br /> 12/10: **Presentations** <br /> 12/14: **CEWA 565 - Final Project Report Due** <br /> 12/14: **CEE 465 - Final Exam Due** |
 
 ## Additional Information
+
+### Campus Community Resources
+
+* [Student Resources](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/student-resources/) from the [UW Graduate Opportunities and Minority Achievement Program](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/).
+* The [Q Center](https://depts.washington.edu/qcenter/wordpress/)
 
 ### Conduct
 
@@ -157,9 +164,11 @@ The University of Washington Student Conduct Code (WAC 478-121) defines prohibit
 
 If you have already established accommodations with Disability Resources for Students (DRS), please communicate your approved accommodations to me at your earliest convenience so we can discuss your needs in this course. If you have not yet established services through DRS, but have a temporary health condition or permanent disability that requires accommodations (conditions include but not limited to; mental health, attention-related, learning, vision, hearing, physical or health impacts), you are welcome to contact DRS at 206-543-8924 or [uwdrs@uw.edu](mailto:uwdrs@uw.edu) or [disability.uw.edu](https://depts.washington.edu/uwdrs/). DRS offers resources and coordinates reasonable accommodations for students with disabilities and/or temporary health conditions.  Reasonable accommodations are established through an interactive process between you, your instructor(s) and DRS.  It is the policy and practice of the University of Washington to create inclusive and accessible learning environments consistent with federal and state law.
 
+
 ### Religious Accommodations
 
 Washington state law requires that UW develop a policy for accommodation of student absences or significant hardship due to reasons of faith or conscience, or for organized religious activities. The UW’s policy, including more information about how to request an accommodation, is available at [Religious Accommodations Policy](https://registrar.washington.edu/staffandfaculty/religious-accommodations-policy/). Accommodations must be requested within the first two weeks of this course using the [Religious Accommodations Request form](https://registrar.washington.edu/students/religious-accommodations-request/).
+
 
 ### Health and Safety
 
