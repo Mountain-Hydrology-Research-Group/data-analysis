@@ -4,8 +4,8 @@
 The goal of the course project is to give you hands on experience dealing with data of particular interest to you, as well as experience writing about and presenting data and statistical information. Ask and answer a question (pose a hypothesis), using a variety of analysis techniques, and clearly address the statistical uncertainty of the answer. Explain your objectives, your data source, your methodology, and your results. Discuss remaining uncertainties.Project will consist of an oral presentation (20% of total) and a written report (80% of total), which will be no longer than 10 pages, including figures.
 
 ```note
-## Sources of help:
-UW has services to help people with statistics (https://www.stat.washington.edu/consulting/) and data analysis (http://escience.washington.edu/dss-hours). These are designed primarily to help graduate students engaged in research (not with homework), but presuming your course project is related to a research interest of yours, they have been very helpful in the past.
+**Sources of help:**
+UW has services to help people with [statistics](https://www.stat.washington.edu/consulting/) and [data analysis](http://escience.washington.edu/dss-hours). These are designed primarily to help graduate students engaged in research (not with homework), but presuming your course project is related to a research interest of yours, they have been very helpful in the past.
 ```
 
 
