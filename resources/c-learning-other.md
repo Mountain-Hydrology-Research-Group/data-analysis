@@ -15,3 +15,7 @@
 ```note
 The UW eScience institute offers [data science office hours](https://escience.washington.edu/office-hours/) which could be useful for your projects or your own research work.
 ```
+
+## More
+
+ * [Writing inclusive documentation](https://developers.google.com/style/inclusive-documentation)
