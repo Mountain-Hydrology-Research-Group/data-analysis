@@ -20,7 +20,7 @@ The course will cover a number of fundamental topics related to data analysis in
 
 The Zoom link to attend lectures and labs, and the link to where recorded lectures can be viewed or downloaded are available via the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required).
 
-**Data Analysis Feedback Form**: Use this form to provide anonymous feedback to the TA and instructor. The link to the form is available via the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required). 
+**Data Analysis Feedback Form**: Use this form to provide anonymous feedback to the TA and instructor. The link to the form is available in the copy of the syllabus on the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required). 
 
 ```note
 ### Guiding principles for this quarter
