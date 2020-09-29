@@ -75,7 +75,7 @@ The UW eScience institute offers [data science office hours](https://escience.wa
 
 ### Computing Resources
 
-For lab activities and assignments, we will be using a [JupyterHub](https://spestana.github.io/data-analysis-rtd/resources/b-learning-jupyter.html) computing environment, and programming with [python](https://spestana.github.io/data-analysis-rtd/resources/a-learning-python.html). (While the course is taught using python, prior versions of the labs in MATLAB are also available by request.)
+For lab activities and assignments, we will be using a [JupyterHub](https://spestana.github.io/data-analysis/resources/b-learning-jupyter.html) computing environment, and programming with [python](https://spestana.github.io/data-analysis/resources/a-learning-python.html). (While the course is taught using python, prior versions of the labs in MATLAB are also available by request.)
 
 If you need access to a laptop computer (such as if yours breaks) you may check one out from the [Student Technology Loan Program](https://stlp.uw.edu/). Please contact me if you need help accessing a computer reliably.
 
@@ -87,7 +87,7 @@ The first half of each class period is reserved for lectures and discussions. We
 
 ### Labs
 
-Following a ~10 minute break after each lecture, we will reconvene in Zoom for the lab portion of the class (this will not be recorded). Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. ([GitHub Option](https://spestana.github.io/data-analysis-rtd/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
+Following a ~5 minute break after each lecture, we will reconvene in Zoom for the lab portion of the class (this will not be recorded). Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. ([GitHub Option](https://spestana.github.io/data-analysis/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
 
 We will use Zoom breakout rooms, and Slack to work in small groups on Lab excercises. As we learn what works and what doesn't in our online learning environment, we'll adapt and modify lab logistics. Contact the instructor or TA to be added to the Slack workspace.
 
