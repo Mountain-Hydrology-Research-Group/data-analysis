@@ -22,6 +22,13 @@ The Zoom link to attend lectures and labs, and the link to where recorded lectur
 
 **Data Analysis Feedback Form**: Use this form to provide anonymous feedback to the TA and instructor. The link to the form is available in the copy of the syllabus on the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required). 
 
+### Learning Objectives
+
+By the end of the course, students should be able to
+ * Understand common terminology in statistics and data analysis and know how to search for more detailed information as needed
+ * Read, modify, and write computer programs to analyze data
+ * Apply statistics and computer-based data analysis techniques to real observations (sets of numbers) in order to solve real world problems
+
 ```note
 ### Guiding principles for this quarter
 1. **Nobody signed up for this.**
@@ -63,13 +70,6 @@ The UW eScience institute offers [data science office hours](https://escience.wa
  * **Recommended**: *Probability and Statistics for Engineering and the Sciences*, Devore, J.L.
  * **Additional Course Materials** are available on the [UW Canvas site](https://canvas.uw.edu/) (UW NetID login required)
 
-
-### Learning Objectives
-
-By the end of the course, students should be able to
- * Understand common terminology in statistics and data analysis and know how to search for more detailed information as needed
- * Read, modify, and write computer programs to analyze data
- * Apply statistics and computer-based data analysis techniques to real observations (sets of numbers) in order to solve real world problems
 
 ## Logistics and Grading
 
