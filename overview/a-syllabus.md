@@ -152,9 +152,10 @@ Final projects will be completed in pairs (or individually on request), and the 
 
 ### Campus Community Resources
 
-* [Student Resources](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/student-resources/) from the [UW Graduate Opportunities and Minority Achievement Program](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/).
+* [Student Resources](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/student-resources/) from the [UW Graduate Opportunities and Minority Achievement Program (GO-MAP)](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/).
 * The [Q Center](https://depts.washington.edu/qcenter/wordpress/)
 * Review the [Husky PACK Pledge](https://www.washington.edu/coronavirus/pack-pledge/) for informaiton about protecting yourselves and others from COVID-19.
+* The [University District Food Bank](https://www.udistrictfoodbank.org/)
 
 ### Conduct
 
