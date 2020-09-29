@@ -57,7 +57,7 @@ The UW eScience institute offers [data science office hours](https://escience.wa
 
 ### Textbooks
 
- * **Required**: *[Statistical Methods in Water Resources](https://pubs.usgs.gov/tm/04/a03/tm4a3.pdf)*, Helsel, et al., 2020 [https://doi.org/10.3133/tm4A3](https://doi.org/10.3133/tm4A3)
+ * **Required**: *[Statistical Methods in Water Resources (PDF)](https://pubs.usgs.gov/tm/04/a03/tm4a3.pdf)*, Helsel, et al., 2020 [https://doi.org/10.3133/tm4A3](https://doi.org/10.3133/tm4A3)
  * **Recommended**: *Probability and Statistics for Engineering and the Sciences*, Devore, J.L.
  * **Additional Course Materials** are available on the [UW Canvas site](https://canvas.uw.edu/) (UW NetID login required)
 
@@ -152,6 +152,7 @@ Final projects will be completed in pairs (or individually on request), and the 
 
 * [Student Resources](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/student-resources/) from the [UW Graduate Opportunities and Minority Achievement Program](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/).
 * The [Q Center](https://depts.washington.edu/qcenter/wordpress/)
+* Review the [Husky PACK Pledge](https://www.washington.edu/coronavirus/pack-pledge/) for informaiton about protecting yourselves and others from COVID-19.
 
 ### Conduct
 
@@ -167,14 +168,14 @@ If you have already established accommodations with Disability Resources for Stu
 
 ### Religious Accommodations
 
-Washington state law requires that UW develop a policy for accommodation of student absences or significant hardship due to reasons of faith or conscience, or for organized religious activities. The UW’s policy, including more information about how to request an accommodation, is available at [Religious Accommodations Policy](https://registrar.washington.edu/staffandfaculty/religious-accommodations-policy/). Accommodations must be requested within the first two weeks of this course using the [Religious Accommodations Request form](https://registrar.washington.edu/students/religious-accommodations-request/).
+Washington state law requires that UW develop a policy for accommodation of student absences or significant hardship due to reasons of faith or conscience, or for organized religious activities. The UW’s policy, including more information about how to request an accommodation, is available at [Religious Accommodations Policy (https://registrar.washington.edu/staffandfaculty/religious-accommodations-policy/)](https://registrar.washington.edu/staffandfaculty/religious-accommodations-policy/). Accommodations must be requested within the first two weeks of this course using the [Religious Accommodations Request form (https://registrar.washington.edu/students/religious-accommodations-request/)](https://registrar.washington.edu/students/religious-accommodations-request/).
 
 
 ### Health and Safety
 
 Call SafeCampus at 206-685-7233 (206-685-SAFE) anytime – no matter where you work or study – to anonymously discuss safety and well-being concerns for yourself or others. SafeCampus’s team of caring professionals will provide individualized support, while discussing short- and long-term solutions and connecting you with additional resources when requested.
 
-The [UW Counseling Center](https://www.washington.edu/counseling/) is also a good resource (206-543-1240). University of Washington students are eligible for services at the Counseling Center. Also see their [flyer](https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/31/2020/03/10140856/Coping-with-COVID-19-Related-Stress5.pdf) for tips on coping with COVID-19 related stress. 
+Mental health resources are available at [wellbeing.uw.edu](https://wellbeing.uw.edu/topic/mental-health/). The [UW Counseling Center](https://www.washington.edu/counseling/) is also a good resource (206-543-1240). University of Washington students are eligible for services at the Counseling Center. Also see their [flyer](https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/31/2020/03/10140856/Coping-with-COVID-19-Related-Stress5.pdf) for tips on coping with COVID-19 related stress. While our class is not in-person or on campus, please review the [COVID-19 face cover policy](https://www.ehs.washington.edu/system/files/resources/COVID-19-face-cover-policy.pdf) if you are spending time on campus this quarter.
 
 Additionally, if you’re thinking about suicide, are worried about a friend or loved one, or would like emotional support, the Lifeline network is available 24/7 across the United States: National Suicide Prevention Lifeline (1-800-273-8255), Forefront Suicide Prevention (866-598-3978), and Crisis Text Line (741741). If the person you are concerned about is in immediate danger of killing them self and/or refuses to stay safe with you, call or text 911.
 
