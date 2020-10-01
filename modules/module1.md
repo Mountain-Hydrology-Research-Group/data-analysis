@@ -40,9 +40,13 @@ Download the files containing observed instantaneous peak flow data for the [Sau
   
  C. Based on all the plots you have now created, write few sentences in a markdown cell discussing whether or not you think a change has occurred in the peak flows around 1975. Be sure to reference your plots (Fig. 1, Fig. 2, etc.) when you discuss them.
 
+---
 
+## In-class activity
 
-### In-class activity: Fun with fake data!
+We'll do this activity in class, either as a whole or in groups. (This is not part of your homework assignment)
+
+### Fun with fake data!
 
 One of the most reliable tests of any statistical method or technique is to try it out on data where you know the answer to see if the methodology gives you the result you expect. The best way to get data that truly understand is to make it up yourself.
 
