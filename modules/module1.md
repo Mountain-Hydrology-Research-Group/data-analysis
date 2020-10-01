@@ -4,7 +4,7 @@
 ```note
 ## Lab 1: Plotting Random Numbers in Python
 
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](resources/b-learning-jupyter.html#jupyterhub).
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](../resources/b-learning-jupyter.html#jupyterhub).
 
 * [Lab 1-0: Python tips](lab1/lab1-0.ipynb)
 * [Lab 1-1: Plotting Data in Python](lab1/lab1-1.ipynb)
