@@ -1,4 +1,4 @@
-# Week 3: Correlation, Regression
+# 3) Correlation, Regression
 
 
 ```note

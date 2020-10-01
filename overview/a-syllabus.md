@@ -96,7 +96,7 @@ We will use Zoom breakout rooms, and Slack to work in small groups on Lab excerc
 
 Homework assignments will be given out on Thursday at the beginning of class, and will be **due the following week on Thursday at the beginning of class (10:30 am, Pacific Time)**. Homework questions are posted on the class website along with links to any data files you might need.
 
-You are encouraged to work together on homeworks and collaborate, but you must turn in your own assignments with your own work. If you are working with a group, please specify who you worked with on the homework document you turn in.
+You are encouraged to work together on homeworks and collaborate, but you must turn in your own assignments with your own work. 
 
 Make sure that your name and the assignment number are at the top of your notebook file in markdown text. Your answers should be clearly labeled and written in markdown cells of the notebook.
 
@@ -156,10 +156,13 @@ Final projects will be completed in pairs (or individually on request), and the 
 * The [Q Center](https://depts.washington.edu/qcenter/wordpress/)
 * Review the [Husky PACK Pledge](https://www.washington.edu/coronavirus/pack-pledge/) for informaiton about protecting yourselves and others from COVID-19.
 * The [University District Food Bank](https://www.udistrictfoodbank.org/)
+* King County COVID-19 [Child Care Financial Support](https://www.kingcounty.gov/depts/community-human-services/COVID/child-care.aspx)
 
 ### Conduct
 
 The University takes academic integrity very seriously. Behaving with integrity is part of our responsibility to our shared learning community. One example of misconduct I have observed in this particular class in the past is plagiarism (representing the work of others as your own without giving appropriate credit to the original author(s)). **If you’re uncertain about if something is academic misconduct, ask me. I am willing to discuss questions you might have.**
+
+(Community Standards & Student Conduct)[https://www.washington.edu/cssc/]
 
 The University of Washington Student Conduct Code (WAC 478-121) defines prohibited academic and behavioral conduct and describes how the University holds students accountable as they pursue their academic goals. Allegations of misconduct by students may be referred to the appropriate campus office for investigation and resolution. More information can be found online at [https://www.washington.edu/studentconduct/](https://www.washington.edu/studentconduct/)
 

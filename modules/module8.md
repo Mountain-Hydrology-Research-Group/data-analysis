@@ -1,4 +1,4 @@
-# Week 8: SVD, Timeseries Analysis
+# 8) SVD, Timeseries Analysis
 
 
 ```note
