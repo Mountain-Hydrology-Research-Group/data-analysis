@@ -1,4 +1,4 @@
-# Week 4: Trend Analysis, Regression
+# 4) Trend Analysis, Regression
 
 
 ```note

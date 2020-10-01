@@ -1,4 +1,4 @@
-# Week 5: Regression, Data Visualization
+# 5) Regression, Data Visualization
 
 ```note
 ## Lab 5: Regression with Transformed Variables

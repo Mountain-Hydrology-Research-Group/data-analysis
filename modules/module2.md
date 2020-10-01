@@ -1,4 +1,4 @@
-# Week 2: Hypothesis Testing
+# 2) Hypothesis Testing
 
 
 ```note

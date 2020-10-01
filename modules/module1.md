@@ -1,4 +1,4 @@
-# Week 1: Python, Statistics Review
+# 1) Python, Statistics Review
 
 
 ```note
