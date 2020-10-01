@@ -42,11 +42,10 @@ Download the files containing observed instantaneous peak flow data for the [Sau
 
 ---
 
-## In-class activity
+```note
+## In-class activity: Fun with fake data!
 
-We'll do this activity in class, either as a whole or in groups. (This is not part of your homework assignment)
-
-### Fun with fake data!
+We'll do this activity together in class, either as a whole or in smaller breakout groups. (This is not part of your homework assignment)
 
 One of the most reliable tests of any statistical method or technique is to try it out on data where you know the answer to see if the methodology gives you the result you expect. The best way to get data that truly understand is to make it up yourself.
 
@@ -58,3 +57,4 @@ One of the most reliable tests of any statistical method or technique is to try 
 
  D. Discuss the difference between a sample population and the true population.
 
+```
