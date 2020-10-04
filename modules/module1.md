@@ -1,5 +1,8 @@
 # 1) Python, Statistics Review
 
+- [Graphical Data Analysis](lab1/graphical-data-analysis.ipynb)
+
+---
 
 ```note
 ## Lab 1: Plotting Random Numbers in Python
@@ -15,6 +18,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 ```
 
+---
 
 ## Homework 1
 
@@ -45,7 +49,7 @@ Download the files containing observed instantaneous peak flow data for the [Sau
 ```note
 ## In-class activity: Fun with fake data!
 
-We'll do this activity together in class, either as a whole or in smaller breakout groups. (This is not part of your homework assignment)
+We'll do this activity together in class, either as a whole or in smaller breakout groups. (**This is not part of your homework assignment**)
 
 One of the most reliable tests of any statistical method or technique is to try it out on data where you know the answer to see if the methodology gives you the result you expect. The best way to get data that truly understand is to make it up yourself.
 
