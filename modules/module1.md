@@ -9,10 +9,11 @@
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](../resources/b-learning-jupyter.html#jupyterhub).
 
-
+* Download this data file for the lab activities: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
 * [Lab 1-1: Plotting Data in Python](lab1/lab1-1.ipynb)
-  * Data: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
 * [Lab 1-2: Generating Random Numbers in Python](lab1/lab1-2.ipynb)
+
+Some extra helpful activities:
 * [Numpy Tutorial](lab1/numpy-tutorial.ipynb)
 * [Some more python tips](lab1/some-python-tips.ipynb)
 
