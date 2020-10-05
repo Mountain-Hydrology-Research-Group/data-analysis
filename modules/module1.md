@@ -1,6 +1,7 @@
 # 1) Python, Statistics Review
 
 - [Graphical Data Analysis](lab1/graphical-data-analysis.ipynb)
+- [Probability Distributions](lab1/probability-distributions.ipynb)
 
 ---
 
