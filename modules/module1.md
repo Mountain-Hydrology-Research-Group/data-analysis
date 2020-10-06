@@ -1,6 +1,6 @@
 # 1) Python, Statistics Review
 
-- [Graphical Data Analysis](lab1/graphical-data-analysis.ipynb)
+- [Graphical Data Analysis](lab1/graphical-data-analysis.ipynb) with this [sample data set](data/my_data.csv)
 - [Probability Distributions](lab1/probability-distributions.ipynb)
 - [Empirical Distributions](lab1/empirical-distributions.ipynb)
 
