@@ -32,7 +32,7 @@ D. Now test the significance of the change in the mean between the two sample pe
 
 E. Lastly test for statistical significance of a change in the standard deviation. Even though it is not strictly true, assume for the moment that the sample data are derived from a normally distributed population. (We will follow up on the importance of this assumption in problem 2.) Use a single sample test (with rejection region based on the Chi Squared distribution). Assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.
 
-### Problem 2: Course Project Selection (Graduate Students)
+### Problem 2: Course Project Selection (CEWA 565)
 
 Write a brief paragraph (3-9 sentences) describing your term project. Include the name of your partner (or specify you will be doing the project alone), the data you will analyze, and which question(s) you will answer. Which statistical tools will you use? If you have a hypothesis to test, write it down. **If you have questions about the project, now is the time to talk to the instructor.**
 
