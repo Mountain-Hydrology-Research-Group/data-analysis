@@ -132,7 +132,9 @@ Final projects will be completed in pairs (or individually on request), and the 
 
 ## Schedule
 
-**Note:** This schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the updated schedule.
+```note
+This schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the updated schedule.
+```
 
 [UW Academic calendar for 2020-2021](https://www.washington.edu/students/reg/2021cal.html)
 
