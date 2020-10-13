@@ -8,7 +8,7 @@
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
 * Data: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx) 
-* [Lab 2-1: Hypothesis Testing](lab2/lab2-1.ipynb)
+* [Lab 2-1: Hypothesis Testing](lab2/lab2-1.ipynb)  ([Solution to Lab 2-1 activity](lab2/lab2-1_solution.ipynb))
 * [Lab 2-2: More Hypothesis Testing](lab2/lab2-2.ipynb)
 * [Lab 2-3: Monte Carlo Tests](lab2/lab2-3.ipynb)
 
