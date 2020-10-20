@@ -17,7 +17,6 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 ```
 
 
-
 ## Homework 3: 
 
 ### Problem 1
