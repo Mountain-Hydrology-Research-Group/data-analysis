@@ -1,6 +1,7 @@
 # 2) Hypothesis Testing
 
 - [Confidence Intervals](lab2/confidence-intervals.ipynb) with our [snow depth guesses](data/snow_depth_guesses.csv)
+- [Non-parametric test examples](lab2/non-parametric-tests.ipynb)
 
 ```note
 ## Lab 2: Hypothesis Testing
