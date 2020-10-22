@@ -1,4 +1,4 @@
-# 3) Correlation, Regression
+# 3) ANOVA
 
 
 ```note
