@@ -1,4 +1,4 @@
-# 3) ANOVA
+# 3) Analysis of Variance
 
 
 ```note
