@@ -1,6 +1,5 @@
 # 3) Analysis of Variance
 
-
 ```note
 ## Lab 3: ANOVA
 
@@ -40,3 +39,14 @@ We want to know whether the four periods are statistically different from each o
  **D.** Perform an ANOVA test and discuss the results, related both to your hypothesis test listed above and to the more detailed question of which groups are statistically different from which other groups. Include graphs and/or tables that illustrate your results, and be sure to discuss what they mean. When using these ANOVA and other statistics functions, be sure that you understand what the code is doing (especially the defaults that different functions use) and outputting.
  
  
+### Problem 2
+
+Download and work through the [non-parametric tests](lab3/non-parametric-tests.ipynb) notebook. Read the documentation and source code for the [scipy.stats.ranksums](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html) and [scipy.stats.mannwhitneyu](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html) functions.
+
+Then answer the following questions:
+
+**A.** What assumptions about our data or the hypothesis test are these functions making? 
+
+**B.** Are there any additional inputs/options we need to specify to make sure that they duplicate our results above?
+
+**C.** Revisit Homework 2 part D (the Wilcoxon Rank-sum Test). Perform the test from Homework 2 part D again using the fuction(s) and options you identified here in part B. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
