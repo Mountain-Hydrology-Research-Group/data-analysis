@@ -48,3 +48,5 @@ Then answer the following questions:
 **A.** What assumptions about our data or the hypothesis test are these functions making? 
 
 **B.** Are there any additional inputs/options we need to specify to make sure that they duplicate our results above?
+
+**C.** Revisit Homework 2 part D (the Wilcoxon Rank-sum Test). Perform the test again using the fuction(s) and options you identified in part B. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
