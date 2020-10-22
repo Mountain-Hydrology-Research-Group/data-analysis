@@ -2,16 +2,12 @@
 
 
 ```note
-## Lab 3: ANOVA and Regression
+## Lab 3: ANOVA
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
 * [Lab 3-1: ANOVA](lab3/lab3-1.ipynb)
   * data: [ANOVA_fertilizer_treatment.txt](data/ANOVA_fertilizer_treatment.txt)
-* [Lab 3-2: Regression](#)
-  * data: [pillows_example.csv](data/pillows_example.csv)
-* [Lab 3-3: Quantile Regression Modeling](#)
-* [Lab 3-4: Confidence Intervals](#)
 
 
 ```
@@ -43,19 +39,4 @@ We want to know whether the four periods are statistically different from each o
  
  **D.** Perform an ANOVA test and discuss the results, related both to your hypothesis test listed above and to the more detailed question of which groups are statistically different from which other groups. Include graphs and/or tables that illustrate your results, and be sure to discuss what they mean. When using these ANOVA and other statistics functions, be sure that you understand what the code is doing (especially the defaults that different functions use) and outputting.
  
-### Problem 2
- 
-Download the Dalles peak flow data.
- 
-USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 1878 and continues to the present day (one of the longest continuous records in the U.S.). Peak flow records (based on peak stage values recorded by railroad workers), however, extend back even farther, to 1858. Using coincident peak flow records from 1879-1932 (a period with no major storage dams on the Columbia):
-
- **A.** First, isolate the period of relevant overlap (1879-1932) and plot the timeseries. Create a regression model for annual flow using spring peak flow as an explanatory variable.
- 
- **B.** How much of the variance is explained by the resulting model?
- 
- **C.** Estimate the 95% confidence bounds for the annual flow estimates from 1858- 1877, and plot them with the central tendency (the prediction from the regression model).
- 
- **D.** Now create a non-parametric, quantile-based regression model using the same data.
- 
- **E.** Plot the predictions and residuals for the two different prediction models for the training period (1879-1932) and plot the model predictions for the pre-1878 data for the two different models. Is there a substantial difference between the two model formulations?
  
