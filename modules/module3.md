@@ -49,4 +49,4 @@ Then answer the following questions:
 
 **B.** Are there any additional inputs/options we need to specify to make sure that they duplicate our results above?
 
-**C.** Revisit Homework 2 part D (the Wilcoxon Rank-sum Test). Perform the test from Homework 2 part D again using the fuction(s) and options you identified here in part B. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
+**C.** Revisit Homework 2 part D, using the [observations of peak flow data for the Sauk River](data/Sauk_peak_WY1929_2017.xlsx) to try and detect a change in streamflow around 1977. Perform the rank-sum test from Homework 2 part D again using the fuction(s) and options you identified here in part B. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
