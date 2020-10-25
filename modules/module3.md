@@ -23,10 +23,10 @@ Here we want to test whether the difference in peak flows between WS1 and WS2 is
 
 | Time Period | Years | `Index12` "treatment" label | Notes |
 | ----------- | --------------- | --------------- | --------------- |
-| control | 1953-1962 | 1 | before any clearcutting in WS2 |
-| active clearcutting | 1963-1966 | 2 | during clearcutting of WS2 |
-| 0-15 years after clearcutting | 1967-1981 | 3 | when we the forest starts to recover |
-| >15 years after clearcutting | 1982-2015 | 4 | when the forest is recovering further |
+| control | 1953-1962 | 1 | before any clearcutting in WS1 |
+| active clearcutting | 1963-1966 | 2 | during clearcutting of WS1 |
+| 0-15 years after clearcutting | 1967-1981 | 3 | forest starts to recover |
+| >15 years after clearcutting | 1982-2015 | 4 | forest recovering further |
 
 We want to know whether the four periods are statistically different from each other, and if so, which one or ones are statistically different from which other ones.
 
