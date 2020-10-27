@@ -1,19 +1,36 @@
 # 5) Regression, Data Visualization
 
 ```note
-## Lab 5: Regression with Transformed Variables
+## Lab 5: Multiple Linear Regression & Regression with Transformed Variables
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 5-1: Regression with Transformed Variables](lab5/lab5-1.ipynb)
-* [Lab 5-2: Making Interactive Plots](lab5/lab5-2.ipynb)
-
+* [Lab 5-1: Making Interactive Plots](#)
+* [Lab 5-2: Multiple Linear Regression](#)
+* [Lab 5-3: Regression with Transformed Variables](#)
 
 ```
 
 ## Homework 5
 
-### Problem 1: Calculating a rating curve and associated uncertainty
+### Problem 1:
+
+Continue using the cascades_swe dataset for this problem. Begin by making scatterplots of each of these variables vs. all the other variables. One nice way to do this is as illustrated in Helsel and Hirsch Figure 2.39 on page 61 – this is not required, you can plot in whatever way works best for you.
+
+ **A.** Calculate the correlation (R) between April 1 SWE and the three meteorological variables (precipitation, max. temperature and min. temperature), and also between all unique combinations of the meteorological variables.
+ 
+ **B.** Calculate the autocorrelation in precipitation, maximum temperature and minimum temperature. Can we consider each of these values to be an independent sample? Or do some of them depend on the prior year’s sample?
+
+```tip
+In part **B**, we can test for autocorrelation at different lags, but not for any lag longer than a quarter of the length of the data series. Therefore, test for lags from 1 to N/4, where N is the length of the data series. Determine at which of these lags the autocorrelation is different than 0 with 95% confidence.
+```
+
+ **C.** Fit a multiple linear regression model to the data, using all three meteorological variables to predict April 1 SWE. Also calculate the trend in each meteorological variable. Estimate the overall trend in SWE, and trend due to each meteorological variable alone. How much of the overall trend is due to the combined effects of trends in both tmax and tmin?
+
+ **D.** Finally carry out a Mann-Kendall test on the 1950-2003 April 1 SWE data. Is the trend significant according to this test? Compare your answer with your regression analysis for the same data in Problem 2B. **Note:** For this problem you do not need to worry about the tie statistic.
+
+
+### Problem 2: Calculating a rating curve and associated uncertainty
 
 Download Tuolumne_120_stage_Q_2002_2018_forclass.csv (also available in the data folder or the Homework 4 folder on the class Canvas website). Make a scatter plot of stage (in cm) vs. discharge (in cms). You may want to look at Venetis_1970.pdf (also available in the Readings/Rating_Curve_Analysis folder on Canvas). 
 
@@ -23,11 +40,11 @@ Now, assume that we don’t know at what level flow stops. Repeat the above for 
 
 The data provided in the file also have uncertainty associated with them. Describe in a couple sentences how you would account for this uncertainty. (Note that you do not need to do more calculations. Just write a couple sentences about things you might do.)
 
-### Problem 2: The best graphics
+### Problem 3: The best graphics
  
 One of our greatest challenges in data analysis is to be able to visualize the information in the data and convey that information to others. Consider various scientific papers you have read (on any subject related to water or air) and pick out your favorite graphical representation of data (e.g., the best figure). Paste your top two choices here with a brief statement of why you chose these. 
 
-### Problem 3: Project Update (Graduate Students)
+### Problem 4: Project Update (Graduate Students)
 
 Provide an update on your term project. By now you should have acquired all of the data you need for your term project.
 

@@ -1,7 +1,7 @@
 # 3) Analysis of Variance
 
 ```note
-## Lab 3: ANOVA
+## Lab 3: Analysis of Variance
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
