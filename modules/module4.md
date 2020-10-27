@@ -2,7 +2,7 @@
 
 
 ```note
-## Lab 4: Mann-Kendall and Multiple Linear Regression
+## Lab 4: Regression and Trend Tests
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
@@ -11,7 +11,6 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 * [Lab 4-2: Quantile Regression](lab4/lab4-2.ipynb)
 * [Lab 4-3: Confidence Intervals](#)
 * [Lab 4-4: Mann-Kendall Trend Tests](#)
-* [Lab 4-5: Multiple Linear Regression](#)
 
 ```
 
@@ -48,27 +47,4 @@ Trend = X ± Y
 
  **B.** Is the trend statistically significant with 95% confidence? I.e. can we reject the null hypothesis that the trend is equal to zero?
     Repeat this analysis for only the more recent period 1950-2003.
-
-
-
-### Problem 3:
-
-Continue using the cascades_swe dataset for this problem. Begin by making scatterplots of each of these variables vs. all the other variables. One nice way to do this is as illustrated in Helsel and Hirsch Figure 2.39 on page 61 – this is not required, you can plot in whatever way works best for you.
-
- **A.** Calculate the correlation (R) between April 1 SWE and the three meteorological variables (precipitation, max. temperature and min. temperature), and also between all unique combinations of the meteorological variables.
- 
- **B.** Calculate the autocorrelation in precipitation, maximum temperature and minimum temperature. Can we consider each of these values to be an independent sample? Or do some of them depend on the prior year’s sample?
-
-```tip
-In part **B**, we can test for autocorrelation at different lags, but not for any lag longer than a quarter of the length of the data series. Therefore, test for lags from 1 to N/4, where N is the length of the data series. Determine at which of these lags the autocorrelation is different than 0 with 95% confidence.
-```
-
- **C.** Fit a multiple linear regression model to the data, using all three meteorological variables to predict April 1 SWE. Also calculate the trend in each meteorological variable. Estimate the overall trend in SWE, and trend due to each meteorological variable alone. How much of the overall trend is due to the combined effects of trends in both tmax and tmin?
-
- **D.** Finally carry out a Mann-Kendall test on the 1950-2003 April 1 SWE data. Is the trend significant according to this test? Compare your answer with your regression analysis for the same data in Problem 2B. **Note:** For this problem you do not need to worry about the tie statistic.
-
-
-
-
-
 
