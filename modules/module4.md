@@ -6,14 +6,12 @@
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab: Regression](#)
-  * data: [pillows_example.csv](data/pillows_example.csv)
-* [Lab: Quantile Regression Modeling](#)
-* [Lab: Confidence Intervals](#)
-
-* [Lab 4-1: Mann-Kendall](lab4/lab4-1.ipynb)
-  * data: [pillows_example.csv](data/pillows_example.csv)
-* [Lab 4-2: Correlation, Multiple Linear Regression](lab4/lab4-2.ipynb)
+* Data: Annual peak snow water equivalent as measured at two snow-pillow sites [pillows_example.csv](data/pillows_example.csv) ([What is Snow Water Equivalent?](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833))
+* [Lab 4-1: Linear Regression](lab4/lab4-1.ipynb)
+* [Lab 4-2: Quantile Regression](lab4/lab4-2.ipynb)
+* [Lab 4-3: Confidence Intervals](#)
+* [Lab 4-4: Mann-Kendall Trend Tests](#)
+* [Lab 4-5: Multiple Linear Regression](#)
 
 ```
 
@@ -21,20 +19,20 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 ## Homework 4
 
 ### Problem 1
- 
-Download the Dalles peak flow data.
- 
-USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 1878 and continues to the present day (one of the longest continuous records in the U.S.). Peak flow records (based on peak stage values recorded by railroad workers), however, extend back even farther, to 1858. Using coincident peak flow records from 1879-1932 (a period with no major storage dams on the Columbia):
 
- **A.** First, isolate the period of relevant overlap (1879-1932) and plot the timeseries. Create a regression model for annual flow using spring peak flow as an explanatory variable.
+Download the [streamflow records for the Columbia River](data/dalles_flow.xlsx)
+ 
+USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 1878 and continues to the present day (one of the longest continuous records in the U.S.). Peak flow records extend back to 1858 (based on peak stage values recorded by railroad workers). Using the coincident peak flow records from 1879-1932 (also a period with no major storage dams on the Columbia), create models to predict annual flow for years 1858-1877:
+
+ **A.** Isolate the period of relevant overlap (1879-1932) and plot the timeseries. Create a linear regression model for annual flow using peak flow as an explanatory variable.
  
  **B.** How much of the variance is explained by the resulting model?
  
- **C.** Estimate the 95% confidence bounds for the annual flow estimates from 1858- 1877, and plot them with the central tendency (the prediction from the regression model).
+ **C.** Estimate the 95% confidence intervals for the annual flow estimates from 1858-1877, and plot them with the central tendency (the central tendency is the prediction from the regression model).
  
  **D.** Now create a non-parametric, quantile-based regression model using the same data.
  
- **E.** Plot the predictions and residuals for the two different prediction models for the training period (1879-1932) and plot the model predictions for the pre-1878 data for the two different models. Is there a substantial difference between the two model formulations?
+ **E.** Plot the predictions and residuals for the two different prediction models for the training period (1879-1932), and plot the model predictions for the 1858-1877 data for the two different models. Is there a substantial difference between the two model formulations? Discuss any differences that you observe.
  
 
 
