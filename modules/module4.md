@@ -19,7 +19,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 ### Problem 1
 
-Download the [streamflow records for the Columbia River](data/dalles_flow.xlsx)
+Download the [streamflow records for the Columbia River](data/dalles_flow.csv)
  
 USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 1878 and continues to the present day (one of the longest continuous records in the U.S.). Peak flow records extend back to 1858 (based on peak stage values recorded by railroad workers). Using the coincident peak flow records from 1879-1932 (also a period with no major storage dams on the Columbia), create models to predict annual flow for years 1858-1877:
 
@@ -48,3 +48,7 @@ Trend = X ± Y
  **B.** Is the trend statistically significant with 95% confidence? I.e. can we reject the null hypothesis that the trend is equal to zero?
     Repeat this analysis for only the more recent period 1950-2003.
 
+
+### Problem 3: The best graphics
+ 
+One of our greatest challenges in data analysis is to be able to visualize the information in the data and convey that information to others. Consider various scientific papers you have read (on any subject related to your scientific/engineering discipline) and pick out your favorite graphical representation of data (e.g., the best figure). Include your top two choices in your homework submission with a brief statement of why you chose these figures. We'll ask folks to share their favorites in class.
