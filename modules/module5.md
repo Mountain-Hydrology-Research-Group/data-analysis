@@ -40,11 +40,8 @@ Now, assume that we don’t know at what level flow stops. Repeat the above for 
 
 The data provided in the file also have uncertainty associated with them. Describe in a couple sentences how you would account for this uncertainty. (Note that you do not need to do more calculations. Just write a couple sentences about things you might do.)
 
-### Problem 3: The best graphics
- 
-One of our greatest challenges in data analysis is to be able to visualize the information in the data and convey that information to others. Consider various scientific papers you have read (on any subject related to water or air) and pick out your favorite graphical representation of data (e.g., the best figure). Paste your top two choices here with a brief statement of why you chose these. 
 
-### Problem 4: Project Update (Graduate Students)
+### Problem 3: Project Update (Graduate Students)
 
 Provide an update on your term project. By now you should have acquired all of the data you need for your term project.
 
