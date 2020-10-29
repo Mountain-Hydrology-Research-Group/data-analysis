@@ -9,7 +9,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 * Data: Annual peak snow water equivalent as measured at two snow-pillow sites [pillows_example.csv](data/pillows_example.csv) ([What is Snow Water Equivalent?](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833))
 * [Lab 4-1: Linear Regression](lab4/lab4-1.ipynb)
 * [Lab 4-2: Quantile Regression](lab4/lab4-2.ipynb)
-* [Lab 4-3: Confidence Intervals](#)
+* [Lab 4-3: Confidence Intervals](lab4/lab4-3.ipynb)
 * [Lab 4-4: Mann-Kendall Trend Tests](#)
 
 ```
@@ -27,7 +27,7 @@ USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 
  
  **B.** How much of the variance is explained by the resulting model?
  
- **C.** Estimate the 95% confidence intervals for the annual flow estimates from 1858-1877, and plot them with the central tendency (the central tendency is the prediction from the regression model).
+ **C.** Estimate the 95% confidence intervals for the annual flow predictions from 1858-1877, and plot them with the central tendency (the central tendency is the prediction from the regression model).
  
  **D.** Now create a non-parametric, quantile-based regression model using the same data.
  
