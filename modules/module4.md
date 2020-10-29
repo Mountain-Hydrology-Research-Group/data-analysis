@@ -17,7 +17,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 ## Homework 4
 
-### Problem 1
+### Problem 1: Linear and Quantile Regression
 
 Download the [streamflow records for the Columbia River](data/dalles_flow.csv)
  
@@ -35,7 +35,7 @@ USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 
  
 
 
-### Problem 2
+### Problem 2: Trend Analysis
 
 Download the [cascades_swe.xlsx data file](data/cascades_swe.xlsx).
 
