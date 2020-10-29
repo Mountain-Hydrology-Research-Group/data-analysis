@@ -37,16 +37,15 @@ USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 
 
 ### Problem 2
 
-Download the datafile cascades_swe available here (.xlsx) or from the data folder on the class Canvas website (.xlsx or .mat). 
+Download the [cascades_swe.xlsx data file](data/cascades_swe.xlsx).
 
-The data in the first three columns are values for total precipitation (mm), daily maximum temperature (°C ), and daily minimum temperature (°C) averaged from October-March over the Pacific Northwest Cascades in WA in OR. The fourth column is an estimate of April 1 snow water equivalent (in mm, the water content of the snowpack) from model simulations, averaged over the same domain.
+The first column is the water year, and data in the next three columns are values for total precipitation (mm), daily maximum temperature (°C), and daily minimum temperature (°C) averaged from October-March over the Pacific Northwest Cascades in Washington and Oregon. The last column is an estimate of April 1st snow water equivalent (in mm, the water content of the snowpack on this day) from model simulations, averaged over the same domain.
 
- **A.** Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data. Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1. That is:
+ **A.** Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data. Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1. That is, report the trend as: Trend = X ± Y
 
-Trend = X ± Y
+ **B.** Is the trend statistically significant with 95% confidence? Can we reject the null hypothesis that the trend is equal to zero?
 
- **B.** Is the trend statistically significant with 95% confidence? I.e. can we reject the null hypothesis that the trend is equal to zero?
-    Repeat this analysis for only the more recent period 1950-2003.
+ **C.** Repeat this analysis (parts A and B) for just the more recent period, 1950-2003. Discuss any similarities or differences in the results of the two time periods.
 
 
 ### Problem 3: The best graphics
