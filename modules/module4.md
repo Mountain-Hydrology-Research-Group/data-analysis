@@ -10,7 +10,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 * [Lab 4-1: Linear Regression](lab4/lab4-1.ipynb)
 * [Lab 4-2: Quantile Regression](lab4/lab4-2.ipynb)
 * [Lab 4-3: Confidence Intervals](lab4/lab4-3.ipynb)
-* [Lab 4-4: Mann-Kendall Trend Tests](#)
+* [Lab 4-4: Mann-Kendall Trend Tests](lab4/lab4-4.ipynb)
 
 ```
 
