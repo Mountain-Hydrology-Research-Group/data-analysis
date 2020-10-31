@@ -41,7 +41,10 @@ Download the [cascades_swe.xlsx data file](data/cascades_swe.xlsx).
 
 The first column is the water year, and data in the next three columns are values for total precipitation (mm), daily maximum temperature (°C), and daily minimum temperature (°C) averaged from October-March over the Pacific Northwest Cascades in Washington and Oregon. The last column is an estimate of April 1st snow water equivalent (in mm, the water content of the snowpack on this day) from model simulations, averaged over the same domain.
 
- **A.** Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data. Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1. That is, report the trend as: Trend = B1 ± t*sB1
+ **A.** Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data. Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1. That is, report the trend as: 
+$$
+\hat{B}_1 \pm t_{\frac{\alpha}{2},n-2} \cdot s_{B_1} 
+$$
 
  **B.** Is the trend statistically significant with 95% confidence? Can we reject the null hypothesis that the trend is equal to zero?
 
