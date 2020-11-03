@@ -5,15 +5,16 @@
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 5-1: Making Interactive Plots](#)
-* [Lab 5-2: Multiple Linear Regression](#)
-* [Lab 5-3: Regression with Transformed Variables](#)
+* [Interactive Plots](lab5/interactive-plots.ipynb)
+* [Warming Stripes Figure](lab5/warming-stripes.ipynb)
+* [Lab 5-1: Multiple Linear Regression](#)
+* [Lab 5-2: Regression with Transformed Variables](#)
 
 ```
 
 ## Homework 5
 
-### Problem 1:
+### Problem 1: Correlation, Autocorrelation, Multiple Linear Regression
 
 Continue using the cascades_swe dataset for this problem. Begin by making scatterplots of each of these variables vs. all the other variables. One nice way to do this is as illustrated in Helsel and Hirsch Figure 2.39 on page 61 – this is not required, you can plot in whatever way works best for you.
 
