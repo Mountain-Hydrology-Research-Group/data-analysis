@@ -43,6 +43,7 @@ The first column is the water year, and data in the next three columns are value
 
  **A.** Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data. Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1. That is, report the trend as: Trend = B1 ± t*sB1
 
+
  **B.** Is the trend statistically significant with 95% confidence? Can we reject the null hypothesis that the trend is equal to zero?
 
  **C.** Repeat this analysis (parts A and B) for just the more recent period, 1950-2003. Discuss any similarities or differences in the results of the two time periods.
