@@ -5,7 +5,7 @@
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Interactive Plots](lab5/interactive-plots.ipynb)
+* [Interactive Plots](lab5/interactive-plots.ipynb) with [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat)
 * [Warming Stripes Figure](lab5/warming-stripes.ipynb)
 * [Lab 5-1: Multiple Linear Regression](#)
 * [Lab 5-2: Regression with Transformed Variables](#)
