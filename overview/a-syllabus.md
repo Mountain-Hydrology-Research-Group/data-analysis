@@ -140,17 +140,18 @@ This schedule is subject to change throughout the quarter. Check assignment due 
 
 | Week | Lecture Dates | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
-| **1** | 10/1 <br /> | Introduction and Course Overview <br /> Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1); Python and Matlab basics: Coding and Plotting | Lab 1: Plotting Random Numbers in Python | |
-| **2** | 10/6 <br /> 10/8 | Confidence Intervals <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches | Lab 2: Hypothesis Testing | 10/8: **HW1 Due** |
-| **3** | 10/13 <br /> 10/15 | Correlation Analysis (H&H Ch 8)Autocorrelation; Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Regression with transformed variables | Lab 3: ANOVA and Regression | 10/15: **HW2 Due** |
-| **4** | 10/20 <br /> 10/22 | Multiple Linear Regression (H&H Ch 11) <br /> Monte Carlo Simulation and Analysis <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> Conditional Probability (Markov Models) | Lab 4: Mann-Kendall and Multiple Linear Regression| 10/22: **HW3 Due** |
-| **5** | 10/27 <br /> 10/29 | Regression with Transformed Variables <br /> Graphics and Visualization (H&H Ch 16) Tips and Tricks  | Lab 5: Regression with Transformed Variables  | 10/29: **HW4 Due** |
-| **6** | 11/3 <br /> 11/5 | Decision Trees; Bayes’ Theorem | Lab 6: Bayesian Statistics  | 11/5: **HW5 Due** |
-| **7** | 11/10 <br /> 11/12 | Applications of Bayes’ Theorem, BaRatin <br /> Lab on BaRatin and Bayesian Rating curves | Lab 7: Markov Chains & Monte Carlo | 11/12: **HW6 Due** |
-| **8** | 11/17 <br /> 11/19 | Principles of EOFs, PCs, Timeseries Analysis <br /> Lab on Applying Empirical Orthogonal Functions (EOFs) and Principal Components (PCs) | Lab 8: SVD and Timeseries Analysis | 11/19: **HW7 Due** |
-| **9** | 11/24 <br /> | Fourier Transforms; Power Spectra, Timeseries analysis <br /> (**11/26 is a holiday**) | Project Work |  |
-| **10** | 12/1 <br /> 12/3 | TBD Guest Lecture; Project Work | Project Work | 12/1: **HW8 Due** <br /> 12/3: **Presentations** |
-| **11** | 12/8 <br /> 12/10 | Data Analysis Applications: Student Presentations | Project Work | 12/8: **Presentations** <br /> 12/10: **Presentations** <br /> 12/14: **CEWA 565 - Final Project Report Due** <br /> 12/14: **CEE 465 - Final Exam Due** |
+| **0** | 10/1 <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | |
+| **1** | 10/6 <br /> 10/8 | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Plotting Random Numbers in Python | |
+| **2** | 10/13 <br /> 10/15 | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | 10/13: **HW1 Due** |
+| **3** | 10/20 <br /> 10/22 | Analysis of Variance (ANOVA) <br /> Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches | Lab 3: ANOVA | 10/20: **HW2 Due** |
+| **4** | 10/27 <br /> 10/29 | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | 10/27: **HW3 Due** |
+| **5** | 11/3 <br /> 11/5 | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | 11/3: **HW4 Due** |
+| **6** | 11/10 <br /> 11/12 | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | 11/10: **HW5 Due** |
+| **7** | 11/17 <br /> 11/19 |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | 11/17: **HW6 Due** |
+| **8** | 11/24 <br /> (**11/26 is a holiday**) | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  11/24: **HW7 Due**  |
+| **9** | 12/1 <br /> 12/3 | <br /> Data Analysis Applications: Student Presentations | Project Work | 12/1: **HW8 Due** <br /> 12/3: **Presentations** |
+| **10** | 12/8 <br /> 12/10 | Data Analysis Applications: Student Presentations | Project Work | 12/8: **Presentations** <br /> 12/10: **Presentations** |
+| **Finals Week** | 12/14 |  |  | 12/14: **CEWA 565 - Final Project Report Due** <br /> 12/14: **CEE 465 - Final Exam Due** |
 
 ## Additional Information
 
