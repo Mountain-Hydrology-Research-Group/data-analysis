@@ -7,7 +7,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 * [Interactive Plots](lab5/interactive-plots.ipynb) with [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat)
 * [Warming Stripes Figure](lab5/warming-stripes.ipynb)
-* [Lab 5-1: Multiple Linear Regression](#)
+* [Lab 5-1: Multiple Linear Regression](lab5/lab5-1.ipynb)
 * [Lab 5-2: Regression with Transformed Variables](#)
 
 ```
@@ -15,6 +15,9 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 ## Homework 5
 
 ### Problem 1: Correlation, Autocorrelation, Multiple Linear Regression
+
+In this problem, you will explore the correlation between temperature, precipitation, and [snow water equivalent](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833) using observations from the Washington Cascades
+
 
 Continue using the cascades_swe dataset for this problem. Begin by making scatterplots of each of these variables vs. all the other variables. One nice way to do this is as illustrated in Helsel and Hirsch Figure 2.39 on page 61 – this is not required, you can plot in whatever way works best for you.
 
