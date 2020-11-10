@@ -4,27 +4,28 @@
 ```note
 ## Lab 6: Bayesian Statistics
 
+**Lab 6-1: A Bayesian Example**
+
+A medical testing company has developed a two-stage, non-invasive test for Down’s syndrome in the first two months of pregnancy. Initial tests have shown that when the fetus actually has Down’s syndrome, the test correctly identifies this by giving a positive result 98% of the time (i.e. the observed probability of a false negative is 2%). Furthermore, in cases when the fetus does not have Down’s syndrome, the test result is negative 97% of the time (i.e. the observed probability of a false positive is 3%). With this data, the company’s statisticians are charged with estimating the overall probability that a given fetus has Down’s syndrome if the test shows positive. Assume the observed probability of Down’s syndrome in a random sample from a large number of observations is about 1 in 1,200 (this is the reported value for a 25-year-old mother; the risk is higher for older mothers).
+
+**A.** Draw a tree diagram for this problem.
+
+ **B.** Using Bayes’ theorem, estimate the overall probability that a given fetus has Down’s syndrome if the test shows positive. Are you surprised by the answer? What is the fundamental problem with this test? How accurate would the test have to be to achieve a 50% probability of having the disease if the test showed a positive result? (For the last one, experiment with the accuracies of both the positive and negative test results.)
+
+ **C.** Estimate the likelihood that the fetus does not have Down’s Syndrome if the test shows a negative result. Is the test more useful in this framework as a screening step when trying to decide to use more accurate (but also more invasive) tests?
+    
+---
+
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 6-1: Bayesian Statistics](lab6/lab6-1.ipynb)
+* [Lab 6-2: Bayesian Statistics](lab6/lab6-1.ipynb)
 
 ```
 
 
 ## Homework 6: 
 
-### Problem 1: A Bayesian Example
-
-A medical testing company has developed a two-stage, non-invasive test for Down’s syndrome in the first two months of pregnancy. Initial tests have shown that when the fetus actually has Down’s syndrome, the test correctly identifies this by giving a positive result 98% of the time (i.e. the observed probability of a false negative is 2%). Furthermore, in cases when the fetus does not have Down’s syndrome, the test result is negative 97% of the time (i.e. the observed probability of a false positive is 3%). Armed with this data, the company’s statisticians are charged with estimating the overall probability that a given fetus has Down’s syndrome if the test shows positive. Assume the observed probability of Down’s syndrome in a random sample from a large number of observations is about 1 in 1,200 (this is the reported value for a 25-year-old mother; the risk is higher for older mothers).
-
- **A.** Using Bayes’ theorem, estimate the overall probability that a given fetus has Down’s syndrome if the test shows positive. Are you surprised by the answer? What is the fundamental problem with this test? How accurate would the test have to be to achieve a 50% probability of having the disease if the test showed a positive result? (For the last one, experiment with the accuracies of both the positive and negative test results.)
-
- **B.** Estimate the likelihood that the fetus does not have Down’s Syndrome if the test shows a negative result. Is the test more useful in this framework as a screening step when trying to decide to use more accurate (but also more invasive) tests?
-    
- **C.** Finally, draw a tree diagram for this problem.
-
- 
-### Problem 2: Continuous Bayesian Estimation of Flood Frequency
+### Problem 1: Continuous Bayesian Estimation of Flood Frequency
  
 Based on long-term climate records, the 24-hour duration, 100-year return period rainfall in New York City was previously estimated at 7.2 inches. 100-year rainfall indicates a storm with a rainfall total that would on average be met or exceeded only once every 100 years. In a given year, the storm has a 0.01 chance of occurrence, i.e., for any k-year storm, its probability of occurrence in one year is 1/k, where k is the return period. In fact, during the 20th century, this total was exceeded only once, during Hurricane Floyd in 1999. However, a storm in 2007 produced 8 inches of rainfall in a 24-hour period. Another storm in August 2011 again exceeded the 7.2-inch total. Hurricane Irene in September 2011 exceeded the total yet again, and so did Hurricane Sandy in October 2012. This happened again in September 2018 from Hurricane Florence. 
 
@@ -51,11 +52,7 @@ P(B|A = p) = binomdist(m,n,p)
  **D.** How much did the mean and 95% confidence interval return period change from the original prior return period to 2019? What does this indicate about the “true” frequency of the 7.2-inch-storm?
 
 
-
-
-
-
-### Problem 3: Project Update (CEWA 565)
+### Problem 2: Project Update (CEWA 565)
 
 Provide an update on your term project. By now you should have acquired all of the data you need for your term project.
 
