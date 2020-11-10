@@ -6,19 +6,21 @@
 
 **Lab 6-1: A Bayesian Example**
 
-A medical testing company has developed a two-stage, non-invasive test for Down’s syndrome in the first two months of pregnancy. Initial tests have shown that when the fetus actually has Down’s syndrome, the test correctly identifies this by giving a positive result 98% of the time (i.e. the observed probability of a false negative is 2%). Furthermore, in cases when the fetus does not have Down’s syndrome, the test result is negative 97% of the time (i.e. the observed probability of a false positive is 3%). With this data, the company’s statisticians are charged with estimating the overall probability that a given fetus has Down’s syndrome if the test shows positive. Assume the observed probability of Down’s syndrome in a random sample from a large number of observations is about 1 in 1,200 (this is the reported value for a 25-year-old mother; the risk is higher for older mothers).
+A medical testing company has developed a two-stage, non-invasive test for Down’s syndrome in the first two months of pregnancy. It has been shown that this test correctly identifies Down’s syndrome by giving a positive result (true positive) 98% of the time (therefore the probability of a false negative is 2%). In cases when the fetus does not have Down’s syndrome, the test result is negative (true negative) 97% of the time (therefore the probability of a false positive is 3%). For this example, assume that the observed probability of Down’s syndrome in a random sample from a large number of observations is about 1 in 1,200.
 
-**A.** Draw a tree diagram for this problem.
+ **A.** Draw a tree diagram for this problem as you work through this example.
 
- **B.** Using Bayes’ theorem, estimate the overall probability that a given fetus has Down’s syndrome if the test shows positive. Are you surprised by the answer? What is the fundamental problem with this test? How accurate would the test have to be to achieve a 50% probability of having the disease if the test showed a positive result? (For the last one, experiment with the accuracies of both the positive and negative test results.)
+ **B.** Using Bayes’ theorem, estimate the overall probability that a given fetus has Down’s syndrome if the test shows positive. Are you surprised by the answer? What is the fundamental problem with this test?
+ 
+ **C.** How accurate would the test have to be to achieve a 50% probability of having Down’s syndrome if the test showed a positive result (true positive)? (experiment with the accuracies of both the positive and negative test results)
 
- **C.** Estimate the likelihood that the fetus does not have Down’s Syndrome if the test shows a negative result. Is the test more useful in this framework as a screening step when trying to decide to use more accurate (but also more invasive) tests?
+ **D.** Estimate the likelihood that the fetus does not have Down’s Syndrome if the test shows a negative result (true negative). Is the test more useful in this framework as a screening step when trying to decide to use more accurate, but also more invasive, tests?
     
 ---
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 6-2: Bayesian Statistics](lab6/lab6-1.ipynb)
+* [Lab 6-2: Bayesian Statistics](#)
 
 ```
 
@@ -30,14 +32,10 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 Based on long-term climate records, the 24-hour duration, 100-year return period rainfall in New York City was previously estimated at 7.2 inches. 100-year rainfall indicates a storm with a rainfall total that would on average be met or exceeded only once every 100 years. In a given year, the storm has a 0.01 chance of occurrence, i.e., for any k-year storm, its probability of occurrence in one year is 1/k, where k is the return period. In fact, during the 20th century, this total was exceeded only once, during Hurricane Floyd in 1999. However, a storm in 2007 produced 8 inches of rainfall in a 24-hour period. Another storm in August 2011 again exceeded the 7.2-inch total. Hurricane Irene in September 2011 exceeded the total yet again, and so did Hurricane Sandy in October 2012. This happened again in September 2018 from Hurricane Florence. 
 
 ```note
-Note that in 2019, there was flooding in July, but not of this magnitude. Also, subtropical Storm Melissa brought minor flooding to the New York coastline on 11 October 2019 but not of this magnitude. Therefore, we will not update the number of floods in 2019 but will instead add one more year without a flood.
+Note that there has been flodding in New York City in 2019 and 2020, but not of this magnitude. Therefore, we will not update the number of floods but will instead add two more years without a flood. And unlike what you will do in many hydrology classes, which is to calculate the return period across a range of different precipitation or streamflow values, we are focusing here only on the probability of 24-hour storms exceeding 7.2 inches of rainfall because this is a critical design number for New York City.
 ```
 
 In this problem we will use Bayes’ Theorem to estimate the probability that the 7.2-inch storm is no longer the 100-year storm, that is, the probability that 7.2 inches of rainfall in a 24-hour period is likely to occur more often than every 100 years. In this problem, A is the true likelihood of the storm’s occurrence, and B are the events we have observed. 
-
-```note
-Note that unlike what you will do in many hydrology classes, which is to calculate the return period across a range of different precipitation or streamflow values, we are focusing here only on the probability of 24-hour storms exceeding 7.2 inches of rainfall because this is a critical design number for New York City.
-```
 
  **A.** Download and plot the prior likelihood of a >=7.2-inch storm occurring in a given year from the data file “NYC_precip_priors” (.xslx or .mat). This dataset shows the prior distribution of the likelihood of the 7.2-inch storm in a given year, with mean p = 0.01. Note that the variable labeled “pdf” represents the probability of the storm frequency or return interval falling within that interval (value noted and the next value) and therefore includes the interval width, such that the sum of the pdf values alone sums to 1, and cumulative sum of the pdf is the cdf. Note that there is some uncertainty about the original likelihood. What are the mean and 95% confidence interval of the probability, i.e., where does 95% of the PDF fall between? To what k-year storm (expected return period) range do these values correspond?
 
