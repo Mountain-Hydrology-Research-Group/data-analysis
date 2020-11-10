@@ -6,15 +6,15 @@
 
 **Lab 6-1: A Bayesian Example**
 
-A medical testing company has developed a two-stage, non-invasive test for Down’s syndrome in the first two months of pregnancy. It has been shown that this test correctly identifies Down’s syndrome by giving a positive result (true positive) 98% of the time (therefore the probability of a false negative is 2%). In cases when the fetus does not have Down’s syndrome, the test result is negative (true negative) 97% of the time (therefore the probability of a false positive is 3%). For this example, assume that the observed probability of Down’s syndrome in a random sample from a large number of observations is about 1 in 1,200.
+A medical testing company has developed a non-invasive test for Down’s syndrome in the first two months of pregnancy. This test can correctly identify Down’s syndrome by giving a positive result 98% of the time (true positive). Therefore the probability of a false negative is 2%. This text can correctly identify when the fetus does not have Down’s syndrome by giving a negative result 97% of the time (true negative). Therefore the probability of a false positive is 3%. For this example, assume that the observed probability of Down’s syndrome in a random sample from a large number of observations is about 1 in 1,200.
 
  **A.** Draw a tree diagram for this problem as you work through this example.
 
- **B.** Using Bayes’ theorem, estimate the overall probability that a given fetus has Down’s syndrome if the test shows positive. Are you surprised by the answer? What is the fundamental problem with this test?
+ **B.** Using Bayes’ theorem, estimate the probability that a fetus has Down’s syndrome given that the test result is positive. Are you surprised by the answer? What is the fundamental problem with this test?
  
- **C.** How accurate would the test have to be to achieve a 50% probability of having Down’s syndrome if the test showed a positive result (true positive)? (experiment with the accuracies of both the positive and negative test results)
+ **C.** How accurate would the test have to be to achieve a 50% probability of having Down’s syndrome given that the test result is positive (true positive)? (**Note**: In this problem, try solving for the accuracies of both the positive and negative test results that will give you a 50% true positive rate. It may not be possible to achieve a 50% true positive rate with one or the other.)
 
- **D.** Estimate the likelihood that the fetus does not have Down’s Syndrome if the test shows a negative result (true negative). Is the test more useful in this framework as a screening step when trying to decide to use more accurate, but also more invasive, tests?
+ **D.** Estimate the likelihood that the fetus does not have Down’s Syndrome given that the test result is negative (true negative). Is the test more useful in this framework as a screening step when trying to decide to use more accurate, but also more invasive, tests?
     
 ---
 
@@ -39,9 +39,7 @@ In this problem we will use Bayes’ Theorem to estimate the probability that th
 
  **A.** Download and plot the prior likelihood of a >=7.2-inch storm occurring in a given year from the data file “NYC_precip_priors” (.xslx or .mat). This dataset shows the prior distribution of the likelihood of the 7.2-inch storm in a given year, with mean p = 0.01. Note that the variable labeled “pdf” represents the probability of the storm frequency or return interval falling within that interval (value noted and the next value) and therefore includes the interval width, such that the sum of the pdf values alone sums to 1, and cumulative sum of the pdf is the cdf. Note that there is some uncertainty about the original likelihood. What are the mean and 95% confidence interval of the probability, i.e., where does 95% of the PDF fall between? To what k-year storm (expected return period) range do these values correspond?
 
- **B.** At each time period of interest, count the number of times the threshold has been exceeded and the number of years, beginning with the period 1900-1999. The likelihood P(B|A = p) that the storm would be exceeded m times in n years (event B) for a storm probability p (event A = p) is given by:
-
-P(B|A = p) = binomdist(m,n,p)
+ **B.** At each time period of interest, count the number of times the threshold has been exceeded and the number of years, beginning with the period 1900-1999. The likelihood P(B|A = p) that the storm would be exceeded m times in n years (event B) for a storm probability p (event A = p) is given by: $P(B|A = p) = binomdist(m,n,p)$
 
  Calculate the posterior likelihood of the 7.2-inch storm’s probability after the period 1900-1999, which includes only Hurricane Floyd. Use the continuous version of Bayes’ Theorem to calculate the probability of A at all values of p. What are the mean and the 95% confidence interval of the return period for the 7.2-inch storm after 1999?
     
