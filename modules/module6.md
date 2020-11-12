@@ -56,9 +56,9 @@ There is some uncertainty about the original likelihood, so we want to determine
 
 **B.** Apply Bayes' Theorem at each time period of interest (see table above) to update the the pdf for the 7.2-inch storm.
 
-P(A/|B) = P(B/|A) * P(A) / P(B)
+P(A\|B) = P(B\|A) * P(A) / P(B)
  
-In this problem, A is the true likelihood of the storm’s occurrence, and B are the events we have observed. For the first time peirod, use the pdf from the data file as the prior pdf, P(A). For each subsequent time period, use the posterior pdf from the previous time period. The likelihood P(B/|A = p) that the storm would be exceeded m times in n years (event B) for a storm probability `p` (event A = p) is given by: P(B/|A = p) =  `scipy.stats.binom.pmf(m,n,p)`, where `m` is the number of storms, and `n` is the number of years.
+In this problem, A is the true likelihood of the storm’s occurrence, and B are the events we have observed. For the first time peirod, use the pdf from the data file as the prior pdf, P(A). For each subsequent time period, use the posterior pdf from the previous time period. The likelihood P(B\|A = p) that the storm would be exceeded m times in n years (event B) for a storm probability `p` (event A = p) is given by: P(B\|A = p) =  `scipy.stats.binom.pmf(m,n,p)`, where `m` is the number of storms, and `n` is the number of years.
    - Calculate and plot the posterior pdfs of the 7.2-inch storm’s probability after each time period.
    - Calculate the the mean and 95% confidence interval of the return period each time.
     
