@@ -1,7 +1,7 @@
 
 # Course Project: CEWA 565
 
-The goal of the course project is to give you hands on experience dealing with data of particular interest to you, as well as experience writing about and presenting data and statistical information. Ask and answer a question (pose a hypothesis), using a variety of analysis techniques, and clearly address the statistical uncertainty of the answer. Explain your objectives, your data source, your methodology, and your results. Discuss remaining uncertainties.Project will consist of an oral presentation (20% of total) and a written report (80% of total), which will be no longer than 10 pages, including figures.
+The goal of the course project is to give you hands on experience dealing with data of particular interest to you, as well as experience writing about and presenting data and statistical information. Ask and answer a question (pose a hypothesis), using a variety of analysis techniques, and clearly address the statistical uncertainty of the answer. Explain your objectives, your data source, your methodology, and your results. Discuss remaining uncertainties.Project will consist of an oral presentation (20% of total) and a written report (80% of total), which will be no longer than 10 pages (for a group of two; or 15 for a group of three), including figures.
 
 ```note
 **Sources of help:**
@@ -57,7 +57,7 @@ A powerpoint-type presentation, like you would expect at a conference, 10 minute
 ### Written Report
 (30 points; will account for 80% of project grade)
 
-For the written report, you must include an abstract (no more than 300 words) and a list of references; these can be in addition to your 10 pages.  Follow the same format outlined for the presentation but feel free to include more details (equations, etc.). Please address any questions or comments that were raised during the presentation. Use clear, concise sentences and proper grammar.
+For the written report, you must include an abstract (no more than 300 words) and a list of references; these can be in addition to your 10 (for a group of two; or 15 for a group of three) pages.  Follow the same format outlined for the presentation but feel free to include more details (equations, etc.). Please address any questions or comments that were raised during the presentation. Use clear, concise sentences and proper grammar.
 
 * Quality of Writing (10 points)
   - Clear and easy to read 
