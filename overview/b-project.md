@@ -1,10 +1,11 @@
 
 # Course Project: CEWA 565
 
-The goal of the course project is to give you hands on experience dealing with data of particular interest to you, as well as experience writing about and presenting data and statistical information. Ask and answer a question (pose a hypothesis), using a variety of analysis techniques, and clearly address the statistical uncertainty of the answer. Explain your objectives, your data source, your methodology, and your results. Discuss remaining uncertainties.Project will consist of an oral presentation (20% of total) and a written report (80% of total), which will be no longer than 10 pages, including figures.
+The goal of the course project is to give you hands on experience dealing with data of particular interest to you, as well as experience writing about and presenting data and statistical information. Ask and answer a question (pose a hypothesis), using a variety of analysis techniques, and clearly address the statistical uncertainty of the answer. Explain your objectives, your data source, your methodology, and your results. Discuss remaining uncertainties.Project will consist of an oral presentation (20% of total) and a written report (80% of total), which will be no longer than 10 pages (for a group of two; or 15 for a group of three), including figures.
 
 ```note
 **Sources of help:**
+
 UW has services to help people with [statistics](https://www.stat.washington.edu/consulting/) and [data analysis](http://escience.washington.edu/dss-hours). These are designed primarily to help graduate students engaged in research (not with homework), but presuming your course project is related to a research interest of yours, they have been very helpful in the past.
 ```
 
@@ -18,7 +19,7 @@ You are welcome to use your own data and answer a question of interest to you an
 * Watershed 2 was kept as a control during this time.
 Using a variety of techniques we learned in class, as well as others you may encounter in the literature (use at least three different tests), determine whether forest removal increases flood risk at different return intervals in the HJ Andrews area.  What is your confidence in this (Type I and Type II errors)?  How sensitive are your results to the statistical tests you chose?
 
-2. **How does forest regeneration 9following harvesting) change summer streamflow, or low flows?** Similar to question 1, again using the HJ Andrews data.  See [Perry & Jones (2017)](https://doi.org/10.1002/eco.1790) paper on this topic. (Ask the instructor for a copy of this paper if you're unable to access it online)
+2. **How does forest regeneration (following harvesting) change summer streamflow, or low flows?** Similar to question 1, again using the HJ Andrews data.  See [Perry & Jones (2017)](https://doi.org/10.1002/eco.1790) paper on this topic. (Ask the instructor for a copy of this paper if you're unable to access it online)
 
 3. **How does stream temperature in different months and different streams relate to the onset date of snowmelt runoff (when the streams start rising)?** Elevated stream temperatures can be unhealthy for fish if snow melts earlier (resulting in earlier streamflow). You may download time series of discharge and stream temperature [here](http://depts.washington.edu/mtnhydr/data/yosemite.shtml) for different streams in Yosemite National Park, California. Using a variety of techniques we learned in class, as well as others you may encounter in the literature (use at least three different tests), determine whether stream 
 temperature is significantly changed by streamflow timing. What is your confidence in this? You may want to consider different months of the year or different times of the day (e.g., daily maximum temperature vs. daily mean), and you may want to compare and contrast streams of different sizes. (See this [guide](https://depts.washington.edu/mtnhydr/data/yosemite/Lundquist_2016_WRR_SupportingInfo.pdf) to learn more about these sites. Also, talk to Steven if you want more recent data.)
@@ -56,7 +57,7 @@ A powerpoint-type presentation, like you would expect at a conference, 10 minute
 ### Written Report
 (30 points; will account for 80% of project grade)
 
-For the written report, you must include an abstract (no more than 300 words) and a list of references; these can be in addition to your 10 pages.  Follow the same format outlined for the presentation but feel free to include more details (equations, etc.). Please address any questions or comments that were raised during the presentation. Use clear, concise sentences and proper grammar.
+For the written report, you must include an abstract (no more than 300 words) and a list of references; these can be in addition to your 10 (for a group of two; or 15 for a group of three) pages.  Follow the same format outlined for the presentation but feel free to include more details (equations, etc.). Please address any questions or comments that were raised during the presentation. Use clear, concise sentences and proper grammar.
 
 * Quality of Writing (10 points)
   - Clear and easy to read 
