@@ -5,34 +5,24 @@
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 7-1: Markov Chains](lab7/lab7-1.ipynb)
+* [Lab 7-1: Markov Chains - Basic Examples](lab7/lab7-1.ipynb)
   * data: [markov_random4.txt](data/markov_random4.txt)
-* [Lab 7-2: MCMC Rating Curves](lab7/lab7-2.ipynb)
+* [Lab 7-2: Markov Chain - ENSO Phases](lab7/lab7-2.ipynb)
+  * data: [ENSO_to2021.csv](data/ENSO_to2021.csv)
+* [Lab 7-3: MCMC Rating Curves](#)
   * data: [Lyell_h_Q_sorted.mat](data/Lyell_h_Q_sorted.mat)
-* [Lab 7-3: Markov Chain Monte Carlo Example](lab7/lab7-3.ipynb)
 
 ```
 
 
 ## Homework 7: 
 
-### Problem 1: Markov Chains
-
-Download the spreadsheet ENSO_to2020.xls. (And yes, the current status of ENSO, neutral, is for water year 2020.) [Not required for the homework, but if you’re curious to learn more about ENSO and its impacts, see this website: https://www.climate.gov/enso ] 
-
-
- **A. **Using the time series of the phase of the El Niño Southern Oscillation (ENSO) (warm (El Nino) =1, neutral=2, cool (La Nina) =3) from 1900-2020, create a lag-1 Markov model of the ENSO phase.
-
- **B.** Using this Markov model and a random number generator, simulate 5,000 years of ENSO data.
-    
- **C.** Using this stochastically generated data, answer the following questions. According to the model, what is the probability that three warm ENSO years would occur in a row? (Try refreshing the numbers several times to increase the sample size if the condition never happens.) What is the large-sample probability that three cool ENSO years would happen in a row?
-
-
  
-### Problem 2: Application of Bayes Theorem
+### Problem 1: Application of Bayes Theorem
  
-Following the Week 6 Lab, explore how the rating curve and its associated uncertainty change whether you use least squares fitting, direct monte carlo parameter estimation, or Bayesian MCMC fitting to determine the rating curve and 95% confidence intervals for the Lyell Fork streamflow site. Create plots and discuss what you did. 
+Following the Week 7 Lab, explore how the rating curve and its associated uncertainty change whether you use least squares fitting, direct monte carlo parameter estimation, or Bayesian MCMC fitting to determine the rating curve and 95% confidence intervals for the Lyell Fork streamflow site. Create plots and discuss what you did. 
 
+### Problem 2: TBD
 
 
 ### Problem 3: Statistics Synthesis (Undergraduate Students)
