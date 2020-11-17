@@ -22,7 +22,9 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
  
 Following the Week 7 Lab, explore how the rating curve and its associated uncertainty change whether you use least squares fitting, direct monte carlo parameter estimation, or Bayesian MCMC fitting to determine the rating curve and 95% confidence intervals for the Lyell Fork streamflow site. Create plots and discuss what you did. 
 
-### Problem 2: TBD
+### Problem 2: Air Temperature Observations in Complex Terrain
+
+(from module 8)
 
 
 ### Problem 3: Statistics Synthesis (CEE 465)
