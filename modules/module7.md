@@ -9,7 +9,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
   * data: [markov_random4.txt](data/markov_random4.txt)
 * [Lab 7-2: Markov Chain - ENSO Phases](lab7/lab7-2.ipynb)
   * data: [ENSO_to2021.csv](data/ENSO_to2021.csv)
-* [Lab 7-3: MCMC Rating Curves](#)
+* [Lab 7-3: MCMC Rating Curves](lab7/lab7-3.ipynb)
   * data: [Lyell_h_Q_sorted.mat](data/Lyell_h_Q_sorted.mat)
 
 ```
@@ -20,7 +20,15 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
  
 ### Problem 1: Application of Bayes Theorem
  
-Following the Week 7 Lab, explore how the rating curve and its associated uncertainty change whether you use least squares fitting, direct monte carlo parameter estimation, or Bayesian MCMC fitting to determine the rating curve and 95% confidence intervals for the Lyell Fork streamflow site. Create plots and discuss what you did. 
+Following the Lab 7-3, explore how the rating curve and the 95% confidence intervals for the Lyell Fork streamflow site change depending on the method you use:
+
+- least squares linear regression fitting (with transformed variables)
+  - Assume that we don't know exactly what h0 is. Try different vallues: h0 = 10, 20, 30, 40, and 50 cm
+  - Is the range between these 5 lines with different h0 values larger or smaller than the range between the 95% confidence lines that you generated before (with h0 = 28 cm)?
+- direct monte carlo parameter estimation
+- Bayesian MCMC fitting
+
+Create plots and discuss the differences in the results from these three methods. 
 
 ### Problem 2: Air Temperature Observations in Complex Terrain
 
@@ -31,8 +39,14 @@ Following the Week 7 Lab, explore how the rating curve and its associated uncert
 
 You are given the below dataset of annual peak flows on the Sauk River: 
 
+![Sauk River Plot](sauk-river-plot.png)
 
- Note, you do not need to do any actual analysis here. Rather, for each of the following questions about this dataset, I want you to answer, a) How do you ask this statistically? b) What tools should you use? (Think of techniques we’ve learned in class.), and c) What should you be careful of /careful about? (Think of caveats and requirements of the tools you’re recommending).
+(Note, you do not need to do any actual analysis here)
+
+For each of the following questions about this dataset, I want you to answer:
+ - How do you ask this question statistically? 
+ - What tools should you use to answer this question? (think of techniques we’ve learned in class)
+ - What should you be careful about? (think of caveats and requirements of the tools you’re recommending).
 
  **A.** Presume some logging occurred in the watershed in 1970. Are peak flows higher after 1970 than before 1970?
  
