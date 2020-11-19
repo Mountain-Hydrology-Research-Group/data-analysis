@@ -39,7 +39,7 @@ Create plots and discuss the differences in the results from these three methods
 
 You are given the below dataset of annual peak flows on the Sauk River: 
 
-![Sauk River Plot](sauk-river-plot.png)
+![Sauk River Plot](lab7/sauk-river-plot.png)
 
 (Note, you do not need to do any actual analysis here)
 
