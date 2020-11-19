@@ -1,7 +1,7 @@
 # 7) Markov Chains
 
 ```note
-## Lab 7: Markov Chains & Monte Carlo
+## Lab 7: Markov Models & Markov Chain Monte Carlo (MCMC)
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
@@ -18,7 +18,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 ## Homework 7: 
 
  
-### Problem 1: Application of Bayes Theorem
+### Problem 1: Application of Bayes Theorem with MCMC
  
 Following the Lab 7-3, explore how the rating curve and the 95% confidence intervals for the Lyell Fork streamflow site change depending on the method you use:
 
@@ -32,7 +32,7 @@ Create plots and discuss the differences in the results from these three methods
 
 ### Problem 2: Air Temperature Observations in Complex Terrain
 
-(from module 8)
+(TBD, from module 8)
 
 
 ### Problem 3: Statistics Synthesis (CEE 465)
