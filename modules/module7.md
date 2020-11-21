@@ -32,7 +32,7 @@ Create plots and discuss the differences in the results from these three methods
 
 ### Problem 2: Air Temperature Observations in Complex Terrain
 
-[See problem 2 in Module 8](/modules/module8.html)
+[See problem 2 in Module 8](/data-analysis/modules/module8.html)
 
 
 ### Problem 3: Statistics Synthesis (CEE 465)
