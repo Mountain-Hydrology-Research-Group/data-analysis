@@ -15,7 +15,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 ### Homework 7, Problem 2: Air Temperature Observations in Complex Terrain
 
-Download the file [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat), and the [air-temperature-svd.ipynb](air-temperature-svd.ipynb) jupyter notebook. The data file contains hourly air temperature (°C) observations from 21 distributed sensors (called iButtons) located around the watershed of the North Fork of the American River in the Sierra Nevada of California, recorded over a period from September 2007 to July 2010. It also contains information about the sites’ names, numbers, latitude and longitude coordinates, and elevations. See the figure below for a map of the sites. 
+Download the file [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat), and the [air-temperature-svd.ipynb](lab8/air-temperature-svd.ipynb) jupyter notebook. The data file contains hourly air temperature (°C) observations from 21 distributed sensors (called iButtons) located around the watershed of the North Fork of the American River in the Sierra Nevada of California, recorded over a period from September 2007 to July 2010. It also contains information about the sites’ names, numbers, latitude and longitude coordinates, and elevations. See the figure below for a map of the sites. 
  
 ![iButton locations](../images/figure1.png)
 
