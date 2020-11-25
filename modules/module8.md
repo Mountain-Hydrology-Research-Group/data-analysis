@@ -7,7 +7,7 @@
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
 * [Lab 8-1: SVD with Monthly Precip.](lab8/lab8-1.ipynb)
-  * data: [PRISM_4km_1982-2012.mat](data/PRISM_4km_1982-2012.mat)
+  * data: [PRISM_4km_1982-2012.mat](https://canvas.uw.edu/courses/1396225/files/folder/Week%2008%20SVD%20EOF%20PCA)
 * [Lab 8-2: Timeseries Lab](lab8/lab8-2.ipynb)
   * data: [waterlevel.mat](data/waterlevel.mat)
 

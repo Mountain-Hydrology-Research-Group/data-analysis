@@ -22,13 +22,14 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
  
 Following the Lab 7-3, explore how the rating curve and the 95% confidence intervals for the Lyell Fork streamflow site change depending on the method you use:
 
-- least squares linear regression fitting (with transformed variables)
-  - Assume that we don't know exactly what h0 is. Try different vallues: h0 = 10, 20, 30, 40, and 50 cm
-  - Is the range between these 5 lines with different h0 values larger or smaller than the range between the 95% confidence lines that you generated before (with h0 = 28 cm)?
-- direct monte carlo parameter estimation
+- Least squares linear regression fitting (with transformed variables) using h0 = 28 cm
+  - Make 95% confidence intervals around this regression fit 
+  - Then, assume that we don't know exactly what h0 is. Try additional linear regressions using different values of h0 = 10, 20, 30, 40, and 50 cm (you do not need to calculate 95% confidence intervals for these additional fits)
+  - Qualitatively, is the range between these 5 additional lines with different h0 values larger or smaller than the range between the 95% confidence lines from the original fitted line (the one with h0 = 28 cm)?
+- Direct monte carlo parameter estimation
 - Bayesian MCMC fitting
 
-Create plots and discuss the differences in the results from these three methods. 
+Create plots and discuss the differences in the results from these three methods.
 
 ### Problem 2: Air Temperature Observations in Complex Terrain
 
