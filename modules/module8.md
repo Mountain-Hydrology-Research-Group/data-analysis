@@ -21,6 +21,8 @@ Download the file [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat), and the
 
 Map figure: iButton locations and topographic shading. The sites are located around the American River canyon on the west slope of the Sierra Nevada Mountains in California. Lake Tahoe is the large flat area in the southeast portion of the map.
 
+Optional: Download [North_Fork_American_River_CA_18020128.json](data/North_Fork_American_River_CA_18020128.json) to add the American River watershed outline to your plots.
+
 
  **A.** Plot the temperature observations (AIR_TEMPERATURE) at all sites on one plot over time; use the title, xlabel, and ylabel commands to label your plot and its axes. Use xlim to zoom in and examine the data at finer scales. *Qualitatively* describe the dataset, including its minimum and maximum values, its major variability in time, and how correlated the stations appear to be with one another. (you do *not* need to actually compute correlation coefficents here, just describe it qualitatively)
  
