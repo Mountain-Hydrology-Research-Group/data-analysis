@@ -4,6 +4,23 @@
 
 ### Course Website
 
+The [course website](https://mountain-hydrology-research-group.github.io/data-analysis/) is hosted on [GitHub Pages](https://pages.github.com/) as a repository under the Mountain-Hydrology-Research-Group github organization, [here](https://github.com/Mountain-Hydrology-Research-Group/data-analysis).
+
+It is organized and formatted with the [jekyll-rtd-theme](https://jekyll-rtd-theme.rundocs.io/) built on top of the [rundocs.io](https://rundocs.io/) framework. See the [jekyll-rtd-theme](https://jekyll-rtd-theme.rundocs.io/) documentation for information on formatting and webpage layout. 
+
+Each webpage is created from a markdown (.md) file, which is a plain text file where formatting is specified in the [markdown](https://guides.github.com/features/mastering-markdown/) syntax. Page organization is controlled by nesting directories containing special README.md files that contain some formatting information, and by creating special headers within a document such as `## My Document Subsection Name`. 
+
+#### Getting started
+
+1. Log into your github account, or create an account at https://github.com/ (Note: your account will need to be connected to the Mountain-Hydrology-Research-Group github organization)
+2. Go to the course website repository at https://github.com/Mountain-Hydrology-Research-Group/data-analysis
+3. Create your own *fork* of the repository. (It is good practice to work on a separate fork, your own personal copy, of the repository while you update the website.)
+4. Clone the repository onto the class JupyterHub or to your personal computer. (The advantage of having a clone of the respository on the JupyterHub is to test out the jupyter notebooks for labs in the same environment students will be using.)
+
+#### Updating the website and Jupyter Notebooks
+1. Working with your fork of the repository that you've cloned, you can directly edit any of the markdown (.md) files in any text editor.
+2. If you are working on the JupyterHub, the lab jupyter notebooks can be opened and edited directly from the hub. If you are working on your own computer, you will need to launch your own instance of jupyter notebook then open the notebook files to edit.
+3. Besides the webpage markdown (.md) files and jupyter notebook (.ipynb) files, there are 
 
 
 
