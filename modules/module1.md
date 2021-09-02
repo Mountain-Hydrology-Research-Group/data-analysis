@@ -1,20 +1,27 @@
 # 1) Python, Statistics Review
 
+- [Graphical Data Analysis](lab1/graphical-data-analysis.ipynb) with this [sample data set](data/my_data.csv)
+- [Probability Distributions](lab1/probability-distributions.ipynb)
+- [Empirical Distributions](lab1/empirical-distributions.ipynb)
+
+---
 
 ```note
 ## Lab 1: Plotting Random Numbers in Python
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](../resources/b-learning-jupyter.html#jupyterhub).
 
-
+* Download this data file for the lab activities: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
 * [Lab 1-1: Plotting Data in Python](lab1/lab1-1.ipynb)
-  * Data: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
-* [Lab 1-2: Generating Random Numbers in Python](lab1/lab1-2.ipynb)
+* [Lab 1-2: Generating Random Numbers in Python](lab1/lab1-2.ipynb) ([Solution to Lab 1-2 activity](lab1/lab1-2_solution.ipynb))
+
+Some extra helpful activities:
 * [Numpy Tutorial](lab1/numpy-tutorial.ipynb)
 * [Some more python tips](lab1/some-python-tips.ipynb)
 
 ```
 
+---
 
 ## Homework 1
 
@@ -41,20 +48,3 @@ Download the files containing observed instantaneous peak flow data for the [Sau
  C. Based on all the plots you have now created, write few sentences in a markdown cell discussing whether or not you think a change has occurred in the peak flows around 1975. Be sure to reference your plots (Fig. 1, Fig. 2, etc.) when you discuss them.
 
 ---
-
-```note
-## In-class activity: Fun with fake data!
-
-We'll do this activity together in class, either as a whole or in smaller breakout groups. (This is not part of your homework assignment)
-
-One of the most reliable tests of any statistical method or technique is to try it out on data where you know the answer to see if the methodology gives you the result you expect. The best way to get data that truly understand is to make it up yourself.
-
- A. Make up 1000 numbers with a normal distribution, 1000 numbers with a log-normal distribution, and 1000 numbers with a uniform distribution. For each, make the mean be 60 and standard deviation be 40. (You’ll need to think about what the interval should be for the uniform distribution.)
-
- B. Create descriptive plots (histogram, box and whiskers, quantile plots, PDFs) using all of your samples and compare results from the three distributions. Discuss how you can tell the distributions apart.
-
- C. Repeat with just 10 numbers from each set, and again with 25 and 100. For each of these, can you tell the distributions apart? What is the sample mean and standard deviation for each?
-
- D. Discuss the difference between a sample population and the true population.
-
-```

@@ -2,52 +2,53 @@
 
 
 ```note
-## Lab 4: Mann-Kendall and Multiple Linear Regression
+## Lab 4: Regression and Trend Tests
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 4-1: Mann-Kendall](lab4/lab4-1.ipynb)
-  * data: [pillows_example.csv](data/pillows_example.csv)
-* [Lab 4-2: Correlation, Multiple Linear Regression](lab4/lab4-2.ipynb)
+* Data: Annual peak snow water equivalent as measured at two snow-pillow sites [pillows_example.csv](data/pillows_example.csv) ([What is Snow Water Equivalent?](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833))
+* [Lab 4-1: Linear Regression](lab4/lab4-1.ipynb)
+* [Lab 4-2: Quantile Regression](lab4/lab4-2.ipynb)
+* [Lab 4-3: Confidence Intervals](lab4/lab4-3.ipynb)
+* [Lab 4-4: Mann-Kendall Trend Tests](lab4/lab4-4.ipynb)
 
 ```
 
 
 ## Homework 4
 
-### Problem 1
+### Problem 1: Linear and Quantile Regression
 
-Download the datafile cascades_swe available here (.xlsx) or from the data folder on the class Canvas website (.xlsx or .mat). 
-
-The data in the first three columns are values for total precipitation (mm), daily maximum temperature (°C ), and daily minimum temperature (°C) averaged from October-March over the Pacific Northwest Cascades in WA in OR. The fourth column is an estimate of April 1 snow water equivalent (in mm, the water content of the snowpack) from model simulations, averaged over the same domain.
-
- **A.** Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data. Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1. That is:
-
-Trend = X ± Y
-
- **B.** Is the trend statistically significant with 95% confidence? I.e. can we reject the null hypothesis that the trend is equal to zero?
-    Repeat this analysis for only the more recent period 1950-2003.
-
-
-
-### Problem 2:
-
-Continue using the cascades_swe dataset for this problem. Begin by making scatterplots of each of these variables vs. all the other variables. One nice way to do this is as illustrated in Helsel and Hirsch Figure 2.39 on page 61 – this is not required, you can plot in whatever way works best for you.
-
- **A.** Calculate the correlation (R) between April 1 SWE and the three meteorological variables (precipitation, max. temperature and min. temperature), and also between all unique combinations of the meteorological variables.
+Download the [streamflow records for the Columbia River](data/dalles_flow.csv)
  
- **B.** Calculate the autocorrelation in precipitation, maximum temperature and minimum temperature. Can we consider each of these values to be an independent sample? Or do some of them depend on the prior year’s sample?
+USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 1878 and continues to the present day (one of the longest continuous records in the U.S.). Peak flow records extend back to 1858 (based on peak stage values recorded by railroad workers). Using the coincident peak flow records from 1879-1932 (also a period with no major storage dams on the Columbia), create models to predict annual flow for years 1858-1877:
 
-```tip
-In part **B**, we can test for autocorrelation at different lags, but not for any lag longer than a quarter of the length of the data series. Therefore, test for lags from 1 to N/4, where N is the length of the data series. Determine at which of these lags the autocorrelation is different than 0 with 95% confidence.
-```
+ **A.** Isolate the period of relevant overlap (1879-1932) and plot the timeseries. Create a linear regression model for annual flow using peak flow as an explanatory variable.
+ 
+ **B.** How much of the variance is explained by the resulting model?
+ 
+ **C.** Estimate the 95% confidence intervals for the annual flow predictions from 1858-1877, and plot them with the central tendency (the central tendency is the prediction from the regression model).
+ 
+ **D.** Now create a non-parametric, quantile-based regression model using the same data.
+ 
+ **E.** Plot the predictions and residuals for the two different prediction models for the training period (1879-1932), and plot the model predictions for the 1858-1877 data for the two different models. Is there a substantial difference between the two model formulations? Discuss any differences that you observe.
+ 
 
- **C.** Fit a multiple linear regression model to the data, using all three meteorological variables to predict April 1 SWE. Also calculate the trend in each meteorological variable. Estimate the overall trend in SWE, and trend due to each meteorological variable alone. How much of the overall trend is due to the combined effects of trends in both tmax and tmin?
 
- **D.** Finally carry out a Mann-Kendall test on the 1950-2003 April 1 SWE data. Is the trend significant according to this test? Compare your answer with your regression analysis for the same data in Problem 2B. **Note:** For this problem you do not need to worry about the tie statistic.
+### Problem 2: Trend Analysis
+
+Download the [cascades_swe.xlsx data file](data/cascades_swe.xlsx).
+
+The first column is the water year, and data in the next three columns are values for total precipitation (mm), daily maximum temperature (°C), and daily minimum temperature (°C) averaged from October-March over the Pacific Northwest Cascades in Washington and Oregon. The last column is an estimate of April 1st snow water equivalent (in mm, the water content of the snowpack on this day) from model simulations, averaged over the same domain.
+
+ **A.** Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data. Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1. That is, report the trend as: Trend = B1 ± t*sB1
 
 
+ **B.** Is the trend statistically significant with 95% confidence? Can we reject the null hypothesis that the trend is equal to zero?
+
+ **C.** Repeat this analysis (parts A and B) for just the more recent period, 1950-2003. Discuss any similarities or differences in the results of the two time periods.
 
 
-
-
+### Problem 3: The best graphics
+ 
+One of our greatest challenges in data analysis is to be able to visualize the information in the data and convey that information to others. Consider various scientific papers you have read (on any subject related to your scientific/engineering discipline) and pick out your favorite graphical representation of data (e.g., the best figure). Include your top two choices in your homework submission with a brief statement of why you chose these figures. We'll ask folks to share their favorites in class.
