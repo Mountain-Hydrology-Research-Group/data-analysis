@@ -3,7 +3,7 @@
 
 ## Course Overview
 
-**Data Analysis in Water Sciences - Fall Quarter, 2020**
+**Data Analysis in Water Sciences - Fall Quarter, 2021**
 
 The course will cover a number of fundamental topics related to data analysis including statistical inference testing and error estimation, use of linear and quantile-based regression models, Monte Carlo simulation, time series analysis, Bayes theorem, and data visualization using modern computer techniques.
 
