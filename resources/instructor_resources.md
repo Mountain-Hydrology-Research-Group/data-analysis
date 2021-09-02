@@ -12,9 +12,9 @@ Each webpage is created from a markdown (.md) file, which is a plain text file w
 
 1. **Log into your github account**, or create an account at https://github.com/ (Note: your account will need to be connected to the Mountain-Hydrology-Research-Group github organization)
 2. **Go to the course website repository** at https://github.com/Mountain-Hydrology-Research-Group/data-analysis
-3. **Create your own *fork* of the repository**. (It is good practice to work on a separate fork, your own personal copy, of the repository while you update the website.)
+3. **Create your own [fork](https://www.earthdatascience.org/workshops/intro-version-control-git/about-forks/) of the repository**. (It is good practice to work on a separate fork, your own personal copy, of the repository while you update the website.)
 4. **[Clone](https://www.earthdatascience.org/workshops/intro-version-control-git/basic-git-commands/) the repository** onto the class JupyterHub or to your personal computer. (The advantage of having a clone of the respository on the JupyterHub is to test out the jupyter notebooks for labs in the same environment students will be using.)
-5. Repeat steps 2-4 with the [repository containing homework solutions](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-solutions). (This is a private repository accessible only to approved users, it is not connected to the class website.)
+5. Repeat steps 2-4 with the [repository containing homework solutions](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-solutions). (This is a private repository accessible only to approved users. It is not connected to the class website.)
 
 ### File organization
 
