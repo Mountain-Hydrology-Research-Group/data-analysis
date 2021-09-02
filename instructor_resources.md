@@ -4,7 +4,7 @@
 
 ## Course Website
 
-The [course website](https://mountain-hydrology-research-group.github.io/data-analysis/) is hosted on [GitHub Pages](https://pages.github.com/) as a repository under the Mountain-Hydrology-Research-Group github organization, [here](https://github.com/Mountain-Hydrology-Research-Group/data-analysis). It is organized and formatted with the [jekyll-rtd-theme](https://jekyll-rtd-theme.rundocs.io/) built on top of the [rundocs.io](https://rundocs.io/) framework. See the [jekyll-rtd-theme](https://jekyll-rtd-theme.rundocs.io/) documentation for information on formatting and webpage layout. 
+The course website ([https://mountain-hydrology-research-group.github.io/data-analysis/](https://mountain-hydrology-research-group.github.io/data-analysis/)) is hosted on [GitHub Pages](https://pages.github.com/) as a repository under the Mountain-Hydrology-Research-Group github organization, [here](https://github.com/Mountain-Hydrology-Research-Group/data-analysis). It is organized and formatted with the [jekyll-rtd-theme](https://jekyll-rtd-theme.rundocs.io/) built on top of the [rundocs.io](https://rundocs.io/) framework. See the [jekyll-rtd-theme](https://jekyll-rtd-theme.rundocs.io/) documentation for information on formatting and webpage layout. 
 
 Each webpage is created from a markdown (.md) file, which is a plain text file where formatting is specified in the [markdown](https://guides.github.com/features/mastering-markdown/) syntax. Page organization is controlled by nesting directories containing special README.md files that contain some formatting information, and by creating special headers within a document such as `## My Document Subsection Name`. 
 
@@ -13,22 +13,22 @@ Each webpage is created from a markdown (.md) file, which is a plain text file w
 1. **Log into your github account**, or create an account at https://github.com/ (Note: your account will need to be connected to the Mountain-Hydrology-Research-Group github organization)
 2. **Go to the course website repository** at https://github.com/Mountain-Hydrology-Research-Group/data-analysis
 3. **Create your own *fork* of the repository**. (It is good practice to work on a separate fork, your own personal copy, of the repository while you update the website.)
-4. **Clone the repository** onto the class JupyterHub or to your personal computer. (The advantage of having a clone of the respository on the JupyterHub is to test out the jupyter notebooks for labs in the same environment students will be using.)
-5. Repeat steps 2-4 with the [repository containing homework solutions](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-solutions). (This is a private repository accessible only to members of the Mountain-Hydrology-Research-Group github organization.)
+4. **[Clone](https://www.earthdatascience.org/workshops/intro-version-control-git/basic-git-commands/) the repository** onto the class JupyterHub or to your personal computer. (The advantage of having a clone of the respository on the JupyterHub is to test out the jupyter notebooks for labs in the same environment students will be using.)
+5. Repeat steps 2-4 with the [repository containing homework solutions](https://github.com/Mountain-Hydrology-Research-Group/data-analysis-solutions). (This is a private repository accessible only to approved users, it is not connected to the class website.)
 
 ### File organization
 
-In the github respository, at the top level `data-analysis/` directory you can find a `README.md` file, which is the home page of the website, and several folders. Each directory below here that is used for website organization needs to have a special README file that includes formatting information.
+In your cloned respository, in the top level `data-analysis/` directory, you can find a `README.md` file (the home page of the website), and several subdirectories. Each subdirectory below here that is used for website organization needs to have a special README file with formatting information (these are already present for the existing subdirectories).
 * `data-analysis/overview`, contains syllabus and project pages ("a" and "b" in the filenames are used here to sort the pages alphabetically)
 * `data-analysis/modules`, each module/lab corresponds roughly to one week of the quarter. The `module#.md` files create the main page for each module with the lab and homework assignment text, while the `lab#/` folder corresponding to that modules contains the jupyter notebook files. The `data/` folder contains any data files for labs or homeworks.
-* `data-analysis/resources`, jupyter and python documentation and link to other websites of interest to students learning hydrology, statistics, and programming
+* `data-analysis/resources`, jupyter and python documentation and links to other websites of interest to students learning hydrology, statistics, and programming
 * `data-analysis/images` folder containing any images to embed on the website
 
 ### Updating the website and Jupyter Notebooks
 
-Working with your fork of the repository that you've cloned, you can directly edit any of the markdown (.md) files in any text editor. If you are working on the JupyterHub, the lab jupyter notebooks can be opened and edited directly from the hub. If you are working on your own computer, you will need to launch your own instance of jupyter notebook then open the notebook files to edit. Besides the webpage markdown (.md) files and jupyter notebook (.ipynb) files, there are data files (primarily csv or excel files) for homework and lab activities within the *data-analysis/modules/data* directory.
+Working with your fork of the repository that you've cloned, you can directly edit any of the markdown (.md) files in any text editor. If you are working on the JupyterHub, the lab jupyter notebooks can be opened and edited directly from the hub. If you are working on your own computer, you will need to launch your own instance of jupyter notebook then open the notebook files to edit. Besides the webpage markdown (.md) files and jupyter notebook (.ipynb) files, there are data files (primarily csv or excel files) for homework and lab activities within the `data-analysis/modules/data` directory.
 
-When you've made the changes you want, commit and push the modified files to your fork of the respository. Then open a pull request from the [upstream repository](https://github.com/Mountain-Hydrology-Research-Group/data-analysis) to pull the changes made in your fork. After merging the pull request, the changes will appear on the class website within a few minutes as the page is re-built from the new files.
+When you've made the changes you want, [commit and push](https://www.earthdatascience.org/workshops/intro-version-control-git/basic-git-commands/) the modified files to your fork of the respository. Then [open a pull request](https://www.earthdatascience.org/workshops/intro-version-control-git/pull-request/) from the [upstream repository](https://github.com/Mountain-Hydrology-Research-Group/data-analysis) to pull the changes made in your fork. After merging the pull request, the changes will appear on the class website within a few minutes as the page is re-built from the new files.
 
 
 ## Slack
