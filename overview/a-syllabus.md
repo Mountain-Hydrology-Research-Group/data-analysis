@@ -7,18 +7,18 @@
 
 The course will cover a number of fundamental topics related to data analysis including statistical inference testing and error estimation, use of linear and quantile-based regression models, Monte Carlo simulation, time series analysis, Bayes theorem, and data visualization using modern computer techniques.
 
-| **CEE 465** | SLN 12112 | 4 units |
-| **CEWA 565A** | SLN 12195 | 4 units |
-| **CEWA 565B PCE** | SLN 12196 | 4 units |
+| **CEE 465** | SLN 12213 | 4 units |
+| **CEWA 565A** | SLN 12295 | 4 units |
+| **CEWA 565B PCE** | SLN 12296 | 4 units |
 
 
-**Instructor:**      Steven Pestana, spestana@uw.edu
+**Instructor:**      Jessica Lundquist, jdlund@uw.edu
 
-**TA:**          Valerie Chang, valchang@uw.edu 
+**TA:**          Hannah Besso, bessoh2@uw.edu 
 
 **Lectures:**      Tuesdays & Thursdays: 10:30 am - 12:20 pm (Pacific Time)
 
-The Zoom link to attend lectures and labs, and the link to where recorded lectures can be viewed or downloaded are available via the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required).
+The room location, and the Zoom link (if needed) to remotely attend lectures and labs, and the link to where recorded lectures can be viewed or downloaded are available via the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required).
 
 **Data Analysis Feedback Form**: Use this form to provide anonymous feedback to the TA and instructor. The link to the form is available in the copy of the syllabus on the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required). 
 
@@ -31,34 +31,31 @@ By the end of the course, students should be able to
 
 ```note
 ### Guiding principles for this quarter
-1. **Nobody signed up for this.**
-  * Not for the sickness, not for the social distancing, not for the sudden end of our collective lives together on campus
-  * Not for an online class, not for teaching remotely, not for learning from home, not for mastering new learning technologies, not for varied access to learning materials
+1. **Our learning situation is still in flux.**
+  * We have a room to meet together, masked, on campus, but we expect that some people will need to stay home at times during the quarter
+  * Therefore, we are prepared for online options, for potentially teaching remotely, for potentially learning from home, and for varied access to learning materials
 2. **The humane option is the best option.**
   * We are going to prioritize supporting each other as humans
   * We are going to prioritize simple solutions that make sense
   * We are going to prioritize sharing resources and communicating clearly
   * We are going to prioritize learning what is most useful for you
-3. **We cannot just do the same thing online.**
-  * Some assignments are no longer possible
-  * Some expectations are no longer reasonable
-4. **We will foster intellectual nourishment, social connection, and personal accommodation.**
+3. **We will foster intellectual nourishment, social connection, and personal accommodation.**
   * Accessible asynchronous content for diverse access, time zones, and contexts
-  * Optional synchronous discussion to learn together and combat isolation
-5. **We will remain flexible and adjust to the situation.**
+  * Accessible synchronous discussion to learn together
+4. **We will remain flexible and adjust to the situation.**
   * Nobody knows where this is going and what we’ll need to adapt
-  * Everybody needs support and understanding in this unprecedented moment
+  * Everybody needs support and understanding in these continuing unprecedented times
   * Provide feedback at any point in the quarter and we will try to improve and adapt
-6. **We’re all in this together**
+5. **We’re all in this together**
 
 (These principles were adapted from the [Adjusted Syllabus](https://docs.google.com/document/d/1-6d_W8rdzE9mW2DvPi-dPvRxo4sekKlz3VqEpnu4Dwg/preview) by Brandon Bayne at UNC Chapel Hill)
 ```
 
 ### Office Hours
 
-Steven: Wednesdays, TBD; or by appointment
+Jessica: Thursdays, immediately after class; or by appointment
 
-Valerie: TBD
+Hannah: TBD
 
 ```note
 The UW eScience institute offers [data science office hours](https://escience.washington.edu/office-hours/) which could be useful for your projects or your own research work.
@@ -87,14 +84,14 @@ The first half of each class period is reserved for lectures and discussions. We
 
 ### Labs
 
-Following a ~5 minute break after each lecture, we will reconvene in Zoom for the lab portion of the class (this will not be recorded). Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. ([GitHub Option](https://spestana.github.io/data-analysis/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
+Following a ~5 minute break after each lecture, we will reconvene for the lab portion of the class (this will not be recorded). Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. ([GitHub Option](https://spestana.github.io/data-analysis/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
 
-We will use Zoom breakout rooms, and Slack to work in small groups on Lab excercises. As we learn what works and what doesn't in our online learning environment, we'll adapt and modify lab logistics. Contact the instructor or TA to be added to the Slack workspace.
+We will use classroom space, Zoom breakout rooms, and Slack to work in small groups on Lab excercises. As we learn what works and what doesn't in our learning environment, we'll adapt and modify lab logistics. Contact the instructor or TA to be added to the Slack workspace.
 
 
 ### Homework Assignments
 
-Homework assignments will be given out on Thursday at the beginning of class, and will be **due the following week on Thursday at the beginning of class (10:30 am, Pacific Time)**. Homework questions are posted on the class website along with links to any data files you might need.
+Homework assignments will be given out on Tuesdays at the beginning of class, and will be **due the following week on Tuesday at the beginning of class (10:30 am, Pacific Time)**. Homework questions are posted on the class website along with links to any data files you might need.
 
 You are encouraged to work together on homeworks and collaborate, but you must turn in your own assignments with your own work. 
 
@@ -106,18 +103,18 @@ Submit your completed homework assignments via Canvas by uploading:
 * A PDF copy of the jupyter notebook file(s)
   * To save your notebook as a PDF, go to *File* > *Export Notebook As...* > *Export Notebook to PDF*, this will download a PDF file copy of your notebook to your personal computer which you can upload to Canvas
 
-Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Monday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Monday following the due date.
+Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Monday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Monday following the due date.  Everyone's lowest scoring homework assignment will be dropped, so please do not worry if one week is not going your way.
 
 Homework solutions will be posted in the Solutions folder on [Canvas](https://canvas.uw.edu/) by the Tuesday after the assignment was turned in.
 
 
 ### Final Exam (for CEE 465)
 
-The final exam will be take-home, and will be assigned on Monday, December 7th, giving you a full week to complete it. The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day on the [scheduled final exam date](https://www.washington.edu/students/reg/A2020exam.html): **Monday, December 14, 5:00 pm (Pacific Time)**.
+The final exam will be take-home, and will be assigned on Monday, December 6th, giving you a full week to complete it. The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day on the [scheduled final exam date](https://www.washington.edu/students/reg/A2020exam.html): **Monday, December 13, 5:00 pm (Pacific Time)**.
 
 ### Final Project (for CEWA 565)
 
-Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class on **12/3**, **12/8** and **12/10**. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on **Monday, December 14, 5:00 pm (Pacific Time)**. Further details are provided on the [Course Project page](b-project.html).
+Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class on **12/2**, **12/7** and **12/9**. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on **Monday, December 13, 5:00 pm (Pacific Time)**. Further details are provided on the [Course Project page](b-project.html).
 
 ### Grading Policy
 
@@ -125,7 +122,7 @@ Final projects will be completed in pairs (or individually on request), and the 
   * Participation includes discussions in class, on Slack, and providing feedback on student presentations
   * *If you plan on attending class asynchronously by watching the recorded lectures, please let me know.*
 * **Homework assignments: 70%**
-  * Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your overall homework grade will be evaluated out of 70 points total.
+  * Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your lowest assignment will be dropped, and the overall homework grade will be evaluated out of 7 assignments and 70 points total.
 * **Final Project / Final Exam: 25%**
   * See the [CEWA 565 course project page](/overview/b-project.html) for grading rubric.
 
@@ -136,22 +133,22 @@ Final projects will be completed in pairs (or individually on request), and the 
 This schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the updated schedule.
 ```
 
-[UW Academic calendar for 2020-2021](https://www.washington.edu/students/reg/2021cal.html)
+[UW Academic calendar for 2021-2022](https://www.washington.edu/students/reg/2122cal.html)
 
 | Week | Lecture Dates | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
-| **0** | 10/1 <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | |
-| **1** | 10/6 <br /> 10/8 | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Plotting Random Numbers in Python | |
-| **2** | 10/13 <br /> 10/15 | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | 10/13: **HW1 Due** |
-| **3** | 10/20 <br /> 10/22 | Analysis of Variance (ANOVA) <br /> Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches | Lab 3: ANOVA | 10/20: **HW2 Due** |
-| **4** | 10/27 <br /> 10/29 | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | 10/27: **HW3 Due** |
-| **5** | 11/3 <br /> 11/5 | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | 11/3: **HW4 Due** |
-| **6** | 11/10 <br /> 11/12 | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | 11/10: **HW5 Due** |
-| **7** | 11/17 <br /> 11/19 |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | 11/17: **HW6 Due** |
-| **8** | 11/24 <br /> (**11/26 is a holiday**) | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  11/24: **HW7 Due**  |
-| **9** | 12/1 <br /> 12/3 | <br /> Data Analysis Applications: Student Presentations | Project Work | 12/1: **HW8 Due** <br /> 12/3: **Presentations** |
-| **10** | 12/8 <br /> 12/10 | Data Analysis Applications: Student Presentations | Project Work | 12/8: **Presentations** <br /> 12/10: **Presentations** |
-| **Finals Week** | 12/14 |  |  | 12/14: **CEWA 565 - Final Project Report Due** <br /> 12/14: **CEE 465 - Final Exam Due** |
+| **0** | 9/30 <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | |
+| **1** | 10/5 <br /> 10/7 | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Plotting Random Numbers in Python | |
+| **2** | 10/12 <br /> 10/14 | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | 10/12: **HW1 Due** |
+| **3** | 10/19 <br /> 10/21 | Analysis of Variance (ANOVA) <br /> Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches | Lab 3: ANOVA | 10/19: **HW2 Due** |
+| **4** | 10/26 <br /> 10/28 | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | 10/26: **HW3 Due** |
+| **5** | 11/2 <br /> 11/4 | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | 11/2: **HW4 Due** |
+| **6** | 11/9 <br /> (**11/11 is a holiday**) | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | 11/9: **HW5 Due** |
+| **7** | 11/16 <br /> 11/18 |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | 11/16: **HW6 Due** |
+| **8** | 11/23 <br /> (**11/25 is a holiday**) | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  11/23: **HW7 Due**  |
+| **9** | 11/30 <br /> 12/2 | <br /> Data Analysis Applications: Student Presentations | Project Work | 11/30: **HW8 Due** <br /> 12/2: **Presentations** |
+| **10** | 12/7 <br /> 12/9 | Data Analysis Applications: Student Presentations | Project Work | 12/7: **Presentations** <br /> 12/9: **Presentations** |
+| **Finals Week** | 12/13 |  |  | 12/13: **CEWA 565 - Final Project Report Due** <br /> 12/13: **CEE 465 - Final Exam Due** |
 
 ## Additional Information
 
