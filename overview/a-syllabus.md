@@ -164,7 +164,7 @@ This schedule is subject to change throughout the quarter. Check assignment due 
 
 The University takes academic integrity very seriously. Behaving with integrity is part of our responsibility to our shared learning community. One example of misconduct I have observed in this particular class in the past is plagiarism (representing the work of others as your own without giving appropriate credit to the original author(s)). **If you’re uncertain about if something is academic misconduct, ask me. I am willing to discuss questions you might have.**
 
-(Community Standards & Student Conduct)[https://www.washington.edu/cssc/]
+[Community Standards & Student Conduct](https://www.washington.edu/cssc/)
 
 The University of Washington Student Conduct Code (WAC 478-121) defines prohibited academic and behavioral conduct and describes how the University holds students accountable as they pursue their academic goals. Allegations of misconduct by students may be referred to the appropriate campus office for investigation and resolution. More information can be found online at [https://www.washington.edu/studentconduct/](https://www.washington.edu/studentconduct/)
 
@@ -183,7 +183,7 @@ Washington state law requires that UW develop a policy for accommodation of stud
 
 Call SafeCampus at 206-685-7233 (206-685-SAFE) anytime – no matter where you work or study – to anonymously discuss safety and well-being concerns for yourself or others. SafeCampus’s team of caring professionals will provide individualized support, while discussing short- and long-term solutions and connecting you with additional resources when requested.
 
-Mental health resources are available at [wellbeing.uw.edu](https://wellbeing.uw.edu/topic/mental-health/). The [UW Counseling Center](https://www.washington.edu/counseling/) is also a good resource (206-543-1240). University of Washington students are eligible for services at the Counseling Center. Also see their [flyer](https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/31/2020/03/10140856/Coping-with-COVID-19-Related-Stress5.pdf) for tips on coping with COVID-19 related stress. While our class is not in-person or on campus, please review the [COVID-19 face cover policy](https://www.ehs.washington.edu/system/files/resources/COVID-19-face-cover-policy.pdf) if you are spending time on campus this quarter.
+Mental health resources are available at [wellbeing.uw.edu](https://wellbeing.uw.edu/topic/mental-health/). The [UW Counseling Center](https://www.washington.edu/counseling/) is also a good resource (206-543-1240). University of Washington students are eligible for services at the Counseling Center. Also see their [flyer](https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/31/2020/03/10140856/Coping-with-COVID-19-Related-Stress5.pdf) for tips on coping with COVID-19 related stress. Please review the [COVID-19 face cover policy](https://www.ehs.washington.edu/covid-19-prevention-and-response/face-covering-requirements) .
 
 Additionally, if you’re thinking about suicide, are worried about a friend or loved one, or would like emotional support, the Lifeline network is available 24/7 across the United States: National Suicide Prevention Lifeline (1-800-273-8255), Forefront Suicide Prevention (866-598-3978), and Crisis Text Line (741741). If the person you are concerned about is in immediate danger of killing them self and/or refuses to stay safe with you, call or text 911.
 

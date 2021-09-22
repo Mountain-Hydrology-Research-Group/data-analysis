@@ -26,7 +26,10 @@ temperature is significantly changed by streamflow timing. What is your confiden
 
 4. **Does snow accumulation and/or melt change after forest disturbance?  How?** (Please ask Jessica if you’re interested in this project.)
 
-5. **Choose your own adventure...**
+5. **How do temperature and relative humidity vary across San Juan Island?  Are there potential locations of climate refugia?** (Please ask Jessica if you’re interested in this project.)
+
+
+6. **Choose your own adventure...**
 
 
 ## Grading Rubic
