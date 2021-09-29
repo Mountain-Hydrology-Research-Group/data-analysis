@@ -33,7 +33,7 @@ In this homework assignment we will work start with programming and data visuali
 
 Download the files containing observed instantaneous peak flow data for the [Sauk River](data/Sauk_peak_WY1929_2017.xlsx) and [Skykomish River](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx) in western Wshington. Note that annual peak flows are reported by water year (Oct 1 of the previous calendar year to September 30), so some calendar years appear to have two values. Water years are shown in an additional column in the excel files. **For the purposes of this assignment, we will only consider peak flows by water year, and the years requested below refer to water years.** (For example, the first flood reported in the Skykomish occurred on Oct 10, 1928 – this is the flood of water year 1929.)
 
- A. Plot the data from the Sauk River and Skykomish River as a time series from 1929-2009. Use different color lines or symbols to distinguish the two rivers. Be sure to label your axes appropriately and use `plt.legend()` to create a legend. **Describe qualitatively any changes you see in these records through time. Is there a common theme between the two sites?**
+ A. Plot the data from the Sauk River and Skykomish River as a time series from 1929-2020. Use different color lines or symbols to distinguish the two rivers. Be sure to label your axes appropriately and use `plt.legend()` to create a legend. **Describe qualitatively any changes you see in these records through time. Is there a common theme between the two sites?**
 
  B. **For the Sauk River only**, create and examine the following plots for three time periods: the entire timeseries, all data before 1975, all data from 1975 and later. 
  
