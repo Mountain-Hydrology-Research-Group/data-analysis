@@ -29,7 +29,9 @@ temperature is significantly changed by streamflow timing. What is your confiden
 5. **How do temperature and relative humidity vary across San Juan Island?  Are there potential locations of climate refugia?** (Please ask Jessica if you’re interested in this project.)
 
 
-6. **Choose your own adventure...**
+6. **Did the 2021 record summer heat lead to unprecedented snow melt on Mt. Rainier?**  Much recent news has talked about the 2021 Pacific Northwest heat wave and its effects on snow and glacier melt at Mt. Rainier.  For this project, you could look at snow data from NRCS snotel sites near Mt. Rainier and streamflow from USGS-monitored rivers that drain Mt. Rainier and assess how different 2021 was from the historic record and if there are trends in the data that would reflect increasing snowmelt in recent years. 
+
+7.  **Choose your own adventure...**
 
 
 ## Grading Rubic

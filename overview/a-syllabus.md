@@ -55,7 +55,7 @@ By the end of the course, students should be able to
 
 Jessica: Thursdays, immediately after class; or by appointment
 
-Hannah: TBD
+Hannah: Mondays, 2:30-3:30 Wilcox 264
 
 ```note
 The UW eScience institute offers [data science office hours](https://escience.washington.edu/office-hours/) which could be useful for your projects or your own research work.
