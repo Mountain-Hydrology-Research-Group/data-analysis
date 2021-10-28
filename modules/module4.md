@@ -27,7 +27,7 @@ USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 
  
  **B.** How much of the variance is explained by the resulting model?
  
- **C.** Estimate the 95% confidence intervals for the annual flow predictions from 1858-1878, and plot them with the central tendency (the central tendency is the prediction from the regression model).
+ **C.** Estimate the 95% confidence intervals for the annual flow predictions from 1858-1878, and plot them as a timeseries (estimates each year) with the central tendency (the central tendency is the prediction from the regression model).
  
  **D.** Now create a non-parametric, quantile-based regression model using the same data.
  
@@ -52,3 +52,7 @@ The first column is the water year, and data in the next three columns are value
 ### Problem 3: The best graphics
  
 One of our greatest challenges in data analysis is to be able to visualize the information in the data and convey that information to others. Consider various scientific papers you have read (on any subject related to your scientific/engineering discipline) and pick out your favorite graphical representation of data (e.g., the best figure). Include your top two choices in your homework submission with a brief statement of why you chose these figures. We'll share some of these favorite figures in class.
+
+### Problem 4: Project (CEWA 565 only)
+
+Please give a brief update of where you are with your project.  At this poing you should have acquired data that you can plot.  Include one example plot of the data in this homework.  Let us know if you have any questions or concerns at this point.
