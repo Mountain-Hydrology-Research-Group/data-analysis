@@ -31,18 +31,18 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 The "[100 year storm](https://en.wikipedia.org/wiki/100-year_flood)" is a storm with a rainfall total that would on average be met or exceeded only once every 100 years, and therefore the storm has a 0.01 chance of occurrence each year. For any "k-year storm", its probability of occurrence in one year is 1/k, where k is the return period in years. Infrastructure is often designed to handle the flooding due to some k-year storm.
  
-Based on long-term climate records for New York City, the 24-hour duration, 100-year return period rainfall was previously estimated at 7.2 inches. This "7.2 inches in 24 hours" storm (the "100 year storm") has been used to design infrastructure in New York City. When this design limit is exceeded, flooding can occur.
+Based on long-term climate records for New York City, the 24-hour duration, 100-year return period rainfall was previously estimated at 7.2 inches. This "7.2 inches in 24 hours" storm (the "100 year storm") has been used to design infrastructure in New York City. When this design limit is exceeded, flooding can occur.  If you are interested in 
 
-During the 20th century, this limit was exceeded only once, during Hurricane Floyd in 1999. However, a storm in 2007 produced 8 inches of rainfall in a 24-hour period. Another storm in August 2011 again exceeded 7.2 inches in 24 hours. Hurricane Irene in September 2011 exceeded this limit yet again, and so did Hurricane Sandy in October 2012. This happened again in September 2018 from Hurricane Florence. The table below summarizes the time periods and the number of times this design limit was exceeded within each time period.
+During the 20th century, this limit was exceeded only once, during Hurricane Floyd in 1999. However, a storm in 2007 produced 8 inches of rainfall in a 24-hour period. Another storm in August 2011 again exceeded 7.2 inches in 24 hours. Hurricane Irene in September 2011 exceeded this limit yet again, and so did Hurricane Sandy in October 2012. This happened again in September 2018 from Hurricane Florence, and then Hurricane Ida broke rain records in September 2021. The table below summarizes the time periods and the number of times this design limit was exceeded within each time period.
 
-(Note that there has been flooding in New York City in 2019 and 2020, but not of this magnitude. Therefore, we will not update the number of floods but will instead add two more years without a flood. And unlike what you will do in many hydrology classes, which is to calculate the return period across a range of different precipitation or streamflow values, we are focusing here only on the probability of 24-hour storms exceeding 7.2 inches of rainfall because this is a critical design number for New York City.)
+Note that  unlike what you will do in many hydrology classes, which is to calculate the return period across a range of different precipitation or streamflow values, we are focusing here only on the probability of 24-hour storms exceeding 7.2 inches of rainfall because this is a critical design number for New York City.  If you are interested in city planning in New York around floods, they released a [design plan](https://www1.nyc.gov/assets/orr/pdf/publications/stormwater-resiliency-plan.pdf) in May 2021.  Note they use different rain thresholds for different design elements (e.g., sometimes hourly rain rates matter more), so the actual critical design numbers vary more than what we're examining here.
 
 | time period | # of years | # of storms |
 | --- | --- | --- |
 | 1900-1999 | 100 | 1 |
 | 2000-2009 | 10 | 1 |
 | 2010-2019 | 10 | 4 |
-| 2020 - now | 1 | 0 |
+| 2020-2021 | 2  | 1 |
 
 In this problem we will use Bayes’ Theorem to see if the 7.2-inch storm is still a 100-year storm. In other words, we want to find what k-year storm 7.2 inches in 24 hours corresponds to, if not 100-years.
 
@@ -62,7 +62,7 @@ In this problem, A is the true likelihood of the storm’s occurrence, and B are
    - Calculate and plot the posterior pdfs of the 7.2-inch storm’s probability after each time period.
    - Calculate the the mean and 95% confidence interval of the return period each time.
     
- **C.** How much did the mean and 95% confidence interval return period change from the original prior return period to 2020? What does this indicate about the “true” frequency of the 7.2-inch-storm? To what k-year storm does this mean correspond to now?
+ **C.** How much did the mean and 95% confidence interval return period change from the original prior return period to 2021? What does this indicate about the “true” frequency of the 7.2-inch-storm? To what k-year storm does this mean correspond to now?
 
 
 ### Problem 2: Project Update (CEWA 565)
