@@ -18,9 +18,25 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 ## Homework 7: 
 
  
-### Problem 1: Application of Bayes Theorem with MCMC
+### Problem 1: ENSO Phases
+Following Lab 7-1 and Lab 7-2, 
+A) Use the time series of the phase of the El Niño Southern Oscillation (ENSO) from 1900-2021 to create a lag-1 Markov model of the ENSO phase.
+where the observed Phases of ENSO are as follows:
+
+1: warm (El Niño)
+2: neutral (ENSO neutral)
+3: cool, (La Niña)
+
+B) Using this Markov model and a random number generator, simulate 5,000 years of ENSO data.
+
+C) Using this randomly generated data, answer the following questions.
+
+  - According to the model, what is the probability that three warm ENSO years would occur in a row?
+  - What is the large-sample probability that three cool ENSO years would happen in a row?  (Try refreshing the numbers several times to increase the sample size if the condition never happens.)
+
+### Probelm 2: Rating Curves and Application of Bayes Theorem with MCMC
  
-Following the Lab 7-3, explore how the rating curve and the 95% confidence intervals for the Lyell Fork streamflow site change depending on the method you use:
+Following the class discussion and Lab 7-3, explore how the rating curve and the 95% confidence intervals for the Lyell Fork streamflow site change depending on the method you use to determine the rating curve:
 
 - Least squares linear regression fitting (with transformed variables) using h0 = 28 cm
   - Make 95% confidence intervals around this regression fit 
@@ -29,15 +45,14 @@ Following the Lab 7-3, explore how the rating curve and the 95% confidence inter
 - Direct monte carlo parameter estimation
 - Bayesian MCMC fitting
 
-Create plots and discuss the differences in the results from these three methods.
+Using the code in Lab 7-3, create plots and discuss the differences in the results from these three methods.
 
-### Problem 2: Air Temperature Observations in Complex Terrain
-
-[See problem 2 in Module 8](/data-analysis/modules/module8.html)
+### Problem 2 grads: Work on your term projects (CEWA 565)
 
 
-### Problem 3: Statistics Synthesis (CEE 465)
+### Problem 2 undergrads: Statistics Synthesis (CEE 465)
 
+(Your final exam questions will look similar to this.)
 You are given the below dataset of annual peak flows on the Sauk River: 
 
 ![Sauk River Plot](lab7/sauk-river-plot.png)
