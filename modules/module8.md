@@ -34,6 +34,6 @@ Optional: Download [North_Fork_American_River_CA_18020128.json](data/North_Fork_
  
  **E.** Repeat C) and D) for the 2nd-leading pattern. Interpret physically what the first two patterns may represent. How much of the dataset is described by the first two modes of variability?
  
- ### Homework 8, Problem 2: Timeseries Analysis
+### Homework 8, Problem 2: Timeseries Analysis
  
  Following lab 8-2, use Fourier Analysis to determine the dominant frequencies and periods of oscilliation of the water level data provided (waterlevel.mat).  Based on what you find, where (in what type of environment) do you think this water level was measured?
