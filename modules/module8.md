@@ -7,7 +7,8 @@
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
 * [Lab 8-1: SVD with Monthly Precip.](lab8/lab8-1.ipynb)
-  * data: [PRISM_4km_1982-2012.mat](https://canvas.uw.edu/courses/1396225/files/folder/Week%2008%20SVD%20EOF%20PCA)
+  * data: [PRISM_4km_1982-2012.mat](https://canvas.uw.edu/courses/1476878/files/folder/Week%2008%20SVD%20EOF%20PCA)
+  Note: This takes you to canvas, where you can download this file to your computer and then upload it to the Jupyterhub. The file is too large to keep on this website.
 * [Lab 8-2: Timeseries Lab](lab8/lab8-2.ipynb)
   * data: [waterlevel.mat](data/waterlevel.mat)
 
@@ -36,4 +37,4 @@ Optional: Download [North_Fork_American_River_CA_18020128.json](data/North_Fork_
  
 ### Homework 8, Problem 2: Timeseries Analysis
  
- Following lab 8-2, use Fourier Analysis to determine the dominant frequencies and periods of oscilliation of the water level data provided (waterlevel.mat).  Based on what you find, where (in what type of environment) do you think this water level was measured?
+Following lab 8-2, use Fourier Analysis to determine the dominant frequencies and periods of oscilliation of the water level data provided (waterlevel.mat).  Based on what you find, where (in what type of environment) do you think this water level was measured?
