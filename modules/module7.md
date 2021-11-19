@@ -38,10 +38,10 @@ C) Using this randomly generated data, answer the following questions.
  
 Following the class discussion and Lab 7-3, explore how the rating curve and the 95% confidence intervals for the Lyell Fork streamflow site change depending on the method you use to determine the rating curve:
 
-- Least squares linear regression fitting (with transformed variables) using h0 = 28 cm
+- Least squares linear regression fitting (with transformed variables) using b = 0.28 m
   - Make 95% confidence intervals around this regression fit 
-  - Then, assume that we don't know exactly what h0 is. Try additional linear regressions using different values of h0 = 10, 20, 30, 40, and 50 cm (you do not need to calculate 95% confidence intervals for these additional fits)
-  - Qualitatively, is the range between these 5 additional lines with different h0 values larger or smaller than the range between the 95% confidence lines from the original fitted line (the one with h0 = 28 cm)?
+  - Then, assume that we don't know exactly what b is. Try additional linear regressions using different values of b = 0.10, 0.20, 0.30, 0.40, and 0.50 m (you do not need to calculate 95% confidence intervals for these additional fits)
+  - Qualitatively, is the range between these 5 additional lines with different b values larger or smaller than the range between the 95% confidence lines from the original fitted line (the one with b = 0.28 cm)?
 - Direct monte carlo parameter estimation
 - Bayesian MCMC fitting
 
