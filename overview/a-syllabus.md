@@ -3,18 +3,18 @@
 
 ## Course Overview
 
-**Data Analysis in Water Sciences - Fall Quarter, 2021**
+**Data Analysis in Water Sciences - Fall Quarter, 2022**
 
 The course will cover a number of fundamental topics related to data analysis including statistical inference testing and error estimation, use of linear and quantile-based regression models, Monte Carlo simulation, time series analysis, Bayes theorem, and data visualization using modern computer techniques.
 
-| **CEE 465** | SLN 12213 | 4 units |
-| **CEWA 565A** | SLN 12295 | 4 units |
-| **CEWA 565B PCE** | SLN 12296 | 4 units |
+| **CEE 465** | SLN 12184 | 4 units |
+| **CEWA 565A** | SLN 12271 | 4 units |
+| **CEWA 565B PCE** | SLN 12272 | 4 units |
 
 
 **Instructor:**      Jessica Lundquist, jdlund@uw.edu
 
-**TA:**          Hannah Besso, bessoh2@uw.edu 
+**TA:**          Danny Hogan, dlhogan@uw.edu 
 
 **Lectures:**      Tuesdays & Thursdays: 10:30 am - 12:20 pm (Pacific Time)
 
@@ -32,7 +32,7 @@ By the end of the course, students should be able to
 ```note
 ### Guiding principles for this quarter
 1. **Our learning situation is still in flux.**
-  * We have a room to meet together, masked, on campus, but we expect that some people will need to stay home at times during the quarter
+  * We will prioritize meeting together on campus, but we expect that some people will need to stay home at times during the quarter
   * Therefore, we are prepared for online options, for potentially teaching remotely, for potentially learning from home, and for varied access to learning materials
 2. **The humane option is the best option.**
   * We are going to prioritize supporting each other as humans
@@ -43,8 +43,6 @@ By the end of the course, students should be able to
   * Accessible asynchronous content for diverse access, time zones, and contexts
   * Accessible synchronous discussion to learn together
 4. **We will remain flexible and adjust to the situation.**
-  * Nobody knows where this is going and what we’ll need to adapt
-  * Everybody needs support and understanding in these continuing unprecedented times
   * Provide feedback at any point in the quarter and we will try to improve and adapt
 5. **We’re all in this together**
 
@@ -55,7 +53,7 @@ By the end of the course, students should be able to
 
 Jessica: Thursdays, immediately after class; or by appointment
 
-Hannah: Mondays, 2:30-3:30 Wilcox 264
+Danny: Wednesdays, 4:00-5:00 Wilcox 264
 
 ```note
 The UW eScience institute offers [data science office hours](https://escience.washington.edu/office-hours/) which could be useful for your projects or your own research work.
@@ -86,12 +84,12 @@ The first half of each class period is reserved for lectures and discussions. We
 
 Following a ~5 minute break after each lecture, we will reconvene for the lab portion of the class (this will not be recorded). Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. ([GitHub Option](https://spestana.github.io/data-analysis/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
 
-We will use classroom space, Zoom breakout rooms, and Slack to work in small groups on Lab excercises. As we learn what works and what doesn't in our learning environment, we'll adapt and modify lab logistics. Contact the instructor or TA to be added to the Slack workspace.
+We will use classroom space and Slack to work in small groups on lab excercises. If you are not able to attend the lab in person, please reach out to others in the class for collaborative support. Contact the instructor or TA to be added to the Slack workspace.
 
 
 ### Homework Assignments
 
-Homework assignments will be given out on Tuesdays at the beginning of class, and will be **due the following week on Tuesday at the beginning of class (10:30 am, Pacific Time)**. Homework questions are posted on the class website along with links to any data files you might need.
+Homework assignments will be given out on Thursdays at the beginning of class, and will be **due the following week on Thursday at the beginning of class (10:30 am, Pacific Time)**. Homework questions are posted on the class website along with links to any data files you might need.
 
 You are encouraged to work together on homeworks and collaborate, but you must turn in your own assignments with your own work. 
 
@@ -105,7 +103,7 @@ Submit your completed homework assignments via Canvas by uploading:
 
 Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Monday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Monday following the due date.  Everyone's lowest scoring homework assignment will be dropped, so please do not worry if one week is not going your way.
 
-Homework solutions will be posted in the Solutions folder on [Canvas](https://canvas.uw.edu/) by the Tuesday after the assignment was turned in.
+Homework solutions will be posted in the Solutions folder on [Canvas](https://canvas.uw.edu/) by the Thursday after the assignment was turned in.
 
 
 ### Final Exam (for CEE 465)
@@ -114,7 +112,7 @@ The final exam will be take-home, and will be assigned on Monday, December 6th, 
 
 ### Final Project (for CEWA 565)
 
-Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class on **12/2**, **12/7** and **12/9**. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on **Monday, December 13, 5:00 pm (Pacific Time)**. Further details are provided on the [Course Project page](b-project.html).
+Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class on **12/1**, **12/6** and **12/8**. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on **Monday, December 12, 5:00 pm (Pacific Time)**. Further details are provided on the [Course Project page](b-project.html).
 
 ### Grading Policy
 
@@ -133,22 +131,22 @@ Final projects will be completed in pairs (or individually on request), and the 
 This schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the updated schedule.
 ```
 
-[UW Academic calendar for 2021-2022](https://www.washington.edu/students/reg/2122cal.html)
+[UW Academic calendar for 2022-2023](https://www.washington.edu/students/reg/2223cal.html)
 
 | Week | Lecture Dates | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
-| **0** | 9/30 <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | |
-| **1** | 10/5 <br /> 10/7 | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Plotting Random Numbers in Python | |
-| **2** | 10/12 <br /> 10/14 | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | 10/12: **HW1 Due** |
-| **3** | 10/19 <br /> 10/21 | Analysis of Variance (ANOVA) <br /> Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches | Lab 3: ANOVA | 10/19: **HW2 Due** |
-| **4** | 10/26 <br /> 10/28 | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | 10/26: **HW3 Due** |
-| **5** | 11/2 <br /> 11/4 | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | 11/2: **HW4 Due** |
-| **6** | 11/9 <br /> (**11/11 is a holiday**) | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | 11/9: **HW5 Due** |
-| **7** | 11/16 <br /> 11/18 |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | 11/16: **HW6 Due** |
-| **8** | 11/23 <br /> (**11/25 is a holiday**) | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  11/23: **HW7 Due**  |
-| **9** | 11/30 <br /> 12/2 | <br /> Data Analysis Applications: Student Presentations | Project Work | 11/30: **HW8 Due** <br /> 12/2: **Presentations** |
-| **10** | 12/7 <br /> 12/9 | Data Analysis Applications: Student Presentations | Project Work | 12/7: **Presentations** <br /> 12/9: **Presentations** |
-| **Finals Week** | 12/13 |  |  | 12/13: **CEWA 565 - Final Project Report Due** <br /> 12/13: **CEE 465 - Final Exam Due** |
+| **0** | 9/29 <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | |
+| **1** | 10/4 <br /> 10/6 | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Plotting Random Numbers in Python | 10/6: **HW1 Due**|
+| **2** | 10/11 <br /> 10/13 | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | 10/13: **HW2 Due** |
+| **3** | 10/18 <br /> 10/20 | Analysis of Variance (ANOVA) <br /> Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches | Lab 3: ANOVA | 10/20: **HW3 Due** |
+| **4** | 10/25 <br /> 10/27 | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | 10/27: **HW4 Due** |
+| **5** | 11/1 <br /> 11/3 | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | 11/3: **HW5 Due** |
+| **6** | 11/8 <br /> 11/10 | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | 11/10: **HW6 Due** |
+| **7** | 11/15 <br /> 11/17 |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | 11/17: **HW7 Due** |
+| **8** | 11/22 <br /> (**11/24 is a holiday**) | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  |
+| **9** | 11/29 <br /> 12/1 | <br /> Data Analysis Applications: Student Presentations | Project Work | 11/29: **HW8 Due** <br /> 12/1: **Presentations** |
+| **10** | 12/6 <br /> 12/8 | Data Analysis Applications: Student Presentations | Project Work | 12/6: **Presentations** <br /> 12/8: **Presentations** |
+| **Finals Week** | 12/12 |  |  | 12/12: **CEWA 565 - Final Project Report Due** <br /> 12/12: **CEE 465 - Final Exam Due** |
 
 ## Additional Information
 
