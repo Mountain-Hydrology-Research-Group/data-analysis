@@ -1,19 +1,22 @@
 # 1) Python, Statistics Review
 
-- [Graphical Data Analysis](lab1/graphical-data-analysis.ipynb) with this [sample data set](data/my_data.csv)
-- [Probability Distributions](lab1/probability-distributions.ipynb)
-- [Empirical Distributions](lab1/empirical-distributions.ipynb)
+Each week, the labs are designed to give you specific coding examples to help you with that week's homework.
+Please look through the lab material before beginning the homework.  Note that the first week's lab has a lot of examples to help people learning python.  This will get easier as we go.
 
 ---
 
 ```note
-## Lab 1: Plotting Random Numbers in Python
+## Lab 1: Plotting Data and Calculating Statistics in Python
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](../resources/b-learning-jupyter.html#jupyterhub).
 
 * Download this data file for the lab activities: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
 * [Lab 1-1: Plotting Data in Python](lab1/lab1-1.ipynb)
-* [Lab 1-2: Generating Random Numbers in Python](lab1/lab1-2.ipynb) ([Solution to Lab 1-2 activity](lab1/lab1-2_solution.ipynb))
+* For more practice in plotting, try this graphical data analysis lab: - [Graphical Data Analysis](lab1/graphical-data-analysis.ipynb) with this [sample data set](data/my_data.csv)
+* [Lab 1-2: Empirical Distributions](lab1/lab1-2.ipynb)
+* After we empirically plot how our data are distributed, we often want to compare them to theoretical distributions.  Open the [Probability Distributions](lab1/probability-distributions.ipynb) notebook to examine common theoretical distributions and how to work with them in python.
+* [BONUS (not needed to solve homework) Lab 1-3: Generating Random Numbers in Python](lab1/lab1-3.ipynb) ([Solution to Lab 1-2 activity](lab1/lab1-3_solution.ipynb))
+
 
 Some extra helpful activities:
 * [Numpy Tutorial](lab1/numpy-tutorial.ipynb)
@@ -35,7 +38,7 @@ Download the files containing observed instantaneous peak flow data for the [Sau
 
 Note that annual peak flows are reported by water year (Oct 1 of the previous calendar year to September 30), so some calendar years appear to have two values. Water years are shown in an additional column in the excel files. **For the purposes of this assignment, we will only consider peak flows by water year, and the years requested below refer to water years.** (For example, the first flood reported in the Skykomish occurred on Oct 10, 1928 – this is the flood of water year 1929.)
 
- A. Plot the data from the Sauk River and Skykomish River as a time series from 1929-2020. Use different color lines or symbols to distinguish the two rivers. Be sure to label your axes appropriately and use `plt.legend()` to create a legend. **Describe qualitatively any changes you see in these records through time. Is there a common theme between the two sites?**
+ A. Plot the data from the Sauk River and Skykomish River as a time series from 1929-2021. Use different color lines or symbols to distinguish the two rivers. Be sure to label your axes appropriately and use `plt.legend()` to create a legend. **Describe qualitatively any changes you see in these records through time. Is there a common theme between the two sites?**
 
  B. We know that in water year 1977, there was a large [PDO](https://en.wikipedia.org/wiki/Pacific_decadal_oscillation) shift in the North Pacific, and we want to know if floods were statistically different before and after this date. In this homework, we will graphically examine the data. 
  
@@ -49,6 +52,6 @@ Note that annual peak flows are reported by water year (Oct 1 of the previous ca
   4. **Estimate the sample mean and standard deviation** for each of the two sub-periods (before and after 1977). Assuming a Gaussian (normal) distribution, add theoretical quantile curves to the quantile plots you made earlier. (Theoretical meaning that you're plotting Gaussian Cumulative Density Functions (CDFs) that have the same mean and standard deviation that you calculate). (The plot should now have 4 lines on it – please choose colors and line types to help distinguis them, and label carefully.)
   5. **Box and whisker plots** for each of the two sub-periods, with appropriate labels.
   
- C. Based on all the plots you have now created, write few sentences in a markdown cell discussing whether or not you think a change has occurred in the peak flows around 1977. Be sure to reference your plots (Fig. 1, Fig. 2, etc.) when you discuss them.
+ C. Based on all the plots you have now created, write a few sentences in a markdown cell discussing whether or not you think a change has occurred in the peak flows around 1977. Be sure to reference your plots (Fig. 1, Fig. 2, etc.) when you discuss them.
 
 ---
