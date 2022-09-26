@@ -1,4 +1,4 @@
-# 3) Analysis of Variance
+# 3) Non-Parametric Tests and Analysis of Variance
 
 ```note
 ## Lab 3: Analysis of Variance
@@ -15,6 +15,17 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 ### Problem 1
 
+Continuing with material from Lab 2-2 and comparing with Homework 2, 
+A. **Wilcoxan Rank Sum Test**: 
+* Test the significance of the change in the mean between the two sample periods using the two-sample Wilcoxan Rank Sum test. 
+* How different is your conclusion from the one in Homework 2. (i.e. compare P for the two tests).
+
+B. **Chi Squared test for a change in the standard deviation**: Lastly test for statistical significance of a change in the standard deviation. 
+* Even though it is not strictly true, assume that the sample data are derived from a normally distributed population. (While not required for this homework, we can follow up on the importance of this assumption by using Monte Carlo Tests as shown in Lab 2-3.)
+* Use a single sample test (with rejection region based on the Chi Squared distribution), and assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.
+
+### Problem 2
+
 Download and work through the [non-parametric tests](lab3/non-parametric-tests.ipynb) notebook. Read the documentation and source code for the [scipy.stats.ranksums](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html) and [scipy.stats.mannwhitneyu](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html) functions.
 
 Then answer the following questions:
@@ -23,10 +34,10 @@ Then answer the following questions:
 
 **B.** Are there any additional inputs/options we need to specify for either or both functions to make sure that they duplicate our results from the non-parametric tests notebook?
 
-**C.** Revisit Homework 2 part D, using the [observations of peak flow data for the Sauk River](data/Sauk_peak_WY1929_2017.xlsx) to try and detect a change in streamflow around 1977. Perform the rank-sum test from Homework 2 part D again using the fuction(s) and/or options you identified here in part B. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
+**C.** Examine your answer to Problem 1, part A, using the [observations of peak flow data for the Sauk River](data/Sauk_peak_WY1929_2021.xlsx) to try and detect a change in streamflow around 1977. Perform the rank-sum test from Problem 1 part A again using the fuction(s) and/or options you identified here. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
 
 
-### Problem 2
+### If you are able, work ahead, the below will be turned in with Homework 4:
 
 Download the [HJ Andrews Peak Flow data](data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx).
 
@@ -50,5 +61,4 @@ We want to know whether the four periods are statistically different from each o
  **C.** State the null and the alternative hypothesis for the question of whether the four periods are statistically different from each other. State the type I error (alpha value) that you are willing to accept.
  
  **D.** Perform an ANOVA test and discuss the results, related both to your hypothesis test listed above and to the more detailed question of which groups are statistically different from which other groups. Include graphs and/or tables that illustrate your results, and be sure to discuss what they mean. When using these ANOVA and other statistics functions, be sure that you understand what the code is doing (especially the defaults that different functions use) and outputting.
- 
  

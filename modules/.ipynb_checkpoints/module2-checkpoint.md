@@ -20,7 +20,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 
 ### Problem 1
 
-Using the [observations of peak flow data for the Sauk River](data/Sauk_peak_WY1929_2017.xlsx), we are going to investigate whether a change in flood statistics occurred around 1977.
+Using the [observations of peak flow data for the Sauk River](data/Sauk_peak_WY1929_2021.xlsx), we are going to investigate whether a change in flood statistics occurred around 1977.
 
 A. **Descriptive Plots**: Decide which of your plots from Homework 1 are relevant to the question of whether a change in flood statistics occurred in the Sauk River around 1977. 
 * Include these plots from Homework 1 here.
@@ -29,7 +29,7 @@ A. **Descriptive Plots**: Decide which of your plots from Homework 1 are relevan
 B. **Two-sample test for a change in the mean**: Test for statistical significance of the observed change in the mean annual peak flow around 1977. 
 * Use a two sample test, and alpha = 0.05 (95% confidence) and the z-distribution to define the rejection region. 
 * Discuss why using the z-distribution is appropriate here. 
-* Use the two-sample test to compare the data from 1977-2020 to the data from 1929-1976, accounting for the different sample sizes and sample standard deviations appropriately (remember to use the "pooled standard deviation"). 
+* Use the two-sample test to compare the data from 1977-2021 to the data from 1929-1976, accounting for the different sample sizes and sample standard deviations appropriately (remember to use the "pooled standard deviation"). 
 * For your null hypothesis, postulate that the difference between the two means = 0, and state the alternative hypothesis that the difference has changed (although you don’t know the direction of this change) and state the test statistic you'll be using. 
 * Can you reject the null hypothesis? 
 * Calculate P after your test. 
@@ -40,13 +40,6 @@ C. **Type II Error**: What is the type II error and power for your test on the m
 * Draw or plot a graphic to represent this true distribution, and draw where your test statistic falls on this graph. Color the area of the graph that represents Type II error. 
 * Then answer the question - what is the type II error and power for your test in part B?
 
-D. **Wilcoxan Rank Sum Test**: 
-* Now test the significance of the change in the mean between the two sample periods using the two-sample Wilcoxan Rank Sum test. 
-* How different is your conclusion from the one in part B. (i.e. compare P for the two tests).
-
-E. **Chi Squared test for a change in the standard deviation**: Lastly test for statistical significance of a change in the standard deviation. 
-* Even though it is not strictly true, assume that the sample data are derived from a normally distributed population. (While not required for this homework, we can follow up on the importance of this assumption by using Monte Carlo Tests as shown in Lab 2-3.)
-* Use a single sample test (with rejection region based on the Chi Squared distribution), and assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.
 
 ### Problem 2: Course Project Selection (CEWA 565 only)
 
