@@ -135,10 +135,10 @@ This schedule is subject to change throughout the quarter. Check assignment due 
 
 | Week | Lecture Dates | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
-| **0** | 9/29 <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | |
-| **1** | 10/4 <br /> 10/6 | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Plotting Random Numbers in Python | 10/6: **HW1 Due**|
+| **0** | 9/29 <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | Lab 1: Plotting Data in Python |
+| **1** | 10/4 <br /> 10/6 | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Data and Statistics in Python | 10/6: **HW1 Due**|
 | **2** | 10/11 <br /> 10/13 | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | 10/13: **HW2 Due** |
-| **3** | 10/18 <br /> 10/20 | Analysis of Variance (ANOVA) <br /> Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches | Lab 3: ANOVA | 10/20: **HW3 Due** |
+| **3** | 10/18 <br /> 10/20 | Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches <br /> Analysis of Variance (ANOVA)| Lab 3: Non-Parametric Tests & ANOVA | 10/20: **HW3 Due** |
 | **4** | 10/25 <br /> 10/27 | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | 10/27: **HW4 Due** |
 | **5** | 11/1 <br /> 11/3 | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | 11/3: **HW5 Due** |
 | **6** | 11/8 <br /> 11/10 | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | 11/10: **HW6 Due** |

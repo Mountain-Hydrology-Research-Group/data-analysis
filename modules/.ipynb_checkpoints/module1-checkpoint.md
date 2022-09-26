@@ -15,7 +15,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 * For more practice in plotting, try this graphical data analysis lab: - [Graphical Data Analysis](lab1/graphical-data-analysis.ipynb) with this [sample data set](data/my_data.csv)
 * [Lab 1-2: Empirical Distributions](lab1/lab1-2.ipynb)
 * After we empirically plot how our data are distributed, we often want to compare them to theoretical distributions.  Open the [Probability Distributions](lab1/probability-distributions.ipynb) notebook to examine common theoretical distributions and how to work with them in python.
-* [BONUS (not needed to solve homework) Lab 1-3: Generating Random Numbers in Python](lab1/lab1-3.ipynb) ([Solution to Lab 1-2 activity](lab1/lab1-3_solution.ipynb))
+* [BONUS (not needed to solve homework) Lab 1-3: Generating Random Numbers in Python](lab1/lab1-3.ipynb) ([Solution to Lab 1-3 activity](lab1/lab1-3_solution.ipynb))
 
 
 Some extra helpful activities:
