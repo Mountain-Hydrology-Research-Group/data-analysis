@@ -18,7 +18,7 @@ While it is possible to [run Jupyter Notebooks locally on your own computer](#),
 
 ### Getting started on our JupyterHub
 
-1. Open a web browser and go to this URL: [https://rttl.axdd.s.uw.edu/2022-autumn-cee-465-a/](https://rttl.axdd.s.uw.edu/2022-autumn-cee-465-a) (bookmark the page for easier access).
+1. Open a web browser and go to this URL: [https://jupyter.rttl.uw.edu/2022-autumn-cee-465-a/](https://jupyter.rttl.uw.edu/2022-autumn-cee-465-a/) (bookmark the page for easier access).
 
 2. Click on *Sign in with University of Washingotn NetID*, enter your username and password:
 ![jupyter startup 1](images/jupyter-help/jupyter1.JPG)
