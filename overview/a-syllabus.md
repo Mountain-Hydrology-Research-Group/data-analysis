@@ -101,7 +101,7 @@ Submit your completed homework assignments via Canvas by uploading:
 * A PDF copy of the jupyter notebook file(s)
   * To save your notebook as a PDF, go to *File* > *Export Notebook As...* > *Export Notebook to PDF*, this will download a PDF file copy of your notebook to your personal computer which you can upload to Canvas
 
-Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Monday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Monday following the due date.  Everyone's lowest scoring homework assignment will be dropped, so please do not worry if one week is not going your way.
+Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Tuesday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Tuesday following the due date.  Everyone's lowest scoring homework assignment will be dropped, so please do not worry if one week is not going your way.
 
 Homework solutions will be posted in the Solutions folder on [Canvas](https://canvas.uw.edu/) by the Thursday after the assignment was turned in.
 
