@@ -10,7 +10,7 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 * Data: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx) 
 * [Lab 2-1: Hypothesis Testing](lab2/lab2-1.ipynb)  ([Solution to Lab 2-1 activity](lab2/lab2-1_solution.ipynb))
 * [Lab 2-2: More Hypothesis Testing](lab2/lab2-2.ipynb)
-* [Lab 2-3: Monte Carlo Tests](lab2/lab2-3.ipynb)
+* BONUS, not required for homework: [Lab 2-3: Monte Carlo Tests](lab2/lab2-3.ipynb)
 
 ```
 
@@ -34,11 +34,6 @@ B. **Two-sample test for a change in the mean**: Test for statistical significan
 * Can you reject the null hypothesis? 
 * Calculate P after your test. 
 * How does your estimate of P change if your null hypothesis is that the difference in the mean between the two data sets is equal to 25% of the pre-1977 sample mean? (In other words, test with a new null hypothesis: the mean of the second period is 1.25 times the mean of the first period.)
-
-C. **Type II Error**: What is the type II error and power for your test on the mean in the first part of B above? 
-* To answer this, assume that the true mean has in fact increased by 25%, and pooled standard deviation has increased by a factor of 1.2. In other words, assume that the “true” mean of the later period is 1.25 times the 1929-1976 mean, and that the “true” pooled standard deviation is 1.2 times sigma prime (our test estimate of pooled estimator for the two observed data sets). 
-* Draw or plot a graphic to represent this true distribution, and draw where your test statistic falls on this graph. Color the area of the graph that represents Type II error. 
-* Then answer the question - what is the type II error and power for your test in part B?
 
 
 ### Problem 2: Course Project Selection (CEWA 565 only)

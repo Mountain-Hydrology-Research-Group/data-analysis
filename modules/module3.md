@@ -1,12 +1,14 @@
 # 3) Non-Parametric Tests and Analysis of Variance
 
 ```note
-## Lab 3: Analysis of Variance
+## Lab 3: Non-Parametric Tests and Analysis of Variance
 
 Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
-* [Lab 3-1: ANOVA](lab3/lab3-1.ipynb)
+* [Lab 3-1: Non-Parametric Tests](lab3/lab3-1.ipynb)
+* [Lab 3-2: ANOVA](lab3/lab3-2.ipynb)
   * data: [ANOVA_fertilizer_treatment.txt](data/ANOVA_fertilizer_treatment.txt)
+  * Note:  Homework corresponding to this lab will be turned in with HW 4
 
 
 ```
@@ -16,17 +18,24 @@ Download the lab and data files to your computer. Then, upload them to your Jupy
 ### Problem 1
 
 Continuing with material from Lab 2-2 and comparing with Homework 2, 
-A. **Wilcoxan Rank Sum Test**: 
+
+A. **Type II Error**: What is the type II error and power for your test on the mean in the first part of B in Homework 2? 
+* To answer this, assume that the true mean has in fact increased by 25%, and pooled standard deviation has increased by a factor of 1.3. In other words, assume that the “true” mean of the later period is 1.25 times the 1929-1976 mean, and that the “true” pooled standard deviation is 1.3 times sigma prime (our test estimate of pooled estimator for the two observed data sets). 
+* Draw or plot a graphic to represent this true distribution, and draw where your test statistic falls on this graph. Color the area of the graph that represents Type II error. 
+* Then answer the question - what is the type II error and power for your test in part B?
+
+B. **Wilcoxan Rank Sum Test**: 
 * Test the significance of the change in the mean between the two sample periods using the two-sample Wilcoxan Rank Sum test. 
 * How different is your conclusion from the one in Homework 2. (i.e. compare P for the two tests).
 
-B. **Chi Squared test for a change in the standard deviation**: Lastly test for statistical significance of a change in the standard deviation. 
+C. **Chi Squared test for a change in the standard deviation**: Lastly test for statistical significance of a change in the standard deviation. 
 * Even though it is not strictly true, assume that the sample data are derived from a normally distributed population. (While not required for this homework, we can follow up on the importance of this assumption by using Monte Carlo Tests as shown in Lab 2-3.)
 * Use a single sample test (with rejection region based on the Chi Squared distribution), and assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.
 
 ### Problem 2
 
-Download and work through the [non-parametric tests](lab3/non-parametric-tests.ipynb) notebook. Read the documentation and source code for the [scipy.stats.ranksums](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html) and [scipy.stats.mannwhitneyu](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html) functions.
+Download and work through Lab 3-1 on Non-Parametric Tests, using the [non-parametric tests](lab3/non-parametric-tests.ipynb) notebook. One of the challenges in python and statistics is knowing (a) that you picked the right function for your problem and (b) that you understand what the program is actually doing. 
+Read the documentation and source code for the [scipy.stats.ranksums](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html) and [scipy.stats.mannwhitneyu](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html) functions.
 
 Then answer the following questions:
 
@@ -37,7 +46,7 @@ Then answer the following questions:
 **C.** Examine your answer to Problem 1, part A, using the [observations of peak flow data for the Sauk River](data/Sauk_peak_WY1929_2021.xlsx) to try and detect a change in streamflow around 1977. Perform the rank-sum test from Problem 1 part A again using the fuction(s) and/or options you identified here. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
 
 
-### If you are able, work ahead, the below will be turned in with Homework 4:
+### If you are able, work ahead, the below is related to Lab 3-2 and will be turned in with Homework 4:
 
 Download the [HJ Andrews Peak Flow data](data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx).
 

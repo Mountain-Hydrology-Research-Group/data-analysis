@@ -1,5 +1,6 @@
 # 4) Trend Analysis, Regression
 
+- [Confidence Intervals](lab2/confidence-intervals.ipynb) with our [snow depth guesses](data/snow_depth_guesses.csv)
 
 ```note
 ## Lab 4: Regression and Trend Tests
