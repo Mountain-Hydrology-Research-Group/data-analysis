@@ -18,7 +18,7 @@ A medical testing company has developed a non-invasive test for Down’s syndrom
     
 ---
 
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](data-analysis/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
 
 * [Lab 6-2: Bayesian Statistics](lab6/lab6-2.ipynb)
 
