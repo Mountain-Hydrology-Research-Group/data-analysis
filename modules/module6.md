@@ -6,7 +6,7 @@
 
 **Lab 6-1: A Bayesian Example**
 
-A medical testing company has developed a non-invasive test for Down’s syndrome in the first two months of pregnancy. This test can correctly identify Down’s syndrome by giving a positive result 98% of the time (true positive). Therefore the probability of a false negative is 2%. This text can correctly identify when the fetus does not have Down’s syndrome by giving a negative result 97% of the time (true negative). Therefore the probability of a false positive is 3%. For this example, assume that the observed probability of Down’s syndrome in a random sample from a large number of observations is about 1 in 1,200.
+A medical testing company has developed a non-invasive test for Down’s syndrome in the first two months of pregnancy. This test can correctly identify Down’s syndrome by giving a positive result 98% of the time (true positive). Therefore the probability of a false negative is 2%. This test can correctly identify when the fetus does not have Down’s syndrome by giving a negative result 97% of the time (true negative). Therefore the probability of a false positive is 3%. For this example, assume that the observed probability of Down’s syndrome in a random sample from a large number of observations is about 1 in 1,200.
 
  **A.** Draw a tree diagram for this problem as you work through this example.
 
