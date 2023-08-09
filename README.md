@@ -15,9 +15,3 @@ This course covers fundamental topics related to data analysis using modern comp
 **Prerequisite:** Any one of the following recommended: IND E 315; AMATH 301 CSE 142; Knowledge of basic statistics and computer programming (Python, R, MATLAB)
 
 **Offered:** Autumn quarters
-
-
-
-
-
-
