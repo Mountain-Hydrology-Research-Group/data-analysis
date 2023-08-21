@@ -1,26 +1,13 @@
 
-# Syllabus: CEE 465 & CEWA 565
+# Data Analysis in Water Sciences Syllabus
+
+**CEE 465** & **CEWA 565 **
 
 ## Course Overview
 
-**Data Analysis in Water Sciences - Fall Quarter, 2022**
-
 The course will cover a number of fundamental topics related to data analysis including statistical inference testing and error estimation, use of linear and quantile-based regression models, Monte Carlo simulation, time series analysis, Bayes theorem, and data visualization using modern computer techniques.
 
-| **CEE 465** | SLN 12184 | 4 units |
-| **CEWA 565A** | SLN 12271 | 4 units |
-| **CEWA 565B PCE** | SLN 12272 | 4 units |
-
-
-**Instructor:**      Jessica Lundquist, jdlund@uw.edu
-
-**TA:**          Danny Hogan, dlhogan@uw.edu 
-
-**Lectures:**      Tuesdays & Thursdays: 10:30 am - 12:20 pm (Pacific Time)
-
-The room location, and the Zoom link (if needed) to remotely attend lectures and labs, and the link to where recorded lectures can be viewed or downloaded are available via the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required).
-
-**Data Analysis Feedback Form**: Use this form to provide anonymous feedback to the TA and instructor. The link to the form is available in the copy of the syllabus on the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required). 
+For class time, location, office hours, and instructor contact information, please see the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required).
 
 ### Learning Objectives
 
@@ -51,9 +38,7 @@ By the end of the course, students should be able to
 
 ### Office Hours
 
-Jessica: Thursdays, immediately after class; or by appointment
-
-Danny: Wednesdays, 4:00-5:00 Wilcox 264
+Please see the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required) for office hours time and location.
 
 ```note
 The UW eScience institute offers [data science office hours](https://escience.washington.edu/office-hours/) which could be useful for your projects or your own research work.
@@ -70,19 +55,19 @@ The UW eScience institute offers [data science office hours](https://escience.wa
 
 ### Computing Resources
 
-For lab activities and assignments, we will be using a [JupyterHub](https://spestana.github.io/data-analysis/resources/b-learning-jupyter.html) computing environment, and programming with [python](https://spestana.github.io/data-analysis/resources/a-learning-python.html). (While the course is taught using python, prior versions of the labs in MATLAB are also available by request.)
+For lab activities and assignments, we will be using a [JupyterHub]({{ site.baseurl }}/resources/b-learning-jupyter.html) computing environment, and programming with [python]({{ site.baseurl }}/resources/a-learning-python.html). (While the course is taught using python, prior versions of the labs in MATLAB are also available by request.)
 
-If you need access to a laptop computer (such as if yours breaks) you may check one out from the [Student Technology Loan Program](https://stlp.uw.edu/). Please contact me if you need help accessing a computer reliably.
+If you need access to a laptop computer you may check one out from the [Student Technology Loan Program](https://stlp.uw.edu/). Please contact the instructor or TA if you need help accessing a computer reliably.
 
 
 ### Lectures
 
-The first half of each class period is reserved for lectures and discussions. We will be using Zoom for these live lectures, and to record lectures for later viewing. Lectures will be recorded and made available afterwards. Lecture slides will be available on Canvas, along with any additional files for reading.
+The first half of each class period is reserved for lectures and discussions. Lecture slides will be available on Canvas prior to the lecture, along with any additional files for reading.
 
 
 ### Labs
 
-Following a ~5 minute break after each lecture, we will reconvene for the lab portion of the class (this will not be recorded). Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. ([GitHub Option](https://spestana.github.io/data-analysis/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub))
+Following a ~5 minute break after each lecture, we will reconvene for the lab portion of the class. Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. See more informaiton ([here]({{ site.baseurl }}/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub)) about uploading files to our JupyterHub.
 
 We will use classroom space and Slack to work in small groups on lab excercises. If you are not able to attend the lab in person, please reach out to others in the class for collaborative support. Contact the instructor or TA to be added to the Slack workspace.
 
@@ -133,30 +118,28 @@ This schedule is subject to change throughout the quarter. Check assignment due 
 
 [UW Academic calendar for 2022-2023](https://www.washington.edu/students/reg/2223cal.html)
 
-| Week | Lecture Dates | Lecture Topics | Labs | Assignments |
+| Week | Lecture Day | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
-| **0** | 9/29 <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | Lab 1: Plotting Data in Python |
-| **1** | 10/4 <br /> 10/6 | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Data and Statistics in Python | 10/6: **HW1 Due**|
-| **2** | 10/11 <br /> 10/13 | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | 10/13: **HW2 Due** |
-| **3** | 10/18 <br /> 10/20 | Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches <br /> Analysis of Variance (ANOVA)| Lab 3: Non-Parametric Tests & ANOVA | 10/20: **HW3 Due** |
-| **4** | 10/25 <br /> 10/27 | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | 10/27: **HW4 Due** |
-| **5** | 11/1 <br /> 11/3 | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | 11/3: **HW5 Due** |
-| **6** | 11/8 <br /> 11/10 | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | 11/10: **HW6 Due** |
-| **7** | 11/15 <br /> 11/17 |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | 11/17: **HW7 Due** |
-| **8** | 11/22 <br /> (**11/24 is a holiday**) | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  |
-| **9** | 11/29 <br /> 12/1 | <br /> Data Analysis Applications: Student Presentations | Project Work | 11/29: **HW8 Due** <br /> 12/1: **Presentations** |
-| **10** | 12/6 <br /> 12/8 | Data Analysis Applications: Student Presentations | Project Work | 12/6: **Presentations** <br /> 12/8: **Presentations** |
-| **Finals Week** | 12/12 |  |  | 12/12: **CEWA 565 - Final Project Report Due** <br /> 12/12: **CEE 465 - Final Exam Due** |
+| **0** | Th <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | Lab 1: Plotting Data in Python |
+| **1** | Tu <br /> Th | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Data and Statistics in Python | Th: **HW1 Due**|
+| **2** | Tu <br /> Th | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | Th: **HW2 Due** |
+| **3** | Tu <br /> Th | Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches <br /> Analysis of Variance (ANOVA)| Lab 3: Non-Parametric Tests & ANOVA | Th: **HW3 Due** |
+| **4** | Tu <br /> Th | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | Th: **HW4 Due** |
+| **5** | Tu <br /> Th | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | Th: **HW5 Due** |
+| **6** | Tu <br /> Th | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | Th: **HW6 Due** |
+| **7** | Tu <br /> Th |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | Th: **HW7 Due** |
+| **8** | Tu <br /> **holiday** | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  |
+| **9** | Tu <br /> Th | <br /> Data Analysis Applications: Student Presentations | Project Work | Tu: **HW8 Due** <br /> Th: **Presentations** |
+| **10** | Tu <br /> Th | Data Analysis Applications: Student Presentations | Project Work | **Presentations** |
+| **Finals Week** | TBD |  |  | **CEWA 565 - Final Project Report Due** <br /> **CEE 465 - Final Exam Due** |
 
 ## Additional Information
 
 ### Campus Community Resources
 
-* [Student Resources](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/student-resources/) from the [UW Graduate Opportunities and Minority Achievement Program (GO-MAP)](https://grad.uw.edu/equity-inclusion-and-diversity/go-map/).
-* The [Q Center](https://depts.washington.edu/qcenter/wordpress/)
-* Review the [Husky PACK Pledge](https://www.washington.edu/coronavirus/pack-pledge/) for informaiton about protecting yourselves and others from COVID-19.
+* [Student Resources](https://spestana.github.io/how-to-graduate/student-resources) adapted from [Graduate Student Equity & Excellence](https://grad.uw.edu/equity-justice/gsee-graduate-student-equity-excellence/) (formerly GO-MAP).
+* [Informaiton about protecting yourselves and others from COVID-19](https://www.washington.edu/coronavirus/)
 * The [University District Food Bank](https://www.udistrictfoodbank.org/)
-* King County COVID-19 [Child Care Financial Support](https://www.kingcounty.gov/depts/community-human-services/COVID/child-care.aspx)
 
 ### Conduct
 
