@@ -93,7 +93,7 @@ Homework solutions will be posted in the Solutions folder on [Canvas](https://ca
 
 ### Final Exam (for CEE 465)
 
-The final exam will be take-home, and you will have one week to complete it. The final exam will be due beore 5:00 pm (Pacific Time) on the day scheduled for the course final exam (see schedule on Canvas). The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day of the scheduled final exam.
+The final exam will be take-home, and you will have one week to complete it. The final exam will be due before 5:00 pm (Pacific Time) on the day scheduled for the course final exam (see schedule on Canvas). The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day of the scheduled final exam.
 
 ### Final Project (for CEWA 565)
 
@@ -113,32 +113,32 @@ Final projects will be completed in pairs (or individually on request), and the 
 ## Schedule
 
 ```note
-This schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the updated schedule.
+This notional schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the detailed and updated schedule.
 ```
 
 [UW Academic Calendar](https://www.washington.edu/students/reg/calendar.html)
 
-| Week | Lecture Day | Lecture Topics | Labs | Assignments |
-| --- | --- |  --- | --- | --- |
-| **0** | Th <br /><br /> | Introduction and Course Overview <br /><br />   Python basics: Coding and Plotting | Python tutorials | Lab 1: Plotting Data in Python |
-| **1** | Tu <br /><br /> Th | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /><br />  Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Data and Statistics in Python | Th: **HW1 Due**|
-| **2** | Tu <br /><br /> Th | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /><br /> Confidence Intervals | Lab 2: Hypothesis Testing | Th: **HW2 Due** |
-| **3** | Tu <br /><br /> Th | Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches <br /><br /> Analysis of Variance (ANOVA)| Lab 3: Non-Parametric Tests & ANOVA | Th: **HW3 Due** |
-| **4** | Tu <br /><br /> Th | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /><br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | Th: **HW4 Due** |
-| **5** | Tu <br /><br /> Th | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /><br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | Th: **HW5 Due** |
-| **6** | Tu <br /><br /> Th | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | Th: **HW6 Due** |
-| **7** | Tu <br /><br /> Th |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | Th: **HW7 Due** |
-| **8** | Tu <br /><br /> Th: **Holiday** | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /><br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  |
-| **9** | Tu <br /><br /> Th | <br /> Data Analysis Applications: Student Presentations | Project Work | Tu: **HW8 Due** <br /> Th: **Presentations** |
-| **10** | Tu <br /><br /> Th | Data Analysis Applications: Student Presentations | Project Work | **Presentations** |
-| **Finals Week** | TBD |  |  | **CEWA 565 - Final Project Report Due** <br /> **CEE 465 - Final Exam Due** |
+| Week | Lecture Topics | Labs | Assignments |
+| --- |  --- | --- | --- |
+| **0** | Introduction and Course Overview <br /><br />   Python basics: Coding and Plotting | Python tutorials | Lab 1: Plotting Data in Python |
+| **1** |  Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /><br />  Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Data and Statistics in Python | Th: **HW1 Due**|
+| **2** |  Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /><br /> Confidence Intervals | Lab 2: Hypothesis Testing | Th: **HW2 Due** |
+| **3** |  Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches <br /><br /> Analysis of Variance (ANOVA)| Lab 3: Non-Parametric Tests & ANOVA | Th: **HW3 Due** |
+| **4** |  Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /><br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | Th: **HW4 Due** |
+| **5** |  Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /><br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | Th: **HW5 Due** |
+| **6** |  Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | Th: **HW6 Due** |
+| **7** |   Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | Th: **HW7 Due** |
+| **8** |  Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /><br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  |
+| **9** |  <br /> Data Analysis Applications: Student Presentations | Project Work | Tu: **HW8 Due** <br /> Th: **Presentations** |
+| **10** |  Data Analysis Applications: Student Presentations | Project Work | **Presentations** |
+| **Finals Week** |  |  | **CEWA 565 - Final Project Report Due** <br /> **CEE 465 - Final Exam Due** |
 
 ## Additional Information
 
 ### Campus Community Resources
 
 * [Student Resources](https://spestana.github.io/how-to-graduate/student-resources) adapted from [Graduate Student Equity & Excellence](https://grad.uw.edu/equity-justice/gsee-graduate-student-equity-excellence/) (formerly GO-MAP).
-* [Informaiton about protecting yourselves and others from COVID-19](https://www.washington.edu/coronavirus/)
+* [Information about protecting yourselves and others from COVID-19](https://www.washington.edu/coronavirus/)
 * The [University District Food Bank](https://www.udistrictfoodbank.org/)
 
 ### Conduct
