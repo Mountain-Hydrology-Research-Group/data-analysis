@@ -1,7 +1,7 @@
 
 # Data Analysis in Water Sciences Syllabus
 
-**CEE 465** & **CEWA 565 **
+**CEE 465** & **CEWA 565**
 
 ## Course Overview
 
@@ -86,18 +86,18 @@ Submit your completed homework assignments via Canvas by uploading:
 * A PDF copy of the jupyter notebook file(s)
   * To save your notebook as a PDF, go to *File* > *Export Notebook As...* > *Export Notebook to PDF*, this will download a PDF file copy of your notebook to your personal computer which you can upload to Canvas
 
-Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Tuesday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Tuesday following the due date.  Everyone's lowest scoring homework assignment will be dropped, so please do not worry if one week is not going your way.
+Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Tuesday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Tuesday following the due date.  Everyone's lowest scoring homework assignment will be dropped.
 
-Homework solutions will be posted in the Solutions folder on [Canvas](https://canvas.uw.edu/) by the Thursday after the assignment was turned in.
+Homework solutions will be posted in the Solutions folder on [Canvas](https://canvas.uw.edu/) on the Tuesday (5:00 pm) after the assignment was turned in.
 
 
 ### Final Exam (for CEE 465)
 
-The final exam will be take-home, and will be assigned on Monday, December 5th, giving you a full week to complete it. The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day of the scheduled final exam: **Monday, December 12, 5:00 pm (Pacific Time)**.
+The final exam will be take-home, and you will have one week to complete it. The final exam will be due beore 5:00 pm (Pacific Time) on the day scheduled for the course final exam (see schedule on Canvas). The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day of the scheduled final exam.
 
 ### Final Project (for CEWA 565)
 
-Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class on **12/1**, **12/6** and **12/8**. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on **Monday, December 12, 5:00 pm (Pacific Time)**. Further details are provided on the [Course Project page](b-project.html).
+Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class in weeks 9 and 10. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on before 5:00 pm (Pacific Time) of the day of the scheduled final exam (see schedule on Canvas). Further details are provided on the [Course Project page](b-project.html).
 
 ### Grading Policy
 
@@ -116,21 +116,21 @@ Final projects will be completed in pairs (or individually on request), and the 
 This schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the updated schedule.
 ```
 
-[UW Academic calendar for 2022-2023](https://www.washington.edu/students/reg/2223cal.html)
+[UW Academic Calendar](https://www.washington.edu/students/reg/calendar.html)
 
 | Week | Lecture Day | Lecture Topics | Labs | Assignments |
 | --- | --- |  --- | --- | --- |
-| **0** | Th <br /> | Introduction and Course Overview <br />  Python basics: Coding and Plotting | Python tutorials | Lab 1: Plotting Data in Python |
-| **1** | Tu <br /> Th | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /> Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Data and Statistics in Python | Th: **HW1 Due**|
-| **2** | Tu <br /> Th | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /> Confidence Intervals | Lab 2: Hypothesis Testing | Th: **HW2 Due** |
-| **3** | Tu <br /> Th | Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches <br /> Analysis of Variance (ANOVA)| Lab 3: Non-Parametric Tests & ANOVA | Th: **HW3 Due** |
-| **4** | Tu <br /> Th | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | Th: **HW4 Due** |
-| **5** | Tu <br /> Th | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | Th: **HW5 Due** |
-| **6** | Tu <br /> Th | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | Th: **HW6 Due** |
-| **7** | Tu <br /> Th |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | Th: **HW7 Due** |
-| **8** | Tu <br /> **holiday** | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  |
-| **9** | Tu <br /> Th | <br /> Data Analysis Applications: Student Presentations | Project Work | Tu: **HW8 Due** <br /> Th: **Presentations** |
-| **10** | Tu <br /> Th | Data Analysis Applications: Student Presentations | Project Work | **Presentations** |
+| **0** | Th <br /><br /> | Introduction and Course Overview <br /><br />   Python basics: Coding and Plotting | Python tutorials | Lab 1: Plotting Data in Python |
+| **1** | Tu <br /><br /> Th | Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /><br />  Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Data and Statistics in Python | Th: **HW1 Due**|
+| **2** | Tu <br /><br /> Th | Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /><br /> Confidence Intervals | Lab 2: Hypothesis Testing | Th: **HW2 Due** |
+| **3** | Tu <br /><br /> Th | Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches <br /><br /> Analysis of Variance (ANOVA)| Lab 3: Non-Parametric Tests & ANOVA | Th: **HW3 Due** |
+| **4** | Tu <br /><br /> Th | Correlation Analysis (H&H Ch 8); Regression models <br /> Linear Regression (H&H Ch 9; Devore Ch 12) <br /><br /> Trend Analysis (H&H Ch 12); Mann Kendall Test <br /> | Lab 4: Regression and Trend Tests | Th: **HW4 Due** |
+| **5** | Tu <br /><br /> Th | Graphics and Visualization (H&H Ch 16) <br /> Multiple Linear Regression (H&H Ch 11); Autocorrelation  <br /><br /> Regression with Transformed Variables | Lab 5: Multiple Linear Regression & Regression with Transformed Variables | Th: **HW5 Due** |
+| **6** | Tu <br /><br /> Th | Decision Trees; Applications of Bayes’ Theorem | Lab 6: Bayesian Statistics & BaRatin and Bayesian Rating curves  | Th: **HW6 Due** |
+| **7** | Tu <br /><br /> Th |  Conditional Probability (Markov Models) | Lab 7: Markov Chains & Monte Carlo | Th: **HW7 Due** |
+| **8** | Tu <br /><br /> Th: **Holiday** | Empirical Orthogonal Functions (EOFs) and Principal Components (PCs), Timeseries Analysis <br /><br /> Fourier Transforms; Power Spectra, Timeseries analysis | Lab 8: SVD and Timeseries Analysis |  |
+| **9** | Tu <br /><br /> Th | <br /> Data Analysis Applications: Student Presentations | Project Work | Tu: **HW8 Due** <br /> Th: **Presentations** |
+| **10** | Tu <br /><br /> Th | Data Analysis Applications: Student Presentations | Project Work | **Presentations** |
 | **Finals Week** | TBD |  |  | **CEWA 565 - Final Project Report Due** <br /> **CEE 465 - Final Exam Due** |
 
 ## Additional Information
