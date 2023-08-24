@@ -1,0 +1,66 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Overview
+    chapters:
+    - files: overview/a-syllabus.md
+    - files: overview/b-project.md
+ 
+ - caption: Modules
+    chapters:
+
+    - file: modules/module1.md
+      sections:
+      - file: modules/lab1/lab1-1
+      - file: modules/lab1/lab1-2
+      - file: modules/lab1/lab1-3
+      
+    - file: modules/module2.md
+      sections:
+      - file: modules/lab2/lab2-1
+      - file: modules/lab2/lab2-2
+      - file: modules/lab2/lab2-3
+
+    - file: modules/module3.md
+      sections:
+      - file: modules/lab3/lab3-1
+      - file: modules/lab3/lab3-2
+      
+    - file: modules/module4.md
+      sections:
+      - file: modules/lab4/lab4-1
+      - file: modules/lab4/lab4-2
+      - file: modules/lab4/lab4-3
+      - file: modules/lab4/lab4-4
+      
+    - file: modules/module5.md
+      sections:
+      - file: modules/lab5/lab5-1
+      - file: modules/lab5/lab5-2
+
+    - file: modules/module6.md
+      sections:
+      - file: modules/lab6/lab6-1
+      - file: modules/lab6/lab6-2
+      
+    - file: modules/module7.md
+      sections:
+      - file: modules/lab7/lab7-1
+      - file: modules/lab7/lab7-2
+      - file: modules/lab7/lab7-3
+      
+    - file: modules/module8.md
+      sections:
+      - file: modules/lab8/lab8-1
+      - file: modules/lab8/lab8-2
+
+  - caption: Resources
+    chapters:
+    - files: resources/a-learning-python.md
+    - files: resources/b-learning-jupyter.md
+    - files: resources/c-data-visualization.md
+    - files: resources/d-learning-other.md
+    - files: resources/instructor_resources.md
