@@ -65,16 +65,6 @@ In this problem, A is the true likelihood of the storm’s occurrence, and B are
  **C.** How much did the mean and 95% confidence interval return period change from the original prior return period to 2021? What does this indicate about the “true” frequency of the 7.2-inch-storm? To what k-year storm does this mean correspond to now?
 
 
-### Problem 2: Project Update (CEWA 565)
-
-Provide an update on your term project. By now you should have acquired all of the data you need for your term project.
-
- **A.** Create 2-3 plots that illustrate your data. These can be time-series plots, histograms, CDFs, whatever is relevant to your data and your problem.
-    
- **B.** Discuss the quality of your data. Do you need to take into account any erroneous values or uncertain numbers before you start your statistics?
-    
- **C.** Write down at least two very specific questions that you will answer with your data. For each question, write down which statistical tools you will use to help answer it.
-    
- **D.** Based on what you have so far, do you think that your project scope is about right for a 10 page paper, or do you feel that you need to either simplify things to make it shorter or add complexity to make it longer? If you feel adjustments are needed, how to you plan to address this issue?
-    
- **E.** What do you anticipate being the most difficult parts of your term project? Do you have questions you would like help with or advice on? Write them here.
+### Problem 2: The best graphics
+ 
+One of our greatest challenges in data analysis is to be able to visualize the information in the data and convey that information to others. Consider various scientific papers you have read (on any subject related to your scientific/engineering discipline) and pick out your favorite graphical representation of data (e.g., the best figure). Include your top two choices in your homework submission with a brief statement of why you chose these figures. We'll share some of these favorite figures in class.

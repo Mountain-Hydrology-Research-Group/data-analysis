@@ -7,6 +7,8 @@ remote_theme: rundocs/jekyll-rtd-theme@v1.1.7
 addons_branch: true
 edit: true
 
+baseurl: /data-analysis
+
 copyright:
   revision: true
 
