@@ -1,20 +1,6 @@
-# 8) SVD, Timeseries Analysis
+# Homework 8
 
-
-```note
-## Lab 8:
-
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
-
-* [Lab 8-1: SVD with Monthly Precip.](lab8/lab8-1.ipynb)
-  * data: [PRISM_4km_1982-2012.mat](https://canvas.uw.edu/courses/1578249/files/folder/Week%2008%20SVD%20EOF%20PCA)
-  Note: This takes you to canvas, where you can download this file to your computer and then upload it to the Jupyterhub. The file is too large to keep on this website.
-* [Lab 8-2: Timeseries Lab](lab8/lab8-2.ipynb)
-  * data: [waterlevel.mat](data/waterlevel.mat)
-
-```
-
-### Homework 8, Problem 1: Air Temperature Observations in Complex Terrain
+## Problem 1: Air Temperature Observations in Complex Terrain
 
 Download the file [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat), and the [air-temperature-svd.ipynb](lab8/air-temperature-svd.ipynb) jupyter notebook. The data file contains hourly air temperature (°C) observations from 21 distributed sensors (called iButtons) located around the watershed of the North Fork of the American River in the Sierra Nevada of California, recorded over a period from September 2007 to July 2010. It also contains information about the sites’ names, numbers, latitude and longitude coordinates, and elevations. See the figure below for a map of the sites. 
  
@@ -35,6 +21,6 @@ Optional: Download [North_Fork_American_River_CA_18020128.json](data/North_Fork_
  
  **E.** Repeat C) and D) for the 2nd-leading pattern. Interpret physically what the first two patterns may represent. How much of the dataset is described by the first two modes of variability?
  
-### Homework 8, Problem 2: Timeseries Analysis
+## Problem 2: Timeseries Analysis
  
 Following lab 8-2, use Fourier Analysis to determine the dominant frequencies and periods of oscilliation of the water level data provided (waterlevel.mat).  Based on what you find, where (in what type of environment) do you think this water level was measured?

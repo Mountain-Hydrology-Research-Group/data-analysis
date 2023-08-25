@@ -1,19 +1,4 @@
-# 3) Non-Parametric Tests and Analysis of Variance
-
-```note
-## Lab 3: Non-Parametric Tests and Analysis of Variance
-
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
-
-* [Lab 3-1: Non-Parametric Tests](lab3/lab3-1.ipynb)
-* [Lab 3-2: ANOVA](lab3/lab3-2.ipynb)
-  * data: [ANOVA_fertilizer_treatment.txt](data/ANOVA_fertilizer_treatment.txt)
-  * Note:  Homework corresponding to this lab will be turned in with HW 4
-
-
-```
-
-## Homework 3: 
+# Homework 3: 
 
 ### Problem 1
 

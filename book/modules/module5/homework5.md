@@ -1,16 +1,4 @@
-# 5) Multiple Linear Regression & Autocorrelation
-
-```note
-## Lab 5: Multiple Linear Regression & Autocorrelation
-
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
-
-* [Lab 5-1: Multiple Linear Regression](lab5/lab5-1.ipynb) with [pillows_example.csv](data/pillows_example.csv)
-* [Lab 5-2: Autocorrelation](lab5/lab5-2.ipynb) with [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat)
-
-```
-
-## Homework 5
+# Homework 5
 
 ### Problem 1: Correlation, Autocorrelation, Multiple Linear Regression
 

@@ -1,21 +1,4 @@
-# 7) Markov Chains
-
-```note
-## Lab 7: Markov Models & Markov Chain Monte Carlo (MCMC)
-
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
-
-* [Lab 7-1: Markov Chains - Basic Examples](lab7/lab7-1.ipynb)
-  * data: [markov_random4.txt](data/markov_random4.txt)
-* [Lab 7-2: Markov Chain - ENSO Phases](lab7/lab7-2.ipynb)
-  * data: [ENSO_to2022.csv](data/ENSO_to2022.csv)
-* [Lab 7-3: MCMC Rating Curves](lab7/lab7-3.ipynb)
-  * data: [Lyell_h_Q_sorted.mat](data/Lyell_h_Q_sorted.mat)
-
-```
-
-
-## Homework 7: 
+# Homework 7: 
 
  
 ### Problem 1: ENSO Phases
