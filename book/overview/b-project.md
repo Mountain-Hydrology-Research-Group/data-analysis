@@ -1,5 +1,5 @@
 
-# Course Project: CEWA 565
+# Course Project (CEWA 565)
 
 The goal of the course project is to give you hands on experience working with data of particular interest to you, as well as experience writing about and presenting data and statistical information. 
 
