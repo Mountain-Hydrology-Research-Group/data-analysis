@@ -12,7 +12,7 @@ UW has services to help people with [statistics](https://www.stat.washington.edu
 ```
 
 
-## Potential project ideas...
+## Potential project ideas
 
 You are welcome to use your own data and answer a question of interest to you and relevant to your own research. Please let the instructor know as early as possible so that we can make sure you have sufficient data to be successful. Alternatively, you may choose or adapt one of the project ideas below. Multiple groups may answer the same general question, but they should pick different specific data or specific tests to use, which can be coordinated in conjunction with the instructor. Past project examples are available on the [class Canvas page](https://canvas.uw.edu/) under *Files* > *Student Projects and Presentations* > *Project Examples*.
 
