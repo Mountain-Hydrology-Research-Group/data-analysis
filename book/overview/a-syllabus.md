@@ -1,13 +1,11 @@
 
-# Data Analysis in Water Sciences Syllabus
+# Syllabus
 
-**CEE 465** & **CEWA 565**
+Access the most recent official course syllabus through the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required). This page presents a notional syllabus without informaiton specific to 
 
 ## Course Overview
 
 The course will cover a number of fundamental topics related to data analysis including statistical inference testing and error estimation, use of linear and quantile-based regression models, Monte Carlo simulation, time series analysis, Bayes theorem, and data visualization using modern computer techniques.
-
-For class time, location, office hours, and instructor contact information, please see the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required).
 
 ### Learning Objectives
 
@@ -16,31 +14,11 @@ By the end of the course, students should be able to
  * Read, modify, and write computer programs to analyze data
  * Apply statistics and computer-based data analysis techniques to real observations (sets of numbers) in order to solve real world problems
 
-```note
-### Guiding principles for this quarter
-1. **Our learning situation is still in flux.**
-  * We will prioritize meeting together on campus, but we expect that some people will need to stay home at times during the quarter
-  * Therefore, we are prepared for online options, for potentially teaching remotely, for potentially learning from home, and for varied access to learning materials
-2. **The humane option is the best option.**
-  * We are going to prioritize supporting each other as humans
-  * We are going to prioritize simple solutions that make sense
-  * We are going to prioritize sharing resources and communicating clearly
-  * We are going to prioritize learning what is most useful for you
-3. **We will foster intellectual nourishment, social connection, and personal accommodation.**
-  * Accessible asynchronous content for diverse access, time zones, and contexts
-  * Accessible synchronous discussion to learn together
-4. **We will remain flexible and adjust to the situation.**
-  * Provide feedback at any point in the quarter and we will try to improve and adapt
-5. **We’re all in this together**
-
-(These principles were adapted from the [Adjusted Syllabus](https://docs.google.com/document/d/1-6d_W8rdzE9mW2DvPi-dPvRxo4sekKlz3VqEpnu4Dwg/preview) by Brandon Bayne at UNC Chapel Hill)
-```
-
 ### Office Hours
 
-Please see the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required) for office hours time and location.
+Office hours are held weekly, or by appointment. Please see the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required) for office hours time and location.
 
-```note
+```{note}
 The UW eScience institute offers [data science office hours](https://escience.washington.edu/office-hours/) which could be useful for your projects or your own research work.
 ```
 
@@ -55,7 +33,7 @@ The UW eScience institute offers [data science office hours](https://escience.wa
 
 ### Computing Resources
 
-For lab activities and assignments, we will be using a [JupyterHub]({{ site.baseurl }}/resources/b-learning-jupyter.html) computing environment, and programming with [python]({{ site.baseurl }}/resources/a-learning-python.html). (While the course is taught using python, prior versions of the labs in MATLAB are also available by request.)
+For lab activities and assignments, we will be using a [JupyterHub](/resources/b-learning-jupyter.html) computing environment, and programming with [python](/resources/a-learning-python.html). (While the course is taught using python, prior versions of the labs in MATLAB are also available by request.)
 
 If you need access to a laptop computer you may check one out from the [Student Technology Loan Program](https://stlp.uw.edu/). Please contact the instructor or TA if you need help accessing a computer reliably.
 
@@ -67,7 +45,7 @@ The first half of each class period is reserved for lectures and discussions. Le
 
 ### Labs
 
-Following a ~5 minute break after each lecture, we will reconvene for the lab portion of the class. Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. See more informaiton ([here]({{ site.baseurl }}/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub)) about uploading files to our JupyterHub.
+Following a ~5 minute break after each lecture, we will reconvene for the lab portion of the class. Lab content (jupyter notebooks and data files) can be downloaded directly from the from class website. See more informaiton ([here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub)) about uploading files to our JupyterHub.
 
 We will use classroom space and Slack to work in small groups on lab excercises. If you are not able to attend the lab in person, please reach out to others in the class for collaborative support. Contact the instructor or TA to be added to the Slack workspace.
 
@@ -86,7 +64,7 @@ Submit your completed homework assignments via Canvas by uploading:
 * A PDF copy of the jupyter notebook file(s)
   * To save your notebook as a PDF, go to *File* > *Export Notebook As...* > *Export Notebook to PDF*, this will download a PDF file copy of your notebook to your personal computer which you can upload to Canvas
 
-Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Tuesday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Tuesday following the due date.  Everyone's lowest scoring homework assignment will be dropped.
+Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework handed in late will be accepted up to (but not later than) Tuesday at 5:00 pm (Pacific Time), but two grade points will be deducted from the grade for late assignments (i.e. a late assignment that would receive a 10 if handed in on time will be assigned a grade of 8). Late homework assignments will not be accepted after 5:00 pm (Pacific Time) on the Tuesday following the due date.  Everyone's lowest scoring homework assignment will be dropped at the end of the quarter.
 
 Homework solutions will be posted in the Solutions folder on [Canvas](https://canvas.uw.edu/) on the Tuesday (5:00 pm) after the assignment was turned in.
 
@@ -112,15 +90,15 @@ Final projects will be completed in pairs (or individually on request), and the 
 
 ## Schedule
 
-```note
-This notional schedule is subject to change throughout the quarter. Check assignment due dates on Canvas for the detailed and updated schedule.
+```{note}
+This is a notional schedule, and is subject to change throughout the quarter. Check assignment due dates on Canvas for the detailed and updated schedule.
 ```
 
 [UW Academic Calendar](https://www.washington.edu/students/reg/calendar.html)
 
 | Week | Lecture Topics | Labs | Assignments |
 | --- |  --- | --- | --- |
-| **0** | Introduction and Course Overview <br /><br />   Python basics: Coding and Plotting | Python tutorials | Lab 1: Plotting Data in Python |
+| **0** | Introduction and Course Overview <br /><br />   Python basics: Coding and Plotting | Lab 1) Python, Statistics Review |  |
 | **1** |  Review of Descriptive Statistics: Probability Distributions (PDFs and CDFs) including Uniform, Normal, Binomial distributions (Devore Ch 3 & 4), Random Number Generators, and Graphical Data Analysis (H&H Ch 1 and 2; Devore Ch 1) <br /><br />  Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9) | Lab 1: Data and Statistics in Python | Th: **HW1 Due**|
 | **2** |  Hypothesis Testing (H&H Ch 4 & 5; Devore Ch 8 & Ch 9): Student’s T test, Type I, Type II errors. <br /><br /> Confidence Intervals | Lab 2: Hypothesis Testing | Th: **HW2 Due** |
 | **3** |  Non-Parametric Tests: sign test, Wilcoxon signed rank test <br /> Non-parametric quantile mapping approaches <br /><br /> Analysis of Variance (ANOVA)| Lab 3: Non-Parametric Tests & ANOVA | Th: **HW3 Due** |
