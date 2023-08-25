@@ -1,8 +1,8 @@
 # Homework 5
 
-### Problem 1: Correlation, Autocorrelation, Multiple Linear Regression
+## Problem 1: Correlation, Autocorrelation, Multiple Linear Regression
 
-In this problem, you will explore the relationship between air temperature, precipitation, and [snow water equivalent](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833) over time, using observations from a study site in the Washington Cascades. Download the [cascades_swe.xlsx](data/cascades_swe.xlsx) dataset for this problem.
+In this problem, you will explore the relationship between air temperature, precipitation, and [snow water equivalent](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833) over time, using observations from a study site in the Washington Cascades. Download the [cascades_swe.xlsx](/data/cascades_swe.xlsx) dataset for this problem.
 
 **A.** Begin by making scatterplots of each of these variables vs. all the other variables. Describe any visual patterns you see between each pair of variables.  
 
@@ -28,7 +28,7 @@ dSWE/dt = B1*d(precip)/dt + B2*d(t_max)/dt
 Then to find how much the trend in SWE is accounted for by the trend in precipitation we compute B1*d(precip)/dt, where d(precip)/dt in the slope of the trend in precipitation.
 ```
 
-### Problem 2: Project Update (CEWA 565)
+## Problem 2: Project Update (CEWA 565)
 
 Provide an update on your term project. By now you should have acquired all of the data you need for your term project.
 

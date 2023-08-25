@@ -1,8 +1,8 @@
 # Homework 2
 
-### Problem 1
+## Problem 1: Hypothesis Testing
 
-Using the [observations of peak flow data for the Sauk River](data/Sauk_peak_WY1929_2021.xlsx), we are going to investigate whether a change in flood statistics occurred around 1977.
+Using the [observations of peak flow data for the Sauk River](/data/Sauk_peak_WY1929_2021.xlsx), we are going to investigate whether a change in flood statistics occurred around 1977.
 
 A. **Descriptive Plots**: Decide which of your plots from Homework 1 are relevant to the question of whether a change in flood statistics occurred in the Sauk River around 1977. 
 * Include these plots from Homework 1 here.
@@ -18,6 +18,6 @@ B. **Two-sample test for a change in the mean**: Test for statistical significan
 * How does your estimate of P change if your null hypothesis is that the difference in the mean between the two data sets is equal to 25% of the pre-1977 sample mean? (In other words, test with a new null hypothesis: the mean of the second period is 1.25 times the mean of the first period.)
 
 
-### Problem 2: Course Project Selection (CEWA 565 only)
+## Problem 2: Course Project Selection (CEWA 565)
 
 Write a brief paragraph (3-9 sentences) describing your term project. Include the name of your partner (or specify you will be doing the project alone), the data you will analyze, and which question(s) you will answer. Which statistical tools will you use? If you have a hypothesis to test, write it down. **If you have questions about the project, now is the time to talk to the instructor.**

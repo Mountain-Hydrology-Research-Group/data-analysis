@@ -1,7 +1,7 @@
 # Homework 7: 
 
  
-### Problem 1: ENSO Phases
+## Problem 1: ENSO Phases
 Following Lab 7-1 and Lab 7-2, 
 A) Use the time series of the phase of the El Niño Southern Oscillation (ENSO) from 1900-2022 to create a lag-1 Markov model of the ENSO phase.
 where the observed Phases of ENSO are as follows:
@@ -18,7 +18,7 @@ C) Using this randomly generated data, answer the following questions.
   - What is the large-sample probability that three cool ENSO years would happen in a row?  (Try refreshing the numbers several times to increase the sample size if the condition never happens.)
   - Check out this [blog](https://www.climate.gov/news-features/blogs/september-2022-la-ni%C3%B1a-update-it%E2%80%99s-q-time) about why we care about ENSO and the exciting current probability of getting a cool ENSO (La Nina) again in 2023, making it three in a row.
 
-### Probelm 2: Rating Curves and Application of Bayes Theorem with MCMC
+## Probelm 2: Rating Curves and Application of Bayes Theorem with MCMC
  
 Following the class discussion and Lab 7-3, explore how the rating curve and the 95% confidence intervals for the Lyell Fork streamflow site change depending on the method you use to determine the rating curve:
 
@@ -31,15 +31,15 @@ Following the class discussion and Lab 7-3, explore how the rating curve and the
 
 Using the code in Lab 7-3, create plots and discuss the differences in the results from these three methods.
 
-### Problem 2 grads: Work on your term projects (CEWA 565)
+## Problem 2: Work on your term projects (CEWA 565)
 
 
-### Problem 2 undergrads: Statistics Synthesis (CEE 465)
+## Problem 2: Statistics Synthesis (CEE 465)
 
 (Your final exam questions will look similar to this.)
 You are given the below dataset of annual peak flows on the Sauk River: 
 
-![Sauk River Plot](lab7/sauk-river-plot.png)
+![Sauk River Plot](/module7/sauk-river-plot.png)
 
 (Note, you do not need to do any actual analysis here)
 

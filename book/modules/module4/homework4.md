@@ -1,19 +1,23 @@
 # Homework 4
 
-### Problem 1, based on material in Lab 3 and Module 3
+## Problem 1: ANOVA
 
-Download the [HJ Andrews Peak Flow data](data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx).
+This problem is based on material in Lab 3-2.
+
+Download the [HJ Andrews Peak Flow data](/data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx).
 
 For this problem, consider only differences between watershed 1 (WS1) and watershed 2 (WS2). These two watersheds are adjacent to each other in the [HJ Andrews Experimental Forest](https://andrewsforest.oregonstate.edu/). We want to test if there was a change in streamflow due to the forest within WS1 being completely clearcut (starting late 1962 and completed in 1966). Because the two watersheds are adjacent, we can expect that they experience the same storms leading to peak runoff (so we won't be considering any differences due to different precipitation amounts or timing). 
 
 Here we want to test whether the difference in peak flows between WS1 and WS2 is statistically different for four different time periods:
 
-| Time Period | Years | `Index12` "treatment" label | Notes |
+| Time Period | Years | Label | Notes |
 | ----------- | --------------- | --------------- | --------------- |
 | control period | 1953-1962 | 1 | before any clearcutting in WS1 |
 | active clearcutting | 1963-1966 | 2 | during clearcutting of WS1 |
 | 0-15 years after clearcutting | 1967-1981 | 3 | WS1 forest starts to recover |
 | >15 years after clearcutting | 1982-2015 | 4 | WS1 forest recovering further |
+
+The field "Index12" identifies our two different treatments as either 1 or 2.
 
 We want to know whether the four periods are statistically different from each other, and if so, which one or ones are statistically different from which other ones.
 
@@ -26,9 +30,9 @@ We want to know whether the four periods are statistically different from each o
  **D.** Perform an ANOVA test and discuss the results, related both to your hypothesis test listed above and to the more detailed question of which groups are statistically different from which other groups. Include graphs and/or tables that illustrate your results, and be sure to discuss what they mean. When using these ANOVA and other statistics functions, be sure that you understand what the code is doing (especially the defaults that different functions use) and outputting.
  
 
-### Problem 2: Linear and Quantile Regression
+## Problem 2: Linear and Quantile Regression
 
-Download the [streamflow records for the Columbia River](data/dalles_flow.csv)
+Download the [streamflow records for the Columbia River](/data/dalles_flow.csv)
  
 USGS gaged streamflow records for the Columbia River at The Dalles, OR began in water year 1879 and continues to the present day (one of the longest continuous records in the U.S.). Peak flow records extend back to 1858 (based on peak stage values recorded by railroad workers). Using the coincident peak flow records from 1879-1933 (also a period with no major storage dams on the Columbia), create models to predict annual flow for years 1858-1878:
 
@@ -44,9 +48,9 @@ USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 
  
 
 
-### Problem 3: Trend Analysis
+## Problem 3: Trend Analysis
 
-Download the [cascades_swe.xlsx data file](data/cascades_swe.xlsx).
+Download the [cascades_swe.xlsx data file](/data/cascades_swe.xlsx).
 
 The first column is the water year, and data in the next three columns are values for total precipitation (mm), daily maximum temperature (°C), and daily minimum temperature (°C) averaged from October-March over the Pacific Northwest Cascades in Washington and Oregon. The last column is an estimate of April 1st snow water equivalent (in mm, the water content of the snowpack on this day) from model simulations, averaged over the same domain.
 
@@ -59,6 +63,6 @@ The first column is the water year, and data in the next three columns are value
 
 
 
-### Problem 4: Project (CEWA 565 only)
+## Problem 4: Project (CEWA 565)
 
 Please give a brief update of where you are with your project.  At this poing you should have acquired data that you can plot.  Include one example plot of the data in this homework.  Let us know if you have any questions or concerns at this point.

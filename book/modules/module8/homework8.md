@@ -2,13 +2,13 @@
 
 ## Problem 1: Air Temperature Observations in Complex Terrain
 
-Download the file [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat), and the [air-temperature-svd.ipynb](lab8/air-temperature-svd.ipynb) jupyter notebook. The data file contains hourly air temperature (°C) observations from 21 distributed sensors (called iButtons) located around the watershed of the North Fork of the American River in the Sierra Nevada of California, recorded over a period from September 2007 to July 2010. It also contains information about the sites’ names, numbers, latitude and longitude coordinates, and elevations. See the figure below for a map of the sites. 
+Download the file [iButtons_2008-2010.mat](/data/iButtons_2008-2010.mat), and the [air-temperature-svd.ipynb](/module8/air-temperature-svd.ipynb) jupyter notebook. The data file contains hourly air temperature (°C) observations from 21 distributed sensors (called iButtons) located around the watershed of the North Fork of the American River in the Sierra Nevada of California, recorded over a period from September 2007 to July 2010. It also contains information about the sites’ names, numbers, latitude and longitude coordinates, and elevations. See the figure below for a map of the sites. 
  
-![iButton locations](../images/figure1.png)
+![iButton locations](/images/figure1.png)
 
 Map figure: iButton locations and topographic shading. The sites are located around the American River canyon on the west slope of the Sierra Nevada Mountains in California. Lake Tahoe is the large flat area in the southeast portion of the map.
 
-Optional: Download [North_Fork_American_River_CA_18020128.json](data/North_Fork_American_River_CA_18020128.json) to add the American River watershed outline to your plots.
+Optional: Download [North_Fork_American_River_CA_18020128.json](/data/North_Fork_American_River_CA_18020128.json) to add the American River watershed outline to your plots.
 
 
  **A.** Plot the temperature observations (AIR_TEMPERATURE) at all sites on one plot over time; use the title, xlabel, and ylabel commands to label your plot and its axes. Use xlim to zoom in and examine the data at finer scales. *Qualitatively* describe the dataset, including its minimum and maximum values, its major variability in time, and how correlated the stations appear to be with one another. (you do *not* need to actually compute correlation coefficents here, just describe it qualitatively)
