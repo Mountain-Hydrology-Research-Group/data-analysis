@@ -1,7 +1,10 @@
 
 # Syllabus
 
-Access the most recent official course syllabus through the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required). This page presents a notional syllabus without informaiton specific to 
+
+```{note}
+**Access the most recent official course syllabus through the [course Canvas page](https://canvas.uw.edu/) (UW NetID login required).**
+```
 
 ## Course Overview
 
