@@ -1,37 +1,9 @@
-# 1) Python, Statistics Review
-
-Each week, the labs are designed to give you specific coding examples to help you with that week's homework.
-Please look through the lab material before beginning the homework.  Note that the first week's lab has a lot of examples to help people learning python.  This will get easier as we go.
-
----
-
-```note
-## Lab 1: Plotting Data and Calculating Statistics in Python
-
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](../resources/b-learning-jupyter.html#jupyterhub).
-
-* Download this data file for the lab activities: [Skykomish peak flows](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
-* [Lab 1-1: Plotting Data in Python](lab1/lab1-1.ipynb)
-* For more practice in plotting, try this graphical data analysis lab: - [Graphical Data Analysis](lab1/graphical-data-analysis.ipynb) with this [sample data set](data/my_data.csv)
-* [Lab 1-2: Empirical Distributions](lab1/lab1-2.ipynb)
-* After we empirically plot how our data are distributed, we often want to compare them to theoretical distributions.  Open the [Probability Distributions](lab1/probability-distributions.ipynb) notebook to examine common theoretical distributions and how to work with them in python.
-* [BONUS (not needed to solve homework) Lab 1-3: Generating Random Numbers in Python](lab1/lab1-3.ipynb) ([Solution to Lab 1-3 activity](lab1/lab1-3_solution.ipynb))
-
-
-Some extra helpful activities:
-* [Numpy Tutorial](lab1/numpy-tutorial.ipynb)
-* [Some more python tips](lab1/some-python-tips.ipynb)
-
-```
-
----
-
-## Homework 1
+# Homework 1
 
 In this homework assignment we will work start with programming and data visualization to better qualitatively understand the types of datasets that we'll be using the rest of the quarter.  Please download the notebooks at the top of this page and use them as reference for your coding.  **Be sure to save your work for later reference, as you will see these datasets again!**
 
 
-### Exploring Non-Stationary Flood Statistics
+## Exploring Non-Stationary Flood Statistics
 
 
 Download the files containing observed instantaneous peak flow data for the [Sauk River](data/Sauk_peak_WY1929_2021.xlsx) and [Skykomish River](data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx) in western Washington. If you are interested in other rivers, e.g., for your project, these data can be obtained from the [USGS](https://nwis.waterdata.usgs.gov/nwis/peak?search_criteria=search_station_nm&submitted_form=introduction).
