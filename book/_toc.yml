@@ -9,8 +9,7 @@ parts:
  - caption: Overview
    chapters:
    - file: overview/a-syllabus.md
-     sections:
-     - file: overview/b-project.md
+   - file: overview/b-project.md
 
  - caption: Modules
    chapters:
