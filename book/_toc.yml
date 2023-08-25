@@ -18,17 +18,20 @@ parts:
      - file: modules/lab1/lab1-1
      - file: modules/lab1/lab1-2
      - file: modules/lab1/lab1-3
+     - file: modules/lab1/homework1.md
      
    - file: modules/module2.md
      sections:
      - file: modules/lab2/lab2-1
      - file: modules/lab2/lab2-2
      - file: modules/lab2/lab2-3
+     - file: modules/lab2/homework2.md
 
    - file: modules/module3.md
      sections:
      - file: modules/lab3/lab3-1
-     - file: modules/lab3/lab3-2 
+     - file: modules/lab3/lab3-2
+     - file: modules/lab3/homework3.md
      
    - file: modules/module4.md
      sections:
@@ -36,27 +39,32 @@ parts:
      - file: modules/lab4/lab4-2
      - file: modules/lab4/lab4-3
      - file: modules/lab4/lab4-4
+     - file: modules/lab4/homework4.md
 
    - file: modules/module5.md
      sections:
      - file: modules/lab5/lab5-1
      - file: modules/lab5/lab5-2
+     - file: modules/lab5/homework5.md
 
    - file: modules/module6.md
      sections:
      - file: modules/lab6/lab6-1
      - file: modules/lab6/lab6-2
+     - file: modules/lab6/homework6.md
      
    - file: modules/module7.md
      sections:
      - file: modules/lab7/lab7-1
      - file: modules/lab7/lab7-2
      - file: modules/lab7/lab7-3
+     - file: modules/lab7/homework7.md
 
    - file: modules/module8.md
      sections:
      - file: modules/lab8/lab8-1
      - file: modules/lab8/lab8-2
+     - file: modules/lab8/homework8.md
 
  - caption: Resources
    chapters:
