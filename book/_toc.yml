@@ -59,6 +59,7 @@ parts:
      - file: modules/module7/lab7-1
      - file: modules/module7/lab7-2
      - file: modules/module7/lab7-3
+     - file: modules/module7/mcmc-example
      - file: modules/module7/homework7.md
 
    - file: modules/module8/module8.md
