@@ -18,6 +18,7 @@ parts:
      - file: modules/module1/lab1-1
      - file: modules/module1/lab1-2
      - file: modules/module1/lab1-3
+     - file: modules/module1/probability-distributions
      - file: modules/module1/homework1.md
      
    - file: modules/module2/module2.md
@@ -69,7 +70,12 @@ parts:
  - caption: Resources
    chapters:
    - file: resources/a-learning-python.md
+     sections:
+     - file: modules/module1/numpy-tutorial
+     - file: modules/module1/some-python-tips
    - file: resources/b-learning-jupyter.md
    - file: resources/c-data-visualization.md
+     sections:
+     - file: modules/module5/interactive-plots.ipynb
    - file: resources/d-learning-other.md
    - file: resources/instructor_resources.md
