@@ -6,7 +6,7 @@ In this homework assignment we will work start with programming and data visuali
 ## Problem 1: Exploring Non-Stationary Flood Statistics
 
 
-Download the files containing observed instantaneous peak flow data for the {Download}`Sauk River</data/Sauk_peak_WY1929_2021.xlsx>` and {Download}`Skykomish River</data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx>` in western Washington. If you are interested in other rivers, e.g., for your project, these data can be obtained from the [USGS](https://nwis.waterdata.usgs.gov/nwis/peak?search_criteria=search_station_nm&submitted_form=introduction).
+Download the files containing observed instantaneous peak flow data for the {Download}`Sauk River</modules/data/Sauk_peak_WY1929_2021.xlsx>` and {Download}`Skykomish River</modules/data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx>` in western Washington. If you are interested in other rivers, e.g., for your project, these data can be obtained from the [USGS](https://nwis.waterdata.usgs.gov/nwis/peak?search_criteria=search_station_nm&submitted_form=introduction).
 
 Note that annual peak flows are reported by water year (Oct 1 of the previous calendar year to September 30), so some calendar years appear to have two values. Water years are shown in an additional column in the excel files. **For the purposes of this assignment, we will only consider peak flows by water year, and the years requested below refer to water years.** (For example, the first flood reported in the Skykomish occurred on Oct 10, 1928 – this is the flood of water year 1929.)
 
