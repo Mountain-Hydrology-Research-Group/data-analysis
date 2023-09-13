@@ -18,7 +18,7 @@ parts:
      - file: modules/module1/lab1-1
      - file: modules/module1/lab1-2
      - file: modules/module1/lab1-3
-     - file: modules/module1/probability-distributions
+     - file: modules/module1/lab1-4
      - file: modules/module1/homework1.md
      
    - file: modules/module2/module2.md
