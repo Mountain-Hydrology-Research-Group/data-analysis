@@ -16,5 +16,5 @@ Download the following data files to your computer. Then, download each lab acti
 Some extra helpful activities:
 * [Numpy Tutorial](/modules/module1/numpy-tutorial.ipynb)
 * [Some more python tips](/modules/module1/some-python-tips.ipynb)
-* [Graphical Data Analysis](/modules/module1/graphical-data-analysis.ipynb) with a {Download}`sample data set</data/my_data.csv>`.
+* [Graphical Data Analysis](/modules/module1/graphical-data-analysis.ipynb) with a {Download}`sample data set</modules/data/my_data.csv>`.
 ```
