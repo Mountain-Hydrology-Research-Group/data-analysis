@@ -50,7 +50,7 @@ parts:
 
    - file: modules/module6/module6.md
      sections:
-     - file: modules/module6/lab6-1
+     - file: modules/module6/lab6-1.md
      - file: modules/module6/lab6-2
      - file: modules/module6/homework6.md
      
