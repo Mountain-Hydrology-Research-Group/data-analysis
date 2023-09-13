@@ -27,10 +27,10 @@ Then answer the following questions:
 
 **B.** Are there any additional inputs/options we need to specify for either or both functions to make sure that they duplicate our results from the non-parametric tests notebook?
 
-**C.** Examine your answer to Problem 1, part A, using the [observations of peak flow data for the Sauk River](/data/Sauk_peak_WY1929_2021.xlsx) to try and detect a change in streamflow around 1977. Perform the rank-sum test from Problem 1 part A again using the fuction(s) and/or options you identified here. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
+**C.** Examine your answer to Problem 1, part A, using the {Download}`observations of peak flow data for the Sauk River</modules/data/Sauk_peak_WY1929_2021.xlsx>` to try and detect a change in streamflow around 1977. Perform the rank-sum test from Problem 1 part A again using the fuction(s) and/or options you identified here. Discuss any differences in the test results that arise from slight differences in these two functions and the options you can choose.
 
 
 ---
 
-**If you've completed the above problems, you can get started on [Problem 1 of Homework 4](/modules/module4/homework4.html#problem-1).**
+**If you've completed the above problems, you can get started on [Problem 1 of Homework 4](/modules/module4/homework4.md#problem-1).**
  

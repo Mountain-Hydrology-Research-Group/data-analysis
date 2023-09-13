@@ -4,7 +4,7 @@
 
 This problem is based on material in Lab 3-2.
 
-Download the [HJ Andrews Peak Flow data](/data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx).
+Download the {Download}`HJ Andrews Peak Flow data</modules/data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx>`.
 
 For this problem, consider only differences between watershed 1 (WS1) and watershed 2 (WS2). These two watersheds are adjacent to each other in the [HJ Andrews Experimental Forest](https://andrewsforest.oregonstate.edu/). We want to test if there was a change in streamflow due to the forest within WS1 being completely clearcut (starting late 1962 and completed in 1966). Because the two watersheds are adjacent, we can expect that they experience the same storms leading to peak runoff (so we won't be considering any differences due to different precipitation amounts or timing). 
 
@@ -32,7 +32,7 @@ We want to know whether the four periods are statistically different from each o
 
 ## Problem 2: Linear and Quantile Regression
 
-Download the [streamflow records for the Columbia River](/data/dalles_flow.csv)
+Download the {Download}`streamflow records for the Columbia River</modules/data/dalles_flow.csv>`.
  
 USGS gaged streamflow records for the Columbia River at The Dalles, OR began in water year 1879 and continues to the present day (one of the longest continuous records in the U.S.). Peak flow records extend back to 1858 (based on peak stage values recorded by railroad workers). Using the coincident peak flow records from 1879-1933 (also a period with no major storage dams on the Columbia), create models to predict annual flow for years 1858-1878:
 
@@ -50,7 +50,7 @@ USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 
 
 ## Problem 3: Trend Analysis
 
-Download the [cascades_swe.xlsx data file](/data/cascades_swe.xlsx).
+Download the {Download}`cascades_swe.xlsx data file</modules/data/cascades_swe.xlsx>`.
 
 The first column is the water year, and data in the next three columns are values for total precipitation (mm), daily maximum temperature (°C), and daily minimum temperature (°C) averaged from October-March over the Pacific Northwest Cascades in Washington and Oregon. The last column is an estimate of April 1st snow water equivalent (in mm, the water content of the snowpack on this day) from model simulations, averaged over the same domain.
 

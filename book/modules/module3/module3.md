@@ -2,8 +2,8 @@
 
 
 
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+Download the following data files to your computer. Then, download each lab activity notebook, and upload them all to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.md#jupyterhub). Work through these activities before starting on the homework assignment.
 
+  * {Download}`ANOVA_fertilizer_treatment.txt(/modules/data/ANOVA_fertilizer_treatment.txt>`
 
-  * data: [ANOVA_fertilizer_treatment.txt](data/ANOVA_fertilizer_treatment.txt)
-  * Note:  Homework corresponding to Lab 3-3 will be turned in with HW 4
+Note:  Homework corresponding to Lab 3-3 will be turned in with HW 4

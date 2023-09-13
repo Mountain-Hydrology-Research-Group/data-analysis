@@ -1,8 +1,10 @@
 # 8) SVD, Timeseries Analysis
 
 
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
+Download the following data files to your computer. Then, download each lab activity notebook, and upload them all to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.md#jupyterhub). Work through these activities before starting on the homework assignment.
 
-* [PRISM_4km_1982-2012.mat](https://canvas.uw.edu/courses/1578249/files/folder/Week%2008%20SVD%20EOF%20PCA) Note: This takes you to canvas, where you can download this file to your computer and then upload it to the Jupyterhub. The file is too large to keep on this website.
-* [waterlevel.mat](data/waterlevel.mat)
+* Download [PRISM_4km_1982-2012.mat](https://canvas.uw.edu/) from Canvas.
+* {Download}`waterlevel.mat</modules/data/waterlevel.mat>`
+* {Download}`iButtons_2008-2010.mat</modules/data/iButtons_2008-2010.mat>`
+* {Download}`North_Fork_American_River_CA_18020128.json</modules/data/North_Fork_American_River_CA_18020128.json>`
 

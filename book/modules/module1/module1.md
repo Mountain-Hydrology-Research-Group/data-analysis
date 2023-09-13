@@ -10,11 +10,12 @@ Download the following data files to your computer. Then, download each lab acti
 * {Download}`Sauk River peak flows</modules/data/Sauk_peak_WY1929_2021.xlsx>`
 * {Download}`Skykomish River peak flows</modules/data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx>`
 * {Download}`Solution to Lab 1-4 activity</modules/module1/lab1-4_solution.ipynb>`
+* {Download}`Sample data set</modules/data/my_data.csv>` for Graphical Data Analysis notebook below.
 
 
 ```{note}
 Some extra helpful activities:
 * [Numpy Tutorial](/modules/module1/numpy-tutorial.ipynb)
 * [Some more python tips](/modules/module1/some-python-tips.ipynb)
-* [Graphical Data Analysis](/modules/module1/graphical-data-analysis.ipynb) with a {Download}`sample data set</modules/data/my_data.csv>`.
+* [Graphical Data Analysis](/modules/module1/graphical-data-analysis.ipynb)
 ```

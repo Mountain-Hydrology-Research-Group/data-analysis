@@ -19,7 +19,7 @@ Note that, unlike what you will do in many hydrology classes, which is to calcul
 
 In this problem we will use Bayes’ Theorem to see if the 7.2-inch storm is still a 100-year storm. In other words, we want to find what k-year storm 7.2 inches in 24 hours corresponds to, if not 100-years.
 
- **A.** Download and plot the prior pdf of a >=7.2-inch storm occurring in a given year from the data file [NYC_precip_priors.csv](/data/NYC_precip_priors.csv). This dataset shows the prior distribution of the chance that New York City will get a 7.2-inch storm in a given year, which has a mean p = 0.01, corresponding to 100 years (1/p = 1/0.01 = 100). 
+ **A.** Download and plot the prior pdf of a >=7.2-inch storm occurring in a given year from the data file {Download}`NYC_precip_priors.csv</modules/data/NYC_precip_priors.csv>`. This dataset shows the prior distribution of the chance that New York City will get a 7.2-inch storm in a given year, which has a mean p = 0.01, corresponding to 100 years (1/p = 1/0.01 = 100). 
  
 (Note that the variable labeled “PDF” represents the probability of the storm frequency (or return period) falling within that interval and therefore includes the interval width, such that the sum of the pdf values alone equals 1, and the cumulative sum of the pdf is equal to the cdf.)
  

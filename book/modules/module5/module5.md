@@ -1,10 +1,9 @@
 # 5) Multiple Linear Regression & Autocorrelation
 
 
+Download the following data files to your computer. Then, download each lab activity notebook, and upload them all to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.md#jupyterhub). Work through these activities before starting on the homework assignment.
 
-Download the lab and data files to your computer. Then, upload them to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#working-with-files-on-our-jupyterhub).
-
-* [pillows_example.csv](data/pillows_example.csv)
-* [iButtons_2008-2010.mat](data/iButtons_2008-2010.mat)
+* {Download}`pillows_example.csv</modules/data/pillows_example.csv>`
+* {Download}`iButtons_2008-2010.mat</modules/data/iButtons_2008-2010.mat>`
 
 

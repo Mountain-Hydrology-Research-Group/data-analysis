@@ -2,7 +2,7 @@
 
 ## Problem 1: Correlation, Autocorrelation, Multiple Linear Regression
 
-In this problem, you will explore the relationship between air temperature, precipitation, and [snow water equivalent](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833) over time, using observations from a study site in the Washington Cascades. Download the [cascades_swe.xlsx](/data/cascades_swe.xlsx) dataset for this problem.
+In this problem, you will explore the relationship between air temperature, precipitation, and [snow water equivalent](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833) over time, using observations from a study site in the Washington Cascades. Download the {Download}`cascades_swe.xlsx</modules/data/cascades_swe.xlsx>` dataset for this problem.
 
 **A.** Begin by making scatterplots of each of these variables vs. all the other variables. Describe any visual patterns you see between each pair of variables.  
 
