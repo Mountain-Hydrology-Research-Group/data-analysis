@@ -31,12 +31,19 @@ Following the class discussion and Lab 7-3, explore how the rating curve and the
 
 Using the code in Lab 7-3, create plots and discuss the differences in the results from these three methods.
 
-## Problem 2: Work on your term projects (CEWA 565)
+## Problem 3: 
+
+### For CEWA 565: 
+
+Work on your term projects.
 
 
-## Problem 2: Statistics Synthesis (CEE 465)
+### For CEE 465: 
 
-(Your final exam questions will look similar to this.)
+**Statistics Synthesis**
+
+(Your CEE 465 final exam questions will look similar to this.)
+
 You are given the below dataset of annual peak flows on the Sauk River: 
 
 ![Sauk River Plot](/module7/sauk-river-plot.png)
