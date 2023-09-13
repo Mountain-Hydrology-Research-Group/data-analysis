@@ -6,4 +6,4 @@ Download the following data files to your computer. Then, download each lab acti
 
   * {Download}`ANOVA_fertilizer_treatment.txt</modules/data/ANOVA_fertilizer_treatment.txt>`
 
-Note:  Homework corresponding to Lab 3-3 will be turned in with HW 4
+Note:  Homework corresponding to Lab 3-2 will be turned in with HW 4
