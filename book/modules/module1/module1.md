@@ -5,18 +5,16 @@ Please look through the lab material before beginning the homework.  Note that t
 
 ---
 
-## Plotting Data and Calculating Statistics in Python
-
-
 Download the following data files to your computer. Then, download each lab activity notebook, and upload them all to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.html#jupyterhub). Work through these activities before starting on the homework assignment.
 
-* [Skykomish peak flows](/data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx)
-* [Solution to Lab 1-4 activity](/modules/module1/lab1-4_solution.ipynb)
+* {Download}`Sauk Riverpeak flows</data/Sauk_peak_WY1929_2021.xlsx>`
+* {Download}`Skykomish River peak flows</data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx>`
+* {Download}`Solution to Lab 1-4 activity</modules/module1/lab1-4_solution.ipynb>`
 
 
 ```{note}
 Some extra helpful activities:
 * [Numpy Tutorial](/modules/module1/numpy-tutorial.ipynb)
 * [Some more python tips](/modules/module1/some-python-tips.ipynb)
-* [Graphical Data Analysis](/modules/module1/graphical-data-analysis.ipynb) with a [sample data set](/data/my_data.csv).
+* [Graphical Data Analysis](/modules/module1/graphical-data-analysis.ipynb) with a {Download}`sample data set</data/my_data.csv>`.
 ```
