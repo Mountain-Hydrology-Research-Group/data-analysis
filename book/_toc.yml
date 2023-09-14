@@ -77,6 +77,8 @@ parts:
    - file: resources/b-learning-jupyter.md
    - file: resources/c-data-visualization.md
      sections:
+     - file: resources/logo.ipynb
+     - file: modules/module5/warming-stripes.ipynb
      - file: modules/module5/interactive-plots.ipynb
    - file: resources/d-learning-other.md
    - file: resources/instructor_resources.md
