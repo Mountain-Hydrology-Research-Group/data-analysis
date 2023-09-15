@@ -1,11 +1,20 @@
-# Welcome to your Jupyter Book
+# Data Analysis in Water Sciences
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This website is the home of labs, assignments, and other learning resources for Data Analysis in Water Sciences (**CEE 465** & **CEWA 565**) offered in the [Civil and Environmental Engineering](https://www.ce.washington.edu/) department at the University of Washington, Seattle.
 
-Check out the content pages bundled with this sample book to see more.
+This course covers fundamental topics related to data analysis using modern computer techniques, with applications to water sciences (but techniques are applicable to many science disciplines), including:
+ * Statistical inference testing and error estimation
+ * Linear and quantile-based regression models
+ * Monte Carlo simulation
+ * Time series analysis
+ * Bayes theorem
+ * Data visualization 
+
+**Prerequisite:** Any one of the following are recommended: IND E 315 Probability and Statistics for Engineers, AMATH 301 Beginning Scientific Computing, CSE 142 Computer Programming, and/or knowledge of basic statistics and computer programming (Python, R, MATLAB).
+
+**Offered:** Autumn quarters
+
+---
 
 ```{tableofcontents}
 ```
