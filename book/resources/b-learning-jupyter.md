@@ -14,11 +14,11 @@ A JupyterHub is a collection of single-user Jupyter notebook servers, which are 
 
 While it is possible to [run Jupyter Notebooks locally on your own computer](#), we suggest that you use the JupyterHub for labs, homeworks, and projects in this class.
 
-[Our JupyterHub](https://rttl.axdd.s.uw.edu/2022-autumn-cee-465-a) is managed by the university IT department, and you can access it with your NetID username and password.
+Our JupyterHub is managed by the university IT department, and you can access it with your NetID username and password through the link provided on the course Canvas page.
 
 ### Getting started on our JupyterHub
 
-1. Open a web browser and go to this URL: [https://jupyter.rttl.uw.edu/2022-autumn-cee-465-a/](https://jupyter.rttl.uw.edu/2022-autumn-cee-465-a/) (bookmark the page for easier access).
+1. Open a web browser and go to the URL for our JupyterHub (available on the course Canvas page). Bbookmark the page for easier access.
 
 2. Click on *Sign in with University of Washingotn NetID*, enter your username and password:
 ![jupyter startup 1](images/jupyter-help/jupyter1.JPG)
