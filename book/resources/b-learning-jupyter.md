@@ -14,11 +14,11 @@ A JupyterHub is a collection of single-user Jupyter notebook servers, which are 
 
 While it is possible to [run Jupyter Notebooks locally on your own computer](#), we suggest that you use the JupyterHub for labs, homeworks, and projects in this class.
 
-[Our JupyterHub](https://rttl.axdd.s.uw.edu/2022-autumn-cee-465-a) is managed by the university IT department, and you can access it with your NetID username and password.
+Our JupyterHub is managed by the university IT department, and you can access it with your NetID username and password through the link provided on the course Canvas page.
 
 ### Getting started on our JupyterHub
 
-1. Open a web browser and go to this URL: [https://jupyter.rttl.uw.edu/2022-autumn-cee-465-a/](https://jupyter.rttl.uw.edu/2022-autumn-cee-465-a/) (bookmark the page for easier access).
+1. Open a web browser and go to the URL for our JupyterHub (available on the course Canvas page). Bbookmark the page for easier access.
 
 2. Click on *Sign in with University of Washingotn NetID*, enter your username and password:
 ![jupyter startup 1](images/jupyter-help/jupyter1.JPG)
@@ -29,7 +29,7 @@ While it is possible to [run Jupyter Notebooks locally on your own computer](#),
 4. You should see a message "Your server is starting up." and below it a status bar as your personal server starts. 
 ![jupyter startup 3](images/jupyter-help/jupyter3.JPG)
 
-```note
+```{note}
 **If you encounter an error here or your server fails to start**, copy or screenshot the text of the "Event log" or any other error messages that appear and email the course instructor or TA.
 ```
 
@@ -41,7 +41,7 @@ While it is possible to [run Jupyter Notebooks locally on your own computer](#),
 * To upload lab notebooks or data files, click on the "Upload Files" icon in the upper left menu, navigate to the files you want in the File Upload window, then click "Open"
 ![jupyter startup 5](images/jupyter-help/jupyter5.JPG)
 
-```note
+```{note}
 **GitHub Option:**
 
 While we won't be covering how to use GitHub in this course, if you are already familiar with using git, or [would like to learn how to use it on your own](https://swcarpentry.github.io/git-novice/), you are welcome to use it. I will try my best to address any issues or questions you have about using GitHub in this class.
@@ -62,7 +62,7 @@ First, create your own GitHub respository for your labs and homework assignments
 ![jupyter startup 7](images/jupyter-help/jupyter7.JPG)
 
 
-```note
+```{note}
 Logging out of the JupyterHub will **NOT** cause any of your work to be lost or deleted, it simply shuts down some of the computing resources (like shutting off your laptop at the end of the day)
 ```
 

@@ -1,4 +1,4 @@
-# Homework 6: 
+# Homework 6
 
 ## Problem 1: Continuous Bayesian Estimation of Flood Frequency
 
