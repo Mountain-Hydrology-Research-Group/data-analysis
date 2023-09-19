@@ -5,7 +5,7 @@ Please look through the lab material before beginning the homework.  Note that t
 
 ---
 
-Download the following data files to your computer. Then, download each lab activity notebook, and upload them all to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.md#jupyterhub). Work through these activities before starting on the homework assignment.
+Download the following data files to your computer. Then, download each lab activity notebook, and upload them all to your JupyterHub [following the instructions here](/resources/b-learning-jupyter.md). Work through these activities before starting on the homework assignment.
 
 * {Download}`Sauk River peak flows</modules/data/Sauk_peak_WY1929_2021.xlsx>`
 * {Download}`Skykomish River peak flows</modules/data/Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx>`

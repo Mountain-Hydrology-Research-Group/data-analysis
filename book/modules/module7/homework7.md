@@ -1,4 +1,4 @@
-# Homework 7: 
+# Homework 7
 
  
 ## Problem 1: ENSO Phases
