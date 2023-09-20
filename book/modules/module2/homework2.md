@@ -20,6 +20,8 @@ B. **Two-sample test for a change in the mean**: Test for statistical significan
 
 ## Problem 2: Course Project Selection (CEWA 565)
 
+Upload this part of the assignment as a separate PDF or Word document to "Homework 2 Project Update" on Canvas.
+
 Write a draft abstract for your project report (e.g. one paragraph of about 5-9 sentences). Describe your term project: what problem(s) will you be addressing, what data will you analyze, what question(s) will you answer, and what is your hypothesis? (You will add information about methods and results to your abstract later.) Be sure to include the name of your project partner in your submission (or specify that you will be doing the project alone).
 
 **If you have questions about the project, now is the time to talk to the instructor.**

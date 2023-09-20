@@ -63,7 +63,9 @@ The first column is the water year, and data in the next three columns are value
 
 
 
-## Problem 4: Project (CEWA 565)
+## Problem 4: Project Update (CEWA 565)
+
+Upload this part of the assignment as a separate PDF or Word document to "Homework 4 Project Update" on Canvas.
 
 Submit an updated draft abstract along with a draft introduction section. The introduction section should provide more details about the project and any relevant background information, the science questions and hypotheses you will be addressing, and the data you will be using. Include at least two very specific questions that you will answer with your data. For each question, write down which statistical tools you will use to help answer it.  Include one or two plots that illustrate your data. These can be time-series plots, histograms, CDFs, or whatever is relevant to your data and your problem.
 

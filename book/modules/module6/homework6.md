@@ -40,4 +40,6 @@ In this problem, A is the true likelihood of the storm’s occurrence, and B are
 
 ## Problem 2: Project Update (CEWA 565)
 
+Upload this part of the assignment as a separate PDF or Word document to "Homework 6 Project Update" on Canvas.
+
 Submit an updated draft abstract and introduction section, along with draft data and methods sections. In the data section, describe your dataset, your study location, and how the data were collected. Discuss the quality of your data. Do you need to take into account any erroneous values or uncertain numbers before you start your statistics? In the methods section, describe how the data are analyzed, and what statistical methods you are using to address each of your science questions. Discuss why these chosen methods are appropriate for your project, and if these methods have limitations or build-in assumptions and how those might affect your conclusions.
