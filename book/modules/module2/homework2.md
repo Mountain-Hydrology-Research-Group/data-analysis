@@ -26,4 +26,4 @@ Write a draft abstract for your project report (e.g. one paragraph of about 5-9 
 
 **If you have questions about the project, now is the time to talk to the instructor.**
 
-(the rubric for the final report is available for your reference [here](/overview/b-project.html))
+(the rubric for the final report is available for your reference [here](/overview/b-project.md))
