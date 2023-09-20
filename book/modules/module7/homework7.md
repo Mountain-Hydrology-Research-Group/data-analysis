@@ -44,7 +44,7 @@ Complete the peer review(s) that you were assigned on Canvas. Your review should
 
 You are given the below dataset of annual peak flows on the Sauk River: 
 
-![Sauk River Plot](/module7/sauk-river-plot.png)
+![Sauk River Plot](sauk-river-plot.png)
 
 (Note, you do not need to do any actual analysis here)
 
