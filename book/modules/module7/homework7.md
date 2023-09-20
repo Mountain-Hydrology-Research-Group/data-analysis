@@ -33,20 +33,18 @@ Using the code in Lab 7-3, create plots and discuss the differences in the resul
 
 ## Problem 3: 
 
-### For CEWA 565: 
+### For CEWA 565: Peer Reviews
 
-Work on your term projects.
+Complete the peer review(s) that you were assigned on Canvas. Your review should be thoughtful, but it does not need to be long, nor does it need to focus on minor spelling or grammar mistakes. Write a few sentences describing the most important change that can be made to improve the draft (e.g. "reorganize the paragraphs to better explain X", "add more supporting evidence for the topic statement"). Refer to the prior homework assignment to see guidelines for the draft project reports. (the rubric for the final report is available for your reference [here](/overview/b-project.md))
 
 
-### For CEE 465: 
-
-**Statistics Synthesis**
+### For CEE 465: Statistics Synthesis
 
 (Your CEE 465 final exam questions will look similar to this.)
 
 You are given the below dataset of annual peak flows on the Sauk River: 
 
-![Sauk River Plot](/module7/sauk-river-plot.png)
+![Sauk River Plot](sauk-river-plot.png)
 
 (Note, you do not need to do any actual analysis here)
 

@@ -34,3 +34,6 @@ Then answer the following questions:
 
 **If you've completed the above problems, you can get started on [Problem 1 of Homework 4](/modules/module4/homework4.md#problem-1).**
  
+## Problem 3: Peer Reviews (CEWA 565)
+
+Complete the peer review(s) that you were assigned on Canvas. Your review should be thoughtful, but it does not need to be long, nor does it need to focus on minor spelling or grammar mistakes. Write a few sentences describing the most important change that can be made to improve the draft (e.g. "reorganize the paragraphs to better explain X", "add more supporting evidence for the topic statement"). Refer to the prior homework assignment to see guidelines for the draft project reports. (the rubric for the final report is available for your reference [here](/overview/b-project.md))

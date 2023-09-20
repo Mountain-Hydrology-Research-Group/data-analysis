@@ -63,6 +63,22 @@ The first column is the water year, and data in the next three columns are value
 
 
 
-## Problem 4: Project (CEWA 565)
+## Problem 4: Project Update (CEWA 565)
 
-Please give a brief update of where you are with your project.  At this poing you should have acquired data that you can plot.  Include one example plot of the data in this homework.  Let us know if you have any questions or concerns at this point.
+Upload this part of the assignment as a separate PDF or Word document to "Homework 4 Project Update" on Canvas.
+
+Submit an updated draft abstract along with a draft introduction section. The introduction section should provide more details about the project and any relevant background information, the science questions and hypotheses you will be addressing, and the data you will be using. Include at least two very specific questions that you will answer with your data. For each question, write down which statistical tools you will use to help answer it.  Include one or two plots that illustrate your data. These can be time-series plots, histograms, CDFs, or whatever is relevant to your data and your problem.
+
+```{note}
+Based on what you have so far, do you think that your project scope is about right for a 10 page paper, or do you feel that you need to either simplify things to make it shorter or add complexity to make it longer? 
+
+If you feel adjustments are needed, how to you plan to address this issue? 
+
+What do you anticipate being the most difficult parts of your term project? 
+
+Do you have questions you would like help with or advice on? 
+
+If so, include them in your homework submission or set up a meeting to discuss them with the instructor.
+```
+
+(the rubric for the final report is available for your reference [here](/overview/b-project.md))

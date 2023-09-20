@@ -38,6 +38,10 @@ In this problem, A is the true likelihood of the storm’s occurrence, and B are
  **C.** How much did the mean and 95% confidence interval return period change from the original prior return period to 2021? What does this indicate about the “true” frequency of the 7.2-inch-storm? To what k-year storm does this mean correspond to now?
 
 
-## Problem 2: The best graphics
- 
-One of our greatest challenges in data analysis is to be able to visualize the information in the data and convey that information to others. Consider various scientific papers you have read (on any subject related to your scientific/engineering discipline) and pick out your favorite graphical representation of data (e.g., the best figure). Include your top two choices in your homework submission with a brief statement of why you chose these figures. We'll share some of these favorite figures in class.
+## Problem 2: Project Update (CEWA 565)
+
+Upload this part of the assignment as a separate PDF or Word document to "Homework 6 Project Update" on Canvas.
+
+Submit an updated draft abstract and introduction section, along with draft data and methods sections. In the data section, describe your dataset, your study location, and how the data were collected. Discuss the quality of your data. Do you need to take into account any erroneous values or uncertain numbers before you start your statistics? In the methods section, describe how the data are analyzed, and what statistical methods you are using to address each of your science questions. Discuss why these chosen methods are appropriate for your project, and if these methods have limitations or build-in assumptions and how those might affect your conclusions.
+
+(the rubric for the final report is available for your reference [here](/overview/b-project.md))
