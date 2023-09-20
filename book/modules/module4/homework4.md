@@ -80,3 +80,5 @@ Do you have questions you would like help with or advice on?
 
 If so, include them in your homework submission or set up a meeting to discuss them with the instructor.
 ```
+
+(the rubric for the final report is available for your reference [here](/overview/b-project.html))
