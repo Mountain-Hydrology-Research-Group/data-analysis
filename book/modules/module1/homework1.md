@@ -1,6 +1,6 @@
 # Homework 1
 
-In this homework assignment we will work start with programming and data visualization to better qualitatively understand the types of datasets that we'll be using the rest of the quarter.  Please download the notebooks at the top of this page and use them as reference for your coding.  **Be sure to save your work for later reference, as you will see these datasets again!**
+In this homework assignment we will start with programming and data visualization to better qualitatively understand the types of datasets that we'll be using the rest of the quarter.  Please download the notebooks at the top of this page and use them as reference for your coding.  **Be sure to save your work for later reference, as you will see these datasets again!**
 
 
 ## Problem 1: Exploring Non-Stationary Flood Statistics
