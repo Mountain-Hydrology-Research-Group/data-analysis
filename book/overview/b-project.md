@@ -7,7 +7,7 @@ In your project, you will ask a question (pose a hypothesis), answer it using a 
 
 Your project will be evaluated through an oral presentation (20% of total grade) and a written report (80% of total grade). The written report will be no longer than 10 pages (for an individual or group of two; or 15 pages for a group of three), including figures (references will not count towards the page limit).
 
-```{note} Additional Resources
+```{note} Additional Resources:
 UW has services to help people with [statistics](https://www.stat.washington.edu/consulting/) and [data analysis](http://escience.washington.edu/dss-hours). These are designed primarily to help graduate students engaged in research (not with homework), but presuming your course project is related to a research interest of yours, they have been very helpful in the past.
 ```
 
@@ -23,7 +23,7 @@ Using a variety of techniques we learned in class, as well as others you may enc
 
 2. **How does forest regeneration (following harvesting) change summer streamflow, or low flows?** Similar to question 1, again using the HJ Andrews data.  See [Perry & Jones (2017)](https://doi.org/10.1002/eco.1790) paper on this topic. (Ask the instructor for a copy of this paper if you're unable to access it online)
 
-3. **How does weather vary in a high-elevation valley in Colorado?**  The U.S. Department of Energy and the National Oceanographic and Atmospheric Administration have been measuring a lot in the East River Basin of Colorado, as part of the [SAIL and SPLASH](https://www.arm.gov/news/features/post/81524) campaigns.  The data is publicly available for both [SAIL](https://adc.arm.gov/discovery/#/results/s:guc/site) and [SPLASH](https://psl.noaa.gov/splash/). Talk to the instructor if you want to work on a project using these data. 
+3. **How does weather vary in a high-elevation valley in Colorado?**  The U.S. Department of Energy and the National Oceanographic and Atmospheric Administration have collected a lot of measurements in the East River Basin of Colorado, as part of the [SAIL and SPLASH](https://www.arm.gov/news/features/post/81524) campaigns.  The data is publicly available for both [SAIL](https://adc.arm.gov/discovery/#/results/s:guc/site) and [SPLASH](https://psl.noaa.gov/splash/). Talk to the instructor if you want to work on a project using these data. 
 
 4. **How does stream temperature in different months and different streams relate to the onset date of snowmelt runoff (when the streams start rising)?** Elevated stream temperatures can be unhealthy for fish if snow melts earlier (resulting in earlier streamflow). You may download time series of discharge and stream temperature [here](https://depts.washington.edu/mtnhydr/Pages/Data/yosemite.shtml) for different streams in Yosemite National Park, California. Using a variety of techniques we learned in class, as well as others you may encounter in the literature (use at least three different tests), determine whether stream temperature is significantly changed by streamflow timing. What is your confidence in this? You may want to consider different months of the year or different times of the day (e.g., daily maximum temperature vs. daily mean), and you may want to compare and contrast streams of different sizes. (See this [guide](https://depts.washington.edu/mtnhydr/Pages/Data/yosemite/Lundquist_2016_WRR_SupportingInfo.pdf) to learn more about these sites. Also, talk to the instructor if you want more recent data.)
 
@@ -31,7 +31,7 @@ Using a variety of techniques we learned in class, as well as others you may enc
 
 6. **How do temperature, relative humidity, fog, and cloud cover vary across San Juan Island?  Are there potential locations of climate refugia for intertidal marine wildlife?** (Please ask the instructor if you’re interested in this project.)
 
-7. **What controls changes in groundwater across property on the Olympic Peninsula?**  (These data are provided by a CEE alumni family, and the instructor can put you in touch with them if you are interested.)
+7. **What variables influences groundwater at a property on the Olympic Peninsula?**  (These data are provided by a CEE alumni family, and the instructor can you in touch with them if you are interested.)
 
 8.  **Choose your own adventure...**
 
