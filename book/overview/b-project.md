@@ -7,8 +7,8 @@ In your project, you will ask a question (pose a hypothesis), answer it using a 
 
 Your project will be evaluated through an oral presentation (20% of total grade) and a written report (80% of total grade). The written report will be no longer than 10 pages (for an individual or group of two; or 15 pages for a group of three), including figures (references will not count towards the page limit).
 
-```{note} Additional Resources:
-UW has services to help people with [statistics](https://www.stat.washington.edu/consulting/) and [data analysis](http://escience.washington.edu/dss-hours). These are designed primarily to help graduate students engaged in research (not with homework), but presuming your course project is related to a research interest of yours, they have been very helpful in the past.
+```{note} Additional Resources
+UW has services to help people with [statistics](https://www.stat.washington.edu/consulting/) and [data analysis](https://escience.washington.edu/using-data-science/office-hours/). These are designed primarily to help graduate students engaged in research (not with homework), but presuming your course project is related to a research interest of yours, they have been very helpful in the past.
 ```
 
 
