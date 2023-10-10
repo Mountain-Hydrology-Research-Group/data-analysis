@@ -26,6 +26,7 @@ parts:
      - file: modules/module2/lab2-1
      - file: modules/module2/lab2-2
      - file: modules/module2/lab2-3
+     - file: modules/module2/lab2-4
      - file: modules/module2/homework2.md
 
    - file: modules/module3/module3.md
