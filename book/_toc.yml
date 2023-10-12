@@ -33,6 +33,7 @@ parts:
      sections:
      - file: modules/module3/lab3-1
      - file: modules/module3/lab3-2
+     - file: modules/module3/lab3-3
      - file: modules/module3/homework3.md
      
    - file: modules/module4/module4.md
