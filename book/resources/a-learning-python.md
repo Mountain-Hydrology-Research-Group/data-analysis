@@ -13,6 +13,13 @@ These tutorials can help you get started using python, or use them as reference 
 
 If you're a MATLAB user, [NumPy for Matlab users](https://docs.scipy.org/doc/numpy-1.14.0/user/numpy-for-matlab-users.html) is another great resource.
 
+Tutorials from the 2020 Waterhackweek event are available on github [here](https://github.com/waterhackweek/waterdata), and videos here:
+  * [Introduction to Water data, Python and You](https://youtu.be/nbbxxsY2Pmc?feature=shared)
+  * [Access and analyze point time series data](https://youtu.be/hPlGZGacqJY?feature=shared)
+  * [Access and analyze raster and multi-dimensional gridded data](https://youtu.be/37HdGuL9m-s?feature=shared)
+  * [Water data mash up](https://youtu.be/_YtinU26S4E?feature=shared)
+  * [Water data and statistics](https://youtu.be/a5uCj1mX7Qs?feature=shared)
+
 
 ## Data visualization libraries
 
