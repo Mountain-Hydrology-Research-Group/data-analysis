@@ -12,7 +12,7 @@
  * [Managing conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
  * [The Unix Shell](https://swcarpentry.github.io/shell-novice/)
 
-```note
+```{note}
 The UW eScience institute offers [data science office hours](https://escience.washington.edu/office-hours/) which could be useful for your projects or your own research work.
 ```
 
