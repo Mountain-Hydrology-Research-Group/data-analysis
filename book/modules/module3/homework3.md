@@ -19,7 +19,7 @@ Download and work through Labs 3-1 and 3-2 on Non-Parametric Tests. One of the c
 * Test the significance of the change in the mean between the two sample periods using the two-sample Rank-Sum test. 
 * How different is your conclusion from the one in Homework 2. (i.e. compare P for the two tests).
 
-## Problem 3: Chi Squared test for a change in the standard deviation**: 
+## Problem 3: Chi Squared test for a change in the standard deviation: 
 Lastly test for statistical significance of a change in the standard deviation. Even though it is not strictly true, assume that the sample data are derived from a normally distributed population. (While not required for this homework, we can follow up on the importance of this assumption by using Monte Carlo Tests as shown in Lab 2-3.)
 * Use a single sample test (with rejection region based on the Chi Squared distribution), and assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.
 
