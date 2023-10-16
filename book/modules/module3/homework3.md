@@ -13,6 +13,7 @@ B. **Rank-Sum Test**: Download and work through Labs 3-1 and 3-2 on Non-Parametr
 * What assumptions about our data and/or the hypothesis test are each of these two functions (ranksums and mannwhitneyu) making? 
 * Are there any additional inputs/options we need to specify for either or both functions to make sure that they duplicate our results from the non-parametric tests notebook?
 * Which of these functions (or both, or neither) are appropriate for the example here?
+
 Then do the following:
 * Test the significance of the change in the mean between the two sample periods using the two-sample Rank-Sum test. 
 * How different is your conclusion from the one in Homework 2. (i.e. compare P for the two tests).
