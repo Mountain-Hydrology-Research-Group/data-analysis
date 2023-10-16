@@ -24,8 +24,6 @@ Lastly test for statistical significance of a change in the standard deviation. 
 * Use a single sample test (with rejection region based on the Chi Squared distribution), and assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.
 
 ---
-
-**If you've completed the above problems, you can get started on [Problem 1 of Homework 4](/modules/module4/homework4.md#problem-1).**
  
 ## Problem 4: Peer Reviews (CEWA 565)
 
