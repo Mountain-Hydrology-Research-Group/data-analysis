@@ -5,7 +5,7 @@ Continuing with material from Lab 2 and comparing with Homework 2, using the {Do
 ## Problem 1: Type II Error
 Here you will determine the type II error and power for your test on the mean in the first part of B in Homework 2. To answer this, assume that the true mean has in fact increased by 25%, and pooled standard deviation has increased by a factor of 1.3. In other words, assume that the “true” mean of the later period is 1.25 times the 1929-1976 mean, and that the “true” pooled standard deviation is 1.3 times sigma prime (our test estimate of pooled estimator for the two observed data sets). 
 
-**A.** What is the type II error and power for this test?
+**A.** What is the type II error and power for the test in HW2?
 
 **B.** Draw or plot a graphic to represent this true distribution, and draw where your test statistic falls on this graph. Color the area of the graph that represents Type II error.
 
