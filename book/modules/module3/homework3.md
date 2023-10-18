@@ -4,7 +4,9 @@ Continuing with material from Lab 2 and comparing with Homework 2, using the {Do
 
 ## Problem 1: Type II Error
 Here you will determine the type II error and power for your test on the mean in the first part of B in Homework 2. To answer this, assume that the true mean has in fact increased by 25%, and pooled standard deviation has increased by a factor of 1.3. In other words, assume that the “true” mean of the later period is 1.25 times the 1929-1976 mean, and that the “true” pooled standard deviation is 1.3 times sigma prime (our test estimate of pooled estimator for the two observed data sets). 
+
 **A.** Draw or plot a graphic to represent this true distribution, and draw where your test statistic falls on this graph. Color the area of the graph that represents Type II error. 
+
 **B.** Then answer the question: What is the type II error and power for your test in part B?
 
 ## Problem 2: Rank-Sum Test
@@ -21,7 +23,8 @@ Download and work through Labs 3-1 and 3-2 on Non-Parametric Tests. One of the c
 
 ## Problem 3: Chi Squared test for a change in the standard deviation: 
 Lastly test for statistical significance of a change in the standard deviation. Even though it is not strictly true, assume that the sample data are derived from a normally distributed population. (While not required for this homework, we can follow up on the importance of this assumption by using Monte Carlo Tests as shown in Lab 2-3.)
-* Use a single sample test (with rejection region based on the Chi Squared distribution), and assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.
+
+Use a single sample test (with rejection region based on the Chi Squared distribution), and assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.
 
 ---
  

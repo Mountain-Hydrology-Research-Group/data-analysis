@@ -2,7 +2,7 @@
 
 ## Problem 1: ANOVA
 
-This problem is based on material in Lab 3-2.
+This problem is based on material in Lab 3-3.
 
 Download the {Download}`HJ Andrews Peak Flow data</modules/data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx>`.
 
