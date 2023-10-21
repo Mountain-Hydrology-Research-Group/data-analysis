@@ -5,9 +5,9 @@ Continuing with material from Lab 2 and comparing with Homework 2, using the {Do
 ## Problem 1: Type II Error
 Here you will determine the type II error and power for your test on the mean in the first part of B in Homework 2. To answer this, assume that the true mean has in fact increased by 25%, and pooled standard deviation has increased by a factor of 1.3. In other words, assume that the “true” mean of the later period is 1.25 times the 1929-1976 mean, and that the “true” pooled standard deviation is 1.3 times sigma prime (our test estimate of pooled estimator for the two observed data sets). 
 
-**A.** Draw or plot a graphic to represent this true distribution, and draw where your test statistic falls on this graph. Color the area of the graph that represents Type II error. 
+**A.** What is the type II error and power for the test in HW2?
 
-**B.** Then answer the question: What is the type II error and power for your test in part B?
+**B.** Draw or plot a graphic to represent this true distribution, and draw where your test statistic falls on this graph. Color the area of the graph that represents Type II error.
 
 ## Problem 2: Rank-Sum Test
 Download and work through Labs 3-1 and 3-2 on Non-Parametric Tests. One of the challenges in python and statistics is knowing (a) that you picked the right function for your problem and (b) that you understand what the program is actually doing. Read the documentation and source code for the [scipy.stats.ranksums](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html) and [scipy.stats.mannwhitneyu](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html) functions. 
