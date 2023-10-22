@@ -47,23 +47,7 @@ USGS gaged streamflow records for the Columbia River at The Dalles, OR began in 
  **E.** Plot the predictions and residuals for the two different prediction models for the training period (1879-1933), and plot the model predictions for the 1858-1878 data for the two different models. Is there a substantial difference between the two model formulations? Discuss any differences that you observe.
  
 
-
-## Problem 3: Trend Analysis
-
-Download the {Download}`cascades_swe.xlsx data file</modules/data/cascades_swe.xlsx>`.
-
-The first column is the water year, and data in the next three columns are values for total precipitation (mm), daily maximum temperature (°C), and daily minimum temperature (°C) averaged from October-March over the Pacific Northwest Cascades in Washington and Oregon. The last column is an estimate of April 1st snow water equivalent (in mm, the water content of the snowpack on this day) from model simulations, averaged over the same domain.
-
- **A.** Calculate the long-term trend in April 1 SWE from 1916-2003 by fitting a linear model to the data. Estimate the uncertainty in the trend by evaluating a 95% confidence interval around the estimate of B1. That is, report the trend as: Trend = B1 ± t*sB1
-
-
- **B.** Is the trend statistically significant with 95% confidence? Can we reject the null hypothesis that the trend is equal to zero?
-
- **C.** Repeat this analysis (parts A and B) for just the more recent period, 1976-2003. Discuss any similarities or differences in the results of the two time periods.
-
-
-
-## Problem 4: Project Update (CEWA 565)
+## Problem 3: Project Update (CEWA 565)
 
 Upload this part of the assignment as a separate PDF or Word document to "Homework 4 Project Update" on Canvas.
 
