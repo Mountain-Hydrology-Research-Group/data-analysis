@@ -1,6 +1,14 @@
 # Homework 5
 
-## Problem 1: Trend Analysis
+## Problem 1: Linear Regression and Confidence
+
+Look back at your solution to Problem 2 part D of Homework 4, with the streamflow records for the Columbia River measured at The Dalles, Oregon ({Download}`streamflow records for the Columbia River</modules/data/dalles_flow.csv>`).
+
+ **A.** As in Problem 2 part D of Homework 4, again, plot the predictions and residuals for the two different prediction models for the training period (1879-1933), and plot the model predictions for the 1858-1878 data for the two different models.
+
+ **B.** Estimate the 95% confidence intervals for the annual flow predictions from 1858-1878, and plot them as a timeseries (estimates each year) with the central tendency (the central tendency is the prediction from the regression model).
+
+## Problem 2: Trend Analysis
 
 Download the {Download}`cascades_swe.xlsx data file</modules/data/cascades_swe.xlsx>`.
 
@@ -14,7 +22,7 @@ The first column is the water year, and data in the next three columns are value
  **C.** Repeat this analysis (parts A and B) for just the more recent period, 1976-2003. Discuss any similarities or differences in the results of the two time periods.
 
 
-## Problem 2: Correlation, Autocorrelation, Multiple Linear Regression
+## Problem 3: Correlation, Autocorrelation, Multiple Linear Regression
 
 In this problem, you will explore the relationship between air temperature, precipitation, and [snow water equivalent](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833) over time, using observations from a study site in the Washington Cascades. Download the {Download}`cascades_swe.xlsx</modules/data/cascades_swe.xlsx>` dataset for this problem.
 
@@ -42,9 +50,6 @@ dSWE/dt = B1*d(precip)/dt + B2*d(t_max)/dt
 Then to find how much the trend in SWE is accounted for by the trend in precipitation we compute B1*d(precip)/dt, where d(precip)/dt in the slope of the trend in precipitation.
 ```
 
-## Problem 3: The best graphics
- 
-One of our greatest challenges in data analysis is to be able to visualize the information in the data and convey that information to others. Consider various scientific papers you have read (on any subject related to your scientific/engineering discipline) and pick out your favorite graphical representation of data (e.g., the best figure). Include your top two choices in your homework submission with a brief statement of why you chose these figures. We'll share some of these favorite figures in class.
 
 ## Problem 4: Peer Reviews (CEWA 565)
 

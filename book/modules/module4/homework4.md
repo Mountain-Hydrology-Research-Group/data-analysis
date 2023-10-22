@@ -34,17 +34,17 @@ We want to know whether the four periods are statistically different from each o
 
 Download the {Download}`streamflow records for the Columbia River</modules/data/dalles_flow.csv>`.
  
-USGS gaged streamflow records for the Columbia River at The Dalles, OR began in water year 1879 and continues to the present day (one of the longest continuous records in the U.S.). Peak flow records extend back to 1858 (based on peak stage values recorded by railroad workers). Using the coincident peak flow records from 1879-1933 (also a period with no major storage dams on the Columbia), create models to predict annual flow for years 1858-1878:
+Streamflow records for the Columbia River measured at The Dalles, Oregon, began in water year 1879 and continues to the present day (this is one of the longest continuous records of streamflow in the U.S.). Peak flow records extend back to 1858 (based on peak stage values recorded by railroad workers). 
 
- **A.** Isolate the period of relevant overlap (1879-1933) and plot the timeseries. Create a linear regression model for annual flow using peak flow as an explanatory variable.
+Using the coincident peak flow records from 1879-1933 (also a period with no major storage dams on the Columbia), create models to predict annual flow for years 1858-1878:
+
+ **A.** Isolate the period of relevant overlap for annual and peak flow records (1879-1933) and plot a timeseries of these measurements. Then create a least-squares linear regression model to predict annual flow using peak flow as an explanatory variable.
  
- **B.** How much of the variance is explained by the resulting model?
+ **B.** How much of the true variance of annual flow is explained by the resulting model?
  
- **C.** Estimate the 95% confidence intervals for the annual flow predictions from 1858-1878, and plot them as a timeseries (estimates each year) with the central tendency (the central tendency is the prediction from the regression model).
+ **C.** Now create a non-parametric, quantile-based regression model using the same data.
  
- **D.** Now create a non-parametric, quantile-based regression model using the same data.
- 
- **E.** Plot the predictions and residuals for the two different prediction models for the training period (1879-1933), and plot the model predictions for the 1858-1878 data for the two different models. Is there a substantial difference between the two model formulations? Discuss any differences that you observe.
+ **D.** Plot the predictions and residuals for the two different prediction models for the training period (1879-1933), and plot the model predictions for the 1858-1878 data for the two different models. Is there a substantial difference between the two model formulations? Discuss any differences that you observe.
  
 
 ## Problem 3: Project Update (CEWA 565)
