@@ -1,14 +1,6 @@
 # Homework 5
 
-## Problem 1: Linear Regression and Confidence
-
-Look back at your solution to Problem 2 part D of Homework 4, with the streamflow records for the Columbia River measured at The Dalles, Oregon ({Download}`streamflow records for the Columbia River</modules/data/dalles_flow.csv>`).
-
- **A.** As in Problem 2 part D of Homework 4, again, plot the predictions and residuals for the two different prediction models for the training period (1879-1933), and plot the model predictions for the 1858-1878 data for the two different models.
-
- **B.** Estimate the 95% confidence intervals for the annual flow predictions from 1858-1878, and plot them as a timeseries (estimates each year) with the central tendency (the central tendency is the prediction from the regression model).
-
-## Problem 2: Trend Analysis
+## Problem 1: Trend Analysis
 
 Download the {Download}`cascades_swe.xlsx data file</modules/data/cascades_swe.xlsx>`.
 
@@ -22,7 +14,7 @@ The first column is the water year, and data in the next three columns are value
  **C.** Repeat this analysis (parts A and B) for just the more recent period, 1976-2003. Discuss any similarities or differences in the results of the two time periods.
 
 
-## Problem 3: Correlation, Autocorrelation, Multiple Linear Regression
+## Problem 2: Correlation, Autocorrelation, Multiple Linear Regression
 
 In this problem, you will explore the relationship between air temperature, precipitation, and [snow water equivalent](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833) over time, using observations from a study site in the Washington Cascades. Download the {Download}`cascades_swe.xlsx</modules/data/cascades_swe.xlsx>` dataset for this problem.
 
@@ -51,6 +43,6 @@ Then to find how much the trend in SWE is accounted for by the trend in precipit
 ```
 
 
-## Problem 4: Peer Reviews (CEWA 565)
+## Problem 3: Peer Reviews (CEWA 565)
 
 Complete the peer review(s) that you were assigned on Canvas. Your review should be thoughtful, but it does not need to be long, nor does it need to focus on minor spelling or grammar mistakes. Write a few sentences describing the most important change that can be made to improve the draft (e.g. "reorganize the paragraphs to better explain X", "add more supporting evidence for the topic statement"). Refer to the prior homework assignment to see guidelines for the draft project reports. (the rubric for the final report is available for your reference [here](/overview/b-project.md))
