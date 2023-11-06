@@ -23,7 +23,7 @@ Optional: Download {Download}`North_Fork_American_River_CA_18020128.json</module
  
 ## Problem 2: Timeseries Analysis
  
-Following lab 8-2, use Fourier Analysis to determine the dominant frequencies and periods of oscilliation of the water level data provided (waterlevel.mat). 
+Following lab 8-2, use Fourier Analysis to determine the dominant frequencies and periods of oscilliation of the water level data provided {Download}`waterlevel.mat</modules/data/waterlevel.mat>`. 
 
 **A.** *(1.5)* Plot the timeseries and the the spectral density of the data. 
 
