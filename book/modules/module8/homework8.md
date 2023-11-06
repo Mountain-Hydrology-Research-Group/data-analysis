@@ -16,8 +16,8 @@ Optional: Download {Download}`North_Fork_American_River_CA_18020128.json</module
  **B.** (1) Use the command: `[U,S,V] = scipy.linalg.svd(AIR_TEMPERATURE_ZEROMEAN, full_matrices=False)` ([read the documentation for this function here](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.svd.html)) to calculate the PCs, variances, and EOFs, respectively, of `AIR_TEMPERATURE_ZEROMEAN` (this is a version of the dataset where the mean temperature at each station has been subtracted out). Describe, *qualitatively*, how the variance is distributed among the patterns; how much is described by the leading pattern? By the second pattern?
  
  **C.** *(1)* Plot the leading pattern’s spatial weights (EOF) against latitude and longitude. Describe the first pattern’s spatial weights’ sign and variability.
- 
- **D.** *(1.5)* Plot the leading pattern’s temporal weights (PCs) over time. When are they positive and when are they negative? Consider the PCs’ sign and magnitude, and consider the sign of the EOF in Part C. When does this pattern generate warmer-than-normal temperatures? Colder-thannormal temperatures? Are the anomalies associated with this pattern of the same sign at all sites?
+
+**D.** *(1.5)* Plot the leading pattern’s temporal weights (PCs) over time. When are they positive and when are they negative? Consider the PCs’ sign and magnitude, and consider the sign of the EOF in Part C. When does this pattern generate warmer-than-normal temperatures? What about colder than normal temperatures? Are the anomalies associated with this pattern of the same sign at all sites?
  
  **E.** *(1.5)* Repeat C) and D) for the 2nd-leading pattern. Interpret physically what the first two patterns may represent. How much of the dataset is described by the first two modes of variability?
  
