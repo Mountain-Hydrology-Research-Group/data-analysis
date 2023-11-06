@@ -19,7 +19,7 @@ Note that, unlike what you will do in many hydrology classes, which is to calcul
 
 In this problem we will use Bayes’ Theorem to see if the 7.2-inch storm is still a 100-year storm. In other words, we want to find what k-year storm 7.2 inches in 24 hours corresponds to, if not 100-years.
 
- **A.** Download and plot the prior pdf of a >=7.2-inch storm occurring in a given year from the data file {Download}`NYC_precip_priors.csv</modules/data/NYC_precip_priors.csv>`. This dataset shows the prior distribution of the chance that New York City will get a 7.2-inch storm in a given year, which has a mean p = 0.01, corresponding to 100 years (1/p = 1/0.01 = 100). 
+ **A.** *(3)* Download and plot the prior pdf of a >=7.2-inch storm occurring in a given year from the data file {Download}`NYC_precip_priors.csv</modules/data/NYC_precip_priors.csv>`. This dataset shows the prior distribution of the chance that New York City will get a 7.2-inch storm in a given year, which has a mean p = 0.01, corresponding to 100 years (1/p = 1/0.01 = 100). 
  
 (Note that the variable labeled “PDF” represents the probability of the storm frequency (or return period) falling within that interval and therefore includes the interval width, such that the sum of the pdf values alone equals 1, and the cumulative sum of the pdf is equal to the cdf.)
  
@@ -27,7 +27,7 @@ There is some uncertainty about the original likelihood, so we want to determine
    - What are the mean and 95% confidence interval of the probability, i.e., where does 95% of the PDF fall between? 
    - To what k-year storm (expected return period) range do these values correspond?
 
-**B.** Apply Bayes' Theorem at each time period of interest (see table above) to update the the pdf for the 7.2-inch storm.
+**B.** *(4)* Apply Bayes' Theorem at each time period of interest (see table above) to update the the pdf for the 7.2-inch storm.
 
 P(A\|B) = P(B\|A) * P(A) / P(B)
  
@@ -35,7 +35,7 @@ In this problem, A is the true likelihood of the storm’s occurrence, and B are
    - Calculate and plot the posterior pdfs of the 7.2-inch storm’s probability after each time period.
    - Calculate the the mean and 95% confidence interval of the return period each time.
     
- **C.** How much did the mean and 95% confidence interval return period change from the original prior return period to 2021? What does this indicate about the “true” frequency of the 7.2-inch-storm? To what k-year storm does this mean correspond to now?
+ **C.** *(3)* Discuss the following based on your results: How much did the mean and 95% confidence interval return period change from the original prior return period to 2021? What does this indicate about the “true” frequency of the 7.2-inch-storm? To what k-year storm does this mean correspond to now?
 
 
 ## Problem 2: Project Update (CEWA 565)
