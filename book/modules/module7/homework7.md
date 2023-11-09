@@ -32,31 +32,3 @@ Following the class discussion and Lab 7-3, explore how the rating curve and the
 
 Using the code in Lab 7-3, create plots and discuss the differences in the results from these three methods. *(2)*
 
-## Problem 3: 
-
-### For CEE 465: Statistics Synthesis *(2)*
-
-(Your CEE 465 final exam questions will look similar to this.)
-
-You are given the below dataset of annual peak flows on the Sauk River: 
-
-![Sauk River Plot](sauk-river-plot.png)
-
-(Note, you do not need to do any actual analysis here)
-
-For each of the following questions about this dataset, I want you to answer:
- - How do you ask this question statistically? 
- - What tools should you use to answer this question? (think of techniques we’ve learned in class)
- - What should you be careful about? (think of caveats and requirements of the tools you’re recommending).
-
- **A.** Presume some logging occurred in the watershed in 1970. Are peak flows higher after 1970 than before 1970?
- 
- **B.** Presume some logging occurred in the watershed in 1970. Have peak flows become more variable after 1970 than before 1970?
- 
- **C.** If the mean annual peak flow has increased to above 50,000 cfs, the town will rebuild the levees. What are the chances that our statistical test would fail to identify this change?
- 
- **D.** Has there been a trend in peak flows between 1930 and 2010? How fast are peak flows changing, and is this trend significant?
- 
- ### For CEWA 565: Peer Reviews
-
-Complete the peer review(s) that you were assigned on Canvas. Your review should be thoughtful, but it does not need to be long, nor does it need to focus on minor spelling or grammar mistakes. Write a few sentences describing the most important change that can be made to improve the draft (e.g. "reorganize the paragraphs to better explain X", "add more supporting evidence for the topic statement"). Refer to the prior homework assignment to see guidelines for the draft project reports. (the rubric for the final report is available for your reference [here](/overview/b-project.md))

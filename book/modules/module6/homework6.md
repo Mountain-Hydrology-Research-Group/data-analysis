@@ -38,10 +38,31 @@ In this problem, A is the true likelihood of the storm’s occurrence, and B are
  **C.** *(3)* Discuss the following based on your results: How much did the mean and 95% confidence interval return period change from the original prior return period to 2021? What does this indicate about the “true” frequency of the 7.2-inch-storm? To what k-year storm does this mean correspond to now?
 
 
-## Problem 2: Project Update (CEWA 565)
+## Problem 3: 
 
-Upload this part of the assignment as a separate PDF or Word document to "Homework 6 Project Update" on Canvas.
+### For CEE 465: Statistics Synthesis *(2)*
 
-Submit an updated draft abstract and introduction section, along with draft data and methods sections. In the data section, describe your dataset, your study location, and how the data were collected. Discuss the quality of your data. Do you need to take into account any erroneous values or uncertain numbers before you start your statistics? In the methods section, describe how the data are analyzed, and what statistical methods you are using to address each of your science questions. Discuss why these chosen methods are appropriate for your project, and if these methods have limitations or build-in assumptions and how those might affect your conclusions.
+(Your CEE 465 final exam questions will look similar to this.)
 
-(the rubric for the final report is available for your reference [here](/overview/b-project.md))
+You are given the below dataset of annual peak flows on the Sauk River: 
+
+![Sauk River Plot](sauk-river-plot.png)
+
+(Note, you do not need to do any actual analysis here)
+
+For each of the following questions about this dataset, I want you to answer:
+ - How do you ask this question statistically? 
+ - What tools should you use to answer this question? (think of techniques we’ve learned in class)
+ - What should you be careful about? (think of caveats and requirements of the tools you’re recommending).
+
+ **A.** Presume some logging occurred in the watershed in 1970. Are peak flows higher after 1970 than before 1970?
+ 
+ **B.** Presume some logging occurred in the watershed in 1970. Have peak flows become more variable after 1970 than before 1970?
+ 
+ **C.** If the mean annual peak flow has increased to above 50,000 cfs, the town will rebuild the levees. What are the chances that our statistical test would fail to identify this change?
+ 
+ **D.** Has there been a trend in peak flows between 1930 and 2010? How fast are peak flows changing, and is this trend significant?
+ 
+ ### For CEWA 565: Peer Reviews
+
+Complete the peer review(s) that you were assigned on Canvas. Your review should be thoughtful, but it does not need to be long, nor does it need to focus on minor spelling or grammar mistakes. Write a few sentences describing the most important change that can be made to improve the draft (e.g. "reorganize the paragraphs to better explain X", "add more supporting evidence for the topic statement"). Refer to the prior homework assignment to see guidelines for the draft project reports. (the rubric for the final report is available for your reference [here](/overview/b-project.md))
