@@ -40,7 +40,7 @@ In this problem, A is the true likelihood of the storm’s occurrence, and B are
  **C.** *(3)* Discuss the following based on your results: How much did the mean and 95% confidence interval return period change from the original prior return period to 2021? What does this indicate about the “true” frequency of the 7.2-inch-storm? To what k-year storm does this mean correspond to now?
 
 
-## Problem 3: 
+## Problem 2: 
 
 ### For CEE 465: Statistics Synthesis *(2)*
 
