@@ -1,4 +1,4 @@
-# Lab 6-1: A Bayesian Example
+# Lab 6-1: Bayes' Theorem Example: Water Quality Testing
 
 In this scenario, a water quality testing company has developed a new inexpensive technology for detecting "Chemical X" contamination in drinking water. This test can correctly identify the presence or absense of "Chemical X" above a certain threshold by giving a positive result 98% of the time (true positive). Therefore the probability of a false negative is 2%. This test can correctly identify when the water sample does not have "Chemical X" by giving a negative result 97% of the time (true negative). Therefore the probability of a false positive is 3%. For this example, assume that the observed probability of the presense of "Chemical X" in a random sample from a large number of water samples is about 1 in 1,200.
 
