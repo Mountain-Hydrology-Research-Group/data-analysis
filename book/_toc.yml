@@ -54,6 +54,7 @@ parts:
      sections:
      - file: modules/module6/lab6-1.md
      - file: modules/module6/lab6-2
+     - file: modules/module6/lab6-3
      - file: modules/module6/homework6.md
      
    - file: modules/module7/module7.md
