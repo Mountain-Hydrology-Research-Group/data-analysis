@@ -13,7 +13,7 @@ Following Lab 7-1 and Lab 7-2,
 **B.** *(2)* Using this Markov model and a random number generator, simulate 5,000 years of ENSO data. Then answer the following questions.
 
   - According to the model, what is the probability that three warm ENSO years would occur in a row?
-  - What is the large-sample probability that three cool ENSO years would happen in a row?  (Try refreshing the numbers several times to increase the sample size if the condition never happens.)
+  - What is the probability that three cool ENSO years would happen in a row?  (Try refreshing the numbers several times to increase the sample size if the condition never happens.)
 
 Check out this [blog](https://www.climate.gov/news-features/blogs/september-2022-la-ni%C3%B1a-update-it%E2%80%99s-q-time) about why we care about ENSO and the exciting current probability of getting a cool ENSO (La Nina) again in 2023, making it three in a row.
 
