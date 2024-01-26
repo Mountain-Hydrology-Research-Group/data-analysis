@@ -33,6 +33,17 @@ Working with your fork of the repository that you've cloned, you can directly ed
 
 When you've made the changes you want, [commit and push](https://www.earthdatascience.org/workshops/intro-version-control-git/basic-git-commands/) the modified files to your fork of the respository. Then [open a pull request](https://www.earthdatascience.org/workshops/intro-version-control-git/pull-request/) from the [upstream repository](https://github.com/Mountain-Hydrology-Research-Group/data-analysis) to pull the changes made in your fork. After merging the pull request, the changes will appear on the class website within a few minutes as the page is re-built from the new files.
 
+### Tag a commit and make end-of-year release
+
+I've started adding a tag to the last commit made at the end of the quarter to label the state of the website at the time that each year's class ends. To tag a commit from the command line, first find the commit id on github (seven character string, looks something like this "25b6522"). Then in your command line (on your own fork of the repository) use the command:
+
+`git tag -a v2022.0 25b6522 -m "End of year 2022"`
+
+This is tagging the commit with id "25b6522" with the tag "v2022.0" (I just started using the year as a version number, perhaps if someone wanted to use these tags more they could have v2022.1, v2022.2, etc). Additionally this adds a message to describe what we're doing here (-m "End of year 2022"). Next, we need to push this tag, not to your own fork, but to the Mountain-Hydrology-Research-Group repository. If you have this [configured as "upstream"](https://devopscube.com/set-git-upstream-respository-branch/) then you can use the command:
+
+`git push upstream --tags`
+
+Now on the [repository on github](https://github.com/Mountain-Hydrology-Research-Group/data-analysis/), you can create a new [Release](https://github.com/Mountain-Hydrology-Research-Group/data-analysis/releases) and pick the tag you just created from the dropdown menu.
 
 ## Slack
 
