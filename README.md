@@ -13,3 +13,4 @@ This course covers fundamental topics related to data analysis using modern comp
 **Prerequisite:** Any one of the following are recommended: IND E 315 Probability and Statistics for Engineers, AMATH 301 Beginning Scientific Computing, CSE 142 Computer Programming, and/or knowledge of basic statistics and computer programming (Python, R, MATLAB).
 
 **Offered:** Autumn quarters
+
