@@ -55,7 +55,7 @@ We will use classroom space and Slack to work in small groups on lab excercises.
 
 ### Homework Assignments
 
-Homework assignments will be given out on Thursdays at the beginning of class, and will be **due the following week on Thursday at the beginning of class (10:30 am, Pacific Time)**. Homework questions are posted on the class website along with links to any data files you might need.
+Homework assignments will be given out on Thursdays at the beginning of class, and will be **due the following week on Thursday at the beginning of class**. Homework questions are posted on the class website along with links to any data files you might need.
 
 You are encouraged to work together on homeworks and collaborate, but you must turn in your own assignments with your own work. 
 
@@ -74,11 +74,11 @@ Homework solutions will be posted in the Solutions folder on [Canvas](https://ca
 
 ### Final Exam (for CEE 465)
 
-The final exam will be take-home, and you will have one week to complete it. The final exam will be due before 5:00 pm (Pacific Time) on the day scheduled for the course final exam (see schedule on Canvas). The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before 5:00 pm (Pacific Time) of the day of the scheduled final exam.
+The final exam will be take-home, and you will have one week to complete it. The final exam will be due on the day scheduled for the course final exam (see schedule on Canvas). The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before the end of the official exam time on the day of the scheduled final exam.
 
 ### Final Project (for CEWA 565)
 
-Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class in weeks 9 and 10. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on before 5:00 pm (Pacific Time) of the day of the scheduled final exam (see schedule on Canvas). Further details are provided on the [Course Project page](b-project.html).
+Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class in weeks 9 and 10. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on the end of the official exam time on the day of the scheduled final exam (see schedule on Canvas). Further details are provided on the [Course Project page](b-project.html).
 
 ### Grading Policy
 
@@ -132,7 +132,7 @@ Washington state law requires that UW develop a policy for accommodation of stud
 
 Call SafeCampus at 206-685-7233 (206-685-SAFE) anytime – no matter where you work or study – to anonymously discuss safety and well-being concerns for yourself or others. SafeCampus’s team of caring professionals will provide individualized support, while discussing short- and long-term solutions and connecting you with additional resources when requested.
 
-Mental health resources are available at [wellbeing.uw.edu](https://wellbeing.uw.edu/topic/mental-health/). The [UW Counseling Center](https://www.washington.edu/counseling/) is also a good resource (206-543-1240). University of Washington students are eligible for services at the Counseling Center. Also see their [flyer](https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/31/2020/03/10140856/Coping-with-COVID-19-Related-Stress5.pdf) for tips on coping with COVID-19 related stress. Please review the [COVID-19 face cover policy](https://www.ehs.washington.edu/covid-19-prevention-and-response/face-covering-requirements) .
+Mental health resources are available at [wellbeing.uw.edu](https://wellbeing.uw.edu/topic/mental-health/). The [UW Counseling Center](https://www.washington.edu/counseling/) is also a good resource (206-543-1240). University of Washington students are eligible for services at the Counseling Center. 
 
 Additionally, if you’re thinking about suicide, are worried about a friend or loved one, or would like emotional support, the Lifeline network is available 24/7 across the United States: National Suicide Prevention Lifeline (1-800-273-8255), Forefront Suicide Prevention (866-598-3978), and Crisis Text Line (741741). If the person you are concerned about is in immediate danger of killing them self and/or refuses to stay safe with you, call or text 911.
 
