@@ -17,8 +17,13 @@ B. **Two-sample test for a change in the mean**: Test for statistical significan
 * Calculate P after your test. 
 * How does your estimate of P change if your null hypothesis is that the difference in the mean between the two data sets is equal to 15% of the pre-1977 sample mean? (In other words, test with a new null hypothesis: the mean of the second period is 1.15 times the mean of the first period.)
 
+## Problem 2: Test for a change in the variance or standard deviation: 
+Lastly test for statistical significance of a change in the standard deviation. Even though it is not strictly true, assume that the sample data are derived from a normally distributed population. (While not required for this homework, we can follow up on the importance of this assumption by using Monte Carlo Tests as shown in Lab 2-3.)
 
-## Problem 2: Course Project Selection (CEWA 565)
+Following lab 2-3, compare the results of using a single sample test vs. a two sample test.  Using a single sample test (with rejection region based on the Chi Squared distribution), assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.  For the two-sample test, assume both periods are independent samples.
+
+
+## Problem 3: Course Project Selection (CEWA 565)
 
 Upload this part of the assignment as a separate PDF or Word document to "Homework 2 Project Update" on Canvas.
 
