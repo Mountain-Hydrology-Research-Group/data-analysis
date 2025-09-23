@@ -74,7 +74,7 @@ Homework solutions will be posted in the Solutions folder on [Canvas](https://ca
 
 ### Final Exam (for CEE 465)
 
-The final exam will be take-home, and you will have one week to complete it. The final exam will be due on the day scheduled for the course final exam (see schedule on Canvas). The exam will ask a series of general application questions spanning all of the topics covered in the course. It will be open notes and online materials, but students must sign an honor statement that the work is their own and not done with consultation and/or help from other students, friends, or faculty. The final exam must be submitted electronically, via Canvas, before the end of the official exam time on the day of the scheduled final exam.
+The final exam will be in class, during the official scheduled final exam time, and will ask a series of general application questions spanning all of the topics covered in the course.  It will be open notes (printed and/or handwritten) but without computer access.  
 
 ### Final Project (for CEWA 565)
 
