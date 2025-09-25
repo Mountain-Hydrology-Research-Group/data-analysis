@@ -6,11 +6,11 @@ In this homework assignment we will start with programming and data visualizatio
 ## Problem 1: Exploring Non-Stationary Flood Statistics
 
 
-Download the files containing observed instantaneous peak flow data for the {Download}`Sauk River</modules/data/Sauk_peak_WY1929_2023.xlsx>` and {Download}`Skykomish River</modules/data/Skykomish_peak_flow_12134500_WY1929_2023.xlsx>` in western Washington. If you are interested in other rivers, e.g., for your project, these data can be obtained from the [USGS](https://nwis.waterdata.usgs.gov/nwis/peak?search_criteria=search_station_nm&submitted_form=introduction).
+Download the files containing observed instantaneous peak flow data for the {Download}`Sauk River</modules/data/Sauk_peak_WY1929_2025.xlsx>` and {Download}`Skykomish River</modules/data/Skykomish_peak_flow_12134500_WY1929_2025.xlsx>` in western Washington. If you are interested in other rivers, e.g., for your project, these data can be obtained from the [USGS](https://nwis.waterdata.usgs.gov/nwis/peak?search_criteria=search_station_nm&submitted_form=introduction).
 
 Note that annual peak flows are reported by water year (Oct 1 of the previous calendar year to September 30), so some calendar years appear to have two values. Water years are shown in an additional column in the excel files. **For the purposes of this assignment, we will only consider peak flows by water year, and the years requested below refer to water years.** (For example, the first flood reported in the Skykomish occurred on Oct 10, 1928 – this is the flood of water year 1929.)
 
- A. Plot the data from the Sauk River and Skykomish River as a time series from 1929-2023. Use different color lines or symbols to distinguish the two rivers. Be sure to label your axes appropriately and use `plt.legend()` to create a legend. **Describe qualitatively any changes you see in these records through time. Is there a common theme between the two sites?**
+ A. Plot the data from the Sauk River and Skykomish River as a time series from 1929-2025. Use different color lines or symbols to distinguish the two rivers. Be sure to label your axes appropriately and use `plt.legend()` to create a legend. **Describe qualitatively any changes you see in these records through time. Is there a common theme between the two sites?**
 
  B. We know that in water year 1977, there was a large [PDO](https://en.wikipedia.org/wiki/Pacific_decadal_oscillation) shift in the North Pacific, and we want to know if floods were statistically different before and after this date. In this homework, we will graphically examine the data. 
  
