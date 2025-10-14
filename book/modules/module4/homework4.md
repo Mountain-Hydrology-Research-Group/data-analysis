@@ -4,9 +4,15 @@
 
 This problem is based on material in Lab 3-3.
 
-Download the {Download}`HJ Andrews Peak Flow data</modules/data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx>`.
+HJ Andrews recently discovered a problem with their rating curve (we'll be calculating rating curves soon and will have more sympathy for them at that time).
+Because of the problem, the data have been updated, and now we have
+New data available for {Download}`HJ Andrews NEW Peak Flow data</modules/data/HJAndrews_peakflow_WS1_WS2_corrected.xlsx>`.
+If you have trouble with the excel file, I have also saved the new data in .csv format, download below.
+New .csv data available for {Download}`HJ Andrews NEW Peak Flow data</modules/data/HJAndrews_peakflow_WS1_WS2_corrected.csv>`.
+If you are curious about how different these look, you can get the data from past years (rather frighteningly different) -- if you are feeling pressed for time, you do not need to look at this.
+The old data is available for {Download}`HJ Andrews Peak Flow data</modules/data/HJAndrews_peakflow_WS1_WS2_WS3.xlsx>`.
 
-For this problem, consider only differences between watershed 1 (WS1) and watershed 2 (WS2). These two watersheds are adjacent to each other in the [HJ Andrews Experimental Forest](https://andrewsforest.oregonstate.edu/). We want to test if there was a change in streamflow due to the forest within WS1 being completely clearcut (starting late 1962 and completed in 1966). Because the two watersheds are adjacent, we can expect that they experience the same storms leading to peak runoff (so we won't be considering any differences due to different precipitation amounts or timing). 
+For this problem, consider only differences between watershed 1 (WS1) and watershed 2 (WS2). These two watersheds are adjacent to each other in the [HJ Andrews Experimental Forest](https://andrewsforest.oregonstate.edu/). WS 1 is described [here](https://andlter.forestry.oregonstate.edu/data/place.aspx?domain=place&dbcode=HF004&placeid=19), and WS 2 is described [here](https://andlter.forestry.oregonstate.edu/data/place.aspx?domain=place&dbcode=HF004&placeid=21).  WS 1 is 95.9 ha (959,000 m^2) in size and was completely clearcut between fall of 1962 and summer 1966. WS 2 is the control, located next to WS 1 and is 60.3 ha (603,000 m^2) in size. We want to test if there was a change in streamflow due to the forest within WS1 being completely clearcut (starting late 1962 and completed in 1966). Because the two watersheds are adjacent, we can expect that they experience the same storms leading to peak runoff (so we won't be considering any differences due to different precipitation amounts or timing). 
 
 Here we want to test whether the difference in peak flows between WS1 and WS2 is statistically different for four different time periods:
 
@@ -15,9 +21,9 @@ Here we want to test whether the difference in peak flows between WS1 and WS2 is
 | control period | 1953-1962 | 1 | before any clearcutting in WS1 |
 | active clearcutting | 1963-1966 | 2 | during clearcutting of WS1 |
 | 0-15 years after clearcutting | 1967-1981 | 3 | WS1 forest starts to recover |
-| >15 years after clearcutting | 1982-2015 | 4 | WS1 forest recovering further |
+| >15 years after clearcutting | 1982-2020 | 4 | WS1 forest recovering further |
 
-The field "Index12" identifies our two different treatments as either 1 or 2.
+The field "Index12" identifies our four different timeperiods with 1, 2, 3, or 4.
 
 We want to know whether the four periods are statistically different from each other, and if so, which one or ones are statistically different from which other ones.
 
@@ -27,7 +33,7 @@ We want to know whether the four periods are statistically different from each o
  
  **C.** State the null and the alternative hypothesis for the question of whether the four periods are statistically different from each other. State the type I error (alpha value) that you are willing to accept.
  
- **D.** Perform an ANOVA test and discuss the results, related both to your hypothesis test listed above and to the more detailed question of which groups are statistically different from which other groups. Include graphs and/or tables that illustrate your results, and be sure to discuss what they mean. When using these ANOVA and other statistics functions, be sure that you understand what the code is doing (especially the defaults that different functions use) and outputting.
+ **D.** Perform an ANOVA test and discuss the results, related both to your hypothesis test listed above and to the more detailed question of which groups are statistically different from which other groups. Include graphs and/or tables that illustrate your results, and be sure to discuss what they mean. When using these ANOVA and other statistics functions, be sure that you understand what the code is doing (especially the defaults that different functions use) and the code output.
  
 
 ## Problem 2: Linear and Quantile Regression
