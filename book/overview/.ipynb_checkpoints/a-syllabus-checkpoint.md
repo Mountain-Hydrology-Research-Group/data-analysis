@@ -84,7 +84,6 @@ Final projects will be completed in pairs (or individually on request), and the 
 
 * **Class Attendance and Participation: 5%**
   * Participation includes discussions in class, on Slack, and providing feedback on student presentations
-  * *If you plan on attending class asynchronously by watching the recorded lectures, please let me know.*
 * **Homework assignments: 70%**
   * Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your lowest assignment will be dropped, and the overall homework grade will be evaluated out of 7 assignments and 70 points total.
 * **Final Project / Final Exam: 25%**
