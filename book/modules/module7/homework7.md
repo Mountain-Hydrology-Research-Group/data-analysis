@@ -4,7 +4,7 @@
 ## Problem 1: ENSO Phases
 Following Lab 7-1 and Lab 7-2,
 
-**A.** *(1)* Use the time series of the phase of the El Niño Southern Oscillation (ENSO) from 1900-2024 to create a lag-1 Markov model of the ENSO phase, where the observed Phases of ENSO are as follows:
+**A.** *(1)* Use the time series of the phase of the El Niño Southern Oscillation (ENSO) from 1900-2025 to create a lag-1 Markov model of the ENSO phase, where the observed Phases of ENSO are as follows:
 
 1. warm (El Niño)
 2. neutral (ENSO neutral)
