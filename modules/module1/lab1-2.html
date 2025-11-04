@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 1-2: Probability Distributions and Statistics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module1/lab1-2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 1-3: Empirical Probability Distributions" href="lab1-3.html" />
+    <link rel="prev" title="Lab 1-1: Python, Jupyter, and Plotting" href="lab1-1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="module1.html">1) Python, Statistics Review</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Trend Analysis, Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-2.html">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module7/module7.html">7) Markov Chains</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-1.html">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-3.html">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module7/mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-python-tips.html">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/modules/module1/lab1-2.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Fmodules/module1/lab1-2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module1/lab1-2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 1-2: Probability Distributions and Statistics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-versus-population-statistics">Sample versus Population Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-statistics">Sample Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#population-statistics">Population Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#populaiton-mean-variance-standard-deviation">Populaiton Mean, Variance, Standard Deviation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-mean-variance-standard-deviation">Sample Mean, Variance, Standard Deviation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-distributions">Probability Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-functions-theory">Probability Density Functions - Theory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-functions-theory">Cumulative Distribution Functions - Theory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-distribution">Uniform Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lognormal-distribution">Lognormal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distribution">Binomial Distribution</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-1-2-probability-distributions-and-statistics">
+<h1>Lab 1-2: Probability Distributions and Statistics<a class="headerlink" href="#lab-1-2-probability-distributions-and-statistics" title="Link to this heading">#</a></h1>
+<p>We have some collection of numbers (measurements). Because we cannot measure everything, our data are only a <strong>sample</strong> from the true <strong>population</strong>. This sample may or may not fairly represent the whole population. Our sample has a <strong>sample mean</strong> (<span class="math notranslate nohighlight">\(\bar{X}\)</span>), which is not the same thing as the <strong>population mean</strong> (<span class="math notranslate nohighlight">\(\mu\)</span>). Each data point itself has some uncertainty associated with it. But this is the closest to the truth we’re going to get. We need to fairly analyze what we know and how well we know it to guide our decisions.</p>
+<hr class="docutils" />
+<section id="sample-versus-population-statistics">
+<h2>Sample versus Population Statistics<a class="headerlink" href="#sample-versus-population-statistics" title="Link to this heading">#</a></h2>
+<section id="sample-statistics">
+<h3>Sample Statistics<a class="headerlink" href="#sample-statistics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Statistics from a relatively small sample, extracted from a known or unknown distribution.</p></li>
+<li><p>This is what we typically have available to us in the real world (some set of measurements).</p></li>
+<li><p><strong>Sample mean</strong> written as <span class="math notranslate nohighlight">\(\bar{X}\)</span></p></li>
+<li><p><strong>Sample variance</strong> written as <span class="math notranslate nohighlight">\(s^2\)</span> (square of the <em>sample standard deviation</em>)</p></li>
+</ul>
+</section>
+<section id="population-statistics">
+<h3>Population Statistics<a class="headerlink" href="#population-statistics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The underlying (“true”) statistical characteristics of a probability distribution.</p></li>
+<li><p>(Somewat imprecisely) We can think of the population statistics being those characteristics extracted from a very large sample, from a probability distribution that is assumed to be stationary (not changing over time).</p></li>
+<li><p>In many cases we don’t know know if the samples we have came from the same population or not - a lot of our statistical tests will be trying to determine this.</p></li>
+<li><p><strong>Population mean</strong> written as <span class="math notranslate nohighlight">\(\mu\)</span></p></li>
+<li><p><strong>Population variance</strong> written as <span class="math notranslate nohighlight">\(\sigma^2\)</span> (square of the <em>population standard deviation</em>)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="populaiton-mean-variance-standard-deviation">
+<h3>Populaiton Mean, Variance, Standard Deviation:<a class="headerlink" href="#populaiton-mean-variance-standard-deviation" title="Link to this heading">#</a></h3>
+<p>When we have some populaiton, the <strong>expected value</strong> (also called the <strong>mean value</strong>, or the <strong>first moment</strong>) of a continuous random variable <span class="math notranslate nohighlight">\(x\)</span>, with Probability Density Function <span class="math notranslate nohighlight">\(f(x)\)</span>, is</p>
+<p><span class="math notranslate nohighlight">\(\mu = E(x) = \displaystyle\int_{-\infty}^{\infty} x \cdot f(x)\,dx\)</span></p>
+<p>The <strong>variance</strong> (How much do the values vary around the mean value? also called the <strong>second moment</strong>) of a continuous random variable <span class="math notranslate nohighlight">\(x\)</span>, with mean value <span class="math notranslate nohighlight">\(\mu\)</span>, with Probability Density Function <span class="math notranslate nohighlight">\(f(x)\)</span>, is</p>
+<p><span class="math notranslate nohighlight">\(\sigma^{2} = V(x) = \displaystyle\int_{-\infty}^{\infty} (x - \mu)^{2} \cdot f(x)\,dx = E[(x-\mu)^{2}]\)</span></p>
+<p>And the <strong>standard deviation</strong> of <span class="math notranslate nohighlight">\(x\)</span> is the square root of the variance</p>
+<p><span class="math notranslate nohighlight">\(\sigma = \sqrt{V(x)} \)</span></p>
+<p>(From Devore textbook, see also: <a class="reference external" href="https://en.wikipedia.org/wiki/Moment_(mathematics)">mathematical “moments”</a>)</p>
+</section>
+<hr class="docutils" />
+<section id="sample-mean-variance-standard-deviation">
+<h3>Sample Mean, Variance, Standard Deviation:<a class="headerlink" href="#sample-mean-variance-standard-deviation" title="Link to this heading">#</a></h3>
+<p>We just have a sample from the population, and can calculate the mean, variance, and standard deviation as follows:</p>
+<p><strong>Sample Mean:</strong> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html"><code class="docutils literal notranslate"><span class="pre">np.mean()</span></code></a></p>
+<p><span class="math notranslate nohighlight">\(\bar{X} = \displaystyle\sum_{i=1}^{n} \frac{X_i}{n}\)</span></p>
+<p><strong>Sample Variance:</strong> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.var.html"><code class="docutils literal notranslate"><span class="pre">np.var(...,ddof=1)</span></code></a></p>
+<p><span class="math notranslate nohighlight">\(s^{2} = \displaystyle\sum_{i=1}^{n} \frac{(X_i - \bar{X})^2}{(n-1)}\)</span></p>
+<p><strong>Sample Standard Deviation:</strong> <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.var.html"><code class="docutils literal notranslate"><span class="pre">np.std(...,ddof=1)</span></code></a></p>
+<p><span class="math notranslate nohighlight">\(s = \sqrt{s^2}\)</span></p>
+<p>(See Ch. 1 of Helsel et al., 2020)</p>
+</section>
+<hr class="docutils" />
+<section id="probability-distributions">
+<h3>Probability Distributions<a class="headerlink" href="#probability-distributions" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>One way to assess data is to assume it came from a certain distribution</p></li>
+<li><p>We can think about this by making plots to visualize the shapes of distributions:</p>
+<ul>
+<li><p>probability density functions (PDFs)</p></li>
+<li><p>cumulative density functions (CDFs)</p></li>
+<li><p>quantile plots</p></li>
+</ul>
+</li>
+<li><p>We can generate random numbers from a known distribution to get examples</p></li>
+</ul>
+</section>
+<section id="probability-density-functions-theory">
+<h3>Probability Density Functions - Theory<a class="headerlink" href="#probability-density-functions-theory" title="Link to this heading">#</a></h3>
+<p>The probability, or likelihood, that a number will <em>fall between any two values</em> of a given distribution of numbers.</p>
+<p>If X is a continuous random variable, and the <strong>probability distribution</strong> or <strong>probability density function</strong> (PDF) of X is a function f(x), then the probability that some number x has a value within the interval [a,b] is the area under the curve within this interval.</p>
+<p><span class="math notranslate nohighlight">\(P(a \leq X \leq b) = \displaystyle\int_{a}^{b} f(x)\,dx\)</span></p>
+<img src="lab1-2_pdf.jpg" alt="plot of a probability density function with the area under the curve from x=a to x=b shaded in" width="400px"/>
+```{image} lab1-2_pdf.jpg
+:alt: plot of a probability density function with the area under the curve from x=a to x=b shaded in
+:width: 400px
+:align: center
+```
+<ul class="simple">
+<li><p>Area under the total curve equals 1: <span class="math notranslate nohighlight">\(\displaystyle\int_{-\infty}^{\infty} f(x)\,dx = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x) \geq 0\)</span> for all x</p></li>
+</ul>
+<p>(See Devore Ch. 4, or <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_density_function">Probability density functions on Wikipedia</a> for more information)</p>
+</section>
+<section id="cumulative-distribution-functions-theory">
+<h3>Cumulative Distribution Functions - Theory<a class="headerlink" href="#cumulative-distribution-functions-theory" title="Link to this heading">#</a></h3>
+<p>The probability, or likelihood, that a number will be <em>less than or equal to</em> a given number. Varies from 0 for lowest number to 1 for highest number (on y-axis).</p>
+<p>The <strong>cumulative distribution funiton</strong> for a continuous random variable X is for each number x, by:</p>
+<p><span class="math notranslate nohighlight">\(F(x) = P(X \leq x) = \displaystyle\int_{-\infty}^{x} f(y)\,dy\)</span></p>
+<ul class="simple">
+<li><p>The area under the curve of the PDF to the left of value x, is the value of the CDF at x</p></li>
+</ul>
+<p>(See Devore Ch. 4, or <a class="reference external" href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">Cumulative distribution funciton on Wikipedia</a>)</p>
+<hr class="docutils" />
+<p>In the examples below, we are going to use the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/tutorial/stats.html">scipy.stats</a> python library to generate PDFs, CDFs. And we’ll use the functions in <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html">numpy.random</a> to generate random numbers from given distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="uniform-distribution">
+<h3>Uniform Distribution<a class="headerlink" href="#uniform-distribution" title="Link to this heading">#</a></h3>
+<p>Also known as a <a class="reference external" href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">“continuous uniform distribution”</a>. With a uniform distribution, you have an equal chance of getting any number within the interval.</p>
+<p>Probability distribution function: <span class="math notranslate nohighlight">\(PDF(x) = 1\)</span></p>
+<ul class="simple">
+<li><p>Our probability for getting a certain number within the distribution is the same within the limits of the interval.</p></li>
+</ul>
+<p>Cumulative distribution function: <span class="math notranslate nohighlight">\(CDF(x) = x\)</span></p>
+<ul class="simple">
+<li><p>Example: At 1, we have a 100% chance that a number we pick from the distribution will be less than or equal to 1. At 0.5, we have a 50% chance that a number we pick from the distribution will be less than or equal to 0.5.</p></li>
+</ul>
+<p>In python:</p>
+<ul class="simple">
+<li><p>The uniform distribution in <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.uniform.html?highlight=uniform#scipy.stats.uniform">scipy.stats.uniform</a></p></li>
+<li><p>Generating random numbers from a uniform distribution with <a class="reference external" href="https://numpy.org/devdocs/reference/random/generated/numpy.random.uniform.html">np.random.uniform</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of a uniform distribution</span>
+
+<span class="c1"># Create 100 values within the interval from 0 to 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Create a Uniform Distribution PDF for values of x</span>
+<span class="n">uniform_pdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Create a Uniform Distribution CDF for values of x</span>
+<span class="n">uniform_cdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Make a plot figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1"># Plot the PDF</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">uniform_pdf</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;uniform PDF&#39;</span><span class="p">)</span>
+<span class="c1"># Plot the CDF</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">uniform_cdf</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;uniform CDF&#39;</span><span class="p">)</span>
+<span class="c1"># Add a legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="c1"># Add axes labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of occurance (PDF)</span><span class="se">\n</span><span class="s1">Probability of value $\leq$ given value (CDF)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="c1"># Add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Uniform Distribution&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/85746a29859659a75df9071244e7b20cfd777101f3b22cc9c0ae24f264d0a57f.png" src="../../_images/85746a29859659a75df9071244e7b20cfd777101f3b22cc9c0ae24f264d0a57f.png" />
+</div>
+</div>
+</section>
+<section id="question">
+<h3>Question:<a class="headerlink" href="#question" title="Link to this heading">#</a></h3>
+<p>What is the <strong>expected (mean) value</strong> of the uniform distribution on the interval [0,1]?</p>
+<p>Remember that the mean value is, <span class="math notranslate nohighlight">\(\mu = E(x) = \displaystyle\int_{-\infty}^{\infty} x \cdot f(x)\,dx\)</span></p>
+</section>
+<hr class="docutils" />
+<section id="normal-distribution">
+<h3>Normal Distribution<a class="headerlink" href="#normal-distribution" title="Link to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Normal_distribution">normal (or Gaussian) distribution</a> Probability Density Function (PDF) is defined by the function:</p>
+<p><span class="math notranslate nohighlight">\(PDF(x) = \displaystyle\frac{1}{\sqrt{2\pi\sigma^{2}}}\cdot \exp\bigg(\displaystyle\frac{(x-\mu)^{2}}{2\sigma^{2}}\bigg)\)</span></p>
+<p>The highest likelihood of occurance is at the peak, while unlike the uniform distribution, the normal distribution has lower and upper tails that are asymptotes that approach zero. There are non-zero (although very small) chances that a value very far from the mean can come from this distribution.</p>
+<p>The example plot below shows the <strong>Standard Normal Distribution</strong> which has a mean = 0, and standard deviation = 1. And therefore the PDF equation can be simplified to:</p>
+<p><span class="math notranslate nohighlight">\(PDF(x) = \displaystyle\frac{\exp\big({-x^{2}}/{2}\big)}{\sqrt{2\pi}}\)</span></p>
+<p>Most statistical tests we’ll be using are based on this Standard Normal Distribution. The x-axis value of the Standard Normal Distirbution is the same as a “Z” (<a class="reference external" href="https://en.wikipedia.org/wiki/Standard_score">“standard normal variate”</a>), which represents the number of standard deviations a value is from the mean.</p>
+<p>A number drawn from a normal distribution can be expressed as <span class="math notranslate nohighlight">\(N = \mu + Z\cdot\sigma\)</span>, which is the mean plus Z number of standard deviations away from the mean.</p>
+<p>In python:</p>
+<ul class="simple">
+<li><p>The normal distribution in <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html">scipy.stats.norm</a></p></li>
+<li><p>Generating random numbers from a normal distribution with <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html">np.random.normal</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of the &quot;Standard Normal Distribution&quot;</span>
+
+<span class="c1"># Create 100 values within the interval from -4 to 4</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Create a Standard Normal Distribution PDF for values of x</span>
+<span class="n">normal_pdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Create a Standard Normal Distribution CDF for values of x</span>
+<span class="n">normal_cdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Make a plot figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1"># Plot the PDF</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">normal_pdf</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;normal PDF&#39;</span><span class="p">)</span>
+<span class="c1"># Plot the CDF</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">normal_cdf</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;normal CDF&#39;</span><span class="p">)</span>
+<span class="c1"># Add a legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">)</span>
+<span class="c1"># Add axes labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Value (Z)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of occurance (PDF)</span><span class="se">\n</span><span class="s1">Probability of value $\leq$ given value (CDF)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="c1"># Add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Standard Normal Distribution&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">);</span>
+
+
+<span class="c1"># Add 95th percentile line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.97</span><span class="p">,</span><span class="s1">&#39;95th Percentile Value&#39;</span><span class="p">)</span>
+<span class="c1"># Add z=1.65 line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">1.65</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="s1">&#39;z = 1.65&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(2, 0.5, &#39;z = 1.65&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/5ab09d5c6e5919975a6dd77b424a7f74adebdc280d567f86a6b8fc8196d9ba85.png" src="../../_images/5ab09d5c6e5919975a6dd77b424a7f74adebdc280d567f86a6b8fc8196d9ba85.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="lognormal-distribution">
+<h3>Lognormal Distribution<a class="headerlink" href="#lognormal-distribution" title="Link to this heading">#</a></h3>
+<p>A non-negative random variable <span class="math notranslate nohighlight">\(X\)</span> is said to have a <strong>lognormal distribution</strong> if <span class="math notranslate nohighlight">\(ln(X)\)</span> has a normal distribution.</p>
+<p><span class="math notranslate nohighlight">\(PDF(x, \mu, \sigma) = \begin{array}{cc}
+  \displaystyle\Bigg\{ &amp; 
+    \begin{array}{cc}
+      \displaystyle\frac{1}{\sqrt{2\pi}\sigma x}\cdot e^{ [-{(ln(x)-\mu)^{2} \, / \, 2\sigma^{2}}]} &amp; x \geq 0 \\
+      0 &amp; x \lt 0
+    \end{array}
+\end{array}
+\)</span></p>
+<p><strong>Be careful</strong>: <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> here are the mean and standard deviaiton of <span class="math notranslate nohighlight">\(ln(X)\)</span>, not <span class="math notranslate nohighlight">\(X\)</span>. The actual mean and variance of <span class="math notranslate nohighlight">\(X\)</span>, the log-normal distribution, are:</p>
+<ul class="simple">
+<li><p>The expected (mean) value of <span class="math notranslate nohighlight">\(X\)</span> is, <span class="math notranslate nohighlight">\(E(X) = \exp(\,\mu + \sigma^2/2\,)\)</span></p></li>
+<li><p>The variance of <span class="math notranslate nohighlight">\(X\)</span> is, <span class="math notranslate nohighlight">\(V(X) = \exp(\,2\mu + \sigma^2\,)\)</span></p></li>
+</ul>
+<p>(See Devore Ch. 4)</p>
+<p>In python:</p>
+<ul class="simple">
+<li><p>The log-normal distribution in <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.lognorm.html">scipy.stats.lognorm</a></p></li>
+<li><p>Generating random numbers from a log-normal distribution with <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.lognormal.html">np.random.lognormal</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of a log-normal distribution</span>
+
+<span class="c1"># Create 100 values within the interval from 0 to 10</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Create a Log-Normal Distribution PDF for values of x</span>
+<span class="n">lognormal_pdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">lognorm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Create a Log-Normal Distribution CDF for values of x</span>
+<span class="n">lognormal_cdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">lognorm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Make a plot figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1"># Plot the PDF</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lognormal_pdf</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lognormal PDF&#39;</span><span class="p">)</span>
+<span class="c1"># Plot the CDF</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lognormal_cdf</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lognormal CDF&#39;</span><span class="p">)</span>
+<span class="c1"># Add a legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center right&#39;</span><span class="p">)</span>
+<span class="c1"># Add axes labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Value (Z)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of occurance (PDF)</span><span class="se">\n</span><span class="s1">Probability of value $\leq$ given value (CDF)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="c1"># Add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Log-Normal Distribution&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1af1327715f45c2d0a9994d9e9be5159a498cc65b2303a32fd9d92cdaefafcb8.png" src="../../_images/1af1327715f45c2d0a9994d9e9be5159a498cc65b2303a32fd9d92cdaefafcb8.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="binomial-distribution">
+<h3>Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We have a sequence of n smaller experiments called <strong>trials</strong></p></li>
+<li><p>The trials have two possible resutls: success or failure (i.e. flipping a coin)</p></li>
+<li><p>The trials are independent (the result of one has no impact on any others)</p></li>
+<li><p>The <strong>probability</strong>, p, of success is constant throughout all trials.</p></li>
+</ul>
+<p>The binomial random variable X, with n trials is defined as: X = the number of successes among the n trials</p>
+<p><span class="math notranslate nohighlight">\(b(x; n, p) = \begin{array}{cc}
+  \displaystyle\Bigg\{ &amp; 
+    \begin{array}{cc}
+      \frac{n!}{x!(n-x)!}p^x(1-p)^{n-x} &amp; x=0,1,2,...,n \\
+      0 &amp; otherwise
+    \end{array}
+\end{array}
+\)</span></p>
+<p>See also <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_distribution">Binomial distribution on Wikipedia</a></p>
+<p>In python:</p>
+<ul class="simple">
+<li><p>The binomial distribution in <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html">scipy.stats.binom</a></p></li>
+<li><p>Generating random numbers from a binomial distribution with <a class="reference external" href="https://docs.scipy.org/doc/numpy-1.15.1/reference/generated/numpy.random.binomial.html">np.random.binomial</a></p></li>
+<li><p>see also <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">probability mass function</a> for discrete random variables</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of a log-normal distribution</span>
+
+<span class="c1"># Create 100 values within the interval from 0 to 40</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="c1"># Number of trials</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="c1"># Probability each trial</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="c1"># Create a binomial probability mass function for values of x</span>
+<span class="n">binom_pmf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Create a binomial distribution CDF for values of x</span>
+<span class="n">binom_cdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># Make a plot figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1"># Plot the Probability Mass Function</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">binom_pmf</span><span class="p">,</span> <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;binomial PMF&#39;</span><span class="p">)</span>
+<span class="c1"># Plot the CDF</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">binom_cdf</span><span class="p">,</span> <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;binomial CDF&#39;</span><span class="p">)</span>
+<span class="c1"># Add a legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">)</span>
+<span class="c1"># Add axes labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Value (Z)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of occurance (PMF)</span><span class="se">\n</span><span class="s1">Probability of value $\leq$ given value (CDF)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="c1"># Add a title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Binomial Distribution&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/408fbc3161c8d44a678a20e1d4b560051cde47542a9a56e31caf8d89302855f3.png" src="../../_images/408fbc3161c8d44a678a20e1d4b560051cde47542a9a56e31caf8d89302855f3.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab1-1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 1-1: Python, Jupyter, and Plotting</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab1-3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 1-3: Empirical Probability Distributions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-versus-population-statistics">Sample versus Population Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-statistics">Sample Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#population-statistics">Population Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#populaiton-mean-variance-standard-deviation">Populaiton Mean, Variance, Standard Deviation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-mean-variance-standard-deviation">Sample Mean, Variance, Standard Deviation:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-distributions">Probability Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-density-functions-theory">Probability Density Functions - Theory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cumulative-distribution-functions-theory">Cumulative Distribution Functions - Theory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-distribution">Uniform Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question">Question:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lognormal-distribution">Lognormal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distribution">Binomial Distribution</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

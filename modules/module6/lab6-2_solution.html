@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 6-2: Bayes’ Theorem Example: River Pollution</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module6/lab6-2_solution';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module1/module1.html">1) Python, Statistics Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-2.html">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module1/homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Trend Analysis, Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-2.html">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module7/module7.html">7) Markov Chains</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-1.html">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-3.html">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module7/mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/some-python-tips.html">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/modules/module6/lab6-2_solution.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Fmodules/module6/lab6-2_solution.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module6/lab6-2_solution.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 6-2: Bayes’ Theorem Example: River Pollution</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-community-coalition-detected-x-in-their-latest-water-samples-from-the-river-and-they-want-to-know-based-on-the-information-above-and-using-bayes-theorem-what-is-the-probability-that-the-pollutant-came-from-each-company-given-that-they-detected-x">1) The community coalition detected X in their latest water samples from the river, and they want to know based on the information above (and using Bayes’ Theorem) what is the probability that the pollutant came from each company, given that they detected X.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-company-is-the-likely-source-of-the-pollutant-after-x-is-detected-on-3-separate-occasions">2) Which company is the likely source of the pollutant after X is detected on 3 separate occasions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-company-is-the-likely-source-of-the-pollutant-after-x-is-detected-on-6-separate-occasions">2) Which company is the likely source of the pollutant after X is detected on 6 separate occasions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Answer:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-6-2-bayes-theorem-example-river-pollution">
+<h1>Lab 6-2: Bayes’ Theorem Example: River Pollution<a class="headerlink" href="#lab-6-2-bayes-theorem-example-river-pollution" title="Link to this heading">#</a></h1>
+<section id="problem">
+<h2>Problem<a class="headerlink" href="#problem" title="Link to this heading">#</a></h2>
+<p>A community environmental justice coalition, dedicated to promoting the health of an urban river, its ecosystem, and the wellbeing of the people that live along it, conducts regular water quality sampling.</p>
+<p>One pollutant of concern, “Chemical X,” is known to be a byproduct produced by three companies (A, B, and C) located along the river. These companies are required by law to securely store hazardous waste byproducts containing X.</p>
+<ul class="simple">
+<li><p>“Company A” has 30% of the total hazardous waste containing X, and stores it in above-ground barrels with a known containment failure probability of 0.3%.</p></li>
+<li><p>“Company B” has 10% of the hazardous waste and stores it in underground tanks with a known failure probability of 0.7%.</p></li>
+<li><p>“Company C” has 60% of the hazardous waste and buries it capped with impermeable layers, but this method has a known failure rate of 0.5%.</p></li>
+</ul>
+<p>Based on the above information, answer the following:</p>
+<ol class="arabic simple">
+<li><p>The community coalition detected X in their latest water samples from the river, and they want to know based on the information above (and using Bayes’ Theorem) what is the probability that the pollutant came from each company, given that they detected X.</p></li>
+<li><p>Which company is the likely source of the pollutant after X is detected on 3 separate occasions?</p></li>
+<li><p>Which company is the likely source of the pollutant after X is detected on 6 separate occasions?</p></li>
+</ol>
+<p>And to clarify some assumptions:</p>
+<ul class="simple">
+<li><p>We can assume that our first prior probabilities are proportional to the amount of hazardous waste each company has stored.</p></li>
+<li><p>For each subsequent occurance of X being detected, we will update our prior probabilities with the posterior probabilities from the previous occurance.</p></li>
+<li><p>And we are assuming that only one company has hazardous waste leaking into the river across all occurances.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="solution">
+<h2>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
+<p>First, write out the information we know in terms of probabilities:</p>
+<p>We are told to assume that the first prior probabilities are proportional to the amount of hazardous waste stored by each company, therefore:</p>
+<p><span class="math notranslate nohighlight">\(P(A) = 0.3\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(B) = 0.1\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(C) = 0.6\)</span></p>
+<p>We are also told that each company’s method of storing hazardous waste has a known failure rate, therefore we can say that the probability of X leaking into the river given that it came from each company is equal to these known failure rates:</p>
+<p><span class="math notranslate nohighlight">\(P(X|A) = 0.003\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(X|B) = 0.007\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(X|C) = 0.005\)</span></p>
+<p>The final piece of information that we need, is the total probability that X will be polluting the river. This is the sum of the probabilities that hazardous waste is leaked by each company:</p>
+<p><span class="math notranslate nohighlight">\(P(X) = P(X|A)P(A) + P(X|C)P(C) + P(X|C)P(C)\)</span></p>
+<p>Now, we can solve the questions using Bayes’ Theorem to determine the probability that X came from each company given that we detected X. When we have repeated observations of X in the river, we will update the prior probabilities each time from the result of the previous calculation.</p>
+<p><span class="math notranslate nohighlight">\(P(A|X) = \frac{P(X|A)P(A)}{P(X)}\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(B|X) = \frac{P(X|B)P(B)}{P(X)}\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(C|X) = \frac{P(X|C)P(C)}{P(X)}\)</span></p>
+<hr class="docutils" />
+<p>Now we can do our computations to anwer each question.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span> <span class="c1"># We will use matplotlib to plot the results later</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-community-coalition-detected-x-in-their-latest-water-samples-from-the-river-and-they-want-to-know-based-on-the-information-above-and-using-bayes-theorem-what-is-the-probability-that-the-pollutant-came-from-each-company-given-that-they-detected-x">
+<h3>1) The community coalition detected X in their latest water samples from the river, and they want to know based on the information above (and using Bayes’ Theorem) what is the probability that the pollutant came from each company, given that they detected X.<a class="headerlink" href="#the-community-coalition-detected-x-in-their-latest-water-samples-from-the-river-and-they-want-to-know-based-on-the-information-above-and-using-bayes-theorem-what-is-the-probability-that-the-pollutant-came-from-each-company-given-that-they-detected-x" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># probability that anything comes from companies A, B, or C, is proportional to their percent of total hazardous waste storage</span>
+<span class="n">P_A</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">P_B</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">P_C</span> <span class="o">=</span> <span class="mf">0.6</span>
+
+<span class="c1"># probability that hazardous waste containment fails and runs off into river</span>
+<span class="n">P_X_A</span> <span class="o">=</span> <span class="mf">0.003</span>
+<span class="n">P_X_B</span> <span class="o">=</span> <span class="mf">0.007</span>
+<span class="n">P_X_C</span> <span class="o">=</span> <span class="mf">0.005</span>
+
+<span class="c1"># total probability of X</span>
+<span class="n">P_X</span> <span class="o">=</span> <span class="p">(</span><span class="n">P_X_A</span> <span class="o">*</span> <span class="n">P_A</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">P_X_B</span> <span class="o">*</span> <span class="n">P_B</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">P_X_C</span> <span class="o">*</span> <span class="n">P_C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(X) = </span><span class="si">{</span><span class="n">P_X</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># bayes theorem, what&#39;s the probability that contaminant we measure (X) came from each company&#39;s hazardous waste storage?</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(X|A)P(A) = </span><span class="si">{</span><span class="p">(</span><span class="n">P_X_A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">P_A</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">P_A_X</span> <span class="o">=</span> <span class="p">(</span><span class="n">P_X_A</span> <span class="o">*</span> <span class="n">P_A</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_X</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(X|A)P(A) = </span><span class="si">{</span><span class="p">(</span><span class="n">P_X_B</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">P_B</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">P_B_X</span> <span class="o">=</span> <span class="p">(</span><span class="n">P_X_B</span> <span class="o">*</span> <span class="n">P_B</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_X</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(X|C)P(C) = </span><span class="si">{</span><span class="p">(</span><span class="n">P_X_C</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">P_C</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">P_C_X</span> <span class="o">=</span> <span class="p">(</span><span class="n">P_X_C</span> <span class="o">*</span> <span class="n">P_C</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_X</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(A|X) = </span><span class="si">{</span><span class="n">P_A_X</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(B|X) = </span><span class="si">{</span><span class="n">P_B_X</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(C|X) = </span><span class="si">{</span><span class="n">P_C_X</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(X) = 0.0046
+P(X|A)P(A) = 0.0009
+P(X|A)P(A) = 0.0007000000000000001
+P(X|C)P(C) = 0.003
+P(A|X) = 0.1956521739130435
+P(B|X) = 0.1521739130434783
+P(C|X) = 0.6521739130434783
+</pre></div>
+</div>
+</div>
+</div>
+<section id="answer">
+<h4>Answer:<a class="headerlink" href="#answer" title="Link to this heading">#</a></h4>
+<p>The probability that the pollutant detected came from Company A is 19.6%, from Company B is 15.2%, and from Company C is 65.2%</p>
+<p>Company C is the most likely source of the pollution, followed by Company A.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="which-company-is-the-likely-source-of-the-pollutant-after-x-is-detected-on-3-separate-occasions">
+<h3>2) Which company is the likely source of the pollutant after X is detected on 3 separate occasions?<a class="headerlink" href="#which-company-is-the-likely-source-of-the-pollutant-after-x-is-detected-on-3-separate-occasions" title="Link to this heading">#</a></h3>
+<p>To answer this question, I am going to write a function that computes Bayes’ theorem for this example problem. By writing a function that does this, I can more easily re-run the same code to compute the results after X was detected multiple times. The inputs to this function will be the prior probabilities (represented by <span class="math notranslate nohighlight">\(P(A)\)</span>, <span class="math notranslate nohighlight">\(P(B)\)</span>, and <span class="math notranslate nohighlight">\(P(C)\)</span>) and the likelihoods of pollutant leaking into the river for each company (<span class="math notranslate nohighlight">\(P(X|A)\)</span>, <span class="math notranslate nohighlight">\(P(X|B)\)</span>, and <span class="math notranslate nohighlight">\(P(X|C)\)</span>). The function will then output the posterior probabilities that the pollution we detected came from each company’s hazardous waste storage site (<span class="math notranslate nohighlight">\(P(A|X)\)</span>, <span class="math notranslate nohighlight">\(P(B|X)\)</span>, and <span class="math notranslate nohighlight">\(P(C|X)\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bayes_example</span><span class="p">(</span><span class="n">P_A</span><span class="p">,</span> <span class="n">P_B</span><span class="p">,</span> <span class="n">P_C</span><span class="p">,</span> <span class="n">P_X_A</span><span class="p">,</span> <span class="n">P_X_B</span><span class="p">,</span> <span class="n">P_X_C</span><span class="p">):</span>
+
+    <span class="c1"># total probability of X</span>
+    <span class="n">P_X</span> <span class="o">=</span> <span class="p">(</span><span class="n">P_X_A</span> <span class="o">*</span> <span class="n">P_A</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">P_X_B</span> <span class="o">*</span> <span class="n">P_B</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">P_X_C</span> <span class="o">*</span> <span class="n">P_C</span><span class="p">)</span>
+
+    <span class="c1"># bayes theorem, what&#39;s the probability that contaminant we measure (X) came from each company&#39;s hazardous waste storage?</span>
+    <span class="n">P_A_X</span> <span class="o">=</span> <span class="p">(</span><span class="n">P_X_A</span> <span class="o">*</span> <span class="n">P_A</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_X</span>
+    <span class="n">P_B_X</span> <span class="o">=</span> <span class="p">(</span><span class="n">P_X_B</span> <span class="o">*</span> <span class="n">P_B</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_X</span>
+    <span class="n">P_C_X</span> <span class="o">=</span> <span class="p">(</span><span class="n">P_X_C</span> <span class="o">*</span> <span class="n">P_C</span><span class="p">)</span> <span class="o">/</span> <span class="n">P_X</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">P_A_X</span><span class="p">,</span> <span class="n">P_B_X</span><span class="p">,</span> <span class="n">P_C_X</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First sample is detected (should give us the same result as in question 1 above)</span>
+
+<span class="c1"># probability that anything comes from companies A, B, or C, is proportional to their percent of total hazardous waste storage</span>
+<span class="n">P_A</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">P_B</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">P_C</span> <span class="o">=</span> <span class="mf">0.6</span>
+
+<span class="c1"># probability that hazardous waste containment fails and runs off into river</span>
+<span class="n">P_X_A</span> <span class="o">=</span> <span class="mf">0.003</span>
+<span class="n">P_X_B</span> <span class="o">=</span> <span class="mf">0.007</span>
+<span class="n">P_X_C</span> <span class="o">=</span> <span class="mf">0.005</span>
+
+<span class="p">[</span><span class="n">P_A_X_1</span><span class="p">,</span> <span class="n">P_B_X_1</span><span class="p">,</span> <span class="n">P_C_X_1</span><span class="p">]</span> <span class="o">=</span> <span class="n">bayes_example</span><span class="p">(</span><span class="n">P_A</span><span class="p">,</span> <span class="n">P_B</span><span class="p">,</span> <span class="n">P_C</span><span class="p">,</span> <span class="n">P_X_A</span><span class="p">,</span> <span class="n">P_X_B</span><span class="p">,</span> <span class="n">P_X_C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First sample of X is detected in the river:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(A|X) = </span><span class="si">{</span><span class="n">P_A_X_1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(B|X) = </span><span class="si">{</span><span class="n">P_B_X_1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(C|X) = </span><span class="si">{</span><span class="n">P_C_X_1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First sample of X is detected in the river:
+P(A|X) = 0.1956521739130435
+P(B|X) = 0.1521739130434783
+P(C|X) = 0.6521739130434783
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Second sample is detected. I have replace the prior probabilities with the posterior probabilities after the first detection.</span>
+<span class="p">[</span><span class="n">P_A_X_2</span><span class="p">,</span> <span class="n">P_B_X_2</span><span class="p">,</span> <span class="n">P_C_X_2</span><span class="p">]</span> <span class="o">=</span> <span class="n">bayes_example</span><span class="p">(</span><span class="n">P_A_X_1</span><span class="p">,</span> <span class="n">P_B_X_1</span><span class="p">,</span> <span class="n">P_C_X_1</span><span class="p">,</span> <span class="n">P_X_A</span><span class="p">,</span> <span class="n">P_X_B</span><span class="p">,</span> <span class="n">P_X_C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Second sample of X is detected in the river:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(A|X) = </span><span class="si">{</span><span class="n">P_A_X_2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(B|X) = </span><span class="si">{</span><span class="n">P_B_X_2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(C|X) = </span><span class="si">{</span><span class="n">P_C_X_2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Second sample of X is detected in the river:
+P(A|X) = 0.11946902654867256
+P(B|X) = 0.21681415929203543
+P(C|X) = 0.6637168141592921
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Third sample is detected. I have replace the prior probabilities with the posterior probabilities after the second detection.</span>
+<span class="p">[</span><span class="n">P_A_X_3</span><span class="p">,</span> <span class="n">P_B_X_3</span><span class="p">,</span> <span class="n">P_C_X_3</span><span class="p">]</span> <span class="o">=</span> <span class="n">bayes_example</span><span class="p">(</span><span class="n">P_A_X_2</span><span class="p">,</span> <span class="n">P_B_X_2</span><span class="p">,</span> <span class="n">P_C_X_2</span><span class="p">,</span> <span class="n">P_X_A</span><span class="p">,</span> <span class="n">P_X_B</span><span class="p">,</span> <span class="n">P_X_C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Third sample of X is detected in the river:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(A|X) = </span><span class="si">{</span><span class="n">P_A_X_3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(B|X) = </span><span class="si">{</span><span class="n">P_B_X_3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;P(C|X) = </span><span class="si">{</span><span class="n">P_C_X_3</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Third sample of X is detected in the river:
+P(A|X) = 0.06899488926746165
+P(B|X) = 0.2921635434412266
+P(C|X) = 0.6388415672913117
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h4>Answer:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>After three samples of X are detected in the river, the probability that the pollution is coming from Company A is now 6.9%, from Company B is 29.2%, and from Company C is 63.9%.</p>
+<p>Company C is still the most likely source of the pollution, but now Company B is the second-most likely source instead of Company A.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="which-company-is-the-likely-source-of-the-pollutant-after-x-is-detected-on-6-separate-occasions">
+<h3>2) Which company is the likely source of the pollutant after X is detected on 6 separate occasions?<a class="headerlink" href="#which-company-is-the-likely-source-of-the-pollutant-after-x-is-detected-on-6-separate-occasions" title="Link to this heading">#</a></h3>
+<p>To speed up answering this question, we can put the function that we wrote above into a for loop. We will then loop through six times to compute an update for each time a sample of X was detected in the river.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I am re-defining these here just to illusrate what we&#39;re doing</span>
+<span class="c1"># We start off with the original prior probabilities:</span>
+<span class="n">P_A</span> <span class="o">=</span> <span class="mf">0.3</span>
+<span class="n">P_B</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">P_C</span> <span class="o">=</span> <span class="mf">0.6</span>
+
+<span class="c1"># probability that hazardous waste containment fails and runs off into river</span>
+<span class="n">P_X_A</span> <span class="o">=</span> <span class="mf">0.003</span>
+<span class="n">P_X_B</span> <span class="o">=</span> <span class="mf">0.007</span>
+<span class="n">P_X_C</span> <span class="o">=</span> <span class="mf">0.005</span>
+
+<span class="c1"># create an empty array of zeros, which we will fill up with answers in the for loop</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">6</span> <span class="c1"># we have 6 times that we sampled X in the river</span>
+<span class="n">posteriors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span> <span class="c1"># the empty array is going to have shape 7 x 3</span>
+                               <span class="c1"># 7 for the 6 samples plus 1 set of original prior probabilities</span>
+                               <span class="c1"># and 3 for the 3 companies A, B, and C</span>
+
+<span class="c1"># input the original prior probabilities</span>
+<span class="n">posteriors</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">P_A</span><span class="p">,</span> <span class="n">P_B</span><span class="p">,</span> <span class="n">P_C</span><span class="p">]</span>
+
+<span class="c1"># now loop through 6 times, compute a new set of posterior probabilities, using the probabilities from the previous step as our priors</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">posteriors</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">bayes_example</span><span class="p">(</span><span class="n">posteriors</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">posteriors</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">posteriors</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">P_X_A</span><span class="p">,</span> <span class="n">P_X_B</span><span class="p">,</span> <span class="n">P_X_C</span><span class="p">)</span>
+    
+<span class="c1"># take a look at the results... </span>
+<span class="c1"># each row represents how many times X was detected in the river, </span>
+<span class="c1"># starting with 0 times in the top row and 6 times for the last row</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">posteriors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.3        0.1        0.6       ]
+ [0.19565217 0.15217391 0.65217391]
+ [0.11946903 0.21681416 0.66371681]
+ [0.06899489 0.29216354 0.63884157]
+ [0.03800438 0.37550829 0.58648733]
+ [0.02009039 0.46318139 0.51672821]
+ [0.01023944 0.5508273  0.43893326]]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h4>Answer:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>After X was detected in the river six times, the probability that the pollution is coming from Company A is now 1.0%, from Company B is 55.1%, and from Company C is 43.9%.</p>
+<p>After six separate detections of X in the river, it is now most likely that the pollution is coming from Company B! And Company C is now the second-most likely source.</p>
+<p>In other words, since we observed 6 separate events where X leaked into the river, it is most likely that the X pollution is coming from Company B, and therefore their underground tanks containing hazardous waste should be prioritized for inspection.</p>
+<hr class="docutils" />
+<p>We can also plot the probabilities, and how they change with each update (each new detection of X in the river):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># plot our posteriors, these are already formatted nicely so that matplotlib will plot one line for each company</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">posteriors</span><span class="p">)</span>
+
+<span class="c1"># plot vertical lines at each point at which we checked which company was most likely polluting (after 1 detection of X, 3, and 6)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;lightgrey&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># set up the labels for the legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;P(A|X)&#39;</span><span class="p">,</span> <span class="s1">&#39;P(B|X)&#39;</span><span class="p">,</span> <span class="s1">&#39;P(C|X)&#39;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="c1"># add axes labels and title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of times X was detected in the river&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Probability of pollution coming from</span><span class="se">\n</span><span class="s1">companies A, B, or C given that X was</span><span class="se">\n</span><span class="s1">detected a certain number of times&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2cf3266cab8ec972be4aca286ff22c86aa278c3b754450e62dc69cc6f2a62b26.png" src="../../_images/2cf3266cab8ec972be4aca286ff22c86aa278c3b754450e62dc69cc6f2a62b26.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module6"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem">Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-community-coalition-detected-x-in-their-latest-water-samples-from-the-river-and-they-want-to-know-based-on-the-information-above-and-using-bayes-theorem-what-is-the-probability-that-the-pollutant-came-from-each-company-given-that-they-detected-x">1) The community coalition detected X in their latest water samples from the river, and they want to know based on the information above (and using Bayes’ Theorem) what is the probability that the pollutant came from each company, given that they detected X.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-company-is-the-likely-source-of-the-pollutant-after-x-is-detected-on-3-separate-occasions">2) Which company is the likely source of the pollutant after X is detected on 3 separate occasions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Answer:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-company-is-the-likely-source-of-the-pollutant-after-x-is-detected-on-6-separate-occasions">2) Which company is the likely source of the pollutant after X is detected on 6 separate occasions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Answer:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

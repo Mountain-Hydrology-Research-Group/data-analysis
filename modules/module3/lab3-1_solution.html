@@ -1,0 +1,1553 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 3-1: Non-Parametric Tests</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module3/lab3-1_solution';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module1/module1.html">1) Python, Statistics Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-2.html">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module1/homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Trend Analysis, Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-2.html">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module7/module7.html">7) Markov Chains</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-1.html">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-3.html">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module7/mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/some-python-tips.html">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/modules/module3/lab3-1_solution.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Fmodules/module3/lab3-1_solution.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module3/lab3-1_solution.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 3-1:  Non-Parametric Tests</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-test">Sign Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-test-example">Sign Test Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-sum-test">Rank-Sum Test</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-rank-sum-test">Performing the rank-sum test</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-sum-test-example">Rank-Sum Test Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternate-example">Alternate example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#investigating-python-functions">Investigating python functions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-3-1-non-parametric-tests">
+<h1>Lab 3-1:  Non-Parametric Tests<a class="headerlink" href="#lab-3-1-non-parametric-tests" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="sign-test">
+<h2>Sign Test<a class="headerlink" href="#sign-test" title="Link to this heading">#</a></h2>
+<p>The sign test can be used if we have a sample dataset and want to know if the mean of this dataset is different from some null hypothesis mean, <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<p>We first calculate the anomaly for each number in our dataset, which is the difference between that number and the null hypothesis mean:</p>
+<p><span class="math notranslate nohighlight">\(anomaly = (x - \mu)\)</span></p>
+<p>If our samples came from a population with a mean of <span class="math notranslate nohighlight">\(\mu\)</span>, then we’d expect to have appoximately equal numbers of positive and negative anomalies. In other words, if the null hypothesis is true, we’d expect our sample values to fall evenly on either side of the null hypothesis mean.</p>
+<p>The null hypothesis is that our sample mean is equal to some population mean, and stated formally is:</p>
+<p><span class="math notranslate nohighlight">\(H_0: \bar{x} = \mu\)</span></p>
+<p>The test statistic we use in the sign test is the number of samples that are larger than <span class="math notranslate nohighlight">\(\mu\)</span>, which is the number of positive anomalies.</p>
+<p><span class="math notranslate nohighlight">\(y = \)</span> count of anomalies <span class="math notranslate nohighlight">\( &gt; 0\)</span></p>
+<p>We can have one-sided or two-sided alternate hypotheses:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Alternate Hypothesis</p></th>
+<th class="head"><p>Rejection Region</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(H_{a}: \bar{x} &gt; \mu\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(y \geq c\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(H_{a}: \bar{x} &lt; \mu\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(y \leq c\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(H_{a}: \bar{x} \neq \mu\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(y \geq c\)</span> or  <span class="math notranslate nohighlight">\(y \leq n - c\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The “critical number”, <span class="math notranslate nohighlight">\(c\)</span> that defines our rejection region come from the binomial distribution (with 50% probability), and <span class="math notranslate nohighlight">\(\alpha\)</span> (or <span class="math notranslate nohighlight">\(\frac{\alpha}{2}\)</span> for a two-sided test) for our chosen confidence level.</p>
+<p>We use a binomial distribution with probability of 50% because for our null hypothesis to be true, about 50% of our anomalies should be positive, and about 50% should be negative.</p>
+<p>The critical number, <span class="math notranslate nohighlight">\(c\)</span>, that defines our rejection region can be looked up in a binomial distribution table (corresponding to the sample size, <span class="math notranslate nohighlight">\(n\)</span>, for the test), or in python we can use a function like <code class="docutils literal notranslate"><span class="pre">scipy.binom.ppf()</span></code> (<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html">read the documentation for this function here</a>) (and remember to set p=0.5 for 50% probability).</p>
+</section>
+<section id="sign-test-example">
+<h2>Sign Test Example<a class="headerlink" href="#sign-test-example" title="Link to this heading">#</a></h2>
+<p>Suppose we took measurements of <a class="reference external" href="https://en.wikipedia.org/wiki/Turbidity">turbidity</a> during and just after a storm event in some natural stream, and we want to determine if the mean turbitity exceeded 100 NTU.</p>
+<p>Our measurements are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample dataset</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our null hypothesis is:</p>
+<p><span class="math notranslate nohighlight">\(H_0: \bar{x} = \mu = 100\)</span> NTU</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Null hypothesis mean</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And our alternate hypothesis is:</p>
+<p><span class="math notranslate nohighlight">\(H_{a}: \bar{x} &gt; \mu\)</span> or <span class="math notranslate nohighlight">\(\bar{x} &gt; 100\)</span> NTU</p>
+<p>With rejection region <span class="math notranslate nohighlight">\(y \geq c\)</span></p>
+<p>To compute our test statistic, we need to first compute the anomalies: <span class="math notranslate nohighlight">\((x - \mu)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate anomalies</span>
+<span class="n">anomalies</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">mu</span>
+
+<span class="c1"># look at the anomalies</span>
+<span class="n">anomalies</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-50, -30,  70, -50,  70, -70,  70,  40,  30, 100, -10, -30, -90,
+       -20, 130,  90,  10,  40, -80,  10])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, count the number of positive anomalies. One way to do this in python is to use a <a class="reference external" href="https://www.w3schools.com/python/python_booleans.asp">boolean</a> array of True/False values, and take the sum. Python treats True values as a 1, and False values as a 0:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">positive_anomalies</span> <span class="o">=</span> <span class="n">anomalies</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+<span class="c1"># Look at our boolean array, each &quot;true&quot; corresponds to a positive anomaly</span>
+<span class="n">positive_anomalies</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False,  True, False,  True, False,  True,  True,  True,
+        True, False, False, False, False,  True,  True,  True,  True,
+       False,  True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we use the <code class="docutils literal notranslate"><span class="pre">numpy.sum()</span></code> function, it will treat each True as a 1, and each False as a 0, therefore we get the county of positive anomalies only.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count the number of positive anomalies, this is our test statistic</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">anomalies</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span>
+
+<span class="c1"># look at our test statistic</span>
+<span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(11)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we need to find our critical value, <span class="math notranslate nohighlight">\(c\)</span>, to see if we can accept or reject the null hypothesis.</p>
+<p><span class="math notranslate nohighlight">\(c\)</span> comes from a binomial distribution, with <span class="math notranslate nohighlight">\(n\)</span> being our number of samples, and a probability of 50%.</p>
+<p>This is also where we get to choose the level of confidence, our alpha, for our test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose my alpha for 95% confidence, one-sided test</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="c1"># Number of samples is the length of x</span>
+<span class="n">n</span> <span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Compute the critical value from the binomial distribution (with p=50%)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Can I reject the null hypothesis?</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic, y = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Critical value, c = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic, y = 11
+Critical value, c = 6.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our test statistic exceeds our critical value, therefore we are in the rejection region for this one-sided sign test (<span class="math notranslate nohighlight">\(y \geq c\)</span>) and can reject the null hypothesis.</p>
+<p>The mean turbidity of the stream at this time was greater than 100 NTU, with 95% confidence.</p>
+<p>However, note that the sign test does not take into account the <strong>magnitude</strong> of the anomalies…</p>
+</section>
+<hr class="docutils" />
+<section id="rank-sum-test">
+<h2>Rank-Sum Test<a class="headerlink" href="#rank-sum-test" title="Link to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test">Rank-Sum Test</a> (also called the Mann-Whitney U test, or Wilcoxon Rank-sum Test) is a non-parametric test that lets us determine if one group of measurements is larger than a second group. Unlike the parametric tests we’ve used previously, we do not need to assume normality (or any particular distribution), nor that the two groups have similar distributions, nor that the two groups have equal variances.</p>
+<p>The null hypothesis is that the probability of any given sample from one group, <span class="math notranslate nohighlight">\(x_i\)</span>, being greater than samples from the other group, <span class="math notranslate nohighlight">\(y_j\)</span>, is only 50%. In other words, the null hypothesis is that the probability of samples from one group being higher or lower than samples from the other group are equal (both 50%).</p>
+<p><span class="math notranslate nohighlight">\(H_0: P(x_i &gt; y_j) = 0.5\)</span></p>
+<p>We can have alternative hypotheses for one- and two-sided tests:</p>
+<p><span class="math notranslate nohighlight">\(H_a: P(x_i &gt; y_j) \leq 0.5\)</span> (we are testing if x is smaller than y)</p>
+<p><span class="math notranslate nohighlight">\(H_a: P(x_i &gt; y_j) \geq 0.5\)</span> (we are testing if x is larger than y)</p>
+<p><span class="math notranslate nohighlight">\(H_a: P(x_i &gt; y_j) \neq 0.5\)</span> (we are testing if x is different than y)</p>
+<section id="performing-the-rank-sum-test">
+<h3>Performing the rank-sum test<a class="headerlink" href="#performing-the-rank-sum-test" title="Link to this heading">#</a></h3>
+<p>The first step is to rank all of our data. If we have one group of length <span class="math notranslate nohighlight">\(n\)</span> with samples <span class="math notranslate nohighlight">\(x_i\)</span>, and another group with length <span class="math notranslate nohighlight">\(m\)</span> with sample <span class="math notranslate nohighlight">\(y_j\)</span>, we sort the data from low to high, and assign the “joint ranks” <span class="math notranslate nohighlight">\(R_k\)</span> for each data point where:</p>
+<p><span class="math notranslate nohighlight">\(R_k = 1 , 2, 3, ..., N\)</span> where <span class="math notranslate nohighlight">\(N = n + m\)</span></p>
+<p>The idea is that if we expect our null hypothesis to be true, then we should have equal numbers of “low rank” <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_j\)</span> values, and equal numbers of “high rank” <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_j\)</span> values.  If we have a tie anywhere, use the average rank (e.g. if we would have a tie in ranks 3 and 4, assign both a rank of 3.5, and our ranks would then be R = 1, 2, 3.5, 3.5, 5, …).</p>
+<p>We then use these ranks to compute a test statistic. Different versions of the rank-sum test use different test statistics described below.</p>
+<p><strong>The <span class="math notranslate nohighlight">\(W_{rs}\)</span> test statistic:</strong></p>
+<p>The basic rank-sum test statistic is the sum of ranks for one of the groups (if groups have different sample sizes, use the group with the smaller sample size):</p>
+<p><span class="math notranslate nohighlight">\(W_{rs} = \sum R_{i}\)</span> or <span class="math notranslate nohighlight">\(\sum R_{j}\)</span></p>
+<p>We can reject the null hypothesis when our test statistic falls in the rejection region defined by critical values we can  look up in a <a class="reference external" href="http://plantsys.elte.hu/oktatas/Biometria/tablazatok/Wilcoxon_table_ketmintas_probahoz.pdf">table</a>, given our sample sizes <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(m\)</span>, and chosen significance level with <span class="math notranslate nohighlight">\(alpha\)</span>.</p>
+<p><strong>The <span class="math notranslate nohighlight">\(Z_{rs}\)</span> test statistic:</strong></p>
+<p>The test statistic, <span class="math notranslate nohighlight">\(W_{rs}\)</span> is nearly normally distributed even with fairly small sample sizes of 10 for each group (e.g. when <span class="math notranslate nohighlight">\(n \ge 10\)</span> and <span class="math notranslate nohighlight">\(m \ge 10\)</span>). To compute a p-value for our rank-sum test, the “large-sample approximation” method uses a “continuity correction” to shift <span class="math notranslate nohighlight">\(W_{rs}\)</span> values by <span class="math notranslate nohighlight">\(d/2\)</span> where <span class="math notranslate nohighlight">\(d\)</span> is the smallest possible difference between <span class="math notranslate nohighlight">\(W_{rs}\)</span> values (for the rank-sum test, <span class="math notranslate nohighlight">\(d=1\)</span>). This creates a normal distribution approximation of what was our discontinuous <span class="math notranslate nohighlight">\(W_{rs}\)</span> distribution. This can then be expressed as the test statistic <span class="math notranslate nohighlight">\(Z_{rs}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(Z_{rs} = \displaystyle\frac{W_{rs}\pm\frac{d}{2}-\mu_W}{\sigma_W}\)</span></p>
+<p>where we are assuming that for large sample sizes <span class="math notranslate nohighlight">\(W_{rs}\)</span> is approximately normally distributed with a mean of <span class="math notranslate nohighlight">\(\mu_W = \frac{1}{2}\cdot n\cdot (n+m+1)\)</span>, a standard deviation of <span class="math notranslate nohighlight">\(\sigma_W = \sqrt{n\cdot m\cdot(n+m+1)\cdot\frac{1}{12}}\)</span>, and the step size between ranks is <span class="math notranslate nohighlight">\(d = 1\)</span>, therefore:</p>
+<p><span class="math notranslate nohighlight">\(Z_{rs} = \displaystyle\frac{W_{rs}\pm\frac{1}{2}-\frac{1}{2}\cdot n\cdot (n+m+1)}{\sqrt{n\cdot m\cdot(n+m+1)\cdot\frac{1}{12}}}\)</span></p>
+<p>The <span class="math notranslate nohighlight">\(\pm\)</span> refers to whether we are making a one sided test with a posited increase or decrease (where if we’re looking for an increase, adjust down by subtracting, or if we’re looking for a decrease, adjust up by adding). See equation 5.3 and read more about this in Chapter 5 section <a class="reference external" href="https://pubs.usgs.gov/tm/04/a03/tm4a3.pdf">5.1.4 The Large-sample Approximation to the Rank-sum Test</a>.</p>
+<p><strong>The <span class="math notranslate nohighlight">\(U\)</span> test statistic:</strong></p>
+<p>Note also that you will also somtimes see the U test statistic used here, as in the “Mann-Whitney U test”, where <span class="math notranslate nohighlight">\(U = W_{rs} - \displaystyle \frac{n(n+1)}{2}\)</span></p>
+<p>Here is a <a class="reference external" href="https://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Nonparametric/Mann-Whitney-Table-CriticalValues.pdf">table</a> with U statistic values.</p>
+</section>
+</section>
+<section id="rank-sum-test-example">
+<h2>Rank-Sum Test Example<a class="headerlink" href="#rank-sum-test-example" title="Link to this heading">#</a></h2>
+<p>In the example below, we measure 10 samples of turbidity in two streams (group <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(n=10\)</span> and group <span class="math notranslate nohighlight">\(y\)</span> with <span class="math notranslate nohighlight">\(m=10\)</span>), and we want to know if they are different from one another (two-tailed test) with 95% confidence, <span class="math notranslate nohighlight">\(\alpha=0.05\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample datasets (there are no ties in this data, so we don&#39;t need to worry about it in this example)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mi">155</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">200</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">110</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make a pandas dataframe to store our values</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">y</span><span class="p">})</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>155</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>70</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>175</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>50</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>190</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>115</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>195</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>140</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>215</td>
+      <td>130</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>200</td>
+      <td>110</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Visualize the data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;o-&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;stream 1&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;P-&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;stream 2&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time, (day of study)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;turbidity, NTU&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Turbidity Samples from Two Streams&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/86030f5e6d19df169d0fc45143e62080f720b3f73c3f327ad7aa051015c90a21.png" src="../../_images/86030f5e6d19df169d0fc45143e62080f720b3f73c3f327ad7aa051015c90a21.png" />
+</div>
+</div>
+<p>Pivot to format the table with group labels and values</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>x</td>
+      <td>155</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>x</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>x</td>
+      <td>175</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>x</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>x</td>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>x</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>x</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>x</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>x</td>
+      <td>215</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>x</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>y</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>y</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>y</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>y</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>y</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>y</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>y</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>y</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>y</td>
+      <td>130</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>y</td>
+      <td>110</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Sort the data by value</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_sorted</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data_sorted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>y</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>y</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>y</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>y</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>x</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>y</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>x</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>y</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>y</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>y</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>y</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>x</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>y</td>
+      <td>130</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>x</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>x</td>
+      <td>155</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>x</td>
+      <td>175</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>x</td>
+      <td>190</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>x</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>x</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>x</td>
+      <td>215</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Add a rank to each row</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_sorted</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_sorted</span><span class="o">.</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">data_sorted</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>group</th>
+      <th>value</th>
+      <th>rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>y</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>y</td>
+      <td>25</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>y</td>
+      <td>30</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>y</td>
+      <td>40</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>x</td>
+      <td>50</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>y</td>
+      <td>65</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>x</td>
+      <td>70</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>y</td>
+      <td>75</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>y</td>
+      <td>90</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>y</td>
+      <td>100</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>y</td>
+      <td>110</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>x</td>
+      <td>115</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>y</td>
+      <td>130</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>x</td>
+      <td>140</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>x</td>
+      <td>155</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>x</td>
+      <td>175</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>x</td>
+      <td>190</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>x</td>
+      <td>195</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>x</td>
+      <td>200</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>x</td>
+      <td>215</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Visualize the problem</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;stream 1&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;stream 2&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;turbidity, NTU&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rank&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Turbidity Ranked by Group&#39;</span><span class="p">);</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;x&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">],</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;x&#39;</span><span class="p">][</span><span class="s1">&#39;rank&#39;</span><span class="p">],</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;stream 1&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">],</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="s1">&#39;rank&#39;</span><span class="p">],</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;tab:orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;stream 2&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;turbidity, NTU&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;rank&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Turbidity Ranked&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/af5eadb3aec34d6a546b125b0d139d517d996cc77fd7288349a0a69c88532dd4.png" src="../../_images/af5eadb3aec34d6a546b125b0d139d517d996cc77fd7288349a0a69c88532dd4.png" />
+</div>
+</div>
+<p><strong>The <span class="math notranslate nohighlight">\(W_{rs}\)</span> test statistic:</strong></p>
+<p>Compute our test statistic, <span class="math notranslate nohighlight">\(W_{rs} = \sum R_{i}\)</span> for <span class="math notranslate nohighlight">\(i=1,...,n\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">W</span> <span class="o">=</span> <span class="n">data_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;x&#39;</span><span class="p">][</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic, W = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic, W = 143
+</pre></div>
+</div>
+</div>
+</div>
+<p>We look up our critical W values in this <a class="reference external" href="http://plantsys.elte.hu/oktatas/Biometria/tablazatok/Wilcoxon_table_ketmintas_probahoz.pdf">table</a>, and find that for a 2-tailed test, with <span class="math notranslate nohighlight">\(\alpha=0.05\)</span> and sample sizes <span class="math notranslate nohighlight">\(n=10\)</span> and <span class="math notranslate nohighlight">\(m=10\)</span>, the upper and lower critical values are:</p>
+<p><span class="math notranslate nohighlight">\(W_{c,l}=78\)</span></p>
+<p><span class="math notranslate nohighlight">\(W_{c,u}=132\)</span></p>
+<p>Our result is that <span class="math notranslate nohighlight">\(W_{rs} &gt; W_{c,u}\)</span>, our test statistic is greater than the upper critical value. Therefore we can reject the null hypothesis, and say that our alternate hypothesis that group <span class="math notranslate nohighlight">\(x\)</span> has higher turbidity than group <span class="math notranslate nohighlight">\(y\)</span> is true with 95% confidence.</p>
+<p><strong>The <span class="math notranslate nohighlight">\(U\)</span> test statistic:</strong></p>
+<p>Let’s also compute the test statistic <span class="math notranslate nohighlight">\(U = W_{rs} - \displaystyle \frac{n(n+1)}{2}\)</span></p>
+<p>(We can look up the critical U values in this <a class="reference external" href="https://sphweb.bumc.bu.edu/otlt/MPH-Modules/BS/BS704_Nonparametric/Mann-Whitney-Table-CriticalValues.pdf">table</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the test statistic, U, ourselves</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">W</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic, U = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">U</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic, U = 88.0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>The <span class="math notranslate nohighlight">\(Z_{rs}\)</span> test statistic:</strong></p>
+<p>Compute the “large-sample approximation” test statistic:</p>
+<p><span class="math notranslate nohighlight">\(Z_{rs} = \displaystyle\frac{W_{rs}\pm\frac{1}{2}-\frac{1}{2}\cdot n\cdot (n+m+1)}{\sqrt{n\cdot m\cdot(n+m+1)\cdot\frac{1}{12}}}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the test statistic, Z, ourselves</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="n">W</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic, Z = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value, p = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">Z</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic, Z = 2.8347
+P-value, p = 0.0023
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we can also see that <span class="math notranslate nohighlight">\(p &lt; \alpha\)</span>, another way to see that we can therefore reject the null hypothesis as a result of this test.</p>
+<section id="alternate-example">
+<h3>Alternate example:<a class="headerlink" href="#alternate-example" title="Link to this heading">#</a></h3>
+<p>What does it look like if we pick the other group? (since our groups are the same size, we could pick either one to look at)</p>
+<p><strong>Compute the rank-sum test statistics W, U, and Z using the ranks of the other group, <span class="math notranslate nohighlight">\(y\)</span></strong></p>
+<p>So in this case our alternate hypothesis is <span class="math notranslate nohighlight">\(H_a: P(y_j &gt; x_i) \neq 0.5\)</span></p>
+<p>Do we come to the same conclusion (reject the null hypothesis) as above?</p>
+<p><strong>The <span class="math notranslate nohighlight">\(W_{rs}\)</span> test statistic:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the test statistic, W, but this time for group &quot;y&quot;</span>
+<span class="n">W2</span> <span class="o">=</span> <span class="n">data_sorted</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data_sorted</span><span class="o">.</span><span class="n">group</span><span class="o">==</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic, W = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">W2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic, W = 67
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>The <span class="math notranslate nohighlight">\(U\)</span> test statistic:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the test statistic, U, ourselves</span>
+<span class="n">U2</span> <span class="o">=</span> <span class="n">W2</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic, U = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">U2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic, U = 12.0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>The <span class="math notranslate nohighlight">\(Z_{rs}\)</span> test statistic:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the test statistic, Z, ourselves</span>
+<span class="n">Z2</span> <span class="o">=</span> <span class="p">(</span><span class="n">W</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic, Z = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">Z2</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value, p = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">Z2</span><span class="p">),</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic, Z = 2.9103
+P-value, p = 0.0018
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="investigating-python-functions">
+<h2>Investigating python functions<a class="headerlink" href="#investigating-python-functions" title="Link to this heading">#</a></h2>
+<p>What functions are available to us in python to perform a rank-sum test?</p>
+<p>The scipy library has two we can investigate:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ranksums.html">scipy.stats.ranksums</a></p></li>
+<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html">scipy.stats.mannwhitneyu</a></p></li>
+</ul>
+<p>Read the documentation for both of these functions, and try them out with our sample datasets (<span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>) in the rank-sum test example above.</p>
+<p>Also take a look at the source code for each function to identify the equations they are using.</p>
+<p>Then try to answer the following questions:</p>
+<ol class="arabic simple">
+<li><p>What assumptions are these functions making?</p></li>
+<li><p>Are there any additional inputs/options we need to specify to make sure that they duplicate our results above?</p></li>
+<li><p>Which of these functions (or both, or neither) are appropriate for the example here?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># using x as the test group</span>
+
+<span class="c1"># use the scipy.stats.mannwhitneyu function to compute U, and p</span>
+<span class="n">U_mannwhitney</span><span class="p">,</span> <span class="n">p_mannwhitney</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">use_continuity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;greater&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic (from scipy.stats.mannwhitneyu), U = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">U_mannwhitney</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-value (from scipy.stats.mannwhitneyu), p = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">p_mannwhitney</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+
+<span class="c1"># this also provides us with a p-value, which we can use to look up the Z statistic</span>
+<span class="n">z_mannwhitney</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_mannwhitney</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Z from looking up (1-P): </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">z_mannwhitney</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic (from scipy.stats.mannwhitneyu), U = 88.0
+p-value (from scipy.stats.mannwhitneyu), p = 0.0023
+Z from looking up (1-P): 2.8347
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># using y as the test group</span>
+
+<span class="c1"># use the scipy.stats.mannwhitneyu function to compute U, and p</span>
+<span class="n">U_mannwhitney</span><span class="p">,</span> <span class="n">p_mannwhitney</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">use_continuity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;less&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test statistic (from scipy.stats.mannwhitneyu), U = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">U_mannwhitney</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;p-value (from scipy.stats.mannwhitneyu), p = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">p_mannwhitney</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+
+<span class="c1"># this also provides us with a p-value, which we can use to look up the Z statistic</span>
+<span class="n">z_mannwhitney</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p_mannwhitney</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Z from looking up (1-P): </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">z_mannwhitney</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test statistic (from scipy.stats.mannwhitneyu), U = 12.0
+p-value (from scipy.stats.mannwhitneyu), p = 0.0023
+Z from looking up (1-P): 2.8347
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-test">Sign Test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sign-test-example">Sign Test Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-sum-test">Rank-Sum Test</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performing-the-rank-sum-test">Performing the rank-sum test</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-sum-test-example">Rank-Sum Test Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#alternate-example">Alternate example:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#investigating-python-functions">Investigating python functions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
