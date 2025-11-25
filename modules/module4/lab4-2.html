@@ -1,0 +1,988 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 4-2: Quantile Regression</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module4/lab4-2';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 4-3: Confidence Intervals" href="lab4-3.html" />
+    <link rel="prev" title="Lab 4-1: Linear regression" href="lab4-1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module1/module1.html">1) Python, Statistics Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-2.html">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module1/homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="module4.html">4) Trend Analysis, Regression</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module7/module7.html">7) Markov Chains</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-1.html">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-3.html">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module7/mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/some-python-tips.html">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/modules/module4/lab4-2.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Fmodules/module4/lab4-2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module4/lab4-2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 4-2: Quantile Regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-quantile-regression">Why quantile regression?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-create-a-quantile-regression-model">Steps to create a quantile regression model:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplly-to-full-dataset">Aplly to full dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-you-should-not-do-statistics-in-the-absense-of-physically-based-science-from-professor-jessica-lundquist">Why you should not do statistics in the absense of physically-based science (from Professor Jessica Lundquist)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-4-2-quantile-regression">
+<h1>Lab 4-2: Quantile Regression<a class="headerlink" href="#lab-4-2-quantile-regression" title="Link to this heading">#</a></h1>
+<section id="why-quantile-regression">
+<h2>Why quantile regression?<a class="headerlink" href="#why-quantile-regression" title="Link to this heading">#</a></h2>
+<p>What if we think that the rank order of values is basically the same in two datasets, but we don’t know if they’re linearly related. We can use a quantile regression to model a relationship between two variables without needing to assume anything about the function of that relationship (linear, or otherwise).</p>
+<hr class="docutils" />
+<p>In this example we’re again considering <a class="reference external" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833">SWE</a> measurements from two sites in California’s Sierra Nevada, and want to evaluate the question:</p>
+<p><strong>Quantile regression</strong>: Could we use SWE measurements at Slide Canyon to predict SWE at Blue Canyon?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># we will aslo need this 1d interpolation function</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">interp1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in a .csv file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/pillows_example_2024.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>years</th>
+      <th>BLC_max</th>
+      <th>SLI_max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>30</th>
+      <td>2020</td>
+      <td>355</td>
+      <td>666</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>2021</td>
+      <td>340</td>
+      <td>683</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>2022</td>
+      <td>441</td>
+      <td>646</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>2023</td>
+      <td>1082</td>
+      <td>2185</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>2024</td>
+      <td>395</td>
+      <td>894</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Plot SWE for both sites to take a look at the data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Timeline of Peak Snow Water Equivalent (SWE)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Water Year&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Peak SWE (mm)&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd628403190&gt;
+</pre></div>
+</div>
+<img alt="../../_images/aa7ba00f6c421d0f5e76aee9a5af9892e48609fba260beea437544da9c7124ab.png" src="../../_images/aa7ba00f6c421d0f5e76aee9a5af9892e48609fba260beea437544da9c7124ab.png" />
+</div>
+</div>
+</section>
+<section id="steps-to-create-a-quantile-regression-model">
+<h2>Steps to create a quantile regression model:<a class="headerlink" href="#steps-to-create-a-quantile-regression-model" title="Link to this heading">#</a></h2>
+<p><strong>1)</strong> For each of your two datasets, create an empirical CDF</p>
+<p>We can do this with a custom function like the <code class="docutils literal notranslate"><span class="pre">cunnane_quantile_array()</span></code> function below, which gives us quantile values given an array of numbers.</p>
+<p>However, in this case, we want to be able to “look up” any quantile value (even those that lie between data points). For this, we can use <code class="docutils literal notranslate"><span class="pre">scipy.stats.mstats.mquantiles()</span></code> instead.</p>
+<p>Review the documentation for <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mstats.mquantiles.html">scipy.stats.mstats.mquantiles</a>, recall that the default options give us the Cunnane plotting position. Note how the function handles quantiles as they approach 0 or 1 at the lowest and highest end of our values. How many (quantile) values should we use in the input to this function to create an empirical CDF?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This function should be able to accept any one-dimensional numpy array or list, of numbers</span>
+<span class="c1"># It returns two numpy arrays, one of the sorted numbers, the other of the plotting position</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cunnane_quantile_array</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;This function also computes the Cunnane plotting position given an array or list of numbers (rather than a pandas dataframe).</span>
+<span class="sd">    It has two outputs, first the sorted numbers, second the Cunnane plotting position for each of those numbers.</span>
+<span class="sd">    [Steven Pestana, spestana@uw.edu, Oct. 2020]&#39;&#39;&#39;</span>
+    
+    <span class="c1"># 1) sort the data, using the numpy sort function (np.sort())</span>
+    <span class="n">sorted_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+    
+    <span class="c1"># length of the list of numbers</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_numbers</span><span class="p">)</span> 
+    
+    <span class="c1"># make an empty array, of the same length. below we will add the plotting position values to this array</span>
+    <span class="n">cunnane_plotting_position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+    <span class="c1"># 2) compute the Cunnane plotting position for each number, using a for loop and the enumerate function</span>
+    <span class="k">for</span> <span class="n">rank</span><span class="p">,</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorted_numbers</span><span class="p">):</span>
+        <span class="n">cunnane_plotting_position</span><span class="p">[</span><span class="n">rank</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span><span class="n">rank</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">n</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">sorted_numbers</span><span class="p">,</span> <span class="n">cunnane_plotting_position</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can create both types of quantile plots and look at them together. When building the quantile regression model, we’ll use both.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Here we use the actual values from the dataset to create the plots</span>
+<span class="n">BLC_ordered</span><span class="p">,</span> <span class="n">BLC_quantile</span> <span class="o">=</span> <span class="n">cunnane_quantile_array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">])</span>
+<span class="n">SLI_ordered</span><span class="p">,</span> <span class="n">SLI_quantile</span> <span class="o">=</span> <span class="n">cunnane_quantile_array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">BLC_ordered</span><span class="p">,</span> <span class="n">BLC_quantile</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Quantile Plot from observed values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">SLI_ordered</span><span class="p">,</span> <span class="n">SLI_quantile</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon Quantile Plot from observed values&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># We can also create these by picking arbitrary quantile values, then using the scipy.stats.mstats.mquantiles function</span>
+<span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># 100 quantile values linearly spaced between 0 and 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">],</span> <span class="n">quantiles</span><span class="p">),</span> <span class="n">quantiles</span><span class="p">,</span> 
+         <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Quantile Plot from interpolated probabilities&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">],</span> <span class="n">quantiles</span><span class="p">),</span> <span class="n">quantiles</span><span class="p">,</span> 
+         <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon Quantile Plot from interpolated probabilities&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Quantile&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Peak SWE (mm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2500</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Quantiles of SWE data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/022e72334fc781f5d30cc5425a8c9e78db88d9757ac40354fb3be8f8fb6ff93e.png" src="../../_images/022e72334fc781f5d30cc5425a8c9e78db88d9757ac40354fb3be8f8fb6ff93e.png" />
+</div>
+</div>
+<p><strong>2)</strong> Use the two empirical CDFs as a way of looking-up (or mapping) values from the predictor to the predictand, by matching which physical value corresponds to the same quantile.</p>
+<p>The example below does this with one data point, where we start with a value of SWE at Slide Canyon, look up its quantile, then find the corresponding SWE value at Blue Canyon.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is our empirical cdf of the Slide Canyon data, which also includes values down to 0 and up to 1.</span>
+<span class="n">SLI_quantile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">SLI_ordered</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">],</span> <span class="n">SLI_quantile</span><span class="p">)</span>
+
+<span class="c1"># When Slide Canyon has SWE equal to it&#39;s median, how much snow can we expect at Blue Canyon?</span>
+<span class="n">SLI_test</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+
+<span class="c1"># Create a linear interpolation object based on these values (this lets us look up any value, x, and get back the y value)</span>
+<span class="n">f_SLI</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">SLI_ordered</span><span class="p">,</span> <span class="n">SLI_quantile</span><span class="p">)</span>
+<span class="n">SLI_test_quantile</span> <span class="o">=</span> <span class="n">f_SLI</span><span class="p">(</span><span class="n">SLI_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;In the empirical Slide Canyon CDF, a value of </span><span class="si">{}</span><span class="s1"> mm SWE (the median) corresponds to a quantile of </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLI_test</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">SLI_test_quantile</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In the empirical Slide Canyon CDF, a value of 1023.0 mm SWE (the median) corresponds to a quantile of 0.5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize this in a plot</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># We can also create these by picking arbitrary quantile values, then using the scipy.stats.mstats.mquantiles function</span>
+<span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># 100 quantile values linearly spaced between 0 and 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">],</span> <span class="n">quantiles</span><span class="p">),</span> <span class="n">quantiles</span><span class="p">,</span> 
+         <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Quantile Plot from interpolated probabilities&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">],</span> <span class="n">quantiles</span><span class="p">),</span> <span class="n">quantiles</span><span class="p">,</span> 
+         <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon Quantile Plot from interpolated probabilities&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Plot the test point value</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">SLI_test</span><span class="p">,</span><span class="n">SLI_test_quantile</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SLI_test (</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLI_test</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">SLI_test_quantile</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="c1"># Plot a line from the x-axis to the test point</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">SLI_test</span><span class="p">,</span> <span class="n">SLI_test</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">SLI_test_quantile</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="c1"># Plot a line from the test point to the y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">SLI_test</span><span class="p">],</span> <span class="p">[</span><span class="n">SLI_test_quantile</span><span class="p">,</span> <span class="n">SLI_test_quantile</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Quantile&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Peak SWE (mm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2500</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Quantiles of SWE data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5c7f05181ea5bbe11ed2f31d3e77b3fbeea1c6b9639f317ee948651d22ca35d5.png" src="../../_images/5c7f05181ea5bbe11ed2f31d3e77b3fbeea1c6b9639f317ee948651d22ca35d5.png" />
+</div>
+</div>
+<p>We see that our test value corresponds to the median value at Slide Canyon, quantile value 0.5.</p>
+<p>(Yes, you would hope so, since I defined it as the median to begin with, but it’s always best practice to start coding with a situation where you know the right answer.)</p>
+<p>Now, we need to take this Slide Canyon quantile value (0.5) and find the Blue Canyon SWE value that corresponds to its same quantile value (finding the Blue Canyon median in this case).</p>
+<p>We first need to create an interpolation object that lets us translate from Blue Canyon quantile values to Blue Canyon SWE values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is our empirical cdf of the Blue Canyon data, which also includes values down to 0 and up to 1.</span>
+<span class="n">BLC_quantile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">BLC_ordered</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">],</span> <span class="n">BLC_quantile</span><span class="p">)</span>
+
+<span class="c1"># Create a linear interpolation object based on these values (this lets us look up any value, y, and get back the x value) </span>
+<span class="c1"># *note we&#39;ve reversed the order of quantiles and SWE compared the the first interpolation object we created</span>
+<span class="n">g_BLC</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">BLC_quantile</span><span class="p">,</span> <span class="n">BLC_ordered</span><span class="p">)</span>
+
+<span class="c1"># So if we look up a quantile value in our function g_BLC()</span>
+<span class="n">BLC_test</span> <span class="o">=</span> <span class="n">g_BLC</span><span class="p">(</span><span class="n">SLI_test_quantile</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;In the empirical Blue Canyon CDF, a quantile of </span><span class="si">{}</span><span class="s1"> corresponds to a SWE value of </span><span class="si">{}</span><span class="s1"> mm SWE (the median)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">SLI_test_quantile</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">BLC_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In the empirical Blue Canyon CDF, a quantile of 0.5 corresponds to a SWE value of 337.9733333333333 mm SWE (the median)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Visualize the complete problem:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># We can also create these by picking arbitrary quantile values, then using the scipy.stats.mstats.mquantiles function</span>
+<span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># 100 quantile values linearly spaced between 0 and 1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">],</span> <span class="n">quantiles</span><span class="p">),</span> <span class="n">quantiles</span><span class="p">,</span> 
+         <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Quantile Plot from interpolated probabilities&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">],</span> <span class="n">quantiles</span><span class="p">),</span> <span class="n">quantiles</span><span class="p">,</span> 
+         <span class="s1">&#39;r.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon Quantile Plot from interpolated probabilities&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># Plot the Slide Canyon test point value</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">SLI_test</span><span class="p">,</span><span class="n">SLI_test_quantile</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;SLI_test (</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">SLI_test</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">SLI_test_quantile</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="c1"># Plot a line from the x-axis to the test point</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">SLI_test</span><span class="p">,</span> <span class="n">SLI_test</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">SLI_test_quantile</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="c1"># Plot a line from the test point to the y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">SLI_test</span><span class="p">],</span> <span class="p">[</span><span class="n">SLI_test_quantile</span><span class="p">,</span> <span class="n">SLI_test_quantile</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the Blue Canyon test point value</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">BLC_test</span><span class="p">,</span><span class="n">SLI_test_quantile</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;BLC_test (</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">BLC_test</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">SLI_test_quantile</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="c1"># Plot a line from the test point to the x-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">BLC_test</span><span class="p">,</span> <span class="n">BLC_test</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">SLI_test_quantile</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Quantile&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Peak SWE (mm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">2500</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Quantiles of SWE data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/64965f9d28985cf24ca3142422368bd8b3cc5fd45ad179c88e9437d390a728f2.png" src="../../_images/64965f9d28985cf24ca3142422368bd8b3cc5fd45ad179c88e9437d390a728f2.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="aplly-to-full-dataset">
+<h2>Aplly to full dataset<a class="headerlink" href="#aplly-to-full-dataset" title="Link to this heading">#</a></h2>
+<p>Now that we’ve walked through a single-point example, we can apply these steps efficiently to the whole dataset, starting from the beginning:</p>
+<ol class="arabic simple">
+<li><p>Create empirical CDFs for both data sets</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># This is our empirical cdf of the Slide Canyon data, which also includes values down to 0 and up to 1.</span>
+<span class="n">SLI_ordered</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">],</span> <span class="n">quantiles</span><span class="p">)</span>
+
+<span class="c1"># This is our empirical cdf of the Blue Canyon data, which also includes values down to 0 and up to 1.</span>
+<span class="n">BLC_ordered</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">],</span> <span class="n">quantiles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Use the CDFs to “look up” SWE from Slide Canyon to predict SWE in Blue Canyon</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create our interpolation function for looking up a quantile given a value of SWE at Slide Canyon</span>
+<span class="n">f_SLI</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">SLI_ordered</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">)</span>
+<span class="c1"># Create our interpolation function for looking up SWE at Blue Canyon given a quantile</span>
+<span class="n">g_BLC</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">quantiles</span><span class="p">,</span> <span class="n">BLC_ordered</span><span class="p">)</span>
+
+<span class="c1"># Now, we can create a prediction for every value in the Slide Canyon dataset to come up with a matching prediction for the Blue Canyon dataset</span>
+<span class="n">BLC_predicted</span><span class="o">=</span><span class="n">g_BLC</span><span class="p">(</span> <span class="n">f_SLI</span><span class="p">(</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot the results:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># And we can see how well this did by making a time series plot of our actual and predicted values</span>
+<span class="c1"># Original data:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;years&#39;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">],</span><span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon Observed&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;years&#39;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">],</span><span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Observed&#39;</span><span class="p">);</span>
+
+<span class="c1"># Predicted with linear regression between Slide Canyon and Blue Canyon</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;years&#39;</span><span class="p">],</span><span class="n">BLC_predicted</span><span class="p">,</span><span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Predicted from Quantile Regression&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Timeline of Peak Snow Water Equivalent (SWE)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Water Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Peak SWE (mm)&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c31424bc510bf92024fdb055845e5bd2b4a87e7d7bcbd952f3965ad2be67c83f.png" src="../../_images/c31424bc510bf92024fdb055845e5bd2b4a87e7d7bcbd952f3965ad2be67c83f.png" />
+</div>
+</div>
+<p>Compare the results of the quantile regression with the results of the linear regression in the previous lab.</p>
+<p>Which do you think is the best approach here and why?</p>
+<section id="why-you-should-not-do-statistics-in-the-absense-of-physically-based-science-from-professor-jessica-lundquist">
+<h3>Why you should not do statistics in the absense of physically-based science (from Professor Jessica Lundquist)<a class="headerlink" href="#why-you-should-not-do-statistics-in-the-absense-of-physically-based-science-from-professor-jessica-lundquist" title="Link to this heading">#</a></h3>
+<p>What you see above is that the quantile mapping forces the rank order of the predicted timeseries to match the rank order of the prectictor time series.  In this particular case, that isn’t always the best idea.  Blue Canyon is at a much lower elevation, and in warmer winters, Blue Canyon will get rain at times when Slide Canyon gets snow.  In those years, any attempt at correlation falls apart.  Thus, we would want to add a predictor variable that had something about temperature or rain vs snow (which hasn’t yet been provided in these examples).</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab4-1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 4-1: Linear regression</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab4-3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 4-3: Confidence Intervals</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-quantile-regression">Why quantile regression?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-to-create-a-quantile-regression-model">Steps to create a quantile regression model:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aplly-to-full-dataset">Aplly to full dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-you-should-not-do-statistics-in-the-absense-of-physically-based-science-from-professor-jessica-lundquist">Why you should not do statistics in the absense of physically-based science (from Professor Jessica Lundquist)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

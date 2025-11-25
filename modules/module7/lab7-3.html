@@ -1,0 +1,1828 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 7-3: MCMC Rating Curves</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module7/lab7-3';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Markov Chain Monte Carlo Example" href="mcmc-example.html" />
+    <link rel="prev" title="Lab 7-2: Markov Chains - ENSO Phases" href="lab7-2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module1/module1.html">1) Python, Statistics Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-2.html">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module1/homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Trend Analysis, Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-2.html">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="module7.html">7) Markov Chains</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lab7-1.html">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/some-python-tips.html">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/modules/module7/lab7-3.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Fmodules/module7/lab7-3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module7/lab7-3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 7-3: MCMC Rating Curves</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 7-3: MCMC Rating Curves</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-in-the-provided-data">Load in the provided data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-rating-curves">Calculating rating curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-linear-regression-of-transformed-variables">PART 1: Linear Regression of Transformed Variables:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#work-on-your-own">Work on your own</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-brute-force-parameter-estimation">Part 2: Brute force parameter estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-plots-to-see-what-this-did">Make some plots to see what this did</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and-then-plot-this-as-rating-curves-to-see-how-our-different-parameter-choices-impact-the-spread-c-in-estimated-discharge-as-a-function-of-h">And then plot this as rating curves to see how our different parameter choices impact the spread c in estimated discharge as a function of h</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#now-say-we-ony-want-to-sort-those-realizations-according-to-rmse-clearly-some-curves-are-better-than-others">Now say we ony want to sort those realizations according to RMSE.  (Clearly some curves are better than others)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-use-mcmc-to-sample-the-parameter-space">PART 2:  Use MCMC to sample the parameter space.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-plots-to-see-what-s-going-on">Make some plots to see what’s going on</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-pdfs">Make some PDFs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-95-confidence-intervals-for-the-predicted-q">What are the 95% confidence intervals for the predicted Q</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-7-3-mcmc-rating-curves">
+<h1>Lab 7-3: MCMC Rating Curves<a class="headerlink" href="#lab-7-3-mcmc-rating-curves" title="Link to this heading">#</a></h1>
+<p>(Steven Pestana, 2019 | Derived from CEE599_bayesian_rating_curves_Lab6_v2.m by Jessica Lundquist)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">st</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sio</span> 
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="load-in-the-provided-data">
+<h2>Load in the provided data:<a class="headerlink" href="#load-in-the-provided-data" title="Link to this heading">#</a></h2>
+<p>We’re provided data in a .mat format (MATLAB’s data file format). The <code class="docutils literal notranslate"><span class="pre">scipy.io</span></code> library has a function that allows us to read these types of files. Take a look at its documentation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sio.loadmat<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now load the Lyell canyon streamflow data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s1">&#39;../data/Lyell_h_Q_sorted.mat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What kind of data structure is our data in?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a dictionary. <a class="reference external" href="https://docs.python.org/3.8/tutorial/datastructures.html#dictionaries">Read more about python dictionaries here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># See what our data looks like in a dictionary data structure</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;__header__&#39;: b&#39;MATLAB 5.0 MAT-file, Platform: MACI64, Created on: Tue Nov  3 14:17:54 2015&#39;,
+ &#39;__version__&#39;: &#39;1.0&#39;,
+ &#39;__globals__&#39;: [],
+ &#39;h1&#39;: array([[0.1805],
+        [0.2197],
+        [0.2406],
+        [0.2407],
+        [0.2565],
+        [0.2822],
+        [0.285 ],
+        [0.2904],
+        [0.2907],
+        [0.2907],
+        [0.2925],
+        [0.3066],
+        [0.3185],
+        [0.3227],
+        [0.3405],
+        [0.3492],
+        [0.3648],
+        [0.3668],
+        [0.3757],
+        [0.3781],
+        [0.3814],
+        [0.383 ],
+        [0.3913],
+        [0.3913],
+        [0.4006],
+        [0.408 ],
+        [0.4319],
+        [0.4957],
+        [0.4982],
+        [0.5227],
+        [0.5325],
+        [0.5391],
+        [0.5427],
+        [0.5638],
+        [0.571 ],
+        [0.573 ],
+        [0.6096],
+        [0.6144],
+        [0.6358],
+        [0.6372],
+        [0.6437],
+        [0.644 ],
+        [0.673 ],
+        [0.6753],
+        [0.6757],
+        [0.6825],
+        [0.6873],
+        [0.696 ],
+        [0.696 ],
+        [0.7061],
+        [0.712 ],
+        [0.724 ],
+        [0.7369],
+        [0.7443],
+        [0.745 ],
+        [0.7657],
+        [0.784 ],
+        [0.7868],
+        [0.8142],
+        [0.8214],
+        [0.836 ],
+        [0.8497],
+        [0.8515],
+        [0.9354],
+        [0.9485],
+        [0.9491],
+        [0.9503],
+        [0.967 ],
+        [0.9681],
+        [0.9752],
+        [0.9849],
+        [0.989 ],
+        [0.994 ],
+        [1.0806],
+        [1.1074],
+        [1.109 ],
+        [1.109 ],
+        [1.1134],
+        [1.1281]]),
+ &#39;Qobs1&#39;: array([[ 0.07785993],
+        [ 0.07191426],
+        [ 0.14382852],
+        [ 0.16817745],
+        [ 0.24348923],
+        [ 0.39043215],
+        [ 0.24745301],
+        [ 0.60957246],
+        [ 0.25481431],
+        [ 0.89864514],
+        [ 0.30351216],
+        [ 0.9946252 ],
+        [ 0.42780492],
+        [ 0.4360156 ],
+        [ 0.48131592],
+        [ 0.65911969],
+        [ 0.84938104],
+        [ 1.33494387],
+        [ 0.93431915],
+        [ 0.70498626],
+        [ 0.92242781],
+        [ 0.86268801],
+        [ 1.10900851],
+        [ 1.10900851],
+        [ 1.07078637],
+        [ 1.03624487],
+        [ 1.27831847],
+        [ 1.83381367],
+        [ 2.33891226],
+        [ 2.46971694],
+        [ 2.52973987],
+        [ 2.62515367],
+        [ 1.44281526],
+        [ 1.46404979],
+        [ 3.37544026],
+        [ 3.04219977],
+        [ 4.94509643],
+        [ 4.69990843],
+        [ 4.39214937],
+        [ 4.94509643],
+        [ 5.63422758],
+        [ 4.69990843],
+        [ 5.69878054],
+        [ 5.80778444],
+        [ 5.36214252],
+        [ 5.62516752],
+        [ 6.07647198],
+        [ 7.16311346],
+        [ 7.41792777],
+        [ 6.2800403 ],
+        [ 6.69765265],
+        [ 6.72568222],
+        [ 7.38621754],
+        [ 7.01022487],
+        [ 7.62432736],
+        [ 8.47229277],
+        [ 9.11668985],
+        [ 8.89613391],
+        [ 9.73985241],
+        [10.35338865],
+        [10.05015962],
+        [10.87236047],
+        [11.07026625],
+        [15.00573175],
+        [15.68523658],
+        [15.00573175],
+        [15.82680009],
+        [15.82680009],
+        [15.82680009],
+        [16.84605734],
+        [15.74186198],
+        [17.17165341],
+        [16.84605734],
+        [20.80983554],
+        [20.80983554],
+        [21.65921658],
+        [21.74415468],
+        [21.74415468],
+        [21.57427847]]),
+ &#39;date_of_obs&#39;: array([[array([&#39;9/26/08 16:30&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/19/08 0:02&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;9/10/08 21:35&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/10/10 17:52&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/20/07 18:22&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/12/06 19:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/13/07 18:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/13/12 21:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/5/12 18:57&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;9/5/12 18:25&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;9/6/07 21:50&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;3/25/14 17:43&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;9/5/07 21:11&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;8/22/07 23:03&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/2/07 22:05&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;8/4/08 22:44&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;7/30/07 22:05&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/24/06 23:40&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/16/07 20:25&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/29/13 22:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/28/08 19:07&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/10/10 18:50&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/25/07 23:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/25/07 23:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/25/08 20:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;8/4/09 15:45&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;8/4/10 18:44&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/16/14 18:29&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/11/08 18:44&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/27/10 22:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/29/08 22:40&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/8/14 20:47&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;5/28/08 21:43&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/14/09 18:36&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/22/10 17:34&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/15/08 18:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/31/07 17:05&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/31/07 16:28&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/15/09 15:39&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/30/07 17:48&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/26/06 17:38&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/30/07 17:02&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/26/08 16:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/09 20:47&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/17/09 20:47&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/5/08 21:30&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/2/08 17:12&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;7/24/06 16:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/24/06 16:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/28/14 20:21&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/26/08 3:30&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/9/08 20:45&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/12/08 0:10&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;7/9/10 18:20&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/17/08 16:15&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/4/08 15:53&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/15/06 19:12&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/10/08 17:29&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/14/09 21:11&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;7/31/11 18:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/26/09 18:00&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/20/09 19:10&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/21/08 21:30&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/27/06 17:29&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/20/06 22:13&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/27/06 16:44&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/06 17:20&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/06 16:30&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/06 16:26&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/22/06 17:57&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;5/20/08 23:40&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/29/10 16:30&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/22/06 17:06&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/27/06 0:24&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/27/06 1:28&#39;], dtype=&#39;&lt;U12&#39;)],
+        [array([&#39;6/28/06 21:35&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/28/06 21:35&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/28/06 21:57&#39;], dtype=&#39;&lt;U13&#39;)],
+        [array([&#39;6/21/06 3:47&#39;], dtype=&#39;&lt;U12&#39;)]], dtype=object)}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inspect the dictionary keys</span>
+<span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;__header__&#39;, &#39;__version__&#39;, &#39;__globals__&#39;, &#39;h1&#39;, &#39;Qobs1&#39;, &#39;date_of_obs&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can convert this dictionary into a pandas dataframe and select only the columns of data that we want (ignoring the file metadata):
+(Even though we know, that in cases outside of the classroom, people only ignore metadata at their own peril.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;date_of_obs&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;h1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Qobs1&#39;</span><span class="p">])),</span>
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date_of_obs&#39;</span><span class="p">,</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="s1">&#39;Qobs1&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date_of_obs</th>
+      <th>h1</th>
+      <th>Qobs1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[9/26/08 16:30]</td>
+      <td>0.1805</td>
+      <td>0.07786</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[9/19/08 0:02]</td>
+      <td>0.2197</td>
+      <td>0.071914</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[9/10/08 21:35]</td>
+      <td>0.2406</td>
+      <td>0.143829</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[9/10/10 17:52]</td>
+      <td>0.2407</td>
+      <td>0.168177</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[8/20/07 18:22]</td>
+      <td>0.2565</td>
+      <td>0.243489</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>And make sure our <code class="docutils literal notranslate"><span class="pre">date_of_obs</span></code> is being interpreted as a datetime correctly (see documentation <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html">here</a> and <a class="reference external" href="http://strftime.org/">here</a>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date_of_obs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">dt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%y %H:%M&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;date_of_obs&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date_of_obs</th>
+      <th>h1</th>
+      <th>Qobs1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2008-09-26 16:30:00</td>
+      <td>0.1805</td>
+      <td>0.07786</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2008-09-19 00:02:00</td>
+      <td>0.2197</td>
+      <td>0.071914</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2008-09-10 21:35:00</td>
+      <td>0.2406</td>
+      <td>0.143829</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2010-09-10 17:52:00</td>
+      <td>0.2407</td>
+      <td>0.168177</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2007-08-20 18:22:00</td>
+      <td>0.2565</td>
+      <td>0.243489</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="calculating-rating-curves">
+<h2>Calculating rating curves<a class="headerlink" href="#calculating-rating-curves" title="Link to this heading">#</a></h2>
+<p>At stream gauges all over the world, we measure a timeseries of water height at a fixed point, and we generally develop an empirical rating curve to determine discharge, which is volume of flow per unit time, in units of of <span class="math notranslate nohighlight">\(m^3/s\)</span> (cubic meters per second or cms) or <span class="math notranslate nohighlight">\(ft^3/s\)</span> (cubic feet per second of cfs).</p>
+<p>In developing this rating curve, we are trying to solve for a, b, and c in the equation
+<span class="math notranslate nohighlight">\(Q = a(h-b)^c\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, let&#39;s plot all of the data we just read in.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stage (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;discharge (cms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">h1</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">Qobs1</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f967c228490&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/21543acdee288dedad543b2bd7504030530904294871f8c219c99c0fba12e945.png" src="../../_images/21543acdee288dedad543b2bd7504030530904294871f8c219c99c0fba12e945.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#And plot the log transform of both variables</span>
+<span class="n">loght</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">h1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">))</span>
+<span class="n">logQ</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Qobs1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(stage (m))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log(discharge (cms))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loght</span><span class="p">,</span><span class="n">logQ</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f967c23d8d0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/cefe49641d04960619186fb69a27883904eb44524ad10933a37376634b23fcae.png" src="../../_images/cefe49641d04960619186fb69a27883904eb44524ad10933a37376634b23fcae.png" />
+</div>
+</div>
+</section>
+<section id="inspect-the-data">
+<h2>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h2>
+<p>You can see above that even with a log transform, the data do not fall on a straight line.  If I squint at the graph above, I can imagine two lines through this data, with a break about midway through the data.</p>
+<p>At this point, it’s a good idea to look at your field site and see what physical evidence there is that the rating curve might have a break point.</p>
+<p><img alt="Lyell Fork Tuolumne Plot" src="../../_images/LyellFork_Tuolumne_flowcontrol.png" /></p>
+<p>You can see from the photo above (and from the lecture notes), that at certain flow levels, this river stretch switches from being channel controlled to having a bedrock control, like a weir.  From Open Channel Flow class (and from the lecture notes), we know that this changes the exponent in the stage-discharge equation, which would change the slope of our line here.</p>
+<p>For simplicity, we will consider only the upper end of the rating curve, focusing on flows that are high enough to not be influenced by the pictured bedrock control.</p>
+<hr class="docutils" />
+</section>
+<section id="part-1-linear-regression-of-transformed-variables">
+<h2>PART 1: Linear Regression of Transformed Variables:<a class="headerlink" href="#part-1-linear-regression-of-transformed-variables" title="Link to this heading">#</a></h2>
+<p>As illustrated above, due to the nature of our channel, we would need to separate our variables and fit two lines to it.  For simplicity, we will focus here on the upper portion of the rating curve, looking only at higher flows.  Based on work by CEE M.S. student Gwyn Perry, the transition between the two slopes is about 0.54.  I also want to ignore two outlier measurements right around this transition, so I choose to look at data above a stage height of 0.59.  You can change this cut-off value and see how it changes the results.  Ideally, we would have a survey of the location that identifies the exact stage when the bedrock control becomes dominant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a level where the transition occurs, where you need different rating curve coefficients.</span>
+<span class="n">h11</span> <span class="o">=</span> <span class="mf">0.59</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we identify the rows in our data frame that correspond to flows with h1 &gt; h11, these correspond to data above the change in channel control.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Qobs_now</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Qobs1</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">h1</span> <span class="o">&gt;</span> <span class="n">h11</span><span class="p">]</span>
+<span class="n">h_now</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">h1</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">h1</span> <span class="o">&gt;</span> <span class="n">h11</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In developing this rating curve, we are trying to solve for a, b, and c in the equation
+<span class="math notranslate nohighlight">\(Q = a(h-b)^c\)</span></p>
+<p>When we take the log of both sides, we get
+<span class="math notranslate nohighlight">\(log(Q) = log(a) + c*log(h-b)\)</span>
+Note that we can use linear regression to solve for <span class="math notranslate nohighlight">\(log(a)\)</span> – this would be <span class="math notranslate nohighlight">\(B0\)</span> in earlier code – and for <span class="math notranslate nohighlight">\(c\)</span> – this would be <span class="math notranslate nohighlight">\(B1\)</span> in earlier code.  Note that we cannot directly solve for <span class="math notranslate nohighlight">\(b\)</span>.  We have to guess <span class="math notranslate nohighlight">\(b\)</span> (based on observations in the field or an iterative technique).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># based on field measurements, we know b must be between 10 and 50 cm, </span>
+<span class="c1"># which is the same as 0.1 to 0.5 meters.  </span>
+<span class="c1"># We start with a guess.</span>
+<span class="n">b</span><span class="o">=</span><span class="mf">0.28</span>
+<span class="c1"># and we subtract this value off of the measured stream height</span>
+<span class="n">hobs_minusb</span><span class="o">=</span><span class="n">h_now</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hobs_minusb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>36    0.3296
+37    0.3344
+38    0.3558
+39    0.3572
+40    0.3637
+41     0.364
+42     0.393
+43    0.3953
+44    0.3957
+45    0.4025
+46    0.4073
+47     0.416
+48     0.416
+49    0.4261
+50     0.432
+51     0.444
+52    0.4569
+53    0.4643
+54     0.465
+55    0.4857
+56     0.504
+57    0.5068
+58    0.5342
+59    0.5414
+60     0.556
+61    0.5697
+62    0.5715
+63    0.6554
+64    0.6685
+65    0.6691
+66    0.6703
+67     0.687
+68    0.6881
+69    0.6952
+70    0.7049
+71     0.709
+72     0.714
+73    0.8006
+74    0.8274
+75     0.829
+76     0.829
+77    0.8334
+78    0.8481
+Name: h1, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#And plot the log transform of both variables</span>
+<span class="n">loght</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">hobs_minusb</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">))</span>
+<span class="c1"># note that the above is taking the log of the observed values minus b</span>
+<span class="n">logQ</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Qobs_now</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(stage - b (m))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log(discharge (cms))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loght</span><span class="p">,</span><span class="n">logQ</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f967bd6d950&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/6a6a73a787a9dcb57d3db053c6094618fbb89a9d2f16214e8d7116078e797f63.png" src="../../_images/6a6a73a787a9dcb57d3db053c6094618fbb89a9d2f16214e8d7116078e797f63.png" />
+</div>
+</div>
+<p>With linear regression, we can only solve for two of the three unknowns in our rating curve equation:
+<span class="math notranslate nohighlight">\(Q = a(h-b)^c\)</span>
+which we have log transformed to be
+<span class="math notranslate nohighlight">\(log(Q) = log(a) + c*log(h-b)\)</span></p>
+<p>First, we will assume that b is 0.28 m, as we entered above.   In practice, this is often estimated from field surveys as the maximum height of water in the measuring pool when flow stops.  Often, this is not known precisely, so the homework will evaluate the uncertainty in this parameter.</p>
+<p>We then use the same code from basic linear regresssion (Lab 4.3), where our calculated slope will be c, and our calculated intercept will be log(a).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">loght</span>
+<span class="c1"># Note that our x value here includes the log of our measured stage minus b (see above)</span>
+<span class="n">y</span><span class="o">=</span><span class="n">logQ</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">B1</span> <span class="o">=</span> <span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="c1"># B1 parameter, slope</span>
+<span class="n">B0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">B1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># B0 parameter, y-intercept</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B0 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">B0</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B1 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B0 : 3.4077
+B1 : 1.7662
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just to clarify what we have here.  <span class="math notranslate nohighlight">\(B0 = log(a)\)</span> and <span class="math notranslate nohighlight">\(B1 = c\)</span> and <span class="math notranslate nohighlight">\(x = log(h-b)\)</span>.  If we want to revert to our original equation, we solve for <span class="math notranslate nohighlight">\(a = exp(B0)\)</span> and <span class="math notranslate nohighlight">\(c = B1\)</span> and <span class="math notranslate nohighlight">\(h = exp(x) + b\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now, how do we find 95% confidence intervals?  We do this for our estimates of logQ</span>
+<span class="c1"># Again, borrowing from Lab 4.3</span>
+<span class="n">y_predicted</span> <span class="o">=</span> <span class="n">B0</span> <span class="o">+</span> <span class="n">B1</span><span class="o">*</span><span class="n">x</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_predicted</span><span class="p">)</span>
+<span class="c1"># sum of squared errors</span>
+<span class="n">sse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">residuals</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># standard error of regression</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sse</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># create an array of x values</span>
+<span class="n">p_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># using our model parameters to predict y values</span>
+<span class="n">p_y</span> <span class="o">=</span> <span class="n">B0</span> <span class="o">+</span> <span class="n">B1</span><span class="o">*</span><span class="n">p_x</span>
+
+<span class="c1"># calculate the standard error of the predictions</span>
+<span class="n">sigma_ep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">s</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">n</span> <span class="o">+</span> <span class="p">(</span> <span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">p_x</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># our chosen alpha</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="c1"># compute our degrees of freedom with the length of the predicted dataset</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">p_x</span><span class="p">)</span>
+<span class="n">dof</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">2</span>
+
+<span class="c1"># get the t-value for our alpha and degrees of freedom</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">dof</span><span class="p">)</span>
+
+<span class="c1"># compute the upper and lower limits at each of the p_x values</span>
+<span class="n">p_y_lower</span> <span class="o">=</span> <span class="n">p_y</span> <span class="o">-</span> <span class="n">t</span> <span class="o">*</span> <span class="n">sigma_ep</span>
+<span class="n">p_y_upper</span> <span class="o">=</span> <span class="n">p_y</span> <span class="o">+</span> <span class="n">t</span> <span class="o">*</span> <span class="n">sigma_ep</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First let&#39;s make a plot in the log-transformed space</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;log(stage - b (m))&#39;</span><span class="p">)</span>
+<span class="c1"># Note that our x value in log space is the stage, or height, minus the offset b</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log(discharge (cms))&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">loght</span><span class="p">,</span><span class="n">logQ</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_x</span><span class="p">,</span><span class="n">p_y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_x</span><span class="p">,</span><span class="n">p_y_lower</span><span class="p">,</span><span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p_x</span><span class="p">,</span><span class="n">p_y_upper</span><span class="p">,</span><span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f967c0b7b50&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/7de1369f52bb9005c17a6404fced8c77b60a6b108c27de84fa6d6d7a850f62ec.png" src="../../_images/7de1369f52bb9005c17a6404fced8c77b60a6b108c27de84fa6d6d7a850f62ec.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now we transform each piece back into the original form</span>
+<span class="n">Q_predict</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_y</span><span class="p">)</span>
+<span class="n">Q_predict_upper</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_y_upper</span><span class="p">)</span>
+<span class="n">Q_predict_lower</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_y_lower</span><span class="p">)</span>
+<span class="n">x_topredict</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">p_x</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+<span class="c1"># Plot the original data and then the prediction lines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stage (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;discharge (cms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h_now</span><span class="p">,</span><span class="n">Qobs_now</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_topredict</span><span class="p">,</span><span class="n">Q_predict</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_topredict</span><span class="p">,</span><span class="n">Q_predict_lower</span><span class="p">,</span><span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_topredict</span><span class="p">,</span><span class="n">Q_predict_upper</span><span class="p">,</span><span class="s1">&#39;:r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f967c1412d0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/3eeb5c4713d64f9d6373b6c7eb21877a28d827be987bc6e783f53425167b1cbd.png" src="../../_images/3eeb5c4713d64f9d6373b6c7eb21877a28d827be987bc6e783f53425167b1cbd.png" />
+</div>
+</div>
+<section id="work-on-your-own">
+<h3>Work on your own<a class="headerlink" href="#work-on-your-own" title="Link to this heading">#</a></h3>
+<p>Now, repeat the above but with different estimates of what b must be.  Create one plot with multiple estimates of b and see how uncertain that component of the equation is in relation to parameters a and c.  Note that you do not need to repeat the 95% confidence intervals with each step. Just make plots of the different predicted lines along with the observations for b = 0.10, 0.20, 0.30, 0.40, and 0.50 m.</p>
+<p>It is helpful to check your plots in both log space and in the original space – note that the x-axis in log space is for the transformed variable that includes b, which is  log(h-b)</p>
+</section>
+</section>
+<section id="part-2-brute-force-parameter-estimation">
+<h2>Part 2: Brute force parameter estimation<a class="headerlink" href="#part-2-brute-force-parameter-estimation" title="Link to this heading">#</a></h2>
+<p>For this example, my priors are uniform. As shown in the lecture slides, I will sample the space and not use a random number generator for the first go around.</p>
+<p>Recall that we are trying to solve for a, b, and c in the equation
+<span class="math notranslate nohighlight">\(Q = a(h-b)^c\)</span></p>
+<p>I’ll just take 10 values out of each uniform distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">=</span><span class="mi">10</span>
+<span class="c1"># for c, we know that at higher flows (which we&#39;ve restricted our sample to), c = 5/3 or 1.67</span>
+<span class="c1"># We allow c to vary slightly around this theoretical value</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.67</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">1.67</span><span class="o">+</span><span class="mf">0.05</span><span class="p">,</span><span class="n">nx</span><span class="p">)</span>
+<span class="c1"># b is an empirical constant of where the upper level equation intersects 0 </span>
+<span class="c1"># b only represents the true 0 level for the lower portion of the rating curve equation</span>
+<span class="c1"># here, we guess a range of values based on visual inspection of our data</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.45</span><span class="p">,</span><span class="n">nx</span><span class="p">)</span>
+<span class="c1"># a can be estimated as a function of channel slope and roughness (see paper by LeCoz et al.)</span>
+<span class="c1"># for now, we will just guess a range of values that seem reasonable by visual inspection</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="n">nx</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the arrays we&#39;ll populate with data below</span>
+<span class="n">Qest</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">h_now</span><span class="o">.</span><span class="n">size</span><span class="p">))</span> <span class="c1"># for estimating Q with each parameter set</span>
+<span class="n">Qfit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> <span class="c1"># for RMSE values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iterate through all combinations of a, b, and c parameters</span>
+<span class="c1"># Then calculate Qest, and Qfit (RMSE)</span>
+
+<span class="k">for</span> <span class="n">ic</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ib</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">ia</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
+            <span class="n">Qest</span><span class="p">[</span><span class="n">ia</span><span class="p">,</span><span class="n">ib</span><span class="p">,</span><span class="n">ic</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">ia</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">h_now</span><span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="n">ib</span><span class="p">])</span><span class="o">**</span><span class="n">c</span><span class="p">[</span><span class="n">ic</span><span class="p">]</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Qest</span><span class="p">[</span><span class="n">ia</span><span class="p">,</span><span class="n">ib</span><span class="p">,</span><span class="n">ic</span><span class="p">,:],</span><span class="n">Qobs_now</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+            <span class="n">Qfit</span><span class="p">[</span><span class="n">ia</span><span class="p">,</span><span class="n">ib</span><span class="p">,</span><span class="n">ic</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="p">(</span><span class="n">temp</span><span class="o">-</span><span class="n">Qobs_now</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span> <span class="c1"># calculate RMSE for this parameter set</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="make-some-plots-to-see-what-this-did">
+<h3>Make some plots to see what this did<a class="headerlink" href="#make-some-plots-to-see-what-this-did" title="Link to this heading">#</a></h3>
+<p>Which parameters seemed the best?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ic</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># select the first value of c</span>
+<span class="n">Qfit_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Qfit</span><span class="p">[:,:,</span><span class="n">ic</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span>
+<span class="n">CS3</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">Qfit_temp</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;RMSE (b &amp; a) at c = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">ic</span><span class="p">],</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">cbar1</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">CS3</span><span class="p">)</span>
+<span class="n">cbar1</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;RMSE (cms)&#39;</span><span class="p">)</span>
+
+<span class="n">ic</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="c1"># the last value of c (using the index &quot;-1&quot; to represent the last value in the array)</span>
+<span class="n">Qfit_temp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Qfit</span><span class="p">[:,:,</span><span class="n">ic</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]);</span>
+<span class="n">CS4</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">Qfit_temp2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;RMSE (b &amp; a) at c = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">ic</span><span class="p">],</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">cbar</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">CS4</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;RMSE (cms)&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fb143f60d6402a0780b6227f8ca8f68e869b63bc97f10d4fdbb567ae0fda4a99.png" src="../../_images/fb143f60d6402a0780b6227f8ca8f68e869b63bc97f10d4fdbb567ae0fda4a99.png" />
+</div>
+</div>
+<p>From the above, we can see that c makes a relatively slight difference, but a and b vary with each other quite a bit.  Also note that there are a range of sets of a and b that have nearly equally good fits (the dark blue color).</p>
+</section>
+<section id="and-then-plot-this-as-rating-curves-to-see-how-our-different-parameter-choices-impact-the-spread-c-in-estimated-discharge-as-a-function-of-h">
+<h3>And then plot this as rating curves to see how our different parameter choices impact the spread c in estimated discharge as a function of h<a class="headerlink" href="#and-then-plot-this-as-rating-curves-to-see-how-our-different-parameter-choices-impact-the-spread-c-in-estimated-discharge-as-a-function-of-h" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Note, because c doesn&#39;t matter much, we will just choose a c value from the middle</span>
+
+<span class="k">for</span> <span class="n">ia</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ib</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h_now</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Qest</span><span class="p">[</span><span class="n">ia</span><span class="p">,</span><span class="n">ib</span><span class="p">,</span><span class="mi">5</span><span class="p">,:],</span><span class="n">h_now</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stage (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;discharge (cms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h_now</span><span class="p">,</span><span class="n">Qobs_now</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f967c1bb350&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/3f8362966bdbc77cb9ff16a586811034970c5c9257c5b08a972e12560ecb5481.png" src="../../_images/3f8362966bdbc77cb9ff16a586811034970c5c9257c5b08a972e12560ecb5481.png" />
+</div>
+</div>
+</section>
+<section id="now-say-we-ony-want-to-sort-those-realizations-according-to-rmse-clearly-some-curves-are-better-than-others">
+<h3>Now say we ony want to sort those realizations according to RMSE.  (Clearly some curves are better than others)<a class="headerlink" href="#now-say-we-ony-want-to-sort-those-realizations-according-to-rmse-clearly-some-curves-are-better-than-others" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reshape Qfit and Qest for a single c value to only look at variations of a and b</span>
+<span class="n">ic</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">Qfit2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Qfit</span><span class="p">[:,:,</span><span class="n">ic</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="n">Qest2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Qest</span><span class="p">[:,:,</span><span class="n">ic</span><span class="p">,:],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">h_now</span><span class="o">.</span><span class="n">size</span><span class="p">])</span>
+
+<span class="c1"># Find the corresponding Qest values for different ranges of RMSE</span>
+<span class="n">Qest_rmse1</span> <span class="o">=</span> <span class="n">Qest2</span><span class="p">[</span><span class="n">Qfit2</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">]</span>                <span class="c1"># RMSE &lt; 1</span>
+<span class="n">Qest_rmse3</span> <span class="o">=</span> <span class="n">Qest2</span><span class="p">[(</span><span class="n">Qfit2</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">Qfit2</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)]</span> <span class="c1"># 1 &lt;= RMSE &lt; 3</span>
+<span class="n">Qest_rmse5</span> <span class="o">=</span> <span class="n">Qest2</span><span class="p">[(</span><span class="n">Qfit2</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">Qfit2</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">)]</span> <span class="c1"># 3 &lt;= RMSE &lt; 5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot the rating curves with RMSE between 3 and 5 cms</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Qest_rmse5</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RMSE = 3-5 cms&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">label</span><span class="o">=</span><span class="kc">None</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h_now</span><span class="p">,</span> <span class="n">Qest_rmse5</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    
+<span class="c1"># Plot the rating curves with RMSE between 1 and 3 cms</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Qest_rmse3</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RMSE = 1-3 cms&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">label</span><span class="o">=</span><span class="kc">None</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h_now</span><span class="p">,</span> <span class="n">Qest_rmse3</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+    
+<span class="c1"># Finally plot the rating curves with RMSE &lt; 1 cms</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Qest_rmse1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RMSE &lt; 1 cms&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">label</span><span class="o">=</span><span class="kc">None</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h_now</span><span class="p">,</span> <span class="n">Qest_rmse1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stage (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;discharge (cms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h_now</span><span class="p">,</span><span class="n">Qobs_now</span><span class="p">,</span><span class="s1">&#39;k*&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;observations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/17e8107c1e55a3535228642d64fe3775fcfde8addee523751e0611a56eebb98d.png" src="../../_images/17e8107c1e55a3535228642d64fe3775fcfde8addee523751e0611a56eebb98d.png" />
+</div>
+</div>
+<p>Note that what we’re starting to do here is to sort our rating curve parameter space into more likely and less likely parameter sets, based on how well they fit the data.  However, this is imprecise, and we cannot quantify 95% uncertainty limits in any discharge estimation.</p>
+<p>In your homework, you will use log-transform regression to fit the a and c coefficients over a range of b values.  Look at how the a and b values vary as a function of RMSE here and compare it to how the a and b values vary together in your multiple fits using log-transform regression.  What do you notice?</p>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="part-2-use-mcmc-to-sample-the-parameter-space">
+<h1>PART 2:  Use MCMC to sample the parameter space.<a class="headerlink" href="#part-2-use-mcmc-to-sample-the-parameter-space" title="Link to this heading">#</a></h1>
+<p>With uniform priors, this is very similar to the part 1 parameter estimation problem.</p>
+<p>So, the above gives us an idea of Monte-Carlo parameter estimation but does not illustrate Bayesian or MCMC routines</p>
+<p>I’m going to simplify to a two parameter problem, where I say that c=1.66 and that I know that (okay, not exactly true but it seemed to matter the least in this particular problem), and I’m going to start with the expected values from my priors for my initial guess.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b0</span> <span class="o">=</span> <span class="mf">0.2833</span>
+<span class="n">a0</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">c0</span> <span class="o">=</span> <span class="mf">1.66</span> <span class="c1"># and this one I won&#39;t vary</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we will ask the computer to navigate the parameter space.  I will determine where to go according to how well my modeled Q fits my observed Q at all of my measurement points, with the understanding that the parameters that give me the minimum error are most likely to be true.</p>
+<p>initial guess = likelihood = P(Q|theta), that’s our model compared to our obs – only need relative sense of error, so we look at the SSE’s</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Qest0</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">*</span> <span class="p">(</span><span class="n">h_now</span><span class="o">-</span><span class="n">b0</span><span class="p">)</span><span class="o">**</span><span class="n">c0</span>
+<span class="n">SSE0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Qest0</span><span class="o">-</span><span class="n">Qobs_now</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SSE0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>158.11032268871054
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, in the bayesian sense, we have to multiply this by the liklihood of our parameters P(theta) – if I ignore normalization for now, I currently have uniform priors, so if a and b fall within my range, P0 is 1, and if either falls out of my range, P0 is 0 (not possible).
+(Note that this is the simplest case.  If we had a normal distribution for the prior, we would multiply that by the liklihood as we did in lab 5.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># So, I set my limits of my uniform distribution</span>
+<span class="n">amin</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">amax</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">bmin</span> <span class="o">=</span> <span class="mf">0.15</span>
+<span class="n">bmax</span> <span class="o">=</span> <span class="mf">0.45</span>
+
+<span class="c1"># for first step, I know I picked values in with the range, so </span>
+<span class="n">P0</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lmc</span> <span class="o">=</span> <span class="mi">10000</span> <span class="c1">#number of steps to run MCMC routine for.</span>
+<span class="n">burn_in</span> <span class="o">=</span> <span class="mi">1000</span> <span class="c1">#estimate the number of steps before Markov Chain becomes stationary</span>
+<span class="c1"># basically, the burn-in steps will not be used in calculating final probabilities because </span>
+<span class="c1"># they depend on the initial parameter estimates.</span>
+
+<span class="c1"># Initialize arrays to store results in</span>
+<span class="n">PthetaQ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Lmc</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">amc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Lmc</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">bmc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Lmc</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we can calculate P(theta|Q).<br />
+Note that we are defining this by our goodness-of-fit statistic.  Here, we use the sum of squared errors, where if it is smaller, P(theta|Q) is greater, and the choice is a better fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PthetaQ</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">SSE0</span><span class="o">*</span><span class="n">P0</span> <span class="c1"># this is our starting point.</span>
+    <span class="c1"># Note that this calculation is not a true probability of P(theta|Q) but a relative metric</span>
+<span class="n">amc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">a0</span>
+<span class="n">bmc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">b0</span>
+<span class="c1"># We save all the values at each step.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we start marching in MCMC space…</p>
+<p>I need to randomly pick a new location.  This is art, so I’m going to use two gaussians around my current location with sigma equal to the half-width of my prior distribution to pick a test jump location. I will use a Gibbs approach and jump in one variable followed by the other each time.  (Note that a lot of the active research in MCMC code involves both how you pick your initial position and in how you pick your jumping strategy.)</p>
+<p>I’m going to assume that my two parameters are totally independent (probably not true – a next step would be to try a bivariate gaussian, but we stick with the simple case).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">imc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Lmc</span><span class="p">):</span>
+    
+        <span class="c1"># first we jump in a</span>
+    <span class="n">newjumpa</span> <span class="o">=</span> <span class="n">amc</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">amax</span><span class="o">-</span><span class="n">amin</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">())</span>
+    
+        <span class="c1"># Now we repeat with a jump in b, assuming it&#39;s totally independent of a</span>
+        <span class="c1"># and require both to be within their uniform distributions. </span>
+        
+    <span class="n">newjumpb</span> <span class="o">=</span> <span class="n">bmc</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">bmax</span><span class="o">-</span><span class="n">bmin</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">())</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">newjumpa</span> <span class="o">&gt;=</span> <span class="n">amin</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">newjumpa</span> <span class="o">&lt;=</span> <span class="n">amax</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">newjumpb</span> <span class="o">&gt;=</span> <span class="n">bmin</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">newjumpb</span> <span class="o">&lt;=</span> <span class="n">bmax</span><span class="p">):</span>
+        <span class="c1">#then the prior is okay, and we can proceed </span>
+        <span class="c1"># (Note that prior makes any choice outside of our set range impossible)</span>
+        <span class="n">Qest1</span> <span class="o">=</span> <span class="n">newjumpa</span><span class="o">*</span><span class="p">(</span><span class="n">h_now</span><span class="o">-</span><span class="n">newjumpb</span><span class="p">)</span><span class="o">**</span><span class="n">c0</span>
+        
+        <span class="c1"># calculate how well the parameters at our new location lead to a model that matches the data</span>
+        <span class="n">SSE1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Qest1</span><span class="o">-</span><span class="n">Qobs_now</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="c1"># posterior is SSE1*1 (because we&#39;re within the prior uniform domain)</span>
+        <span class="c1"># the if statement essentially says everything else is multiplied by 0</span>
+        
+        <span class="k">if</span> <span class="n">SSE1</span> <span class="o">&lt;</span> <span class="n">PthetaQ</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="c1"># then the error is less, and we found a better place, and we update a and b</span>
+            <span class="n">amc</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span> <span class="o">=</span> <span class="n">newjumpa</span>
+            <span class="n">bmc</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span> <span class="o">=</span> <span class="n">newjumpb</span>
+            <span class="n">PthetaQ</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span> <span class="o">=</span> <span class="n">SSE1</span> <span class="c1"># this becomes the one to beat</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">jumpscore</span> <span class="o">=</span> <span class="n">PthetaQ</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">SSE1</span> <span class="c1"># this gives a number between 0 and 1</span>
+            
+            <span class="c1"># This is essentially a rating of how much worse this new location is than </span>
+            <span class="c1"># where you are right now.  The sum of squared errors is larger, but by how much</span>
+            
+            <span class="c1"># Generate random number from 0 to 1, so that we will jump with a probability of </span>
+            <span class="c1"># the jumpscore</span>
+            <span class="c1"># if our new SSE is 90% as good as our current one, we jump there 90% of the time; </span>
+            <span class="c1"># if it&#39;s 10% as good, we jump there 10% of the time</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">jumpscore</span><span class="p">:</span>
+                <span class="c1"># then we go there</span>
+                <span class="n">amc</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span> <span class="o">=</span> <span class="n">newjumpa</span>
+                <span class="n">bmc</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span> <span class="o">=</span> <span class="n">newjumpb</span>
+                <span class="n">PthetaQ</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span> <span class="o">=</span> <span class="n">SSE1</span> <span class="c1"># this becomes the one to beat</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">amc</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span><span class="o">=</span><span class="n">amc</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">bmc</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span><span class="o">=</span><span class="n">bmc</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">PthetaQ</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span><span class="o">=</span><span class="n">PthetaQ</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># we stay where we are for another timestep</span>
+
+    <span class="k">else</span><span class="p">:</span>
+    <span class="c1"># you are outside of the bounds of the uniform prior, so posterior would be 0 and we don&#39;t go there</span>
+        <span class="n">amc</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span><span class="o">=</span><span class="n">amc</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">bmc</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span><span class="o">=</span><span class="n">bmc</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">PthetaQ</span><span class="p">[</span><span class="n">imc</span><span class="p">]</span><span class="o">=</span><span class="n">PthetaQ</span><span class="p">[</span><span class="n">imc</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># we stay where we are</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="make-some-plots-to-see-what-s-going-on">
+<h2>Make some plots to see what’s going on<a class="headerlink" href="#make-some-plots-to-see-what-s-going-on" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize all jumps across the a vs b parameter space</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bmc</span><span class="p">,</span><span class="n">amc</span><span class="p">,</span><span class="s1">&#39;b.--&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;All jumps&#39;</span><span class="p">)</span>
+<span class="c1"># Visualize the first 20 jumps</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bmc</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span><span class="n">amc</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span><span class="s1">&#39;k.-&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;First 20 jumps&#39;</span><span class="p">)</span>
+<span class="c1"># Visualize the last 20 jumps</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bmc</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:],</span><span class="n">amc</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:],</span><span class="s1">&#39;r.-&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Last 20 jumps&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2d70f34787f6a2ceca356b222b3ced91a4b024a6e8b13be4240941498c18bf49.png" src="../../_images/2d70f34787f6a2ceca356b222b3ced91a4b024a6e8b13be4240941498c18bf49.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;Heatmap&quot; of all jumps across the a vs b parameter space</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">CS5</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">bmc</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span><span class="n">amc</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span><span class="mi">30</span><span class="p">);</span>
+<span class="n">cbar</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">CS5</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;count of time spent&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/65c70b5f5cc93dea1b748b06b4943452ff7295c339d8f112ea02f88b9e012220.png" src="../../_images/65c70b5f5cc93dea1b748b06b4943452ff7295c339d8f112ea02f88b9e012220.png" />
+</div>
+</div>
+</section>
+<section id="make-some-pdfs">
+<h2>Make some PDFs<a class="headerlink" href="#make-some-pdfs" title="Link to this heading">#</a></h2>
+<p>Remember that there is a burn-in time, so only calculate stats for steps after the burn_in value.  (This is to avoid infuencing final statistics from the choice of the initial state.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What are the marginal PDFs for a and b?</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">amc</span><span class="p">[</span><span class="n">burn_in</span><span class="p">:],</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bmc</span><span class="p">[</span><span class="n">burn_in</span><span class="p">:],</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">();</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="c1"># A</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])),</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;posterior PDF of a&#39;</span><span class="p">)</span>
+<span class="c1"># B</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])),</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;posterior PDF of b&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b0d938e2e39458c7cd75f2afaad510ef340e4677247ff9eb04a4a50bf1d33cb5.png" src="../../_images/b0d938e2e39458c7cd75f2afaad510ef340e4677247ff9eb04a4a50bf1d33cb5.png" />
+</div>
+</div>
+</section>
+<section id="what-are-the-95-confidence-intervals-for-the-predicted-q">
+<h2>What are the 95% confidence intervals for the predicted Q<a class="headerlink" href="#what-are-the-95-confidence-intervals-for-the-predicted-q" title="Link to this heading">#</a></h2>
+<p>Note that by virtue of how we set up the jumping rules, the “jumper” spent more time in the good-fitting parameter space than in more poorly-fitting parameter space.  Even better, it spent exactly as much time in the more poorly-fitting space as measured by how much worse it performed.  By this structure, all calculated values of Q after the burn-in time are distributed by their liklihood of being right.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># evenly space 25 stage values (could have more if doesn&#39;t look smooth)</span>
+<span class="n">hh</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.54</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span> 
+
+<span class="c1"># Make an empirical CDF for all calculated values of Q using a and b after the burn-in time </span>
+<span class="c1"># and plot the median and 95% confidence values from the Markov Chain generated probabilities</span>
+<span class="n">NN</span><span class="o">=</span><span class="n">amc</span><span class="p">[</span><span class="n">burn_in</span><span class="p">:]</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Q025</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">hh</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">Q50</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">hh</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">Q975</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">hh</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ih</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">hh</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">Qhh</span> <span class="o">=</span> <span class="n">amc</span><span class="p">[</span><span class="n">burn_in</span><span class="p">:]</span><span class="o">*</span><span class="p">(</span><span class="n">hh</span><span class="p">[</span><span class="n">ih</span><span class="p">]</span><span class="o">-</span><span class="n">bmc</span><span class="p">[</span><span class="n">burn_in</span><span class="p">:])</span><span class="o">**</span><span class="n">c0</span>
+    <span class="n">xsort</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">Qhh</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ranks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">NN</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">x_CDF</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">ranks</span> <span class="o">-</span> <span class="mf">0.4</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">NN</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>
+    
+    <span class="n">Q025</span><span class="p">[</span><span class="n">ih</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="mf">0.025</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x_CDF</span><span class="p">,</span><span class="n">xsort</span><span class="p">)</span>
+    <span class="n">Q975</span><span class="p">[</span><span class="n">ih</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="mf">0.975</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x_CDF</span><span class="p">,</span><span class="n">xsort</span><span class="p">)</span>
+    <span class="n">Q50</span><span class="p">[</span><span class="n">ih</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="n">x_CDF</span><span class="p">,</span><span class="n">xsort</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot the median and 95% confidence values from the Markov Chain generated probabilities</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span><span class="n">Q025</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;95</span><span class="si">% c</span><span class="s1">onfidence intervals&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span><span class="n">Q975</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span><span class="n">Q50</span><span class="p">,</span><span class="s1">&#39;k-&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;best guess&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;stage (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;discharge (cms)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">h_now</span><span class="p">,</span><span class="n">Qobs_now</span><span class="p">,</span><span class="s1">&#39;b*&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;observations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Best estimate with 95</span><span class="si">% c</span><span class="s1">onfidence intervals&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Best estimate with 95% confidence intervals&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/542a75989327c2723edfdeab52608150d067b67a5dd6ca360d1d297f4ad07736.png" src="../../_images/542a75989327c2723edfdeab52608150d067b67a5dd6ca360d1d297f4ad07736.png" />
+</div>
+</div>
+<p>How do these confidence intervals compare with those we calculated using the log transform regression?<br />
+How do these confidence intervals compare if we extend the stage values to higher or lower values than the observations?
+If you are trying to advise someone on high flows or low flows, what would you recommend using here?</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lab7-2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lab 7-2: Markov Chains - ENSO Phases</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mcmc-example.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Markov Chain Monte Carlo Example</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 7-3: MCMC Rating Curves</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-in-the-provided-data">Load in the provided data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-rating-curves">Calculating rating curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-linear-regression-of-transformed-variables">PART 1: Linear Regression of Transformed Variables:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#work-on-your-own">Work on your own</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-brute-force-parameter-estimation">Part 2: Brute force parameter estimation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-plots-to-see-what-this-did">Make some plots to see what this did</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#and-then-plot-this-as-rating-curves-to-see-how-our-different-parameter-choices-impact-the-spread-c-in-estimated-discharge-as-a-function-of-h">And then plot this as rating curves to see how our different parameter choices impact the spread c in estimated discharge as a function of h</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#now-say-we-ony-want-to-sort-those-realizations-according-to-rmse-clearly-some-curves-are-better-than-others">Now say we ony want to sort those realizations according to RMSE.  (Clearly some curves are better than others)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-use-mcmc-to-sample-the-parameter-space">PART 2:  Use MCMC to sample the parameter space.</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-plots-to-see-what-s-going-on">Make some plots to see what’s going on</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-some-pdfs">Make some PDFs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-95-confidence-intervals-for-the-predicted-q">What are the 95% confidence intervals for the predicted Q</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

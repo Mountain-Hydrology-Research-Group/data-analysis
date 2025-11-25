@@ -1,0 +1,1043 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 7-1: Markov Chains - Basic Examples</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module7/lab7-1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 7-2: Markov Chains - ENSO Phases" href="lab7-2.html" />
+    <link rel="prev" title="7) Markov Chains" href="module7.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module1/module1.html">1) Python, Statistics Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-2.html">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module1/homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Trend Analysis, Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-2.html">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="module7.html">7) Markov Chains</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab7-3.html">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/some-python-tips.html">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/modules/module7/lab7-1.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Fmodules/module7/lab7-1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module7/lab7-1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 7-1: Markov Chains - Basic Examples</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-city-and-suburbs">Example - City and Suburbs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-create-a-markov-matrix-from-data">Example - Create a Markov Matrix from data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-7-1-markov-chains-basic-examples">
+<h1>Lab 7-1: Markov Chains - Basic Examples<a class="headerlink" href="#lab-7-1-markov-chains-basic-examples" title="Link to this heading">#</a></h1>
+<p>(Steven Pestana, 2019. Derived from CEE599_MarkovChain_Lab.m, Jessica Lundquist, Oct 23, 2015)</p>
+<p>(see Markov Chain Weather Example in Lecture notes, except note that we now have an initial condition, which would be like just saying today’s weather was dry)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">eig</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">sparse</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="example-city-and-suburbs">
+<h2>Example - City and Suburbs<a class="headerlink" href="#example-city-and-suburbs" title="Link to this heading">#</a></h2>
+<p>We are going to use a Markov Chain to look at the conditional probabilities of people moving between the city and the suburbs outside the city, at steps of 1 year.</p>
+<p>Let’s define two states, in our model someone can either live in the city or the suburbs:</p>
+<ul class="simple">
+<li><p>city = 0</p></li>
+<li><p>suburbs = 1</p></li>
+</ul>
+<p>Set up the Markov probability matrix, start with just an empty 2x2 array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Pmarkov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># create an empty 2-by-2 numpy array</span>
+<span class="n">Pmarkov</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0.],
+       [0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given someone lives in the city, they have 95% chance of staying and 5% chance of moving:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign our given values to the table:</span>
+<span class="n">Pmarkov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.95</span> <span class="c1"># note that we use the array indices to describe probability of going from state 0 to state 0</span>
+<span class="n">Pmarkov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1"># probability of going from state 0 to state 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given someone lives in the suburbs, they have a 97% change of staying and a 3% chance of moving:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assign our given values to the table:</span>
+<span class="n">Pmarkov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.03</span> <span class="c1"># probability of going from state 1 to state 0</span>
+<span class="n">Pmarkov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.97</span> <span class="c1"># probability of going from state 1 to state 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>View the complete matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Pmarkov</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.95 0.05]
+ [0.03 0.97]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before going into matrix notation, let’s think this through. In the initial state, 60% of people live in the city &amp; 40% live in the suburb.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">percent_city0</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">percent_suburb0</span> <span class="o">=</span> <span class="mf">0.4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Step 1st year</strong> using alebra</p>
+<p>Take one step through the Markov chain. What fraction of people live in the city after one step?</p>
+<p>This can be defined as the fraction of people who live in the city and stay in the city + the fraction of people who lived in the suburbs but move into the city.</p>
+<p><span class="math notranslate nohighlight">\(p_{city,1}\)</span> = 0.95 * 0.6 + 0.03 * 0.4</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcity1</span> <span class="o">=</span> <span class="n">Pmarkov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">percent_city0</span> <span class="o">+</span> <span class="n">Pmarkov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">percent_suburb0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pcity1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.582
+</pre></div>
+</div>
+</div>
+</div>
+<p>What fraction of people live in the suburbs?</p>
+<p>Similar to above, this is the fraction of people who lived in the city and moved to the suburbs plus the fraction of people who live in the suburbs and stay in the suburbs.</p>
+<p><span class="math notranslate nohighlight">\(p_{suburb,1}\)</span> = 0.05 * 0.6 + 0.97 * 0.4</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">psuburb1</span> <span class="o">=</span> <span class="n">Pmarkov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">percent_city0</span> <span class="o">+</span> <span class="n">Pmarkov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">percent_suburb0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">psuburb1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.41800000000000004
+</pre></div>
+</div>
+</div>
+</div>
+<p>Draw a picture on scratch paper of what you are doing in terms of matrix multiplication.</p>
+<p><strong>Step 1st year</strong> using matrix multiplication</p>
+<p>Now use matrix algebra using numpy to get the same answer and check your work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initial state of populations for state 0 and state 1</span>
+<span class="n">percent0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">percent_city0</span><span class="p">,</span> <span class="n">percent_suburb0</span><span class="p">])</span>
+
+<span class="c1"># multiply initial states with Markov matrix</span>
+<span class="n">percent1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">percent0</span><span class="p">,</span> <span class="n">Pmarkov</span><span class="p">)</span>
+
+<span class="c1"># check values of x1 here against what you got for pcity1 and pusuburb1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">percent1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.582 0.418]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Step 2nd year</strong></p>
+<p>Now we can make this the current state and take a second step with the matrix (using both one step and matrix notation to check our work):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take a second step with the Markov matrix:</span>
+<span class="n">pcity2</span> <span class="o">=</span> <span class="n">Pmarkov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">pcity1</span> <span class="o">+</span> <span class="n">Pmarkov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">psuburb1</span>
+<span class="n">psuburb2</span><span class="o">=</span><span class="n">Pmarkov</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">pcity1</span> <span class="o">+</span> <span class="n">Pmarkov</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">psuburb1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pcity2</span><span class="p">,</span><span class="n">psuburb2</span><span class="p">)</span>
+
+<span class="c1"># take a second step with the Markov matrix (using np.dot)</span>
+<span class="n">percent2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">percent1</span><span class="p">,</span><span class="n">Pmarkov</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">percent2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">percent2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5654399999999999 0.43456000000000006
+0.5654399999999999 0.43456000000000006
+</pre></div>
+</div>
+</div>
+</div>
+<p>Good, we got the same answer (within rounding error), let’s just use matrix math for the rest of the lab.</p>
+<p><strong>Step 3rd year</strong></p>
+<p>We can also make multiple steps by raising the Markov matrix to a power:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># three steps all at once by taking our Pmarkov matrix to the 3rd power, then multipying by our original population percentage vector</span>
+<span class="n">percent3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">percent0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">Pmarkov</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">percent3</span><span class="p">)</span>
+
+<span class="c1"># we can also take a 3rd step by just multiplying through from the 2nd year</span>
+<span class="n">percent3_check</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">percent2</span><span class="p">,</span><span class="n">Pmarkov</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">percent3_check</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.5502048 0.4497952]
+[0.5502048 0.4497952]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 10 steps, then 100 steps:</span>
+<span class="n">percent10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">percent0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">Pmarkov</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">percent100</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">percent0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_power</span><span class="p">(</span><span class="n">Pmarkov</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">percent10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">percent100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.4727374 0.5272626]
+[0.37505382 0.62494618]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Find the steady state probabilities</strong> using the eigenvector function</p>
+<p>And now, use the eigenvector function in numpy to see if x100 is the same as the steady state matrix:</p>
+<p>Here, we are using the concept that for a square matrix A, the column vector v is an eigenvector of A is theere is a scalar multiple <span class="math notranslate nohighlight">\(\lambda\)</span>, such that
+multipliplying it times v is the same as applying the matrix multiplication of A on v.</p>
+<p><span class="math notranslate nohighlight">\( \lambda v = Av \)</span></p>
+<p>This fits the steady state matrix definition of</p>
+<p><span class="math notranslate nohighlight">\( \pi = \pi P \)</span></p>
+<p>for the case of <span class="math notranslate nohighlight">\(\lambda\)</span> = 1 and P = the transpose of A.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># So, we solve the eigenvalue problem of the transpose of the markov matrix A.</span>
+<span class="c1"># See https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eig.html#scipy.linalg.eig </span>
+
+<span class="n">W</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">Pmarkov</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.70710678, -0.51449576],
+       [ 0.70710678, -0.85749293]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Find the column of V associated with the eigenvalue of 1, but allow for some margin of round-off error</p>
+<p>(from the function documentation: the column <code class="docutils literal notranslate"><span class="pre">V[:,i]</span></code> is the eigenvector corresponding to the eigenvalue <code class="docutils literal notranslate"><span class="pre">W[i]</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, we can inspect W by eye (since this is a small matrix)</span>
+<span class="n">W</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.92+0.j, 1.  +0.j])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want the second column (index 1)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.51449576, -0.85749293])
+</pre></div>
+</div>
+</div>
+</div>
+<p>But these need to be normalized first</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">V</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.375, 0.625])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can write a function to find this for us:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eig_pi</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Find the value of W closest to 1 (within some round-off error) and then look at the associated column of V.</span>
+<span class="sd">    Input: tuple of (W (eigenvalue matrix), V (eigenvectors)) that are output from scipy.linalg.eig()&#39;&#39;&#39;</span>
+    <span class="p">[</span><span class="n">W</span><span class="p">,</span> <span class="n">V</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="c1"># find the column where the eigenvalue, W, is within 1 +/- err</span>
+    <span class="n">col1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">W</span><span class="o">&gt;=</span><span class="mi">1</span><span class="o">-</span><span class="n">err</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">W</span><span class="o">&lt;=</span><span class="mi">1</span><span class="o">+</span><span class="n">err</span><span class="p">))</span>
+    <span class="c1"># normalize the eigenvector, V, for that column, so that it sums to one</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">col1</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">V</span><span class="p">[:,</span><span class="n">col1</span><span class="p">])</span> 
+    <span class="k">return</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">eig_pi</span><span class="p">(</span><span class="n">eig</span><span class="p">(</span><span class="n">Pmarkov</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eigenvector Steady State Probabilities: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+
+<span class="c1"># Yes, these are very close to the values we got for percent100</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Markov Chain 100-step Probabilities: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">percent100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvector Steady State Probabilities: [0.375 0.625]
+Markov Chain 100-step Probabilities: [0.37505382 0.62494618]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="example-create-a-markov-matrix-from-data">
+<h2>Example - Create a Markov Matrix from data<a class="headerlink" href="#example-create-a-markov-matrix-from-data" title="Link to this heading">#</a></h2>
+<p>Now given a timeseries of four states, determine the Markov Matrix and use it to generate a timeseries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first, read in data that I generated (sequence of states 1, 2, 3, and 4):</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s1">&#39;../data/markov_random4.txt&#39;</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This counts the transitions from each state to the next and marks that count</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:])),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># This converts those counts to matrix form</span>
+<span class="n">tm</span> <span class="o">=</span> <span class="n">S</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.  0.  0.  0.  0.]
+ [ 0. 16. 53. 22. 28.]
+ [ 0. 31. 34. 12. 56.]
+ [ 0. 13. 34. 48. 28.]
+ [ 0. 58. 12. 41. 13.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Take a look at the matrix above, what does this represent?</strong></p>
+<p>We had 16 counts when the series transitioned from 1 to 1, 53 counts when it transitioned from 1 to 2, etc.
+We want to transition these from counts to frequencies.
+To do this, we need to normalize the transition matrix to get probabilities</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tm_norm</span> <span class="o">=</span> <span class="n">tm</span> <span class="o">/</span> <span class="n">tm</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">tm_norm</span><span class="p">)</span> <span class="c1"># This is our normalized transition matrix.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[       nan        nan        nan        nan        nan]
+ [0.         0.13445378 0.44537815 0.18487395 0.23529412]
+ [0.         0.23308271 0.2556391  0.09022556 0.42105263]
+ [0.         0.10569106 0.27642276 0.3902439  0.22764228]
+ [0.         0.46774194 0.09677419 0.33064516 0.10483871]]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3162/1530669974.py:1: RuntimeWarning: invalid value encountered in divide
+  tm_norm = tm / tm.sum(axis=1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We take the above probabilities of transitions, and turn them into discrete CDF&#39;s.</span>
+<span class="c1"># These will allow us to map random numbers generated from a uniform distribution into </span>
+<span class="c1"># transitions that follow these probability rules.</span>
+<span class="n">tm_cdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">tm_norm</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we want a “random walk” for 2000 years that follows these transition probabilities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_years</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n_years</span><span class="p">);</span> <span class="c1"># uniformly distributed random numbers n_years long</span>
+
+<span class="n">initialstate</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1"># give it an initial state, doesn&#39;t really matter which</span>
+
+<span class="n">Nrand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="c1"># initialize an array of the proper size, with the initial state</span>
+<span class="n">Nrand</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">initialstate</span><span class="p">;</span>
+
+<span class="c1"># Now, just like we did when we created monte carlo simulations from empirical CDFs,</span>
+<span class="c1"># we use our uniform random numbers to look up the next state in the transition matrix</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n_years</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">tm_cdf</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">Nrand</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="mi">1</span><span class="p">]:</span> <span class="c1">#probability of transitioning from state i to 1</span>
+        <span class="n">Nrand</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">elif</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">tm_cdf</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">Nrand</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="mi">2</span><span class="p">]:</span> <span class="c1">#transition from state i to 2</span>
+        <span class="n">Nrand</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">elif</span> <span class="n">q</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">tm_cdf</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">Nrand</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="mi">3</span><span class="p">]:</span> <span class="c1">#transition from state i to 3</span>
+        <span class="n">Nrand</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Nrand</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># And how many times did state 3 appear 4 times?</span>
+<span class="n">Test3</span> <span class="o">=</span> <span class="p">[</span><span class="n">Nrand</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="n">Nrand</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">Nrand</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">Nrand</span><span class="p">[</span><span class="mi">3</span><span class="p">:]]</span> <span class="c1"># stack our data 4 times, shifting it to the right by 1 each time</span>
+<span class="n">Test3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">Test3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">G2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">Test3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">Test3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">))</span>
+<span class="c1"># if both the maximum and the minimum are 3, then we have 4 threes in our sequence</span>
+
+<span class="n">frequencyof4threes</span> <span class="o">=</span> <span class="n">G2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">/</span> <span class="n">Test3</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Frequency of four 3s in a row = </span><span class="si">{}</span><span class="s1">%&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">frequencyof4threes</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequency of four 3s in a row = 1.4000000000000001%
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module7"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="module7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">7) Markov Chains</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab7-2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 7-2: Markov Chains - ENSO Phases</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-city-and-suburbs">Example - City and Suburbs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-create-a-markov-matrix-from-data">Example - Create a Markov Matrix from data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

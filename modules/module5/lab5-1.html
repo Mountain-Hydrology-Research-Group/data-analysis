@@ -1,0 +1,1209 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 5-1: Multiple Linear Regression</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module5/lab5-1';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 5-2: Autocorrelation" href="lab5-2.html" />
+    <link rel="prev" title="5) Multiple Linear Regression &amp; Autocorrelation" href="module5.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module1/module1.html">1) Python, Statistics Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-2.html">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module1/homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Trend Analysis, Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-2.html">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module7/module7.html">7) Markov Chains</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-1.html">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-3.html">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module7/mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module1/some-python-tips.html">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/modules/module5/lab5-1.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Fmodules/module5/lab5-1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module5/lab5-1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 5-1: Multiple Linear Regression</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-linear-regression">Simple Linear Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression">Multiple Linear Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantile-regression">Quantile Regression</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-5-1-multiple-linear-regression">
+<h1>Lab 5-1: Multiple Linear Regression<a class="headerlink" href="#lab-5-1-multiple-linear-regression" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>We are going to try and improve upon our simple linear regression model from Lab 4-1 with the snow water equivalent (SWE) data (if you’re interested, <a class="reference external" href="https://www.nrcs.usda.gov/wps/portal/nrcs/detail/null/?cid=nrcseprd1314833">read about SWE and snow pillows here</a>). In Lab 4-1 we used SWE observations from Slide Canyon to predict SWE at Blue Canyon. In this lab we will use two explanatory variables, SWE at Slide Canyon and time, to try and predict SWE at Blue Canyon. We can also compare both of these to the quantile regression model from Lab 4-2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.linalg</span><span class="w"> </span><span class="kn">import</span> <span class="n">lstsq</span> <span class="c1"># for the multiple linear regression, we&#39;ll use the scipy linear algebra least-squares function</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.interpolate</span><span class="w"> </span><span class="kn">import</span> <span class="n">interp1d</span> <span class="c1"># for quantile regression, we&#39;ll want this 1d interpolation function</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load the csv file with snow water equivalent (SWE) measurements from two sites in California’s Sierra Nevada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in a .csv file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/pillows_example_2024.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>years</th>
+      <th>BLC_max</th>
+      <th>SLI_max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1983</td>
+      <td>688</td>
+      <td>2446</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1984</td>
+      <td>112</td>
+      <td>1471</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1985</td>
+      <td>216</td>
+      <td>1143</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1986</td>
+      <td>150</td>
+      <td>1085</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1987</td>
+      <td>94</td>
+      <td>569</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>These data are annual maximum SWE values (mm) for the Blue Canyon (BLC), and Slide Canyon (SLI) measurement sites.</p>
+<p>Plot the original SWE data for both sites.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Timeline of Peak Snow Water Equivalent (SWE)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Water Year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Peak SWE (mm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.36</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/4da7d4ee16a090155d7a96bef0fbf502391c9646042fdf24f2c8c1192382b845.png" src="../../_images/4da7d4ee16a090155d7a96bef0fbf502391c9646042fdf24f2c8c1192382b845.png" />
+</div>
+</div>
+<p><strong>What does the above plot show?</strong> What you see above is a plot of the maximum value of snow water equivalent (SWE) measured at two snow pillows (these weigh the snow and convert that weight into the water content of the snow). These measurements of snow are not too far from each other geographically (both in the Sierra Nevada, California, although Slide Canyon is at a higher elevation and further south), and we might expect that more snow at one site woud correspond to more snow at the other site as well. We can check this by examining a regression between the data at the two sites.</p>
+<hr class="docutils" />
+<section id="simple-linear-regression">
+<h2>Simple Linear Regression<a class="headerlink" href="#simple-linear-regression" title="Link to this heading">#</a></h2>
+<p>We’ll start off by replicating our simple linear regression model from Lab 4-1. The first step to any regression or correlation analysis is to create a scatter plot of the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Scatterplot</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Slide Canyon max SWE (mm)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Blue Canyon max SWE (mm)&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">3000</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/2f1862424c5df58530d63ed8d88c5d01dda017a468ff05c33fd3e1351e10c183.png" src="../../_images/2f1862424c5df58530d63ed8d88c5d01dda017a468ff05c33fd3e1351e10c183.png" />
+</div>
+</div>
+<p><strong>Linear regression</strong>: Could we use SWE measurements at Slide Canyon to predict SWE at Blue Canyon?</p>
+<p>The plot above suggests that this is a borderline case for applying linear regression analysis. What rules of linear regression might we worry about here? (<a class="reference external" href="https://en.wikipedia.org/wiki/Heteroscedasticity"><em>heteroscedasticity</em></a>)</p>
+<p>We will proceed with calculating the regression and then look at the residuals to get a better idea of whether this is the best approach.</p>
+<p>Here we’re using the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.linregress()</span></code></a> function to create a least-squares linear regression model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the linear regression function</span>
+<span class="n">B1</span><span class="p">,</span> <span class="n">B0</span><span class="p">,</span> <span class="n">rvalue</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">sB1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">SLI_max</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">BLC_max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plot the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># Scatterplot</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+
+<span class="c1"># Create points for the regression line</span>
+<span class="n">x_line</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">data</span><span class="o">.</span><span class="n">SLI_max</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">data</span><span class="o">.</span><span class="n">SLI_max</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span> <span class="c1"># x coordinates from min and max values of SLI_max</span>
+<span class="n">y_line</span> <span class="o">=</span> <span class="n">B1</span> <span class="o">*</span> <span class="n">x_line</span> <span class="o">+</span> <span class="n">B0</span> <span class="c1"># y coordinates using the slope and intercept from our linear regression</span>
+
+<span class="c1"># Plot the regression line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_line</span><span class="p">,</span> <span class="n">y_line</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Slide Canyon max SWE (mm)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Blue Canyon max SWE (mm)&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">3000</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5add89a6e6882e0d9104679714791e258da0b852ab7f9dd896fd9fc3873cb3be.png" src="../../_images/5add89a6e6882e0d9104679714791e258da0b852ab7f9dd896fd9fc3873cb3be.png" />
+</div>
+</div>
+<p>Compute the linear regression at our original x data points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">SLI_max</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">B1</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">B0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print out our linear regression parameter (slope and intercept), our correlation coefficient, standard error of the gradient. Then compute the standard error of the regression from the standard error of the gradient:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B0 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">B0</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B1 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">B1</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R^2 : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">rvalue</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">rvalue</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;stderr of the gradient: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">sB1</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+
+<span class="c1"># Compute the SST for x</span>
+<span class="n">sst_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+
+<span class="c1"># Compute the standard error</span>
+<span class="n">stderr</span> <span class="o">=</span> <span class="n">sB1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sst_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;stderr of the regression : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B0 : 54.499
+B1 : 0.3113
+R^2 : 0.325
+R : 0.57
+stderr of the gradient: 0.078
+stderr of the regression : 226.628
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Plot residuals</strong></p>
+<p>We should make a plot of the residuals (actual - predicted values). For a good linear fit, we hope that our residuals are small, don’t have any trends or patterns themselves, want them to be normally distributed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">residuals</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">BLC_max</span> <span class="o">-</span> <span class="n">y</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">,</span><span class="n">residuals</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;years&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;residuals (mm SWE)&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">residuals</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;residuals (mm SWE)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/371b8ef499ec5bffbe81be494d90326b61d7835eea59049a3952c98767fe9b50.png" src="../../_images/371b8ef499ec5bffbe81be494d90326b61d7835eea59049a3952c98767fe9b50.png" />
+</div>
+</div>
+<p>Ideally our residuals should be “random” and normally distributed.  (Note that ours are not.)</p>
+<p><strong>Another way of checking the validity of a model is to see if it predicts better than simply estimating the mean.</strong></p>
+<p>We can also make those plots and compare them to the plots above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meanBC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">BLC_max</span><span class="p">)</span>
+<span class="n">diffmean</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">BLC_max</span> <span class="o">-</span> <span class="n">meanBC</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">,</span><span class="n">diffmean</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;years&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;difference from mean (mm SWE)&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">diffmean</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;difference from mean (mm SWE)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/bb944d51598e1bf933446b9d9823b621303719138ab1ce7514f7ba4cdcab911d.png" src="../../_images/bb944d51598e1bf933446b9d9823b621303719138ab1ce7514f7ba4cdcab911d.png" />
+</div>
+</div>
+<p>The trend with time is still apparent, and the histogram looks much less normally distributed.  To me, this suggests that there is some value in our regression, but we should consider a multi-linear regression that also includes a trend with time.  We will explore this more below.</p>
+<p><strong>Finally, make predictions with our linear model</strong></p>
+<p>Let’s plot what the predictions of Blue Canyon SWE would look like if we were to use this linear model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use our linear model to make predictions:</span>
+<span class="n">BLC_linear_model</span> <span class="o">=</span> <span class="n">B1</span> <span class="o">*</span> <span class="n">data</span><span class="o">.</span><span class="n">SLI_max</span> <span class="o">+</span> <span class="n">B0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the predicted SWE at Blue Canyon</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">,</span> <span class="n">BLC_linear_model</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Predicted with Linear Regression&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Timeline of Peak Snow Water Equivalent (SWE)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Water Year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Peak SWE (mm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.36</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3ee552d437404da8c0785d6f5d9fec67386f056c26d798d0032836e8b923330f.png" src="../../_images/3ee552d437404da8c0785d6f5d9fec67386f056c26d798d0032836e8b923330f.png" />
+</div>
+</div>
+<p><strong>Is the slope of our linear regression significantly different from zero?</strong> In Lab 4-3 we performed a hypothesis test on the slope of a linear regression to test the null hypothesis that the slope is zero. We can repeat that here too.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># null hypothesis B1 = 0</span>
+<span class="n">nullB1</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># our alpha for 95% confidence</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="c1"># length of the dataset</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># degrees of freedom</span>
+<span class="n">dof</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="c1"># find our critical t values for a two-tailed t-distribution (t-value for alpha/2 with n-2 degrees of freedom)</span>
+<span class="n">t_critical</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">dof</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;t_critical = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t_critical</span><span class="p">))</span>
+<span class="c1"># compute the t-test statistic</span>
+<span class="n">t_test</span> <span class="o">=</span> <span class="p">(</span><span class="n">B1</span> <span class="o">-</span> <span class="n">nullB1</span><span class="p">)</span> <span class="o">/</span> <span class="n">sB1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;t_test = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_critical = 2.0345152974493383
+t_test = 3.9845541414498813
+</pre></div>
+</div>
+</div>
+</div>
+<p>t-test &gt; t-critical (at 95% confidence), therefore we can reject the null hypothesis and say that the slope is non-zero.</p>
+</section>
+<hr class="docutils" />
+<section id="multiple-linear-regression">
+<h2>Multiple Linear Regression<a class="headerlink" href="#multiple-linear-regression" title="Link to this heading">#</a></h2>
+<p>Now we are going to use both Slide Canyon SWE and time to try and predict Blue Canyon SWE.</p>
+<p>Start off by making scatter plots of our two independent variables (Slide Canyon SWE, time) and the dependent variable (Blue Canyon SWE).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Scatterplot of SLI and BLC SWE</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Slide Canyon max SWE (mm)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Blue Canyon max SWE (mm)&#39;</span><span class="p">);</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">3000</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">));</span>
+
+<span class="c1"># Scatterplot of Time and BLC SWE</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Water Year&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Blue Canyon max SWE (mm)&#39;</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/13f5338ce9299a848601e80efabac456c5b3e17f19ab5354526ec2b2ead5c8a9.png" src="../../_images/13f5338ce9299a848601e80efabac456c5b3e17f19ab5354526ec2b2ead5c8a9.png" />
+</div>
+</div>
+<p>We can also use a function like the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.plotting.scatter_matrix.html">scatterplot matrix</a> in pandas to plot each variable against each other variable (such as for visualizing correlation between all our variables). By default it’s not the best looking plot, but there are plenty of options in the documentation to improve the appearance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">scatter_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1e026b4e12879368eabb124cc4d7226cefea31a9e6caa6f5e7020005e29cbb3d.png" src="../../_images/1e026b4e12879368eabb124cc4d7226cefea31a9e6caa6f5e7020005e29cbb3d.png" />
+</div>
+</div>
+<p>We can also calculate the correlation coefficient between the variables we plotted here to quantify (not only visualize) how well they are correlated.  The below function, shared by a student taking this class, illustrates a way to calculate and plot this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cross_corr</span><span class="p">(</span>
+    <span class="n">data_frame</span><span class="p">,</span> <span class="c1"># panda dataframe</span>
+    <span class="n">method</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;pearson&#39;</span><span class="p">,</span> <span class="c1"># type of correlation: either {&#39;pearson&#39;, &#39;kendall&#39;, &#39;spearman&#39;}</span>
+    <span class="n">title</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="c1"># a string representing the title of your plot</span>
+    <span class="n">figsize</span><span class="p">:</span><span class="nb">tuple</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="c1"># a tuple</span>
+    <span class="p">)</span><span class="o">-&gt;</span><span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function performs the cross correlation on all the variables in panda datafram</span>
+<span class="sd">    and plots the data in the form of a matrix of cross correlation.</span>
+<span class="sd">    </span>
+<span class="sd">    Arguments:</span>
+<span class="sd">    data_frame: a panda dataframe</span>
+<span class="sd">    </span>
+<span class="sd">    Optional arguments:</span>
+<span class="sd">    method: default=&#39;pearson&#39;; type of correlation: either {&#39;pearson&#39;, &#39;kendall&#39;, &#39;spearman&#39;}</span>
+<span class="sd">    title: default=None; a string representing the tiltle of your plot</span>
+<span class="sd">    figsize: default=(10,10); # a tuple</span>
+<span class="sd">    </span>
+<span class="sd">    This function adapted from Collins Owusu [https://github.com/collinsowusu]</span>
+<span class="sd">    and modified by George Darkwah for the CEWA 465/565 - Data Analysis in Water Sciences class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+    <span class="n">colormap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdBu</span>
+    <span class="c1"># plt.figure(figsize=(6,6), dpi=300)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,)</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">))</span>
+    <span class="n">mask</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices_from</span><span class="p">(</span><span class="n">mask</span><span class="p">)]</span><span class="o">=</span><span class="kc">True</span>
+    <span class="n">svm</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">),</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">colormap</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">})</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cross_corr</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/098f112ead372e77454cc492e847b64f2f3af928ce3516a62a0dace029ac8f83.png" src="../../_images/098f112ead372e77454cc492e847b64f2f3af928ce3516a62a0dace029ac8f83.png" />
+</div>
+</div>
+<p>The above shows what you can determine by eye from the prior plot.  Blue Canyon SWE (BLC_max) is correlated with both time (year) and with Slide Canyon SWE (SLI_max), but Slide Canyon SWE is not correlated with time.</p>
+<p>For the multiple linear regression, we’ll use the scipy linear algebra least-squares function, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq"><code class="docutils literal notranslate"><span class="pre">scipy.linalg.lstsq()</span></code></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check out the function&#39;s documentation</span>
+lstsq<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html#scipy.linalg.lstsq">documentation for this function</a> states that it requires input of an array that includes vectors of all of the predictor variables we are considering.</p>
+<p>Below, we create an array made up of the maximum annual SWE at Slide Canyon and the year. We also need an array of ones (which allows for a constant term, the intercept, in the regression).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">years_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+<span class="c1"># create the input array</span>
+<span class="n">multi_input</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> 
+                         <span class="n">data</span><span class="o">.</span><span class="n">SLI_max</span><span class="p">,</span> <span class="c1"># SWE at slide canyon</span>
+                         <span class="n">years_array</span><span class="p">,</span> <span class="c1"># instead of the actual year numbers, just use a count of years starting at 1</span>
+                         <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">)</span> <span class="c1"># array of ones so we allow a constant, y-intercept, value</span>
+                       <span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># Transform this array with &quot;.T&quot; to swap rows and columns</span>
+
+<span class="c1"># Show the shapes of our two inputs to the lstsq function to make sure they have the same first dimension length</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multi_input</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">BLC_max</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(35, 3)
+(35,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now use the lstsq function and print the resulting regression parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">lstsq</span><span class="p">(</span><span class="n">multi_input</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">BLC_max</span><span class="p">)</span> <span class="c1"># I&#39;m using &quot;_&quot; as a placeholder for the outputs I don&#39;t need</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   0.3393747    12.94627806 -210.23759614]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The values of B, above, show the coefficients we would assing to the Slide Canyon SWE (B[0]), the year (B[1]), and the constant offset (B[2]), in the order shown.</p>
+<p><strong>Make predictions with our linear model</strong></p>
+<p>Here we’re using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html"><code class="docutils literal notranslate"><span class="pre">.dot()</span></code></a> method to take the dot product between our input array and output regression coefficients.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use our linear model to make predictions:</span>
+<span class="n">BLC_multiple_linear_model</span> <span class="o">=</span> <span class="n">multi_input</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+
+<span class="c1"># We could also do it this way:</span>
+<span class="c1">#BLC_multiple_linear_model = B[0]*data.SLI_max + B[1]*years_array + B[2]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Plot residuals</strong></p>
+<p>We should make a plot of the residuals (actual - predicted values). For a good linear fit, we hope that our residuals are small, don’t have any trends or patterns themselves, want them to be normally distributed.</p>
+<p>How do these compare to the residuals of the simple linear regression model?</p>
+<p>Generally, adding more predictors will always decrease the residual error in the region where the model is developed but may increase the error in a region outside of when it was developed. (To test this, it’s best practice to keep some data separate from the regression model development and then test model performance there. You could take a subset of the data above, recalcuate the regression coefficients and then check your model prediction vs. observed for years outside of your original dataset to see if the mulitple regression actually improves your predictive capabilities.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ml_residuals</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">BLC_max</span> <span class="o">-</span> <span class="n">BLC_multiple_linear_model</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">,</span><span class="n">ml_residuals</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;years&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;residuals (mm SWE)&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">ml_residuals</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;residuals (mm SWE)&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ccfc779c95a15f6ab313e784764500ca801e5558d95ccd5a665852dcdc6f00dc.png" src="../../_images/ccfc779c95a15f6ab313e784764500ca801e5558d95ccd5a665852dcdc6f00dc.png" />
+</div>
+</div>
+<p><strong>Now compare our simple regression model with our multi-regression model.</strong></p>
+<p>Plot the results from the two different regression methods. How and where are they different?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Original data</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the predicted SWE at Blue Canyon from the simple linear regression model</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">,</span> <span class="n">BLC_linear_model</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Predicted with Simple Linear Regression&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the predicted SWE at Blue Canyon from the multiple linear regression model</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">,</span> <span class="n">BLC_multiple_linear_model</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Predicted with Multiple Linear Regression&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Timeline of Peak Snow Water Equivalent (SWE)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Water Year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Peak SWE (mm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.45</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/585c8f9b6f98335df836d24e38bc31a0b3016faf878bc39c980fcc2c311576af.png" src="../../_images/585c8f9b6f98335df836d24e38bc31a0b3016faf878bc39c980fcc2c311576af.png" />
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="quantile-regression">
+<h2>Quantile Regression<a class="headerlink" href="#quantile-regression" title="Link to this heading">#</a></h2>
+<p>For completeness, we can also perform a quantile regression like in Lab 4-2, then compare all three types of regression models.</p>
+<p>Create empirical CDFs for both SWE data sets</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">quantiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># This is our empirical cdf of the Slide Canyon data, which also includes values down to 0 and up to 1.</span>
+<span class="n">SLI_ordered</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">SLI_max</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">)</span>
+
+<span class="c1"># This is our empirical cdf of the Blue Canyon data, which also includes values down to 0 and up to 1.</span>
+<span class="n">BLC_ordered</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">BLC_max</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the CDFs to “look up” SWE from Slide Canyon to predict SWE in Blue Canyon</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create our interpolation function for looking up a quantile given a value of SWE at Slide Canyon</span>
+<span class="n">f_SLI</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">SLI_ordered</span><span class="p">,</span> <span class="n">quantiles</span><span class="p">)</span>
+<span class="c1"># Create our interpolation function for looking up SWE at Blue Canyon given a quantile</span>
+<span class="n">g_BLC</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">quantiles</span><span class="p">,</span> <span class="n">BLC_ordered</span><span class="p">)</span>
+
+<span class="c1"># Now, we can create a prediction for every value in the Slide Canyon dataset to come up with a matching prediction for the Blue Canyon dataset</span>
+<span class="n">BLC_predicted</span><span class="o">=</span><span class="n">g_BLC</span><span class="p">(</span> <span class="n">f_SLI</span><span class="p">(</span> <span class="n">data</span><span class="o">.</span><span class="n">SLI_max</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Plot the results from all three regression models together</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Original data</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;SLI_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Slide Canyon&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;years&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BLC_max&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the predicted SWE at Blue Canyon from the simple linear regression model</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">,</span> <span class="n">BLC_linear_model</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Predicted with Simple Linear Regression&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the predicted SWE at Blue Canyon from the multiple linear regression model</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">,</span> <span class="n">BLC_multiple_linear_model</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Predicted with Multiple Linear Regression&#39;</span><span class="p">)</span>
+
+<span class="c1"># Predicted with linear regression between Slide Canyon and Blue Canyon</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">years</span><span class="p">,</span><span class="n">BLC_predicted</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Blue Canyon Predicted from Quantile Regression&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Timeline of Peak Snow Water Equivalent (SWE)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Water Year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Peak SWE (mm)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e8e7c3ec0be105082c1d957e2a0f6b4b8119f8fbc28eda0cc28a7ab89cbc35e2.png" src="../../_images/e8e7c3ec0be105082c1d957e2a0f6b4b8119f8fbc28eda0cc28a7ab89cbc35e2.png" />
+</div>
+</div>
+<p>Which of these models do you think would be the most appropriate here?  What tools could you use to decide?</p>
+<p><strong>Food for Thought</strong>
+When thinking about choice of models, it is always important to think about your underlying science or engineering questions.  Why do we want to predict Blue Canyon from Slide Canyon?  (One answer might be that all of these instruments are costly to maintain, so why do we need them all.)  Another question might be, are we really using the best data for the task?  (For example, our data is peak SWE each year, which sometimes occurs on different dates at the two sites.  For example, sometimes Blue Canyon’s peak SWE is in January, and Slide Canyon’s peak SWE is in April – does it make sense to compare these?)  These details about snow science are beyond the scope of this class, but you should always think about your statistics and data analysis in the context of your science.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="module5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5) Multiple Linear Regression &amp; Autocorrelation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab5-2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 5-2: Autocorrelation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-linear-regression">Simple Linear Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-linear-regression">Multiple Linear Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantile-regression">Quantile Regression</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

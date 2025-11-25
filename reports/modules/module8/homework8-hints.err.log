@@ -1,0 +1,95 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# load the ibutton data
+data = sio.loadmat('iButtons_2008-2010.mat')
+
+# convert matlab format dates to python datetimes
+datenums = data['TIME'][:,0]
+dates = [dt.datetime.fromordinal(int(d)) + dt.timedelta(days=d%1) - dt.timedelta(days = 366) for d in datenums]
+
+# Unpack the rest of the data
+SITE_NAMES = [name[0][0] for name in data['SITE_NAMES']]
+SITE_LATS = data['SITE_LATS'][:,0]
+SITE_LONS = data['SITE_LONS'][:,0]
+SITE_ELEVS = data['SITE_ELEVS'][:,0]
+AIR_TEMPERATURE = data['AIR_TEMPERATURE']
+AIR_TEMPERATURE_ZEROMEAN = data['AIR_TEMPERATURE_ZEROMEAN']
+
+nt = data['nt'][0][0] # size in the t dimension
+nx = data['nx'][0][0] # size in the x dimension (number of sites)
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/scipy/io/matlab/_mio.py:39[39m, in [36m_open_file[39m[34m(file_like, appendmat, mode)[39m
+[32m     38[39m [38;5;28;01mtry[39;00m:
+[32m---> [39m[32m39[39m     [38;5;28;01mreturn[39;00m [38;5;28;43mopen[39;49m[43m([49m[43mfile_like[49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m, [38;5;28;01mTrue[39;00m
+[32m     40[39m [38;5;28;01mexcept[39;00m [38;5;167;01mOSError[39;00m [38;5;28;01mas[39;00m e:
+[32m     41[39m     [38;5;66;03m# Probably "not found"[39;00m
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: 'iButtons_2008-2010.mat'
+
+During handling of the above exception, another exception occurred:
+
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 2[39m
+[32m      1[39m [38;5;66;03m# load the ibutton data[39;00m
+[32m----> [39m[32m2[39m data = [43msio[49m[43m.[49m[43mloadmat[49m[43m([49m[33;43m'[39;49m[33;43miButtons_2008-2010.mat[39;49m[33;43m'[39;49m[43m)[49m
+[32m      4[39m [38;5;66;03m# convert matlab format dates to python datetimes[39;00m
+[32m      5[39m datenums = data[[33m'[39m[33mTIME[39m[33m'[39m][:,[32m0[39m]
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/scipy/io/matlab/_mio.py:233[39m, in [36mloadmat[39m[34m(file_name, mdict, appendmat, spmatrix, **kwargs)[39m
+[32m     88[39m [38;5;250m[39m[33;03m"""[39;00m
+[32m     89[39m [33;03mLoad MATLAB file.[39;00m
+[32m     90[39m 
+[32m   (...)[39m[32m    230[39m [33;03m    3.14159265+3.14159265j])[39;00m
+[32m    231[39m [33;03m"""[39;00m
+[32m    232[39m variable_names = kwargs.pop([33m'[39m[33mvariable_names[39m[33m'[39m, [38;5;28;01mNone[39;00m)
+[32m--> [39m[32m233[39m [43m[49m[38;5;28;43;01mwith[39;49;00m[43m [49m[43m_open_file_context[49m[43m([49m[43mfile_name[49m[43m,[49m[43m [49m[43mappendmat[49m[43m)[49m[43m [49m[38;5;28;43;01mas[39;49;00m[43m [49m[43mf[49m[43m:[49m
+[32m    234[39m [43m    [49m[43mMR[49m[43m,[49m[43m [49m[43m_[49m[43m [49m[43m=[49m[43m [49m[43mmat_reader_factory[49m[43m([49m[43mf[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[43mkwargs[49m[43m)[49m
+[32m    235[39m [43m    [49m[43mmatfile_dict[49m[43m [49m[43m=[49m[43m [49m[43mMR[49m[43m.[49m[43mget_variables[49m[43m([49m[43mvariable_names[49m[43m)[49m
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/contextlib.py:137[39m, in [36m_GeneratorContextManager.__enter__[39m[34m(self)[39m
+[32m    135[39m [38;5;28;01mdel[39;00m [38;5;28mself[39m.args, [38;5;28mself[39m.kwds, [38;5;28mself[39m.func
+[32m    136[39m [38;5;28;01mtry[39;00m:
+[32m--> [39m[32m137[39m     [38;5;28;01mreturn[39;00m [38;5;28mnext[39m([38;5;28mself[39m.gen)
+[32m    138[39m [38;5;28;01mexcept[39;00m [38;5;167;01mStopIteration[39;00m:
+[32m    139[39m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33m"[39m[33mgenerator didn[39m[33m'[39m[33mt yield[39m[33m"[39m) [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;28;01mNone[39;00m
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/scipy/io/matlab/_mio.py:17[39m, in [36m_open_file_context[39m[34m(file_like, appendmat, mode)[39m
+[32m     15[39m [38;5;129m@contextmanager[39m
+[32m     16[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34m_open_file_context[39m(file_like, appendmat, mode=[33m'[39m[33mrb[39m[33m'[39m):
+[32m---> [39m[32m17[39m     f, opened = [43m_open_file[49m[43m([49m[43mfile_like[49m[43m,[49m[43m [49m[43mappendmat[49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m
+[32m     18[39m     [38;5;28;01mtry[39;00m:
+[32m     19[39m         [38;5;28;01myield[39;00m f
+
+[36mFile [39m[32m/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/scipy/io/matlab/_mio.py:45[39m, in [36m_open_file[39m[34m(file_like, appendmat, mode)[39m
+[32m     43[39m     [38;5;28;01mif[39;00m appendmat [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m file_like.endswith([33m'[39m[33m.mat[39m[33m'[39m):
+[32m     44[39m         file_like += [33m'[39m[33m.mat[39m[33m'[39m
+[32m---> [39m[32m45[39m     [38;5;28;01mreturn[39;00m [38;5;28;43mopen[39;49m[43m([49m[43mfile_like[49m[43m,[49m[43m [49m[43mmode[49m[43m)[49m, [38;5;28;01mTrue[39;00m
+[32m     46[39m [38;5;28;01melse[39;00m:
+[32m     47[39m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m(
+[32m     48[39m         [33m'[39m[33mReader needs file name or open file-like object[39m[33m'[39m
+[32m     49[39m     ) [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01me[39;00m
+
+[31mFileNotFoundError[39m: [Errno 2] No such file or directory: 'iButtons_2008-2010.mat'
+

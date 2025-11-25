@@ -1,0 +1,1320 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>More python tips</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module1/some-python-tips';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Jupyter" href="../../resources/b-learning-jupyter.html" />
+    <link rel="prev" title="NumPy and the ndarray" href="numpy-tutorial.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="module1.html">1) Python, Statistics Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab1-2.html">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Trend Analysis, Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-2.html">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module7/module7.html">7) Markov Chains</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-1.html">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-3.html">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module7/mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/modules/module1/some-python-tips.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Fmodules/module1/some-python-tips.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module1/some-python-tips.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>More python tips</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-data-files-with-pandas">Opening data files (with pandas):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-find-help-documentation">How to find help/documentation?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-functions">Writing functions:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-your-custom-functions">Import your custom functions:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="more-python-tips">
+<h1>More python tips<a class="headerlink" href="#more-python-tips" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the pandas package</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># import numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># import the package we&#39;ll use for plotting</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># this tells the jupyter notebook to show plots &quot;inline&quot; with other output here in the notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<section id="opening-data-files-with-pandas">
+<h2>Opening data files (with pandas):<a class="headerlink" href="#opening-data-files-with-pandas" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Location of the data file</span>
+<span class="n">Skykomish_data_file</span> <span class="o">=</span> <span class="s1">&#39;Skykomish_peak_flow_12134500_skykomish_river_near_gold_bar.xlsx&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use pandas.read_excel() function to open this file.</span>
+<span class="n">Skykomish_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">Skykomish_data_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.11.14/x64/lib/python3.11/site-packages/openpyxl/worksheet/_reader.py:329: UserWarning: Unknown extension is not supported and will be removed
+  warn(msg)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now we can see the dataset we loaded:</span>
+<span class="n">Skykomish_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date of peak</th>
+      <th>water year</th>
+      <th>peak value (cfs)</th>
+      <th>gage_ht (feet)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1928-10-09</td>
+      <td>1929</td>
+      <td>18800</td>
+      <td>10.55</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1930-02-05</td>
+      <td>1930</td>
+      <td>15800</td>
+      <td>10.44</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1931-01-28</td>
+      <td>1931</td>
+      <td>35100</td>
+      <td>14.08</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1932-02-26</td>
+      <td>1932</td>
+      <td>83300</td>
+      <td>20.70</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1932-11-13</td>
+      <td>1933</td>
+      <td>72500</td>
+      <td>19.50</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>2015-11-17</td>
+      <td>2016</td>
+      <td>95900</td>
+      <td>21.73</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>2016-10-20</td>
+      <td>2017</td>
+      <td>41000</td>
+      <td>15.76</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>2017-11-23</td>
+      <td>2018</td>
+      <td>54200</td>
+      <td>17.50</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>2018-11-02</td>
+      <td>2019</td>
+      <td>35200</td>
+      <td>14.98</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>2020-02-01</td>
+      <td>2020</td>
+      <td>72200</td>
+      <td>19.50</td>
+    </tr>
+  </tbody>
+</table>
+<p>91 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at a single column, using the header name</span>
+<span class="n">Skykomish_data</span><span class="p">[</span><span class="s1">&#39;water year&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     1929
+1     1930
+2     1931
+3     1932
+4     1933
+      ... 
+86    2016
+87    2017
+88    2018
+89    2019
+90    2020
+Name: water year, Length: 91, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot data, specifying our x and y with column header names</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Skykomish_data</span><span class="p">[</span><span class="s1">&#39;water year&#39;</span><span class="p">],</span><span class="n">Skykomish_data</span><span class="p">[</span><span class="s1">&#39;peak value (cfs)&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4a852eb790&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/14558468702a33b1dd5fbd1548348698e3091872f148684b7d315cf8e316673e.png" src="../../_images/14558468702a33b1dd5fbd1548348698e3091872f148684b7d315cf8e316673e.png" />
+</div>
+</div>
+</section>
+<section id="how-to-find-help-documentation">
+<h2>How to find help/documentation?<a class="headerlink" href="#how-to-find-help-documentation" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on _ArrayFunctionDispatcher in module numpy:
+
+mean(a, axis=None, dtype=None, out=None, keepdims=&lt;no value&gt;, *, where=&lt;no value&gt;)
+    Compute the arithmetic mean along the specified axis.
+    
+    Returns the average of the array elements.  The average is taken over
+    the flattened array by default, otherwise over the specified axis.
+    `float64` intermediate and return values are used for integer inputs.
+    
+    Parameters
+    ----------
+    a : array_like
+        Array containing numbers whose mean is desired. If `a` is not an
+        array, a conversion is attempted.
+    axis : None or int or tuple of ints, optional
+        Axis or axes along which the means are computed. The default is to
+        compute the mean of the flattened array.
+    
+        If this is a tuple of ints, a mean is performed over multiple axes,
+        instead of a single axis or all the axes as before.
+    dtype : data-type, optional
+        Type to use in computing the mean.  For integer inputs, the default
+        is `float64`; for floating point inputs, it is the same as the
+        input dtype.
+    out : ndarray, optional
+        Alternate output array in which to place the result.  The default
+        is ``None``; if provided, it must have the same shape as the
+        expected output, but the type will be cast if necessary.
+        See :ref:`ufuncs-output-type` for more details.
+        See :ref:`ufuncs-output-type` for more details.
+    
+    keepdims : bool, optional
+        If this is set to True, the axes which are reduced are left
+        in the result as dimensions with size one. With this option,
+        the result will broadcast correctly against the input array.
+    
+        If the default value is passed, then `keepdims` will not be
+        passed through to the `mean` method of sub-classes of
+        `ndarray`, however any non-default value will be.  If the
+        sub-class&#39; method does not implement `keepdims` any
+        exceptions will be raised.
+    
+    where : array_like of bool, optional
+        Elements to include in the mean. See `~numpy.ufunc.reduce` for details.
+    
+        .. versionadded:: 1.20.0
+    
+    Returns
+    -------
+    m : ndarray, see dtype parameter above
+        If `out=None`, returns a new array containing the mean values,
+        otherwise a reference to the output array is returned.
+    
+    See Also
+    --------
+    average : Weighted average
+    std, var, nanmean, nanstd, nanvar
+    
+    Notes
+    -----
+    The arithmetic mean is the sum of the elements along the axis divided
+    by the number of elements.
+    
+    Note that for floating-point input, the mean is computed using the
+    same precision the input has.  Depending on the input data, this can
+    cause the results to be inaccurate, especially for `float32` (see
+    example below).  Specifying a higher-precision accumulator using the
+    `dtype` keyword can alleviate this issue.
+    
+    By default, `float16` results are computed using `float32` intermediates
+    for extra precision.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; import numpy as np
+    &gt;&gt;&gt; a = np.array([[1, 2], [3, 4]])
+    &gt;&gt;&gt; np.mean(a)
+    2.5
+    &gt;&gt;&gt; np.mean(a, axis=0)
+    array([2., 3.])
+    &gt;&gt;&gt; np.mean(a, axis=1)
+    array([1.5, 3.5])
+    
+    In single precision, `mean` can be inaccurate:
+    
+    &gt;&gt;&gt; a = np.zeros((2, 512*512), dtype=np.float32)
+    &gt;&gt;&gt; a[0, :] = 1.0
+    &gt;&gt;&gt; a[1, :] = 0.1
+    &gt;&gt;&gt; np.mean(a)
+    np.float32(0.54999924)
+    
+    Computing the mean in float64 is more accurate:
+    
+    &gt;&gt;&gt; np.mean(a, dtype=np.float64)
+    0.55000000074505806 # may vary
+    
+    Computing the mean in timedelta64 is available:
+    
+    &gt;&gt;&gt; b = np.array([1, 3], dtype=&quot;timedelta64[D]&quot;)
+    &gt;&gt;&gt; np.mean(b)
+    np.timedelta64(2,&#39;D&#39;)
+    
+    Specifying a where argument:
+    
+    &gt;&gt;&gt; a = np.array([[5, 9, 13], [14, 10, 12], [11, 15, 19]])
+    &gt;&gt;&gt; np.mean(a)
+    12.0
+    &gt;&gt;&gt; np.mean(a, where=[[True], [False], [False]])
+    9.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.mean<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function read_excel in module pandas.io.excel._base:
+
+read_excel(io, sheet_name: &#39;str | int | list[IntStrT] | None&#39; = 0, *, header: &#39;int | Sequence[int] | None&#39; = 0, names: &#39;SequenceNotStr[Hashable] | range | None&#39; = None, index_col: &#39;int | str | Sequence[int] | None&#39; = None, usecols: &#39;int | str | Sequence[int] | Sequence[str] | Callable[[str], bool] | None&#39; = None, dtype: &#39;DtypeArg | None&#39; = None, engine: &quot;Literal[&#39;xlrd&#39;, &#39;openpyxl&#39;, &#39;odf&#39;, &#39;pyxlsb&#39;, &#39;calamine&#39;] | None&quot; = None, converters: &#39;dict[str, Callable] | dict[int, Callable] | None&#39; = None, true_values: &#39;Iterable[Hashable] | None&#39; = None, false_values: &#39;Iterable[Hashable] | None&#39; = None, skiprows: &#39;Sequence[int] | int | Callable[[int], object] | None&#39; = None, nrows: &#39;int | None&#39; = None, na_values=None, keep_default_na: &#39;bool&#39; = True, na_filter: &#39;bool&#39; = True, verbose: &#39;bool&#39; = False, parse_dates: &#39;list | dict | bool&#39; = False, date_parser: &#39;Callable | lib.NoDefault&#39; = &lt;no_default&gt;, date_format: &#39;dict[Hashable, str] | str | None&#39; = None, thousands: &#39;str | None&#39; = None, decimal: &#39;str&#39; = &#39;.&#39;, comment: &#39;str | None&#39; = None, skipfooter: &#39;int&#39; = 0, storage_options: &#39;StorageOptions | None&#39; = None, dtype_backend: &#39;DtypeBackend | lib.NoDefault&#39; = &lt;no_default&gt;, engine_kwargs: &#39;dict | None&#39; = None) -&gt; &#39;DataFrame | dict[IntStrT, DataFrame]&#39;
+    Read an Excel file into a ``pandas`` ``DataFrame``.
+    
+    Supports `xls`, `xlsx`, `xlsm`, `xlsb`, `odf`, `ods` and `odt` file extensions
+    read from a local filesystem or URL. Supports an option to read
+    a single sheet or a list of sheets.
+    
+    Parameters
+    ----------
+    io : str, bytes, ExcelFile, xlrd.Book, path object, or file-like object
+        Any valid string path is acceptable. The string could be a URL. Valid
+        URL schemes include http, ftp, s3, and file. For file URLs, a host is
+        expected. A local file could be: ``file://localhost/path/to/table.xlsx``.
+    
+        If you want to pass in a path object, pandas accepts any ``os.PathLike``.
+    
+        By file-like object, we refer to objects with a ``read()`` method,
+        such as a file handle (e.g. via builtin ``open`` function)
+        or ``StringIO``.
+    
+        .. deprecated:: 2.1.0
+            Passing byte strings is deprecated. To read from a
+            byte string, wrap it in a ``BytesIO`` object.
+    sheet_name : str, int, list, or None, default 0
+        Strings are used for sheet names. Integers are used in zero-indexed
+        sheet positions (chart sheets do not count as a sheet position).
+        Lists of strings/integers are used to request multiple sheets.
+        Specify ``None`` to get all worksheets.
+    
+        Available cases:
+    
+        * Defaults to ``0``: 1st sheet as a `DataFrame`
+        * ``1``: 2nd sheet as a `DataFrame`
+        * ``&quot;Sheet1&quot;``: Load sheet with name &quot;Sheet1&quot;
+        * ``[0, 1, &quot;Sheet5&quot;]``: Load first, second and sheet named &quot;Sheet5&quot;
+          as a dict of `DataFrame`
+        * ``None``: All worksheets.
+    
+    header : int, list of int, default 0
+        Row (0-indexed) to use for the column labels of the parsed
+        DataFrame. If a list of integers is passed those row positions will
+        be combined into a ``MultiIndex``. Use None if there is no header.
+    names : array-like, default None
+        List of column names to use. If file contains no header row,
+        then you should explicitly pass header=None.
+    index_col : int, str, list of int, default None
+        Column (0-indexed) to use as the row labels of the DataFrame.
+        Pass None if there is no such column.  If a list is passed,
+        those columns will be combined into a ``MultiIndex``.  If a
+        subset of data is selected with ``usecols``, index_col
+        is based on the subset.
+    
+        Missing values will be forward filled to allow roundtripping with
+        ``to_excel`` for ``merged_cells=True``. To avoid forward filling the
+        missing values use ``set_index`` after reading the data instead of
+        ``index_col``.
+    usecols : str, list-like, or callable, default None
+        * If None, then parse all columns.
+        * If str, then indicates comma separated list of Excel column letters
+          and column ranges (e.g. &quot;A:E&quot; or &quot;A,C,E:F&quot;). Ranges are inclusive of
+          both sides.
+        * If list of int, then indicates list of column numbers to be parsed
+          (0-indexed).
+        * If list of string, then indicates list of column names to be parsed.
+        * If callable, then evaluate each column name against it and parse the
+          column if the callable returns ``True``.
+    
+        Returns a subset of the columns according to behavior above.
+    dtype : Type name or dict of column -&gt; type, default None
+        Data type for data or columns. E.g. {&#39;a&#39;: np.float64, &#39;b&#39;: np.int32}
+        Use ``object`` to preserve data as stored in Excel and not interpret dtype,
+        which will necessarily result in ``object`` dtype.
+        If converters are specified, they will be applied INSTEAD
+        of dtype conversion.
+        If you use ``None``, it will infer the dtype of each column based on the data.
+    engine : {&#39;openpyxl&#39;, &#39;calamine&#39;, &#39;odf&#39;, &#39;pyxlsb&#39;, &#39;xlrd&#39;}, default None
+        If io is not a buffer or path, this must be set to identify io.
+        Engine compatibility :
+    
+        - ``openpyxl`` supports newer Excel file formats.
+        - ``calamine`` supports Excel (.xls, .xlsx, .xlsm, .xlsb)
+          and OpenDocument (.ods) file formats.
+        - ``odf`` supports OpenDocument file formats (.odf, .ods, .odt).
+        - ``pyxlsb`` supports Binary Excel files.
+        - ``xlrd`` supports old-style Excel files (.xls).
+    
+        When ``engine=None``, the following logic will be used to determine the engine:
+    
+        - If ``path_or_buffer`` is an OpenDocument format (.odf, .ods, .odt),
+          then `odf &lt;https://pypi.org/project/odfpy/&gt;`_ will be used.
+        - Otherwise if ``path_or_buffer`` is an xls format, ``xlrd`` will be used.
+        - Otherwise if ``path_or_buffer`` is in xlsb format, ``pyxlsb`` will be used.
+        - Otherwise ``openpyxl`` will be used.
+    converters : dict, default None
+        Dict of functions for converting values in certain columns. Keys can
+        either be integers or column labels, values are functions that take one
+        input argument, the Excel cell content, and return the transformed
+        content.
+    true_values : list, default None
+        Values to consider as True.
+    false_values : list, default None
+        Values to consider as False.
+    skiprows : list-like, int, or callable, optional
+        Line numbers to skip (0-indexed) or number of lines to skip (int) at the
+        start of the file. If callable, the callable function will be evaluated
+        against the row indices, returning True if the row should be skipped and
+        False otherwise. An example of a valid callable argument would be ``lambda
+        x: x in [0, 2]``.
+    nrows : int, default None
+        Number of rows to parse.
+    na_values : scalar, str, list-like, or dict, default None
+        Additional strings to recognize as NA/NaN. If dict passed, specific
+        per-column NA values. By default the following values are interpreted
+        as NaN: &#39;&#39;, &#39;#N/A&#39;, &#39;#N/A N/A&#39;, &#39;#NA&#39;, &#39;-1.#IND&#39;, &#39;-1.#QNAN&#39;, &#39;-NaN&#39;, &#39;-nan&#39;,
+        &#39;1.#IND&#39;, &#39;1.#QNAN&#39;, &#39;&lt;NA&gt;&#39;, &#39;N/A&#39;, &#39;NA&#39;, &#39;NULL&#39;, &#39;NaN&#39;, &#39;None&#39;,
+        &#39;n/a&#39;, &#39;nan&#39;, &#39;null&#39;.
+    keep_default_na : bool, default True
+        Whether or not to include the default NaN values when parsing the data.
+        Depending on whether ``na_values`` is passed in, the behavior is as follows:
+    
+        * If ``keep_default_na`` is True, and ``na_values`` are specified,
+          ``na_values`` is appended to the default NaN values used for parsing.
+        * If ``keep_default_na`` is True, and ``na_values`` are not specified, only
+          the default NaN values are used for parsing.
+        * If ``keep_default_na`` is False, and ``na_values`` are specified, only
+          the NaN values specified ``na_values`` are used for parsing.
+        * If ``keep_default_na`` is False, and ``na_values`` are not specified, no
+          strings will be parsed as NaN.
+    
+        Note that if `na_filter` is passed in as False, the ``keep_default_na`` and
+        ``na_values`` parameters will be ignored.
+    na_filter : bool, default True
+        Detect missing value markers (empty strings and the value of na_values). In
+        data without any NAs, passing ``na_filter=False`` can improve the
+        performance of reading a large file.
+    verbose : bool, default False
+        Indicate number of NA values placed in non-numeric columns.
+    parse_dates : bool, list-like, or dict, default False
+        The behavior is as follows:
+    
+        * ``bool``. If True -&gt; try parsing the index.
+        * ``list`` of int or names. e.g. If [1, 2, 3] -&gt; try parsing columns 1, 2, 3
+          each as a separate date column.
+        * ``list`` of lists. e.g.  If [[1, 3]] -&gt; combine columns 1 and 3 and parse as
+          a single date column.
+        * ``dict``, e.g. {&#39;foo&#39; : [1, 3]} -&gt; parse columns 1, 3 as date and call
+          result &#39;foo&#39;
+    
+        If a column or index contains an unparsable date, the entire column or
+        index will be returned unaltered as an object data type. If you don`t want to
+        parse some cells as date just change their type in Excel to &quot;Text&quot;.
+        For non-standard datetime parsing, use ``pd.to_datetime`` after ``pd.read_excel``.
+    
+        Note: A fast-path exists for iso8601-formatted dates.
+    date_parser : function, optional
+        Function to use for converting a sequence of string columns to an array of
+        datetime instances. The default uses ``dateutil.parser.parser`` to do the
+        conversion. Pandas will try to call `date_parser` in three different ways,
+        advancing to the next if an exception occurs: 1) Pass one or more arrays
+        (as defined by `parse_dates`) as arguments; 2) concatenate (row-wise) the
+        string values from the columns defined by `parse_dates` into a single array
+        and pass that; and 3) call `date_parser` once for each row using one or
+        more strings (corresponding to the columns defined by `parse_dates`) as
+        arguments.
+    
+        .. deprecated:: 2.0.0
+           Use ``date_format`` instead, or read in as ``object`` and then apply
+           :func:`to_datetime` as-needed.
+    date_format : str or dict of column -&gt; format, default ``None``
+       If used in conjunction with ``parse_dates``, will parse dates according to this
+       format. For anything more complex,
+       please read in as ``object`` and then apply :func:`to_datetime` as-needed.
+    
+       .. versionadded:: 2.0.0
+    thousands : str, default None
+        Thousands separator for parsing string columns to numeric.  Note that
+        this parameter is only necessary for columns stored as TEXT in Excel,
+        any numeric columns will automatically be parsed, regardless of display
+        format.
+    decimal : str, default &#39;.&#39;
+        Character to recognize as decimal point for parsing string columns to numeric.
+        Note that this parameter is only necessary for columns stored as TEXT in Excel,
+        any numeric columns will automatically be parsed, regardless of display
+        format.(e.g. use &#39;,&#39; for European data).
+    
+        .. versionadded:: 1.4.0
+    
+    comment : str, default None
+        Comments out remainder of line. Pass a character or characters to this
+        argument to indicate comments in the input file. Any data between the
+        comment string and the end of the current line is ignored.
+    skipfooter : int, default 0
+        Rows at the end to skip (0-indexed).
+    storage_options : dict, optional
+        Extra options that make sense for a particular storage connection, e.g.
+        host, port, username, password, etc. For HTTP(S) URLs the key-value pairs
+        are forwarded to ``urllib.request.Request`` as header options. For other
+        URLs (e.g. starting with &quot;s3://&quot;, and &quot;gcs://&quot;) the key-value pairs are
+        forwarded to ``fsspec.open``. Please see ``fsspec`` and ``urllib`` for more
+        details, and for more examples on storage options refer `here
+        &lt;https://pandas.pydata.org/docs/user_guide/io.html?
+        highlight=storage_options#reading-writing-remote-files&gt;`_.
+    
+    dtype_backend : {&#39;numpy_nullable&#39;, &#39;pyarrow&#39;}, default &#39;numpy_nullable&#39;
+        Back-end data type applied to the resultant :class:`DataFrame`
+        (still experimental). Behaviour is as follows:
+    
+        * ``&quot;numpy_nullable&quot;``: returns nullable-dtype-backed :class:`DataFrame`
+          (default).
+        * ``&quot;pyarrow&quot;``: returns pyarrow-backed nullable :class:`ArrowDtype`
+          DataFrame.
+    
+        .. versionadded:: 2.0
+    
+    engine_kwargs : dict, optional
+        Arbitrary keyword arguments passed to excel engine.
+    
+    Returns
+    -------
+    DataFrame or dict of DataFrames
+        DataFrame from the passed in Excel file. See notes in sheet_name
+        argument for more information on when a dict of DataFrames is returned.
+    
+    See Also
+    --------
+    DataFrame.to_excel : Write DataFrame to an Excel file.
+    DataFrame.to_csv : Write DataFrame to a comma-separated values (csv) file.
+    read_csv : Read a comma-separated values (csv) file into DataFrame.
+    read_fwf : Read a table of fixed-width formatted lines into DataFrame.
+    
+    Notes
+    -----
+    For specific information on the methods used for each Excel engine, refer to the pandas
+    :ref:`user guide &lt;io.excel_reader&gt;`
+    
+    Examples
+    --------
+    The file can be read using the file name as string or an open file object:
+    
+    &gt;&gt;&gt; pd.read_excel(&#39;tmp.xlsx&#39;, index_col=0)  # doctest: +SKIP
+           Name  Value
+    0   string1      1
+    1   string2      2
+    2  #Comment      3
+    
+    &gt;&gt;&gt; pd.read_excel(open(&#39;tmp.xlsx&#39;, &#39;rb&#39;),
+    ...               sheet_name=&#39;Sheet3&#39;)  # doctest: +SKIP
+       Unnamed: 0      Name  Value
+    0           0   string1      1
+    1           1   string2      2
+    2           2  #Comment      3
+    
+    Index and header can be specified via the `index_col` and `header` arguments
+    
+    &gt;&gt;&gt; pd.read_excel(&#39;tmp.xlsx&#39;, index_col=None, header=None)  # doctest: +SKIP
+         0         1      2
+    0  NaN      Name  Value
+    1  0.0   string1      1
+    2  1.0   string2      2
+    3  2.0  #Comment      3
+    
+    Column types are inferred but can be explicitly specified
+    
+    &gt;&gt;&gt; pd.read_excel(&#39;tmp.xlsx&#39;, index_col=0,
+    ...               dtype={&#39;Name&#39;: str, &#39;Value&#39;: float})  # doctest: +SKIP
+           Name  Value
+    0   string1    1.0
+    1   string2    2.0
+    2  #Comment    3.0
+    
+    True, False, and NA values, and thousands separators have defaults,
+    but can be explicitly specified, too. Supply the values you would like
+    as strings or lists of strings!
+    
+    &gt;&gt;&gt; pd.read_excel(&#39;tmp.xlsx&#39;, index_col=0,
+    ...               na_values=[&#39;string1&#39;, &#39;string2&#39;])  # doctest: +SKIP
+           Name  Value
+    0       NaN      1
+    1       NaN      2
+    2  #Comment      3
+    
+    Comment lines in the excel input file can be skipped using the
+    ``comment`` kwarg.
+    
+    &gt;&gt;&gt; pd.read_excel(&#39;tmp.xlsx&#39;, index_col=0, comment=&#39;#&#39;)  # doctest: +SKIP
+          Name  Value
+    0  string1    1.0
+    1  string2    2.0
+    2     None    NaN
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pd.read_excel<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="writing-functions">
+<h2>Writing functions:<a class="headerlink" href="#writing-functions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_values</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">add_values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-your-custom-functions">
+<h2>Import your custom functions:<a class="headerlink" href="#import-your-custom-functions" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#def subtract_values(x,y):</span>
+<span class="c1">#    z = x - y</span>
+<span class="c1">#    return z</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">my_functions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">my_functions</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;my_functions&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">my_functions</span><span class="o">.</span><span class="n">subtract_values</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="numpy-tutorial.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">NumPy and the ndarray</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../resources/b-learning-jupyter.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Jupyter</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-data-files-with-pandas">Opening data files (with pandas):</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-find-help-documentation">How to find help/documentation?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-functions">Writing functions:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-your-custom-functions">Import your custom functions:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

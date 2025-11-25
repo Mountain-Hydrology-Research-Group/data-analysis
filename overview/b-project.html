@@ -1,0 +1,724 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Course Project (CEWA 565)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'overview/b-project';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1) Python, Statistics Review" href="../modules/module1/module1.html" />
+    <link rel="prev" title="Syllabus" href="a-syllabus.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module1/module1.html">1) Python, Statistics Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/lab1-2.html">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module3/module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module3/lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module3/lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module3/lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module3/homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module4/module4.html">4) Trend Analysis, Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module4/lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module4/lab4-2.html">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module4/lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module4/lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module4/homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module5/module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module5/lab5-1.html">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module5/lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module5/homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module6/module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module6/lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module6/lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module6/lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module6/homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module7/module7.html">7) Markov Chains</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module7/lab7-1.html">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module7/lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module7/lab7-3.html">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../modules/module7/mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module7/homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules/module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module1/some-python-tips.html">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module5/warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/module5/interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/overview/b-project.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Foverview/b-project.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/overview/b-project.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Course Project (CEWA 565)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-project-ideas">Potential project ideas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-rubic">Grading Rubic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation">Presentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#written-report">Written Report</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="course-project-cewa-565">
+<h1>Course Project (CEWA 565)<a class="headerlink" href="#course-project-cewa-565" title="Link to this heading">#</a></h1>
+<p>The goal of the course project is to give you hands on experience working with data of particular interest to you, as well as experience writing about and presenting data and statistical information.</p>
+<p>In your project, you will ask a question (pose a hypothesis), answer it using a variety of analysis techniques, and clearly address the statistical uncertainty of the answer. In the report, explain your objectives, your data source, your methodology, your results, and discuss remaining uncertainties.</p>
+<p>Your project will be evaluated through an oral presentation (20% of total grade) and a written report (80% of total grade). The written report will be no longer than 10 pages (for an individual or group of two; or 15 pages for a group of three), including figures (references will not count towards the page limit).  I encourage groups of 2 (not one or three) when possible.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Additional Resources
+UW has services to help people with <a class="reference external" href="https://www.stat.washington.edu/consulting/">statistics</a> and <a class="reference external" href="https://escience.washington.edu/using-data-science/office-hours/">data analysis</a>. These are designed primarily to help graduate students engaged in research (not with homework), but presuming your course project is related to a research interest of yours, they have been very helpful in the past.</p>
+</div>
+<section id="potential-project-ideas">
+<h2>Potential project ideas<a class="headerlink" href="#potential-project-ideas" title="Link to this heading">#</a></h2>
+<p>You are welcome to use your own data and answer a question of interest to you and relevant to your own research. Please let the instructor know as early as possible so that we can make sure you have sufficient data to be successful. Alternatively, you may choose or adapt one of the project ideas below. Multiple groups may answer the same general question, but they should pick different specific data or specific tests to use, which can be coordinated in conjunction with the instructor. Past project examples are available on the <a class="reference external" href="https://canvas.uw.edu/">class Canvas page</a> under <em>Files</em> &gt; <em>Student Projects and Presentations</em> &gt; <em>Project Examples</em>.</p>
+<ol class="arabic simple">
+<li><p><strong>How does forest harvesting affect flooding?</strong> Using data from the <a class="reference external" href="https://andrewsforest.oregonstate.edu/">HJ Andrews experimental forest</a>, determine whether the risk of flooding has increased following forest harvesting. You may download timeseries data from the <a class="reference external" href="https://canvas.uw.edu/">class Canvas page</a> or from the <a class="reference external" href="https://andrewsforest.oregonstate.edu/data">HJ Andrews data page</a>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Watershed 1 was a 400- to 500-year old-growth forest, measured from 1953-1961; from 1962-66, it was 100% clearcut, and in 1967, it was burned.</p></li>
+<li><p>Watershed 2 was kept as a control during this time.
+Using a variety of techniques we learned in class, as well as others you may encounter in the literature (use at least three different tests), determine whether forest removal increases flood risk at different return intervals in the HJ Andrews area.  What is your confidence in this (Type I and Type II errors)?  How sensitive are your results to the statistical tests you chose?</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>How does forest regeneration (following harvesting) change summer streamflow, or low flows?</strong> Similar to question 1, again using the HJ Andrews data.  See <a class="reference external" href="https://doi.org/10.1002/eco.1790">Perry &amp; Jones (2017)</a> paper on this topic. (Ask the instructor for a copy of this paper if you’re unable to access it online)</p></li>
+</ol>
+<p><strong>NOTE:</strong>  For both questions 1 and 2, an error was recently found in the HJ Andrews streamflow dataset. Please read the details on their <a class="reference external" href="https://andlter.forestry.oregonstate.edu/data/abstract.aspx?dbcode=HF004">data page</a>.  In particular, Watershed 1 had streamflow change by 20% due to a recalculation of the rating curve.  The data on our class canvas page is from the old rating curve.  As one project, you may research rating curve methods, how and why they were recalculated for Watershed 1, and what impact that recalculation has on the conclusions derived from questions 1 and 2 above.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>How does forest harvesting affect streamflow?</strong>  Using data from the the <a class="reference external" href="https://watersheds.ok.ubc.ca/upper-penticton-creek/">Penticon Creek Watershed</a>, described <a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/hyp.14391">here</a>, and available <a class="reference external" href="https://zenodo.org/records/5520109">here</a>, assess how forest harvesting affects the streamflow metric of your choice.  You may address the same questions as described for the HJ Andrews watershed above, you may compare data between the two regions, or you may ask a question of your choosing.  Papers about Upper Penticon Creek are availabe under Files&gt;Optional Reading and References&gt;Upper Penticon Creek, on the <a class="reference external" href="https://canvas.uw.edu/">class Canvas page</a>.  In this dataset, the 240 creek is unlogged and serves as the control.  Road construction and clearcut logging began in late 1995, see papers for details. By late winter of 2007, 47% of the 241 and 52% of the Upper Dennis Creek watersheds had been clearcut.  Snow and soil moisture data, as well as lidar data for tree heights, are also available.</p></li>
+<li><p><strong>How does weather vary in a high-elevation valley in Colorado?</strong>  The U.S. Department of Energy and the National Oceanographic and Atmospheric Administration have collected a lot of measurements in the East River Basin of Colorado, as part of the <a class="reference external" href="https://www.arm.gov/news/features/post/81524">SAIL and SPLASH</a> campaigns.  The data is publicly available for both <a class="reference external" href="https://adc.arm.gov/discovery/#/results/s:guc/site">SAIL</a> and <a class="reference external" href="https://psl.noaa.gov/splash/">SPLASH</a>. Talk to the instructor if you want to work on a project using these data.</p></li>
+<li><p><strong>How does stream temperature in different months and different streams relate to the onset date of snowmelt runoff (when the streams start rising)?</strong> Elevated stream temperatures can be unhealthy for fish if snow melts earlier (resulting in earlier streamflow). You may download time series of discharge and stream temperature <a class="reference external" href="https://www.osti.gov/dataexplorer/biblio/dataset/2324637">here</a> for different streams in Yosemite National Park, California. Using a variety of techniques we learned in class, as well as others you may encounter in the literature (use at least three different tests), determine whether stream temperature is significantly changed by streamflow timing. What is your confidence in this? You may want to consider different months of the year or different times of the day (e.g., daily maximum temperature vs. daily mean), and you may want to compare and contrast streams of different sizes. (See this <a class="reference external" href="https://depts.washington.edu/mtnhydr/Pages/Data/yosemite/Lundquist_2016_WRR_SupportingInfo.pdf">guide</a> to learn more about these sites. Also, talk to the instructor if you want more recent data.)</p></li>
+<li><p><strong>Does snow accumulation and/or melt change after forest disturbance?  How?</strong> (Please ask the instructor if you’re interested in this project.)</p></li>
+<li><p><strong>How do temperature, relative humidity, fog, and cloud cover vary across San Juan Island?  Are there potential locations of climate refugia for intertidal marine wildlife?</strong> (Please ask the instructor if you’re interested in this project.)</p></li>
+<li><p><strong>What variables influences groundwater at a property on the Olympic Peninsula?</strong>  (These data are provided by a CEE alumni family, and the instructor can you in touch with them if you are interested.)</p></li>
+<li><p><strong>Choose your own adventure…</strong></p></li>
+</ol>
+</section>
+<section id="grading-rubic">
+<h2>Grading Rubic<a class="headerlink" href="#grading-rubic" title="Link to this heading">#</a></h2>
+<section id="presentation">
+<h3>Presentation<a class="headerlink" href="#presentation" title="Link to this heading">#</a></h3>
+<p>(30 points; will account for 20% of project grade)</p>
+<p>A powerpoint-type presentation, like you would present at a conference, 10 minutes in length, with an additional 5 minutes for questions. Your classmates are your audience. Present your question, why it is important, what methods you employed to answer the question, your major results, and the implications of your results. For pairs, both project partners will present together.</p>
+<ul class="simple">
+<li><p>Clarity of Overall Presentation (10 points)</p>
+<ul>
+<li><p>Clear statement of the problem</p></li>
+<li><p>Clear explanations of what you did, easy to follow</p></li>
+<li><p>Good transitions from one section to the next</p></li>
+<li><p>Ability to answer questions raised by audience</p></li>
+</ul>
+</li>
+<li><p>Quality of Visual Aids/Graphics (10 points)</p>
+<ul>
+<li><p>All graphics easy to see, properly labeled, large enough font</p></li>
+<li><p>Correct limits on plot axes to show relevant information</p></li>
+<li><p>Proper choice of type of graph to convey information</p></li>
+<li><p>Interest level – slides nice/interesting to engage audience</p></li>
+</ul>
+</li>
+<li><p>Technical Analysis and Discussion (10 points)</p>
+<ul>
+<li><p>Proper methods applied</p></li>
+<li><p>Accuracy of results</p></li>
+<li><p>Explanation of why results are what they are</p></li>
+<li><p>Ability to relate results to other studies and other presentations in the class</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="written-report">
+<h3>Written Report<a class="headerlink" href="#written-report" title="Link to this heading">#</a></h3>
+<p>(30 points; will account for 80% of project grade)</p>
+<p>For the written report, you must include an abstract (no more than 300 words) and a list of references; these can be in addition to your 10 (for a group of two; or 15 for a group of three) pages.  Follow the same format outlined for the presentation but feel free to include more details (equations, etc.). Please address any questions or comments that were raised during the presentation. Use clear, concise sentences and proper grammar.</p>
+<ul class="simple">
+<li><p>Quality of Writing (10 points)</p>
+<ul>
+<li><p>Clear and easy to read</p></li>
+<li><p>Proper grammar and spelling</p></li>
+<li><p>Clear statement of the problem</p></li>
+<li><p>Good transitions from one section to the next</p></li>
+<li><p>Clarity of explanations of what you did</p></li>
+</ul>
+</li>
+<li><p>Technical Analysis (10 points)</p>
+<ul>
+<li><p>Clearly described methods, proper literature cited</p></li>
+<li><p>Technical difficulty of methods applied</p></li>
+<li><p>Accuracy of results</p></li>
+</ul>
+</li>
+<li><p>Interpretation, Analysis, and Discussion of Result (10 points)</p>
+<ul>
+<li><p>Attempted to explain why certain patterns were observed in the data and/or analysis</p></li>
+<li><p>Thought about results in context of other studies</p></li>
+<li><p>Outlined next steps to be taken</p></li>
+<li><p>Addressed underlying assumptions in the analysis and how these may have affected results</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./overview"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="a-syllabus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Syllabus</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../modules/module1/module1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1) Python, Statistics Review</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#potential-project-ideas">Potential project ideas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-rubic">Grading Rubic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#presentation">Presentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#written-report">Written Report</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

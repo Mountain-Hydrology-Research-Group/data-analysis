@@ -1,0 +1,1049 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lab 1-4 Solution</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/module1/lab1-4_solution';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt=" - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt=" - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Data Analysis in Water Sciences
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/a-syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/b-project.html">Course Project (CEWA 565)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modules</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="module1.html">1) Python, Statistics Review</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="lab1-1.html">Lab 1-1: Python, Jupyter, and Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab1-2.html">Lab 1-2: Probability Distributions and Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab1-3.html">Lab 1-3: Empirical Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lab1-4.html">Lab 1-4: Probability distributions and random numbers</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="homework1.html">Homework 1</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module2/module2.html">2) Hypothesis Testing</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-1.html">Lab 2-1: Hypothesis Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-2.html">Lab 2-2: Type II Error and Power</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-3.html">Lab 2-3: T-tests and Tests for Change in the Variance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/lab2-4.html">Lab 2-4: Monte Carlo Tests &amp; Random Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module2/homework2.html">Homework 2</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module3/module3.html">3) Non-Parametric Tests and Analysis of Variance</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-1.html">Lab 3-1:  Non-Parametric Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-2.html">Lab 3-2: Rank-Sum Test Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/lab3-3.html">Lab 3-3: Analysis of Variance (ANOVA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module3/homework3.html">Homework 3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module4/module4.html">4) Trend Analysis, Regression</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-1.html">Lab 4-1: Linear regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-2.html">Lab 4-2: Quantile Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-3.html">Lab 4-3: Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/lab4-4.html">Lab 4-4:  Mann-Kendall Trend Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module4/homework4.html">Homework 4</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module5/module5.html">5) Multiple Linear Regression &amp; Autocorrelation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-1.html">Lab 5-1: Multiple Linear Regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/lab5-2.html">Lab 5-2: Autocorrelation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/homework5.html">Homework 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module6/module6.html">6) Bayesian Statistics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-1.html">Lab 6-1: Bayes’ Theorem Example: Water Quality Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-2.html">Lab 6-2: Bayes’ Theorem Example: River Pollution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/lab6-3.html">Lab 6-3: Bayes’ Theorem with Probability Distributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module6/homework6.html">Homework 6</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module7/module7.html">7) Markov Chains</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-1.html">Lab 7-1: Markov Chains - Basic Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-2.html">Lab 7-2: Markov Chains - ENSO Phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/lab7-3.html">Lab 7-3: MCMC Rating Curves</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../module7/mcmc-example.html">Markov Chain Monte Carlo Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module7/homework7.html">Homework 7</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../module8/module8.html">8) SVD, Timeseries Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-1.html">Lab 8-1: SVD with Monthly Precipitation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-2.html">Lab 8-2: Timeseries and FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/lab8-3.html">Lab 8-3: Example timeseries analysis with FFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module8/homework8.html">Homework 8</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/a-learning-python.html">Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="numpy-tutorial.html">NumPy and the ndarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="some-python-tips.html">More python tips</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/b-learning-jupyter.html">Jupyter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../resources/c-data-visualization.html">Data visualization</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../resources/logo.html">A matplotlib demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/warming-stripes.html">Warming Stripes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../module5/interactive-plots.html">Interactive plotting with bokeh</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/d-learning-other.html">Other Resources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/instructor_resources.html">Resources for Instructors</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/edit/main/book/modules/module1/lab1-4_solution.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mountain-Hydrology-Research-Group/data-analysis/issues/new?title=Issue%20on%20page%20%2Fmodules/module1/lab1-4_solution.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/modules/module1/lab1-4_solution.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lab 1-4 Solution</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 1-4 Solution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-creating-and-plotting-random-normal-data">Section 1: Creating and Plotting Random Normal Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-creating-random-lognormal-data">Section 2: Creating Random Lognormal Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-creating-random-uniform-data">Section 3: Creating Random Uniform Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fun-with-fake-data">Fun with fake data!</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution"><strong>Solution:</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal-distribution">Log-normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-distribution">Uniform Distribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-1-4-solution">
+<h1>Lab 1-4 Solution<a class="headerlink" href="#lab-1-4-solution" title="Link to this heading">#</a></h1>
+<section id="section-1-creating-and-plotting-random-normal-data">
+<h2>Section 1: Creating and Plotting Random Normal Data<a class="headerlink" href="#section-1-creating-and-plotting-random-normal-data" title="Link to this heading">#</a></h2>
+<p>This section will introduce you to creating and plotting random normal data using the numpy and math modules. The random normal data set will have a mean of 100, standard deviation of 25, and sample size of 1000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, import the libraries you will need</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1">#Also, add code to make sure your plots appear in your Jupyter notebook</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create variables for the mean, standard deviation, and sample size of the data </span>
+<span class="c1"># as well as a variable for the number of bins used to plot the data as a </span>
+<span class="c1"># histogram later.</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">nbins</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Create random data using the properties defined above and the np module.</span>
+<span class="n">data_normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that the data has been created, plot the data as a histogram. Try changing the variables defined above, especially the number of bins and sample size, and seeing how the graph changes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_normal</span><span class="p">,</span> <span class="n">nbins</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;(Fig. 1) Normal Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Occurences&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Number of Occurences&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/0f561497c6db4dac948e32c3464d3824d435bd293652d96bd625aa6c5b8ee9c1.png" src="../../_images/0f561497c6db4dac948e32c3464d3824d435bd293652d96bd625aa6c5b8ee9c1.png" />
+</div>
+</div>
+</section>
+<section id="section-2-creating-random-lognormal-data">
+<h2>Section 2: Creating Random Lognormal Data<a class="headerlink" href="#section-2-creating-random-lognormal-data" title="Link to this heading">#</a></h2>
+<p>Next, generate and plot random lognormal data with the same mean, standard deviation, and sample size as above.  Refer back to Lecture 2 in class or to wikipedia’s page on the lognormal distibution: <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution">https://en.wikipedia.org/wiki/Log-normal_distribution</a>.  Note that the parameters <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> in the lognormal distribution refer to the mean and the standard deviation of the variables natural logarithm, not of the original dataset.  If we use “mean” and “sd” to refer to what we would calculate for the original dataset, then we can calculate <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> as follows:</p>
+<p>First, the mean of <span class="math notranslate nohighlight">\(ln(RandomData)\)</span> is <span class="math notranslate nohighlight">\({\mu} = ln\bigg(\frac{mean^2}{\sqrt{mean^2 + sd^2}}\bigg)\)</span>
+and the standard deviation is <span class="math notranslate nohighlight">\({\sigma} = \sqrt{ln\bigg(\frac{mean^2 + sd^2}{mean^2}\bigg)}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">nbins</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1"># Find the mean and standard deviation for ln(RandomData)</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">mean</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sd</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">mean</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">sd</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">mean</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+
+<span class="c1"># Create random data </span>
+<span class="n">data_lognormal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now plot the data. Try changing the variables above to see how the graph changes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_lognormal</span><span class="p">,</span> <span class="n">nbins</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;(Fig. 2) Lognormal Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Occurences&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Number of Occurences&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/58e4c4cf9d0a9ff21f7a84f83b4f1adb049eb3e7542e917ca38d0cabdf654648.png" src="../../_images/58e4c4cf9d0a9ff21f7a84f83b4f1adb049eb3e7542e917ca38d0cabdf654648.png" />
+</div>
+</div>
+</section>
+<section id="section-3-creating-random-uniform-data">
+<h2>Section 3: Creating Random Uniform Data<a class="headerlink" href="#section-3-creating-random-uniform-data" title="Link to this heading">#</a></h2>
+<p>Next, generate random uniform data with the same mean, standard deviation, and sample size as above.  Consider Lecture 2 on the uniform distribution or see wikipedia:  <a class="reference external" href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)</a></p>
+<p>First, for <span class="math notranslate nohighlight">\({f(x)} = \frac{1}{b-a}\)</span>, the mean is <span class="math notranslate nohighlight">\({\mu} = \frac{b+a}{2}\)</span>
+and the standard deviation is <span class="math notranslate nohighlight">\({\sigma} = \frac{b-a}{\sqrt{12}}\)</span>.</p>
+<p>So, <span class="math notranslate nohighlight">\({a} = \mu-\sigma\sqrt{3}\)</span> and <span class="math notranslate nohighlight">\({b} = \mu+\sigma\sqrt{3}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">nbins</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Find the bounds for uniform data</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">-</span> <span class="n">sd</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">mean</span> <span class="o">+</span> <span class="n">sd</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Create random data </span>
+<span class="n">data_uniform</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now plot the data. Try changing the variables above to see how the graph changes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_uniform</span><span class="p">,</span> <span class="n">nbins</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;(Fig. 3) Uniform Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Occurences&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Number of Occurences&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/c807bcc6092db5dcfc257e840d2c8da81840446b5bd294138938ee2e82fc5678.png" src="../../_images/c807bcc6092db5dcfc257e840d2c8da81840446b5bd294138938ee2e82fc5678.png" />
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="fun-with-fake-data">
+<h1>Fun with fake data!<a class="headerlink" href="#fun-with-fake-data" title="Link to this heading">#</a></h1>
+<p>One of the most reliable tests of any statistical method or technique is to try it out on data where you know the answer. This lets you see if the methodology gives you the result you expect. The best way to get data that truly understand is to make it up yourself.</p>
+<p>Try the following activity:</p>
+<ul class="simple">
+<li><p>Create data with known distributions, all with the same <strong>mean = 60</strong>, and <strong>standard deviation = 40</strong></p>
+<ul>
+<li><p>Generate <strong>1000</strong> random numbers with a normal distribution with <code class="docutils literal notranslate"><span class="pre">np.random.normal()</span></code></p></li>
+<li><p>Generate <strong>1000</strong> random numbers with a log-normal distribution with <code class="docutils literal notranslate"><span class="pre">np.random.lognormal()</span></code></p></li>
+<li><p>Generate <strong>1000</strong> random numbers with a uniform distribution with <code class="docutils literal notranslate"><span class="pre">np.random.uniform()</span></code> (You’ll need to think about what the interval should be for this uniform distribution.)</p></li>
+</ul>
+</li>
+<li><p>For each set of random numbers, make the following plots:</p>
+<ul>
+<li><p>histogram</p></li>
+<li><p>boxplot</p></li>
+<li><p>quantile plots</p></li>
+<li><p>PDFs</p></li>
+</ul>
+</li>
+<li><p>Compare the plots, and discuss how you can tell the distributions apart.</p></li>
+</ul>
+<p>Now repeat the above steps, but generate <strong>100</strong> random numbers for each set, then <strong>25</strong> numbers, then <strong>10</strong> numbers.</p>
+<ul class="simple">
+<li><p>For each of these, can you tell the distributions apart?</p></li>
+<li><p>What is the sample mean and standard deviation for each?</p></li>
+<li><p>Discuss the difference between a sample population and the true population.</p></li>
+</ul>
+<section id="solution">
+<h2><strong>Solution:</strong><a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>All of my fake data should have the same mean and standard deviation, so I’ll define those here first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_mean</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">my_standard_deviation</span> <span class="o">=</span> <span class="mi">40</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># I want 1000 random numbers from each</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="normal-distribution">
+<h3>Normal Distribution<a class="headerlink" href="#normal-distribution" title="Link to this heading">#</a></h3>
+<p>Next, I want to generate 1000 random numbers from a <strong>normal distribution</strong> with the mean and standard deviation from above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate random numbers from a normal distribution</span>
+<span class="n">normal_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">my_mean</span><span class="p">,</span> <span class="n">my_standard_deviation</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check that we got the mean and standard deviation that we wanted:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">normal_numbers</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standard Deviation = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">normal_numbers</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 59.4078665142246
+Standard Deviation = 38.4310040631632
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make our plots:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a plot figure, with one row of four subplots, and I&#39;ve given each subplot axes object a name</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">hist_ax</span><span class="p">,</span> <span class="n">box_ax</span><span class="p">,</span> <span class="n">cdf_ax</span><span class="p">,</span> <span class="n">pdf_ax</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{n}</span><span class="s1"> Random Numbers from a Normal Distribution&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">size</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;15&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a histogram plot</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_numbers</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="c1"># using the square root method to determine number of bins</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Occurences&#39;</span><span class="p">)</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a boxplot</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">normal_numbers</span><span class="p">)</span> <span class="c1"># using the square root method to determine number of bins</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># hide the x-axis</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Boxplot&#39;</span><span class="p">)</span>
+
+<span class="c1"># Compute quantiles for the CDF plot</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># calculate probabilities for 100 values 0-1</span>
+<span class="n">quantiles</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">normal_numbers</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span> <span class="n">alphap</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">betap</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span> <span class="c1"># values for alphap and betap here give us the Cunnane plotting position</span>
+<span class="c1"># Make a CDF plot</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">quantiles</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Probability&#39;</span><span class="p">)</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;CDF&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a PDF plot</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal_numbers</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">)</span> <span class="c1"># using density=True to normalize, and the square root method to determine number of bins</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of occurance&#39;</span><span class="p">)</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PDF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;PDF&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/38277bd700fc9063241897fb4a257e645fc5708791a49e979257613a43ba85d6.png" src="../../_images/38277bd700fc9063241897fb4a257e645fc5708791a49e979257613a43ba85d6.png" />
+</div>
+</div>
+</section>
+<section id="log-normal-distribution">
+<h3>Log-normal Distribution<a class="headerlink" href="#log-normal-distribution" title="Link to this heading">#</a></h3>
+<p>For generating random numbers from a <strong>log-normal distribution</strong>, take a look at the documentation for the <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.lognormal.html">np.normal.lognormal</a> function. This specifies that the mean and standard deviation we give the function are the mean and standard deviation of the <strong>underlying normal distribution</strong>, not of the lognormal distribution itself. <a class="reference external" href="https://en.wikipedia.org/wiki/Log-normal_distribution#Generation_and_parameters">See Wikipedia for details!</a></p>
+<p>This means we have to log-tranform our target mean (60) and standard deviation (40) before running the lognormal function.</p>
+<p><span class="math notranslate nohighlight">\(\mu_{log} = \log\left(\frac{\mu_X^2}{\sqrt{\mu_X^2+\sigma_X^2}}\right)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sigma_{log} = \sqrt{ \log\left(1+\frac{\sigma_X^2}{\mu_X^2}\right) }\)</span></p>
+<p>Where in the equations above <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> are our target mean and standard deviation, and <span class="math notranslate nohighlight">\(\mu_{log}\)</span> and <span class="math notranslate nohighlight">\(\sigma_{log}\)</span> are the log-transformed mean and standard deviation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the mean and standard deviation for ln(RandomData)</span>
+<span class="n">my_mean_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">my_mean</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">my_mean</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">my_standard_deviation</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">my_standard_deviation_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">((</span><span class="n">my_mean</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">my_standard_deviation</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">my_mean</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+
+<span class="c1"># Generate random numbers from a lognormal distribution</span>
+<span class="n">lognormal_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">my_mean_log</span><span class="p">,</span> <span class="n">my_standard_deviation_log</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check that we got the mean and standard deviation that we wanted:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lognormal_numbers</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standard Deviation = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lognormal_numbers</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 61.112674738024424
+Standard Deviation = 41.58805330401682
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make our plots:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a plot figure, with one row of four subplots, and I&#39;ve given each subplot axes object a name</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">hist_ax</span><span class="p">,</span> <span class="n">box_ax</span><span class="p">,</span> <span class="n">cdf_ax</span><span class="p">,</span> <span class="n">pdf_ax</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{n}</span><span class="s1"> Random Numbers from a Log-normal Distribution&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">size</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;15&#39;</span><span class="p">)</span>
+             
+<span class="c1"># Make a histogram plot</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lognormal_numbers</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="c1"># using the square root method to determine number of bins</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Occurences&#39;</span><span class="p">)</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a boxplot</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">lognormal_numbers</span><span class="p">)</span> <span class="c1"># using the square root method to determine number of bins</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># hide the x-axis</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Boxplot&#39;</span><span class="p">)</span>
+
+<span class="c1"># Compute quantiles for the CDF plot</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># calculate probabilities for 100 values 0-1</span>
+<span class="n">quantiles</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">lognormal_numbers</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span> <span class="n">alphap</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">betap</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span> <span class="c1"># values for alphap and betap here give us the Cunnane plotting position</span>
+<span class="c1"># Make a CDF plot</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">quantiles</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Probability&#39;</span><span class="p">)</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;CDF&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a PDF plot</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lognormal_numbers</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">)</span> <span class="c1"># using density=True to normalize, and the square root method to determine number of bins</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of occurance&#39;</span><span class="p">)</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PDF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;PDF&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/e1c06e3fa1fbe23e9d1dd6a066a8181976ca97ed6de17e09a23262a9317bdb99.png" src="../../_images/e1c06e3fa1fbe23e9d1dd6a066a8181976ca97ed6de17e09a23262a9317bdb99.png" />
+</div>
+</div>
+</section>
+<section id="uniform-distribution">
+<h3>Uniform Distribution<a class="headerlink" href="#uniform-distribution" title="Link to this heading">#</a></h3>
+<p>For the <strong>uniform distribution</strong>, note that instead of specifying a mean and standard deviation, the <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html">np.random.uniform()</a> function requires <em>low</em> and <em>high</em> interval values. But what should these values be?</p>
+<p>From <a class="reference external" href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda3662.htm">the equations the describe the mean and variance for a uniform distribution</a> on <span class="math notranslate nohighlight">\([A,B]\)</span>, we can drive the following equations to solve for <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> given a target mean and standard deviation.</p>
+<p><span class="math notranslate nohighlight">\(A = \bar{X} - s\sqrt{3}\)</span></p>
+<p><span class="math notranslate nohighlight">\(B = \bar{X} + s\sqrt{3}\)</span></p>
+<p>(Bookmark this website or download a copy of the <a class="reference external" href="https://www.itl.nist.gov/div898/handbook/toolaids/pff/E-Handbook.pdf">pdf</a> of the <a class="reference external" href="https://www.itl.nist.gov/div898/handbook/index.htm">Engineering Statistics Handbook</a> from the National Institute of Standards and Technology.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the upper and lower bounds that will give me the mean and standard deviation that I want</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">my_mean</span> <span class="o">-</span> <span class="n">my_standard_deviation</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">my_mean</span> <span class="o">+</span> <span class="n">my_standard_deviation</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Generate random numbers from a uniform distribution</span>
+<span class="n">uniform_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check that we got the mean and standard deviation that we wanted:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uniform_numbers</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Standard Deviation = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uniform_numbers</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean = 58.58828252812593
+Standard Deviation = 40.84719455888258
+</pre></div>
+</div>
+</div>
+</div>
+<p>Make our plots:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a plot figure, with one row of four subplots, and I&#39;ve given each subplot axes object a name</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">hist_ax</span><span class="p">,</span> <span class="n">box_ax</span><span class="p">,</span> <span class="n">cdf_ax</span><span class="p">,</span> <span class="n">pdf_ax</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{n}</span><span class="s1"> Random Numbers from a Uniform Distribution&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">size</span><span class="p">),</span> <span class="n">x</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;15&#39;</span><span class="p">)</span>
+             
+<span class="c1"># Make a histogram plot</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">uniform_numbers</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="c1"># using the square root method to determine number of bins</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Occurences&#39;</span><span class="p">)</span>
+<span class="n">hist_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a boxplot</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">uniform_numbers</span><span class="p">)</span> <span class="c1"># using the square root method to determine number of bins</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># hide the x-axis</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">box_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Boxplot&#39;</span><span class="p">)</span>
+
+<span class="c1"># Compute quantiles for the CDF plot</span>
+<span class="n">prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># calculate probabilities for 100 values 0-1</span>
+<span class="n">quantiles</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">mstats</span><span class="o">.</span><span class="n">mquantiles</span><span class="p">(</span><span class="n">uniform_numbers</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span> <span class="n">alphap</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">betap</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span> <span class="c1"># values for alphap and betap here give us the Cunnane plotting position</span>
+<span class="c1"># Make a CDF plot</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">quantiles</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Probability&#39;</span><span class="p">)</span>
+<span class="n">cdf_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;CDF&#39;</span><span class="p">)</span>
+
+<span class="c1"># Make a PDF plot</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">uniform_numbers</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">)</span> <span class="c1"># using density=True to normalize, and the square root method to determine number of bins</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Random Number&#39;</span><span class="p">)</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Probability of occurance&#39;</span><span class="p">)</span>
+<span class="n">pdf_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PDF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;PDF&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/953cf571bb4be09f414a71770e1887a8b2a9b87377d1ec148efdf51ac2902e8e.png" src="../../_images/953cf571bb4be09f414a71770e1887a8b2a9b87377d1ec148efdf51ac2902e8e.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modules/module1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Lab 1-4 Solution</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-1-creating-and-plotting-random-normal-data">Section 1: Creating and Plotting Random Normal Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-2-creating-random-lognormal-data">Section 2: Creating Random Lognormal Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#section-3-creating-random-uniform-data">Section 3: Creating Random Uniform Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fun-with-fake-data">Fun with fake data!</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution"><strong>Solution:</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#log-normal-distribution">Log-normal Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-distribution">Uniform Distribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Steven Pestana, Jessica D. Lundquist, and other contributors
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
