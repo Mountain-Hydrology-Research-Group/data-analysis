@@ -71,6 +71,9 @@ Homework will be graded on a scale of 1 to 10, with 10 being the best. Homework 
 
 Homework solutions will be posted in the Solutions folder on [Canvas](https://canvas.uw.edu/) on the Tuesday (5:00 pm) after the assignment was turned in.
 
+### Quizzes
+
+Every two weeks, we will have a short, in-class quiz, with no electronics allowed, to test your understanding of key concepts. You may use up to 4 pages of hand-written notes. We will have an ungraded practice quiz to orient you with the format, and your lowest quiz score will be dropped. These will take place in the second half of the class period.
 
 ### Final Exam (for CEE 465)
 
@@ -84,8 +87,10 @@ Final projects will be completed in pairs (or individually on request), and the 
 
 * **Class Attendance and Participation: 5%**
   * Participation includes discussions in class, on Slack, and providing feedback on student presentations
-* **Homework assignments: 70%**
-  * Each of the 8 homework assignments are worth 10 points (for a total of 80 points), however your lowest assignment will be dropped, and the overall homework grade will be evaluated out of 7 assignments and 70 points total.
+* **Homework assignments: 30%**
+  * Your lowest assignment will be dropped.
+* **Quizzes: 40%**
+  * Your lowest quiz score will be dropped.
 * **Final Project / Final Exam: 25%**
   * See the [CEWA 565 course project page](/overview/b-project.html) for grading rubric.
 
