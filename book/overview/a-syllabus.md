@@ -81,7 +81,7 @@ The final exam will be in class, during the official scheduled final exam time, 
 
 ### Final Project (for CEWA 565)
 
-Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 5th, and 7th homework assignments, and each student will give a short overview of their research problem and project results to the class in weeks 9 and 10. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on the end of the official exam time on the day of the scheduled final exam (see schedule on Canvas). Further details are provided on the [Course Project page](b-project.html).
+Final projects will be completed in pairs (or individually on request), and the topic will be selected by the students in consultation with the instructor. The topic should ideally involve data analysis related to a real-world engineering problem from within the student’s area of interest. Updates on the project are required as part of the 2nd, 4th, 6th and 8th homework assignments, and each student will give a short overview of their research problem and project results to the class at the end of the quarter. The project will be graded on the basis of the presentation (20%) and on the report (80%), which should be less than 10 pages long. Final reports will be due on the end of the official exam time on the day of the scheduled final exam (see schedule on Canvas). Further details are provided on the [Course Project page](b-project.html).
 
 ### Grading Policy
 
@@ -121,6 +121,9 @@ The University takes academic integrity very seriously. Behaving with integrity 
 
 The University of Washington Student Conduct Code (WAC 478-121) defines prohibited academic and behavioral conduct and describes how the University holds students accountable as they pursue their academic goals. Allegations of misconduct by students may be referred to the appropriate campus office for investigation and resolution. More information can be found online at [https://www.washington.edu/studentconduct/](https://www.washington.edu/studentconduct/)
 
+### AI Policy
+
+For in class exams, not electronics of any kind are allowed.  For homework and projects, you may use AI in any way that is helpful to you, but you must (a) cite which AI you used and explain how you used it, and (b) take personal responsibility for the quality and accuracy of everything you submit. Failure to provide credit for help received will be considered academic misconduct. 
 
 ### Access and Accommodations
 
