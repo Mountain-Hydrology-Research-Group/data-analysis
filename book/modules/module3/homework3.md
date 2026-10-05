@@ -23,10 +23,8 @@ Download and work through Labs 3-1 and 3-2 on Non-Parametric Tests. One of the c
 * Test the significance of the change in the mean between the two sample periods using the two-sample Rank-Sum test. 
 * How different is your conclusion from the one in Homework 2. (i.e. compare P for the two tests).
 
-## Problem 3: Empirical Test of the Central Limit Theorem: 
-Following Lab 1-4, draw 35 random numbers from a uniform distribution with a mean of 100 and standard deviation of 50 (same mean and sd as in the lab). (Note that the solution to the Lab 1-4 activity is available for download on the main Module 1 page.)  Create a histogram for these 35 numbers and plot.  What type of distribution does it look like?  What are the empirical mean and variance of these 35 numbers?
-
-Now create a loop where you repeat this 1000 times.  Each time, draw 35 random numbers from the uniform distribution, calculate the empirical mean and variance of those 35 numbers, and save those values.  So, you should have 1000 mean values and 1000 variances.  Create histograms for the means and the variances.  What type of distribution do each of these look like?  Relate your results here to the discussions in class about the Central Limit Theorem and when it applies.
+## Problem 3: TBD 
+This problem will be defined later.
 
 ---
  
