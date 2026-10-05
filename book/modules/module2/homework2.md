@@ -1,6 +1,11 @@
 # Homework 2
 
-## Problem 1: Hypothesis Testing
+## Ploblem 1: Empirical Test of the Central Limit Theorem
+Following Lab 1-4, draw 35 random numbers from a uniform distribution with a mean of 100 and standard deviation of 50 (same mean and sd as in the lab). (Note that the solution to the Lab 1-4 activity is available for download on the main Module 1 page.)  Create a histogram for these 35 numbers and plot.  What type of distribution does it look like?  What are the empirical mean and variance of these 35 numbers?
+
+Now create a loop where you repeat this 1000 times.  Each time, draw 35 random numbers from the uniform distribution, calculate the empirical mean and variance of those 35 numbers, and save those values.  So, you should have 1000 mean values and 1000 variances.  Create histograms for the means and the variances.  What type of distribution do each of these look like?  Relate your results here to the discussions in class about the Central Limit Theorem and when it applies.
+
+## Problem 2: Hypothesis Testing
 
 Using the [observations of peak flow data for the Sauk River](/data/Sauk_peak_WY1929_2025.xlsx), we are going to investigate whether a change in flood statistics occurred around 1977.
 
@@ -17,13 +22,12 @@ B. **Two-sample test for a change in the mean**: Test for statistical significan
 * Calculate P after your test. 
 * How does your estimate of P change if your null hypothesis is that the difference in the mean between the two data sets is equal to 18% of the pre-1977 sample mean? (In other words, test with a new null hypothesis: the mean of the second period is 1.18 times the mean of the first period.)
 
-## Problem 2: Test for a change in the variance or standard deviation: 
+## Problem 3: Test for a change in the variance or standard deviation: 
 Lastly test for statistical significance of a change in the standard deviation. Even though it is not strictly true, assume that the sample data are derived from a normally distributed population. (While not required for this homework, we can follow up on the importance of this assumption by using Monte Carlo Tests as shown in Lab 2-3.)
 
 Following lab 2-3, compare the results of using a single sample test vs. a two sample test.  Using a single sample test (with rejection region based on the Chi Squared distribution), assume that the sample standard deviation that you calculated from the 1929-1976 data is close to the true population standard deviation that you are testing for a change from.  For the two-sample test, assume both periods are independent samples.
 
-
-## Problem 3: Course Project Selection (CEWA 565)
+## Problem 4: Course Project Selection (CEWA 565)
 
 Upload this part of the assignment as a separate PDF or Word document to "Homework 2 Project Update" on Canvas.
 
