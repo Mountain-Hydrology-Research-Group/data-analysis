@@ -4,7 +4,7 @@
 ## Problem 1: ENSO Phases
 Following Lab 7-1 and Lab 7-2,
 
-**A.** *(1)* Use the time series of the phase of the El Niño Southern Oscillation (ENSO) from 1900-2025 to create a lag-1 Markov model of the ENSO phase, where the observed Phases of ENSO are as follows:
+**A.** *(1)* Use the time series of the phase of the El Niño Southern Oscillation (ENSO) from 1900-2026 to create a lag-1 Markov model of the ENSO phase, where the observed Phases of ENSO are as follows:
 
 1. warm (El Niño)
 2. neutral (ENSO neutral)
@@ -15,7 +15,7 @@ Following Lab 7-1 and Lab 7-2,
   - According to the model, what is the probability that three warm ENSO years would occur in a row?
   - What is the probability that three cool ENSO years would happen in a row?  (Try refreshing the numbers several times to increase the sample size if the condition never happens.)
 
-Check out this [NOAA blog](https://research.noaa.gov/2023/11/07/recent-triple-dip-la-nina-upends-current-understanding-of-enso/) about the incredibly rare recent occurrence of three cool ENSO (La Nina) years in a row (winter 2021, 2022, and 2023).  Note that 2024 was El Nino, and the current forecast is for a very weak La Nina for winter 2024-2025.
+Check out this [NOAA blog](https://research.noaa.gov/2023/11/07/recent-triple-dip-la-nina-upends-current-understanding-of-enso/) about the incredibly rare recent occurrence of three cool ENSO (La Nina) years in a row (winters 2021, 2022, and 2023).  Note that 2024 was El Nino, 2025 was a weak La Nina, and 2026 is our news-worthy "super El Nino". 
 
 ## Probelm 2: Rating Curves and Application of Bayes Theorem with MCMC
  
